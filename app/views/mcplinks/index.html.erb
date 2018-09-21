@@ -1,5 +1,7 @@
 <div class="container">
-  <div class="mcplawi-img">
-      <%= image_tag 'mcplawi.jpg', class: 'img-responsive' %>
+  <div class="container" style="margin-top: 25px;">
+    <% if user_signed_in? %>
+      <p>Welcome <%= current_user.email %>, Admin: <%= current_user.admin %></p>
+    <% end %>
   </div>
 </div>

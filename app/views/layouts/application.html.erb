@@ -25,8 +25,10 @@
         <% if user_signed_in? %>
         <%# <li><%= link_to 'My Profile', user_path(current_user) %></li>
         <%# <li><%= link_to 'Add Course', new_place_path %></li>
+        <li><%= link_to 'Events', events_path %></li>
         <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
         <% else %>
+        <li><%= link_to 'Events', events_path %></li>
         <li><%= link_to 'Sign-In', new_user_session_path %></li>
         <li><%= link_to 'Register', new_user_registration_path %></li>
         <% end %>
@@ -36,12 +38,10 @@
 </nav>
 
   <body>
+    <div class="container mcplawi-img">
+      <%= image_tag 'mcplawi.jpg', class: 'img-responsive' %>
+  </div>
     <%= yield %>
-    <div class="container" style="margin-top: 25px;">
-      <% if user_signed_in? %>
-        <p>Welcome <%= current_user.email %>, Admin: <%= current_user.admin %></p>
-      <% end %>
-    </div>
 
      <p class="notice"><%= notice %></p>
      <p class="alert"><%= alert %></p>
