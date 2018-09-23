@@ -11,5 +11,4 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe EventsHelper, type: :helper do
-  
 end
