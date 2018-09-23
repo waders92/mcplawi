@@ -10,7 +10,20 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def create
+    @event = current_user.events.create(event_params)
+    if @event.invalid?
+        flash[:alert] = 'Event not saved! Please fill in all fields!'
+    end
+        redirect_to root_path
+        flash[:alert] = 'Event was created!'
+  end
+
   private
+
+  def event_params
+    params.require(:event).permit(:event_title, :event_date, :event_cost, :event_location, :event_start_time, :event_winner, :winners_picture)
+  end
 
   def admin_required
     unless current_user.admin?

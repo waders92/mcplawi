@@ -4,4 +4,13 @@
     <% if user_signed_in? && current_user.admin? %>
     <p><%= link_to 'Add Event', new_event_path %></p>
     <% end %>
+    <% @events.each do |e| %>
+    <div>
+       <p>Event: <%= e.event_title %></p>
+       <p>Location: <%= e.event_location %></p>
+       <p>Date: <%= e.event_date %></p>
+       <p>Cost: <%= e.event_cost %></p>
+       <p>Time: <%= e.event_start_time %></p> 
+    </div>
+    <% end %>
 </div>
