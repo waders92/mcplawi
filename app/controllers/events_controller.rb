@@ -13,10 +13,10 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.create(event_params)
     if @event.invalid?
-        flash[:alert] = 'Event not saved! Please fill in all fields!'
+      flash[:alert] = 'Event not saved! Please fill in all fields!'
     end
-        redirect_to root_path
-        flash[:alert] = 'Event was created!'
+    redirect_to root_path
+    flash[:alert] = 'Event was created!'
   end
 
   private
