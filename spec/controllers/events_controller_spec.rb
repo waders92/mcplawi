@@ -32,4 +32,38 @@ RSpec.describe EventsController, type: :controller do
       expect(response).to redirect_to root_path
     end
   end
+
+  describe 'events#create action' do
+    it 'should add the event to the database if the user is logged in' do
+      user = FactoryGirl.create(:user)
+      sign_in user
+
+      post :create, params: { event: {
+        event_title: 'Test',
+        event_date: '2018-09-30',
+        event_cost: '50',
+        event_location: 'Test location',
+        event_start_time: '2000-01-01 08:30:00'
+      } }
+
+      expect(response).to redirect_to root_path
+      event = Event.last
+      expect(event.event_title).to eq('Test')
+      expect(event.user). to eq(user)
+      expect(Event.count).to eq 1
+    end
+  end
+
+  describe 'events#show action' do
+    it 'should render the show page if the event is found' do
+      event = FactoryGirl.create(:event)
+      get :show, params: { id: event.id }
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'should return a 404 if the event is not found' do
+      get :show, params: { id: '5' }
+      expect(response).to have_http_status(:not_found)
+    end
+  end
 end

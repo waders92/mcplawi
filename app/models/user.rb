@@ -6,9 +6,9 @@ class User < ApplicationRecord
 
   has_many :events
   has_many :registrations
-  has_many :registerd_events , through: :registrations, source: :event
+  has_many :registered_events, through: :registrations, source: :event
 
-  def registerd_in?(event)
-    return registered_events.include?(event)
+  def registered_in?(event)
+    registered_events.include?(event)
   end
 end

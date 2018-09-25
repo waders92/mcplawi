@@ -1,2 +1,14 @@
 class RegistrationsController < ApplicationController
+  before_action :authenticate_user!
+
+  def create
+    current_user.registrations.create(event: current_event)
+    redirect_to event_path(current_event)
+  end
+
+  private
+
+  def current_event
+    @current_event ||= Event.find(params[:event_id])
+  end
 end

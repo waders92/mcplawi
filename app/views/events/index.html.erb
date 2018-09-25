@@ -5,12 +5,17 @@
     <p><%= link_to 'Add Event', new_event_path %></p>
     <% end %>
     <% @events.each do |e| %>
-    <div>
+    <div class="row event-info col-md-4 col-sm-4 col-xs-4">
        <p>Event: <%= e.event_title %></p>
        <p>Location: <%= e.event_location %></p>
        <p>Date: <%= e.event_date %></p>
-       <p>Cost: <%= e.event_cost %></p>
-       <p>Time: <%= e.event_start_time %></p> 
+       <p>Cost: $<%= e.event_cost.round %></p>
+       <p>Time: <%= e.event_start_time %></p>
+       <% if current_user && current_user.registered_in?(e) %>
+       <i>You are registered!</i>
+       <% else %>
+       <%= link_to 'Event Info', event_path(e) %>
+       <% end %> 
     </div>
     <% end %>
 </div>

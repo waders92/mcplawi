@@ -1,0 +1,14 @@
+<div class="container">
+    <h4><%= @event.event_title %></h4>
+    <ul>
+        <li><%= @event.event_location %></li>
+        <li><%= @event.event_date %></li>
+        <li><%= @event.event_cost %></li>
+        <li><%= @event.event_start_time %></li>
+    </ul>
+    <% if current_user && current_user.registered_in?(@event) %>
+    <h4>You are Registered!</h4>
+    <% else %>
+    <%= link_to 'Register',event_registrations_path(@event), class: 'btn btn-primary btn-sm', method: :post %>
+    <% end %>   
+</div>

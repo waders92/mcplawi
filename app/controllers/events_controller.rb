@@ -19,6 +19,11 @@ class EventsController < ApplicationController
     flash[:alert] = 'Event was created!'
   end
 
+  def show
+    @event = Event.find_by_id(params[:id])
+    return render_not_found if @event.blank?
+  end
+
   private
 
   def event_params
@@ -30,5 +35,9 @@ class EventsController < ApplicationController
       redirect_to root_path
       flash[:alert] = 'You are not authorized to add an event!'
     end
+  end
+
+  def render_not_found(status = :not_found)
+    render text: status.to_s.titleize.to_s, status: status
   end
 end
