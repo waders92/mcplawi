@@ -3,7 +3,7 @@ class RegistrationsController < ApplicationController
 
   def create
     current_user.registrations.create(event: current_event)
-    redirect_to event_path(current_event)
+    redirect_to events_path
   end
 
   private
