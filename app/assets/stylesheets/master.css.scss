@@ -1,7 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300i,400|Roboto+Slab:100,300,400');
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 .mcplawi-img img {
     border: 1px solid gray;
     box-shadow: 2px 2px 2px grey;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.member-club {
+  font-family: 'Roboto Slab', serif;
+  font-size: 20px;
+  font-weight: lighter;
+}
+
+.each-club {
+  margin: 25px;
+  padding: 25px;
+  border: 1px solid lightgray;
+}
+
+.section-title {
+  margin-top: 20px;
+  text-transform: uppercase;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 100;
+}
+
+a.club-link:hover {
+  text-decoration: none !important;
+}
+
+a.club-link:visited {
+  color: black;
+}
+
+a.club-link .each-club:hover {
+  background-color: #d8961a;
+  color: white;
 }

@@ -1,5 +1,5 @@
 <div class="container">
-    <h4>All Events!</h4>
+    <h4 class="section-title">All Events!</h4>
     <br>
     <% if user_signed_in? && current_user.admin? %>
     <p><%= link_to 'Add Event', new_event_path %></p>
