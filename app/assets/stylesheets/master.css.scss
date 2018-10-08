@@ -18,9 +18,8 @@ body {
 }
 
 .each-club {
-  margin: 25px;
-  padding: 25px;
-  border: 1px solid lightgray;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .section-title {
@@ -28,17 +27,4 @@ body {
   text-transform: uppercase;
   font-family: 'Roboto Slab', serif;
   font-weight: 100;
-}
-
-a.club-link:hover {
-  text-decoration: none !important;
-}
-
-a.club-link:visited {
-  color: black;
-}
-
-a.club-link .each-club:hover {
-  background-color: #d8961a;
-  color: white;
 }
