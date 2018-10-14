@@ -13,18 +13,31 @@ body {
 
 .member-club {
   font-family: 'Roboto Slab', serif;
-  font-size: 20px;
+  font-size: 35px;
   font-weight: lighter;
 }
 
-.each-club {
-  margin-top: 50px;
-  margin-bottom: 50px;
+.club-name {
+    font-family: 'Open Sans', sans-serif;
+    text-transform: uppercase;
+    font-weight: lighter;
+    padding: 10px;
 }
 
 .section-title {
   margin-top: 20px;
+  margin-bottom: 20px;
   text-transform: uppercase;
   font-family: 'Roboto Slab', serif;
   font-weight: 100;
+}
+
+.club-layout {
+    text-align: left;
+    margin: 10px;
+}
+
+.course-icon {
+    height: 35px;
+    margin-left: 15px;
 }
