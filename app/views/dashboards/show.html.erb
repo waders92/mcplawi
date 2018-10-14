@@ -1,5 +1,5 @@
 <div class="container">
-    <h5 class="section-title">My Events!</h5>
+    <h4 class="section-title">My Events!</h4>
     <br>
     <% current_user.registered_events.each do |event| %>
     <h6><%= link_to event.event_title, event_path(event) %></h6>

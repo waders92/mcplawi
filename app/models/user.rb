@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :events
-  has_many :registrations
+  has_many :events, dependent: :destroy
+  has_many :registrations, dependent: :destroy
   has_many :registered_events, through: :registrations, source: :event
 
   def registered_in?(event)
