@@ -10,5 +10,4 @@ class Event < ApplicationRecord
   def total_registrations
     registrations.count > 0 ? registrations.count : 0
   end
-
 end

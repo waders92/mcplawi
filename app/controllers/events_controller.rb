@@ -15,7 +15,7 @@ class EventsController < ApplicationController
     if @event.invalid?
       flash[:alert] = 'Event not saved! Please fill in all fields!'
     end
-    redirect_to root_path
+    redirect_to admin_path
     flash[:alert] = 'Event was created!'
   end
 
@@ -33,7 +33,7 @@ class EventsController < ApplicationController
   def admin_required
     unless current_user.admin?
       redirect_to root_path
-      flash[:alert] = 'You are not authorized to add an event!'
+      flash[:alert] = 'You are not an authorized administrator!'
     end
   end
 

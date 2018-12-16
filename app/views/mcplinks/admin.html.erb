@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="new events">
+        <h4 class="section-title">Events</h4>
+        <% @events.each do |e| %>
+        <div>
+            <p><%= link_to e.event_title, event_path(e) %> : Registrations - <%= e.total_registrations %></p>
+        </div>
+        <% end %>
+        <hr>
+        <p><%= link_to 'Add New Event', new_event_path, class: 'btn btn-sm btn-primary' %></p>
+    </div>
+    <div class="current-members top-buffer">
+    <h4 class="section-title">Current Members</h4>
+        <% @users.each.with_index do |user, index| %>
+        <div class="each-user">
+         <p><%= index + 1 %> - <%= user.first_name %>&nbsp;<%= user.last_name %> / <%= user.email %></p>
+        </div>
+        <% end %>
+    </div>
+</div>

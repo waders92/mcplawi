@@ -1,0 +1,22 @@
+  <div>
+    <p>
+      The Milwaukee County Public Links Association was founded in 1934 with the purpose of promoting golf in Milwaukee County through inter-club competition. The Brown Deer, Currie, Grant, and Greenfield Golf Clubs formed the nucleus of the organization.
+    </p>
+  </div>
+  <div>
+    <p>
+      The Whitnall, Dretzka and Oakwood Golf Clubs joined between 1953 and 1972. Today, these seven clubs include almost one thousand golfers and provide their members with a varied calendar of competitions. Each club member is also a member of the Wisconsin Public Links Association and the Wisconsin State Golf Association. 
+    </p>
+  </div>
+    <div>
+    <p>
+      The MCPLA acts as a liaison with Milwaukee County Department of Parks, Recreation and Culture on golf matters and coordinates the scheduling of each Club's events with the Office of Milwaukee County Parks. 
+    </p>
+  </div>
+  <div>
+    <p>
+      The MCPLA also provides free "Rules of Golf" seminars to both member and non-member groups and the Association has been the host for the United States Golf Association's Amateur Public Links Championships in 1951, 1967 and 1977 at Brown Deer Park.
+    </p>
+  </div>
+
+  <%# <div>Icons made by <a href="https://www.flaticon.com/authors/smartline" title="Smartline">Smartline</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> %>
