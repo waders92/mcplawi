@@ -2,7 +2,7 @@
     <h4 class="section-title">All Events!</h4>
     <br>
     <% if user_signed_in? && current_user.admin? %>
-    <p><%= link_to 'Add Event', new_event_path %></p>
+    <p><%= link_to 'Add New Event', new_event_path, class: 'btn btn-sm btn-primary' %></p>
     <% end %>
     <% @events.each do |e| %>
     <%= link_to event_path(e) do %>

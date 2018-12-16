@@ -1,7 +1,15 @@
 <div class="container">
-    <h4 class="section-title">My Events!</h4>
-    <br>
-    <% current_user.registered_events.each do |event| %>
-    <h6><%= link_to event.event_title, event_path(event) %></h6>
-    <% end %>
+    <div>
+    <h4 class="section-title">My Profile!</h4>
+        <p>First Name: <%= current_user.first_name %></p>
+        <p>Last Name: <%= current_user.last_name %></p>
+        <p>Email: <%= current_user.email %></p>
+        <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-sm btn-success' %>
+    </div>
+    <div class="top-buffer">
+        <h4 class="section-title">My Events!</h4>
+        <% current_user.registered_events.each do |event| %>
+        <h6><%= link_to event.event_title, event_path(event) %></h6>
+        <% end %>
+    </div>
 </div>
