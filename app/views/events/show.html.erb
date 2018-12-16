@@ -10,5 +10,14 @@
     <h4>You are Registered!</h4>
     <% else %>
     <%= link_to 'Register',event_registrations_path(@event), class: 'btn btn-primary btn-sm', method: :post %>
-    <% end %>   
+    <% end %>  
+    <div class="registrations">
+      <h4>Event Participants</h4>
+      <br>
+      <%= @event.registrations.each do |r| %>
+      <div>
+         <%= r.user_id %>
+      </div>
+      <% end %>
+    </div> 
 </div>
