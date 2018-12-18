@@ -1,0 +1,13 @@
+<div class="container">
+    <h4>Edit Event Form!</h4>
+    <%= simple_form_for @event do |f| %>
+       <%= f.error_notification %>
+        <%= f.input :event_title, required: true, placeholder: 'Event Title' %>
+        <%= f.input :event_date, required: true, placeholder: 'Event Date' %>
+        <%= f.input :event_cost, required: true, placeholder: 'Event Cost' %>
+        <%= f.input :event_location, required: true, placeholder: 'Event Location' %>
+        <%= f.input :event_start_time, required: true, placeholder: 'Event Starting Time' %>
+      <br />
+      <%= f.submit 'Update', class: 'btn btn-primary' %>
+    <% end %>
+</div>

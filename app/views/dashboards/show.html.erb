@@ -7,7 +7,7 @@
         <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-sm btn-success' %>
     </div>
     <div class="top-buffer">
-        <h4 class="section-title">My Events!</h4>
+        <h4 class="section-title">Events I'm Registered In</h4>
         <% current_user.registered_events.each do |event| %>
         <h6><%= link_to event.event_title, event_path(event) %></h6>
         <% end %>

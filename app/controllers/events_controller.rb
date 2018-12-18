@@ -19,6 +19,17 @@ class EventsController < ApplicationController
     flash[:alert] = 'Event was created!'
   end
 
+  def update
+    @event = Event.find(params[:id])
+    @event.update_attributes(event_params)
+    redirect_to admin_path
+  end
+
+  def edit
+    admin_required
+    @event = Event.find_by(id: params[:id])
+  end
+
   def show
     @event = Event.find_by(id: params[:id])
     return render_not_found if @event.blank?
