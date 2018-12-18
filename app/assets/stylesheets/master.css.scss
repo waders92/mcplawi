@@ -30,6 +30,35 @@ body {
   text-transform: uppercase;
   font-family: 'Roboto Slab', serif;
   font-weight: 100;
+  font-size: 18px;
+}
+
+.big-year {
+  text-transform: uppercase;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 100;
+  font-size: 30px;
+}
+
+.short-underline {
+  width: 60px;
+  border-bottom: 1px solid lightgray;
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.medium-underline {
+  width: 115px;
+  border-bottom: 1px solid lightgray;
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.long-underline {
+  width: 235px;
+  border-bottom: 1px solid lightgray;
+  margin-left: 0;
+  margin-top: 0;
 }
 
 .club-layout {
@@ -40,6 +69,10 @@ body {
 .course-icon {
     height: 35px;
     margin-left: 15px;
+}
+
+.info-icons {
+  height: 20px;
 }
 
 .registrations {

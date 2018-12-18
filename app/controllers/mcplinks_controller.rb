@@ -6,7 +6,7 @@ class McplinksController < ApplicationController
 
   def admin
     admin_required
-    @events = Event.all
+    @events = Event.all.order('created_at DESC').group_by(&:year)
     @users =  User.all.order('first_name ASC')
   end
 

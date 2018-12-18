@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy]
 
   def index
-    @events = Event.all
+    @events = Event.all.order('created_at DESC').group_by(&:year)
   end
 
   def new

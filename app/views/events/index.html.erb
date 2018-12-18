@@ -1,21 +1,25 @@
 <div class="container">
-    <h4 class="section-title">All Events!</h4>
-    <br>
-    <% @events.each do |e| %>
-    <%= link_to event_path(e) do %>
-    <div class="container event-info col-md-4 col-sm-4 col-xs-4">
-       <p>Event: <%= e.event_title %></p>
-       <p>Location: <%= e.event_location %></p>
-       <p>Date: <%= e.event_date %></p>
-       <p>Cost: $<%= e.event_cost.round %></p>
-       <p>Time: <%= e.event_start_time %></p>
-       <p>Total Registrations: <%= e.total_registrations %></p>
-       <% if current_user && current_user.registered_in?(e) %>
-       <i>You are registered!</i>
-       <% else %>
-       <%= link_to 'Event Info', event_path(e) %>
-       <% end %> 
+    <% @events.each do |year, event| %>
+    <h4 class="section-title big-year"><%= year %></h4>
+    <hr class="short-underline">
+    <% event.each do |e| %>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-xs-6">
+        <p class="section-title"><%= e.event_title %></p>
+        <p>Course: <%= e.event_location %></p>
+        <p>Date: <%= e.event_date %></p>
+        <p>Cost: $<%= e.event_cost.round %></p>
+        <p>Time: <%= e.event_start_time %></p>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-6 registration-area">
+        <% if current_user && current_user.registered_in?(e) %>
+        <mark><i>You are registered!</i></mark>
+        <% else %>
+        <%= link_to 'Event Info', event_path(e), class: 'btn btn-xs btn-success' %>
+        <% end %> 
+      </div>
     </div>
+    <hr>
     <% end %>
     <% end %>
 </div>

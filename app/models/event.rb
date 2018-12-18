@@ -10,4 +10,8 @@ class Event < ApplicationRecord
   def total_registrations
     registrations.count > 0 ? registrations.count : 0
   end
+
+  def year
+    created_at.strftime('%Y')
+  end
 end

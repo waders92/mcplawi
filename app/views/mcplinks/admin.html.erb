@@ -1,14 +1,16 @@
 <div class="container">
     <div class="new events">
-        <h4 class="section-title">Events Posted</h4>
-        <% @events.each do |e| %>
+        <% @events.each do |year, event| %>
+        <h4 class="section-title"><%= year %> Events</h4>
+        <hr class="medium-underline">
+        <% event.each do |e| %>
         <div>
-            <p><%= link_to e.event_title, event_path(e) %> : Registrations - <%= e.total_registrations %> | <%= link_to 'Edit Event', edit_event_path(e), class: 'btn btn-xs btn-success' %></p>
-            
+            <p><%= link_to e.event_title, event_path(e) %> | <%= link_to 'Edit Event', edit_event_path(e), class: 'btn btn-xs btn-default' %></p>
         </div>
         <% end %>
+        <% end %>
         <br>
-        <p><%= link_to 'Add New Event', new_event_path, class: 'btn btn-sm btn-primary' %></p>
+        <p><%= link_to 'Add New Event', new_event_path, class: 'btn btn-xs btn-primary' %></p>
     </div>
     <hr>
     <div class="current-members top-buffer">
