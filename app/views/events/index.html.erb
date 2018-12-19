@@ -15,7 +15,7 @@
         <% if current_user && current_user.registered_in?(e) %>
         <mark><i>You are registered!</i></mark>
         <% else %>
-        <%= link_to 'Event Info', event_path(e), class: 'btn btn-xs btn-success' %>
+        <%= link_to 'Event Info', event_path(e), class: 'btn btn-xs btn-primary' %>
         <% end %> 
       </div>
     </div>

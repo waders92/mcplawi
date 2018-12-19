@@ -13,26 +13,34 @@ class EventsController < ApplicationController
   def create
     @event = current_user.events.create(event_params)
     if @event.invalid?
-      flash[:alert] = 'Event not saved! Please fill in all fields!'
+      send_flash_alert('Event not saved! Please fill in all fields!')
     end
     redirect_to admin_path
-    flash[:alert] = 'Event was created!'
+    send_flash_alert('Event was created!')
   end
 
   def update
     @event = Event.find(params[:id])
-    @event.update_attributes(event_params)
+    @event.update(event_params)
     redirect_to admin_path
   end
 
   def edit
     admin_required
     @event = Event.find_by(id: params[:id])
+    return render_not_found if @event.blank?
   end
 
   def show
     @event = Event.find_by(id: params[:id])
     return render_not_found if @event.blank?
+  end
+
+  def destroy
+    admin_required
+    @event = Event.find_by(id: params[:id])
+    @event.destroy
+    redirect_to admin_path
   end
 
   private
@@ -50,5 +58,9 @@ class EventsController < ApplicationController
 
   def render_not_found(status = :not_found)
     render text: status.to_s.titleize.to_s, status: status
+  end
+
+  def send_flash_alert(message)
+    flash[:alert] = message
   end
 end

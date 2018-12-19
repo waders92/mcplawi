@@ -1,5 +1,5 @@
 class McplinksController < ApplicationController
-    before_action :authenticate_user!, only: %i[admin]
+  before_action :authenticate_user!, only: %i[admin]
   def index; end
 
   def clubs; end
@@ -10,7 +10,7 @@ class McplinksController < ApplicationController
     @users =  User.all.order('first_name ASC')
   end
 
-  private 
+  private
 
   def admin_required
     unless current_user.admin?

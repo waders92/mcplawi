@@ -46,11 +46,39 @@ RSpec.describe EventsController, type: :controller do
         event_start_time: '2000-01-01 08:30:00'
       } }
 
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to admin_path
       event = Event.last
       expect(event.event_title).to eq('Test')
       expect(event.user). to eq(user)
       expect(Event.count).to eq 1
+    end
+  end
+
+  describe 'events#edit action' do
+    it 'should render the edit page to the user' do
+      event = FactoryGirl.create(:event)
+      user = User.create(
+        email:                 'fakeuser@gmail.com',
+        password:              'secretPassword',
+        password_confirmation: 'secretPassword',
+        admin: 'true'
+      )
+      sign_in user
+
+      get :edit, params: { id: event.id }
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'should return a 404 if the event is not found' do
+      user = User.create(
+        email:                 'fakeuser@gmail.com',
+        password:              'secretPassword',
+        password_confirmation: 'secretPassword',
+        admin: 'true'
+      )
+      sign_in user
+      get :edit, params: { id: '5' }
+      expect(response).to have_http_status(:not_found)
     end
   end
 
