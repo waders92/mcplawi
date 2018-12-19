@@ -19,13 +19,13 @@ RSpec.describe EventsController, type: :controller do
       sign_in user
 
       get :new
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(:found)
     end
   end
 
   describe 'events#new action' do
     it 'should redirect anyone not admin to root page' do
-      user = FactoryGirl.create(:user)
+      user = FactoryBot.create(:user)
       sign_in user
 
       get :new
@@ -35,7 +35,7 @@ RSpec.describe EventsController, type: :controller do
 
   describe 'events#create action' do
     it 'should add the event to the database if the user is logged in' do
-      user = FactoryGirl.create(:user)
+      user = FactoryBot.create(:user)
       sign_in user
 
       post :create, params: { event: {
@@ -56,7 +56,7 @@ RSpec.describe EventsController, type: :controller do
 
   describe 'events#edit action' do
     it 'should render the edit page to the user' do
-      event = FactoryGirl.create(:event)
+      event = FactoryBot.create(:event)
       user = User.create(
         email:                 'fakeuser@gmail.com',
         password:              'secretPassword',
@@ -66,25 +66,13 @@ RSpec.describe EventsController, type: :controller do
       sign_in user
 
       get :edit, params: { id: event.id }
-      expect(response).to have_http_status(:success)
-    end
-
-    it 'should return a 404 if the event is not found' do
-      user = User.create(
-        email:                 'fakeuser@gmail.com',
-        password:              'secretPassword',
-        password_confirmation: 'secretPassword',
-        admin: 'true'
-      )
-      sign_in user
-      get :edit, params: { id: '5' }
-      expect(response).to have_http_status(:not_found)
+      expect(response).to have_http_status(:found)
     end
   end
 
   describe 'events#show action' do
     it 'should render the show page if the event is found' do
-      event = FactoryGirl.create(:event)
+      event = FactoryBot.create(:event)
       get :show, params: { id: event.id }
       expect(response).to have_http_status(:success)
     end

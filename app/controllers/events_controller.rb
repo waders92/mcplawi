@@ -57,7 +57,7 @@ class EventsController < ApplicationController
   end
 
   def render_not_found(status = :not_found)
-    render text: status.to_s.titleize.to_s, status: status
+    render plain: status.to_s.titleize.to_s, status: status
   end
 
   def send_flash_alert(message)

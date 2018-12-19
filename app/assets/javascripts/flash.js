@@ -1,5 +1,5 @@
 $('document').ready(function() {
   setTimeout(function() {
     $('#flash').slideUp();
-  }, 1500);
+  }, 3000);
 });

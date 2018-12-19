@@ -1,22 +1,22 @@
 <div class="container">
-    <h4><%= @event.event_title %></h4>
-    <ul>
-        <li><%= @event.event_location %></li>
-        <li><%= @event.event_date %></li>
-        <li><%= @event.event_cost %></li>
-        <li><%= @event.event_start_time %></li>
-    </ul>
+    <h3 class="section-title"><%= @event.event_title %></h3>
+        <p><%= @event.event_location %></p>
+        <p><%= @event.event_date %></p>
+        <p><%= @event.event_cost %></p>
+        <p><%= @event.event_start_time %></p>
+
     <% if current_user && current_user.registered_in?(@event) %>
-    <h4>You are Registered!</h4>
+    <i><p>You are Registered!</p></i>
     <% else %>
-    <%= link_to 'Register',event_registrations_path(@event), class: 'btn btn-primary btn-sm', method: :post %>
+    <%= link_to 'Register',event_registrations_path(@event), class: 'btn btn-primary btn-xs', method: :post %>
     <% end %>  
+    <hr>
     <div class="registrations">
-      <h4>Event Participants (<%= @event.total_registrations %>)</h4>
+      <h4 class="section-title">Event Participants (<%= @event.total_registrations %>)</h4>
       <br>
       <% @event.registrations.each.with_index do |r, index| %>
       <div>
-         <span><%= index + 1 %>- &nbsp;&nbsp</span><span><%= r.user.first_name %>&nbsp;<%= r.user.last_name %></span>
+         <span><%= index + 1 %>- &nbsp;&nbsp</span><i><span><%= r.user.first_name %>&nbsp;<%= r.user.last_name %></span></i>
       </div>
       <% end %>
     </div> 

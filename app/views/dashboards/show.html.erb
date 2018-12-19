@@ -1,24 +1,14 @@
 <div class="container">
-    <div>
-    <h4 class="section-title">My Profile!</h4>
+  <div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-6">
+      <h4 class="section-title">My Profile!</h4>
         <p>First Name: <%= current_user.first_name %></p>
         <p>Last Name: <%= current_user.last_name %></p>
         <p>Email: <%= current_user.email %></p>
-        <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-xs btn-primary' %>
-    </div>
-    <div class="top-buffer">
-        <h4 class="section-title">Events I'm Registered In</h4>
-        <hr class="long-underline">
-        <% current_user.registered_events.each do |event| %>
-        <div>
-          <p class='each-event'><%= event.event_title %>&nbsp;&nbsp; <span><%= link_to event_path(event) do %> 
-            <%= image_tag 'information.png', class: 'info-icons' %>
-            <% end %></span>
-          </p>
-          <p><%= event.event_date %></p>
-          <p><%= event.event_location %></p>
-        </div>
         <hr>
-        <% end %>
     </div>
+    <div class="col-md-6 col-sm-6 col-xs-6 profile-edit">
+        <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-xs btn-primary' %>    
+    </div>
+  </div>
 </div>

@@ -17,6 +17,11 @@ body {
   font-weight: lighter;
 }
 
+.light-text {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 100;
+}
+
 .club-name {
     font-family: 'Open Sans', sans-serif;
     text-transform: uppercase;
@@ -64,6 +69,16 @@ body {
 .club-layout {
     text-align: left;
     margin: 10px;
+
+    p {
+      font-size: 20px;
+      font-weight: 100;
+      font-family: 'Roboto Slab', serif; 
+    }
+}
+
+.club-container {
+  margin-bottom: 50px;
 }
 
 .course-icon {
@@ -81,4 +96,8 @@ body {
 
 .top-buffer {
     margin-top: 50px;
+}
+
+.registered {
+  margin-left: 15px;
 }

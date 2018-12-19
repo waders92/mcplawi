@@ -13,7 +13,7 @@
       </div>
       <div class="col-md-6 col-sm-6 col-xs-6 registration-area">
         <% if current_user && current_user.registered_in?(e) %>
-        <mark><i>You are registered!</i></mark>
+        <span><%= link_to 'Event Info', event_path(e), class: 'btn btn-xs btn-primary' %><mark class="registered"><i>You are registered!</i></mark></span>
         <% else %>
         <%= link_to 'Event Info', event_path(e), class: 'btn btn-xs btn-primary' %>
         <% end %> 

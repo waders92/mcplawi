@@ -1,5 +1,7 @@
 class DashboardsController < ApplicationController
   before_action :authenticate_user!
 
-  def show; end
+  def show
+    @event = Event.all
+  end
 end

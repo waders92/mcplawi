@@ -20,3 +20,27 @@
   </div>
 
   <%# <div>Icons made by <a href="https://www.flaticon.com/authors/smartline" title="Smartline">Smartline</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> %>
+
+
+    <div class="row">
+
+      <div class="top-buffer">
+        <h4 class="section-title">Events I'm Registered In</h4>
+        <hr class="long-underline">
+        <% current_user.registered_events.each do |event| %>
+          <p class='each-event'><%= event.event_title %>&nbsp;&nbsp; <span><%= link_to event_path(event) do %> 
+            <%= image_tag 'information.png', class: 'info-icons' %>
+            <% end %></span>
+          </p>
+          <p><%= event.event_date %></p>
+          <p><%= event.event_location %></p>
+        </div>
+        <% end %>
+    <div class="top-buffer">
+      <h4 class="section-title">Recently Posted Events</h4>
+      <hr class="long-underline">
+        <% @event.each do |event| %>
+        <p class='each-event'><%= event.event_title %></p>
+        <% end %>
+    </div>
+  </div>
