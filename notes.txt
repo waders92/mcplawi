@@ -21,4 +21,11 @@
 
   <%# <div>Icons made by <a href="https://www.flaticon.com/authors/smartline" title="Smartline">Smartline</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> %>
 
-
+    <div class="current-members top-buffer">
+    <h4 class="section-title">Members Who Have Created Accounts</h4>
+        <% @users.each.with_index do |user, index| %>
+        <div class="each-user">
+         <p><%= index + 1 %> - <%= user.first_name %>&nbsp;<%= user.last_name %> / <%= user.email %></p>
+        </div>
+        <% end %>
+    </div>
