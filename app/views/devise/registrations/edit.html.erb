@@ -19,6 +19,11 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
+  <div class="field">
+    <%= f.label :home_club %><br />
+    <%= f.select :home_club, ['Dretzka Park', 'Oakwood Park', 'Grant Park', 'Currie Park', 'Whitnall Park', 'Browndeer Park', 'Greenfield Park']%>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

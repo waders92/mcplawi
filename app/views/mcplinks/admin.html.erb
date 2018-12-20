@@ -27,7 +27,7 @@
         <p class="section-title">Members</p>
         <hr>
         <% @users.each.with_index do |user, index| %>
-        <i><p><%= index + 1 %> - <%= user.last_name %>,&nbsp;<%= user.first_name %> - <%= user.email %></p></i>
+        <i><p><%= index + 1 %> - <%= user.last_name %>,&nbsp;<%= user.first_name %> - <%= user.home_club %>&nbsp;(<%=user.email %>)</p></i>
         <% end %>
       </div>
       <div id="tabs-3">
