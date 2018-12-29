@@ -2,11 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.edit-icon {
-    height: 15px;
-    margin-left: 20px;
+.edit-profile {
+  float: right;
 }
 
-.profile-edit {
-  margin-top: 75px;
+.profile-info {
+  margin: 20px;
+}
+
+.profile-info p {
+  font-size: 20px;
+}
+
+.user-profile-image {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.user-profile-image img {
+  height: 200px;
+}
+
+.profile {
+  border: 1px solid #eeeeee;
 }

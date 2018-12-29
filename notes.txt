@@ -29,3 +29,35 @@
         </div>
         <% end %>
     </div>
+
+
+      <div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-6">
+      <h4 class="section-title">My Profile!</h4>
+        <p>First Name: <i><%= current_user.first_name %></i></p>
+        <p>Last Name: <i><%= current_user.last_name %></i></p>
+        <p>Home Club: <i><%= current_user.home_club %></i></p>
+        <p>Email: <i><%= current_user.email %></i></p>
+        <hr>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-6 profile-edit">
+        <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-xs btn-primary' %>    
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 col-sm-6 col-xs-6">
+      <h4 class="section-title">My Events</h4>
+      <hr class="long-underline">
+      <% current_user.registered_events.each do |event| %>
+        <p class='each-event'><%= event.event_title %></p>
+      </div>
+      <% end %>
+    <div class="col-md-6 col-sm-6 col-xs-6">
+      <h4 class="section-title">Posted Events</h4>
+      <hr class="long-underline">
+        <% @event.each do |event| %>
+        <p class='each-event'><%= event.event_title %>
+        </p>
+        <% end %>
+    </div>
+  </div>
