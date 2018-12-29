@@ -7,19 +7,21 @@
       <div class="col-md-6 col-sm-6 col-xs-6">
         <p class="section-title"><%= e.event_title %></p>
         <p>Course: <%= e.event_location %></p>
-        <p>Date: <%= e.event_date %></p>
+        <p>Date: <%= e.date %></p>
         <p>Cost: $<%= e.event_cost.round %></p>
-        <p>Time: <%= e.event_start_time %></p>
+        <p>Time: <%= e.time %></p>
         <% if e.blue_golf_link.present? %>
         <%= link_to "Blue Golf Tournament Page", e.blue_golf_link, :target => "_blank" %>
         <% end %>
+        <br>
+        <% if current_user && current_user.registered_in?(e) %>
+        <div class="registered">
+        <mark class="registered"><i>You are registered!</i></mark>
+        </div>
+        <% end %> 
       </div>
       <div class="col-md-6 col-sm-6 col-xs-6 registration-area">
-        <% if current_user && current_user.registered_in?(e) %>
-        <span><%= link_to 'Event Info', event_path(e), class: 'btn btn-xs btn-primary' %><mark class="registered"><i>You are registered!</i></mark></span>
-        <% else %>
         <%= link_to 'Event Info', event_path(e), class: 'btn btn-xs btn-primary' %>
-        <% end %> 
       </div>
     </div>
     <hr>

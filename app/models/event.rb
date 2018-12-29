@@ -15,4 +15,13 @@ class Event < ApplicationRecord
   def year
     created_at.strftime('%Y')
   end
+
+  def date
+    self.event_date.strftime("%b %d, %Y")
+  end
+
+  def time
+    self.event_start_time.strftime("%I:%M %p")
+  end
+  
 end
