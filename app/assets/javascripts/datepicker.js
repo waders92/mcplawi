@@ -1,4 +1,4 @@
-$('document').ready(function() {
+document.addEventListener("turbolinks:load", function() {
   $('.datepicker').datepicker({
     todayHighlight: true, 
     orientation: 'auto top', 
