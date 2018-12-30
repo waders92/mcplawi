@@ -4,6 +4,7 @@
         <p><%= @event.event_date %></p>
         <p><%= @event.event_cost %></p>
         <p><%= @event.event_start_time %></p>
+        <%= image_tag @event.winners_picture %>
 
     <% if current_user && current_user.registered_in?(@event) %>
     <i><p>You are Registered!</p></i>
