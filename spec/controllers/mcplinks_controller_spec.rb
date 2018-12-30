@@ -10,8 +10,8 @@ RSpec.describe McplinksController, type: :controller do
 
   describe 'mcplawi#clubs action' do
     it 'should render the club listing page' do
-    get :clubs
-    expect(response).to have_http_status(:success)
+      get :clubs
+      expect(response).to have_http_status(:success)
     end
   end
 end

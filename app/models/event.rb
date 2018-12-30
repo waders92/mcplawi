@@ -17,11 +17,10 @@ class Event < ApplicationRecord
   end
 
   def date
-    self.event_date.strftime("%b %d, %Y")
+    event_date.strftime('%b %d, %Y')
   end
 
   def time
-    self.event_start_time.strftime("%I:%M %p")
+    event_start_time.strftime('%I:%M %p')
   end
-  
 end

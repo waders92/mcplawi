@@ -12,9 +12,7 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.create(event_params)
-    if @event.invalid?
-      send_flash_alert('Event not saved! Please fill in all fields!')
-    end
+    send_flash_alert('Event not saved! Please fill in all fields!') if @event.invalid?
     redirect_to admin_path
     send_flash_alert('Event was created!')
   end

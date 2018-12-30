@@ -11,8 +11,8 @@ RSpec.describe EventsController, type: :controller do
   describe 'events#new action' do
     it 'should show the new event form if the user is an admin' do
       user = User.create(
-        email:                 'fakeuser@gmail.com',
-        password:              'secretPassword',
+        email: 'fakeuser@gmail.com',
+        password: 'secretPassword',
         password_confirmation: 'secretPassword',
         admin: 'true'
       )
@@ -58,8 +58,8 @@ RSpec.describe EventsController, type: :controller do
     it 'should render the edit page to the user' do
       event = FactoryBot.create(:event)
       user = User.create(
-        email:                 'fakeuser@gmail.com',
-        password:              'secretPassword',
+        email: 'fakeuser@gmail.com',
+        password: 'secretPassword',
         password_confirmation: 'secretPassword',
         admin: 'true'
       )
