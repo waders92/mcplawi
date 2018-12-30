@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181229224733) do
+ActiveRecord::Schema.define(version: 20181230182024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20181229224733) do
     t.string   "winners_picture"
     t.integer  "user_id"
     t.string   "blue_golf_link"
+    t.string   "image_caption"
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 

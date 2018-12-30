@@ -12,9 +12,14 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.create(event_params)
-    send_flash_alert('Event not saved! Please fill in all fields!') if @event.invalid?
+    
+    if @event.invalid?
+      send_flash_error('Event not saved! Please fill in all fields!')
+    end 
+    if @event.valid?
+      send_flash_alert('Event was created!')
+    end
     redirect_to admin_path
-    send_flash_alert('Event was created!')
   end
 
   def update
@@ -44,7 +49,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:event_title, :event_date, :event_cost, :event_location, :event_start_time, :event_winner, :winners_picture, :blue_golf_link)
+    params.require(:event).permit(:event_title, :event_date, :event_cost, :event_location, :event_start_time, :event_winner, :winners_picture, :blue_golf_link, :image_caption)
   end
 
   def admin_required
@@ -60,5 +65,9 @@ class EventsController < ApplicationController
 
   def send_flash_alert(message)
     flash[:alert] = message
+  end
+
+  def send_flash_error(message)
+    flash[:error] = message
   end
 end

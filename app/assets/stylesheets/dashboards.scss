@@ -12,6 +12,8 @@
 
 .profile-info p {
   font-size: 20px;
+  font-weight: 100;
+  font-family: 'Roboto Slab', serif; 
 }
 
 .user-profile-image {
@@ -25,4 +27,16 @@
 
 .profile {
   border: 1px solid #eeeeee;
+}
+
+a.btn.btn-md.btn-primary.edit-profile {
+  margin-bottom: 20px;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+  background-color: red;
+}
+
+.event-icon {
+  height: 50px;
 }

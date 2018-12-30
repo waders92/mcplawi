@@ -1,16 +1,25 @@
 <div class="container">
-    <h3 class="section-title"><%= @event.event_title %></h3>
-        <p><%= @event.event_location %></p>
-        <p><%= @event.event_date %></p>
-        <p><%= @event.event_cost %></p>
-        <p><%= @event.event_start_time %></p>
+  <div class="event-details">
+      <h3 class="section-title"><%= @event.event_title %></h3>
+          <p>Course: <%= @event.event_location %></p>
+          <p>Date: <%= @event.date %></p>
+          <p>Cost: $<%= @event.event_cost.round %></p>
+          <p>Time: <%= @event.time %></p>
+      <% if current_user && current_user.registered_in?(@event) %>
+      <i><p><mark>You are Registered!</mark></p></i>
+      <% else %>
+      <%= link_to 'Register',event_registrations_path(@event), class: 'btn btn-primary btn-md register', method: :post %>
+      <% end %> 
+  </div>
+    <hr>
+    <div class="event-results">
+        <% if @event.winners_picture.present? %>
         <%= image_tag @event.winners_picture %>
-
-    <% if current_user && current_user.registered_in?(@event) %>
-    <i><p>You are Registered!</p></i>
-    <% else %>
-    <%= link_to 'Register',event_registrations_path(@event), class: 'btn btn-primary btn-xs', method: :post %>
-    <% end %>  
+        <% if @event.image_caption.present? %>
+        <p><%= @event.image_caption %></p>
+        <% end %>
+        <% end %>
+    </div>
     <hr>
     <div class="registrations">
       <h4 class="section-title">Event Participants (<%= @event.total_registrations %>)</h4>

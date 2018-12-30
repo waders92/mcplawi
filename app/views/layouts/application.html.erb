@@ -10,6 +10,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </head>
 
+<div id="wrap">
   <nav class="navbar navbar-inverse" role="navigation" id="top">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -43,7 +44,7 @@
   </div><!-- /.container-fluid -->
 </nav>
 <% if flash[:alert].present? || flash[:notice].present? %>
-<div id="flash" class="notifications">
+<div class="notifications">
     <center>
      <p class="notice"><%= notice %></p>
      <p class="alert"><%= alert %></p>
@@ -51,7 +52,35 @@
 </div>
 <% end %>
 
+<% if flash[:error].present? %>
+  <div class="alert alert-danger text-center notifications">
+    <%= flash[:error].html_safe %>
+  </div>
+<% end %>
+
   <body>
     <%= yield %>
+    </div>
   </body>
+  <div id="footer">
+    <div class="container">
+    <div class="col-xs-12 col-sm-3">
+      <b>Contact</b>
+      <br />
+      WCMC Technologies
+      <br />
+      3747 E. Carpenter Ave.
+      <br />
+      Cudahy, WI 53110
+      <br />
+      <%= mail_to "wade.carlson@pga.com", "Email", :target=> "_blank" %>
+    </div>
+    <div class="col-xs-12 col-sm-3 social">
+      <b>Social</b>
+      <br />
+      <br />
+    </div>
+  </div>
+</div>
+
 </html>

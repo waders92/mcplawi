@@ -2,6 +2,11 @@
   margin-top: 150px;
 }
 
+.each-event p {
+  font-weight: 100;
+  font-family: 'Roboto Slab', serif; 
+}
+
 .event-details p {
   font-size: 16px;
   font-style: italic;
@@ -12,5 +17,13 @@
 }
 
 #tabs, #user-tabs {
-  margin-bottom: 100px;
+  margin-bottom: 25px;
+}
+
+#user-tabs {
+  margin-top: 50px;
+}
+
+a.btn.btn-primary.btn-md.register {
+  margin-left: 0;
 }

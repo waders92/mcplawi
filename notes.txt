@@ -41,7 +41,7 @@
         <hr>
     </div>
     <div class="col-md-6 col-sm-6 col-xs-6 profile-edit">
-        <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-xs btn-primary' %>    
+        <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-md btn-primary' %>    
     </div>
   </div>
   <div class="row">
@@ -61,3 +61,30 @@
         <% end %>
     </div>
   </div>
+
+        <%= link_to 'http://github.com/waders92', :target=> "_blank" do %>
+        <%= image_tag 'git1.png', class: 'socialbtn' %>
+      <%end %>
+      <%= link_to 'http://facebook.com/wadecarlson1974', :target=> "_blank" do %>
+        <%= image_tag 'fb1.png', class: 'socialbtn' %>
+      <% end %>
+      <%= link_to 'http://twitter.com/wadecarlsonpga', :target=> "_blank" do %>
+        <%= image_tag 'twitter1.png', class: 'socialbtn' %>
+      <% end %>
+
+      //// new event form ///
+
+      <div class="container">
+    <h4>New Event Form!</h4>
+    <%= simple_form_for @event do |f| %>
+       <%= f.error_notification %>
+        <%= f.input :event_title, required: true, placeholder: 'Event Title' %>
+        <%= f.input :event_date, required: true, placeholder: 'Event Date' %>
+        <%= f.input :event_cost, required: true, placeholder: 'Event Cost' %>
+        <%= f.input :event_location, required: true, placeholder: 'Event Location' %>
+        <%= f.input :event_start_time, required: true, placeholder: 'Event Starting Time' %>
+        <%= f.input :blue_golf_link, required: true, placeholder: 'Blue Golf Link' %>
+      <br />
+      <%= f.submit 'Create', class: 'btn btn-primary' %>
+    <% end %>
+</div>

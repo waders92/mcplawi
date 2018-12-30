@@ -19,7 +19,7 @@ RSpec.describe EventsController, type: :controller do
       sign_in user
 
       get :new
-      expect(response).to have_http_status(:found)
+      expect(response).to have_http_status(:ok)
     end
   end
 
@@ -66,7 +66,7 @@ RSpec.describe EventsController, type: :controller do
       sign_in user
 
       get :edit, params: { id: event.id }
-      expect(response).to have_http_status(:found)
+      expect(response).to have_http_status(:ok)
     end
   end
 

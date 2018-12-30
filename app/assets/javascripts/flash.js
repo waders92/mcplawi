@@ -1,5 +1,5 @@
 $('document').ready(function() {
   setTimeout(function() {
-    $('#flash').slideUp();
+    $('.notifications').slideUp();
   }, 3000);
 });
