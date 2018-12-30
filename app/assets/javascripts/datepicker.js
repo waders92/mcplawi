@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$('document').ready(function() {
   $('.datepicker').datepicker({
     todayHighlight: true, 
     orientation: 'auto top', 
