@@ -22,6 +22,8 @@ gem 'simple_form'
 gem 'sprockets'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+gem 'figaro'
+gem 'fog-aws'
 
 group :development, :test do
   gem 'byebug', platform: :mri
