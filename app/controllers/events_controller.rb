@@ -25,6 +25,12 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     @event.update(event_params)
+    if @event.invalid?
+      send_flash_error('Event not saved! Please fill in all fields!')
+    end 
+    if @event.valid?
+      send_flash_alert('Event was updated!')
+    end
     redirect_to admin_path
   end
 
