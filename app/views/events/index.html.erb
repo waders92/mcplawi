@@ -9,7 +9,7 @@
         <p>Course: <%= e.event_location %></p>
         <p>Date: <%= e.date %></p>
         <p>Cost: $<%= e.event_cost.round %></p>
-        <p>Time: <%= e.time %></p>
+        <p>Time: <%= e.event_start_time %></p>
         <br>
         <% if current_user && current_user.registered_in?(e) %>
         <div class="registered">

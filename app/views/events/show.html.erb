@@ -4,7 +4,7 @@
           <p>Course: <%= @event.event_location %></p>
           <p>Date: <%= @event.date %></p>
           <p>Cost: $<%= @event.event_cost.round %></p>
-          <p>Time: <%= @event.time %></p>
+          <p>Time: <%= @event.event_start_time %></p>
       <% if current_user && current_user.registered_in?(@event) %>
       <i><p><mark>You are Registered!</mark></p></i>
       <% else %>
@@ -26,7 +26,7 @@
       <br>
       <% @event.registrations.each.with_index do |r, index| %>
       <div>
-         <span><%= index + 1 %>- &nbsp;&nbsp</span><i><span><%= r.user.first_name %>&nbsp;<%= r.user.last_name %></span></i>
+         <span><%= index + 1 %>- &nbsp;&nbsp;</span><i><span><%= r.user.first_name %>&nbsp;<%= r.user.last_name %></span></i>
       </div>
       <% end %>
     </div> 

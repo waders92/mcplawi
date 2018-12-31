@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181230182024) do
+ActiveRecord::Schema.define(version: 20181231203227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20181230182024) do
     t.date     "event_date"
     t.decimal  "event_cost"
     t.string   "event_location"
-    t.time     "event_start_time"
+    t.string   "event_start_time"
     t.string   "event_winner"
     t.string   "winners_picture"
     t.integer  "user_id"

@@ -9,6 +9,7 @@
         <p>Course: <%= e.event_location %></p>
         <p>Date: <%= e.date %></p>
         <p>Cost: $<%= e.event_cost.round %></p>
+        <p>Time: <%= e.event_start_time %></p>
         <p>Registrations: <%= e.total_registrations %></p>
       </div>
       <div class="col-md-6 col-sm-6 col-xs-6 registration-area">
@@ -19,24 +20,32 @@
     <% end %>
     <% end %>
     <div class="new-events top-buffer bottom-buffer">
+
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary new-event" data-toggle="modal" data-target="#exampleModal">
+    <%# <button type="button" class="btn btn-primary new-event" data-toggle="modal" data-target="#exampleModal">
       Add New Event
-    </button>
+    </button> %>
+
+    <%= link_to 'Add New Event', new_event_path, class: 'btn btn-primary new event' %>
+
     </div>
     <div id="tabs">
       <ul>
         <li><a href="#tabs-1">Membership Roster</a></li>
-        <li><a href="#tabs-3">Registrations by Club</a></li>
+        <li><a href="#tabs-2">Registrations by Club</a></li>
+        <li><a href="#tabs-3">Registrations by Event</a></li>
+        <li><a href="#tabs-4">Registrations by Member</a></li>
       </ul>
       <div id="tabs-1">
-        <p class="section-title">Members</p>
+        <p class="section-title">Membership Roster</p>
         <hr>
         <% @users.each.with_index do |user, index| %>
         <i><p><%= index + 1 %> - <%= user.last_name %>,&nbsp;<%= user.first_name %> - <%= user.home_club %>&nbsp;(<%=user.email %>)</p></i>
         <% end %>
       </div>
-      <div id="tabs-3" class="clubs-tab">
+      <div id="tabs-2" class="clubs-tab">
+         <p class="section-title">Registrations by Club</p>
+        <hr>
         <p>Currie Park: <%= User.where(:home_club => 'Currie Park').count %></p>
         <p>Dretzka Park: <%= User.where(:home_club => 'Dretzka Park').count %></p>
         <p>Grant Park: <%= User.where(:home_club =>  'Grant Park').count %></p>
@@ -44,6 +53,27 @@
         <p>Oakwood Park: <%= User.where(:home_club => 'Oakwood Park').count %></p>
         <p>Whitnall Park: <%= User.where(:home_club =>  'Whitnall Park').count %></p>
         <p>Browndeer Park: <%= User.where(:home_club => 'Browndeer Park').count %></p>
+      </div>
+      <div id="tabs-3" class="clubs-tab">
+         <p class="section-title">Registrations by Event</p>
+        <hr>
+        <% @events.each do |year, event| %>
+        <% event.each do |e| %>
+        <p><%= e.event_title %> - <%= e.registrations.count %></p>
+        <% end %>
+        <% end %>
+      </div>
+      <div id="tabs-4" class="clubs-tab">
+        <p class="section-title">Registrations by Member</p>
+        <hr>
+        <% @users.each do |user| %>
+          <p><%= user.first_name %> <%= user.last_name %> - (<%= user.registrations.count %>)</p>
+          <hr class='short-underline'>
+          <% user.registrations.each do |registration| %>
+          <p><%= registration.event.event_title %></p>
+        <% end %>
+        <hr>
+        <% end %>
       </div>
   </div>
 </div>
