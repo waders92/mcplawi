@@ -31,7 +31,7 @@ class EventsController < ApplicationController
     if @event.valid?
       send_flash_alert('Event was updated!')
     end
-    redirect_to admin_path
+    redirect_to event_path(@event)
   end
 
   def edit
