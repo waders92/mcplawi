@@ -8,7 +8,11 @@ class McplinksController < ApplicationController
     admin_required
     @event = Event.new
     @events = Event.all.order('created_at DESC').group_by(&:year)
-    @users =  User.all.order('last_name DESC')
+    @users = if params[:term]
+      User.where('LOWER(last_name) LIKE ?', "%#{params[:term].downcase}%").order('id DESC')
+    else 
+      @users = User.all.order('created_at DESC')
+    end
   end
 
   private

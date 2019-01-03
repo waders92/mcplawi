@@ -88,3 +88,16 @@
       <%= f.submit 'Create', class: 'btn btn-primary' %>
     <% end %>
 </div>
+
+      <div id="tabs-4" class="clubs-tab">
+        <p class="section-title">Registrations by Member</p>
+        <hr>
+        <% @users.each do |user| %>
+          <p><%= user.first_name %> <%= user.last_name %> - (<%= user.registrations.count %>)</p>
+          <hr class='short-underline'>
+          <% user.registrations.each do |registration| %>
+          <p><%= registration.event.event_title %></p>
+        <% end %>
+        <hr>
+        <% end %>
+      </div>
