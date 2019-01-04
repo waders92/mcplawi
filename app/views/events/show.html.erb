@@ -11,23 +11,32 @@
       <%= link_to 'Register',event_registrations_path(@event), class: 'btn btn-primary btn-md register', method: :post %>
       <% end %> 
   </div>
-    <hr>
-    <div class="event-results">
+  <div class="row row-buffer">
+     <div id="event-tabs" class="event-details">
+      <ul>
+        <li><a href="#tabs-8">Participants</a></li>
+        <li><a href="#tabs-9">Results</a></li>
+      </ul>
+      <div id="tabs-8">
+        <h4 class="section-title">Participants</h4>
+        <hr class="short-underline">
+        <% @event.registrations.each.with_index do |event, index| %>
+        <div>
+         <span><%= index + 1 %>- &nbsp;&nbsp;</span><i><span><%= event.user.first_name %>&nbsp;<%= event.user.last_name %></span></i>
+        </div>
+         <% end %>
+      </div>
+      <div id="tabs-9">
         <% if @event.winners_picture.present? %>
         <%= image_tag @event.winners_picture %>
+        <% else %>
+        <h4 class="section-title">Check back later for results!</h4>
+        <% end %>
         <% if @event.image_caption.present? %>
         <p><%= @event.image_caption %></p>
         <% end %>
-           <hr>
-        <% end %>
-    </div>
-    <div class="registrations">
-      <h4 class="section-title">Event Participants (<%= @event.total_registrations %>)</h4>
-      <br>
-      <% @event.registrations.each.with_index do |r, index| %>
-      <div>
-         <span><%= index + 1 %>- &nbsp;&nbsp;</span><i><span><%= r.user.first_name %>&nbsp;<%= r.user.last_name %></span></i>
-      </div>
-      <% end %>
-    </div> 
+        <hr>
+      </div> 
+  </div> 
+  </div>
 </div>
