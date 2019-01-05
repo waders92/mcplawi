@@ -26,7 +26,7 @@
       Add New Event
     </button>
 
-  <!--  <%= link_to 'Add New Event', new_event_path, class: 'btn btn-primary new event' %> -->
+  <%# <%= link_to 'Add New Event', new_event_path, class: 'btn btn-primary new event' %>
 
     </div>
     <div id="tabs">
@@ -72,12 +72,12 @@
 </div>
 
 <!-- New Modal -->
+<%= simple_form_for @event do |f| %>
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
     <h4>New Event Form!</h4>
-      <%= simple_form_for @event do |f| %>
         <%= f.error_notification %>
           <%= f.input :event_title, required: true, placeholder: 'Event Title' %><br>
           <%= f.input :event_date, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event Date' %>
