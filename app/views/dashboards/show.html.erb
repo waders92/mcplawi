@@ -21,11 +21,11 @@
   </div>
    <div class="event-details">
       <div>
-        <% @event.each do |event| %>
-        <h4 class="main-section-title">MCPLAWI Posted Events</h4>
+        <h4 class="main-section-title">MCPLAWI Events</h4>
         <hr class="long-underline">
+         <% if @event.present? %>
+         <% @event.each do |event| %>
         <div>
-        <p class="section-title event-title">Check back later for our events!</p>
           <p class="section-title event-title"><%= event.event_title %></p>
           <i><p>Course: <%= event.event_location %></p></i>
           <i><p>Date: <%= event.date %></p></i>
@@ -45,6 +45,11 @@
         </div>
          <% end %>
         <hr>
+        <% end %>
+            <% else %>
+        <div class="event-details">
+          <p>Check back for our events!</p>
+        </div>
         <% end %>
       </div>  
     </div>
