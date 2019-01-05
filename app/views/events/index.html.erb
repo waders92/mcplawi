@@ -1,11 +1,11 @@
 <div class="container">
     <% @events.each do |year, event| %>
-    <h4 class="main-section-title"><%= year %></h4>
-    <hr class="short-underline">
+    <h4 class="main-section-title">Events - <%= year %></h4>
+    <hr class="long-underline">
     <% event.each do |e| %>
     <div class="row">
       <div class="col-md-6 col-sm-6 col-xs-6 event-details">
-        <p class="section-title"><%= e.event_title %></p>
+        <p class="section-title event-title"><%= e.event_title %></p>
         <p>Course: <%= e.event_location %></p>
         <p>Date: <%= e.date %></p>
         <p>Cost: $<%= e.event_cost.round %></p>

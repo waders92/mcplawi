@@ -1,4 +1,6 @@
 <div class="container">
+<h4 class="main-section-title">My Profile</h4>
+<hr class="long-underline">
   <div class="user-profile-image">
     <center>
         <%= image_tag 'user.png', class: 'img-responsive user-image'%>
@@ -19,12 +21,12 @@
   </div>
    <div id="user-tabs" class="event-details">
       <ul>
-        <li><a href="#tabs-3"><i>MCPLAWI</i> Events</a></li>
+        <li><a href="#tabs-3">MCPLAWI Posted Events</a></li>
       </ul>
       <div id="tabs-3">
         <% @event.each do |event| %>
         <div>
-          <p class="section-title"><%= event.event_title %></p>
+          <p class="section-title event-title"><%= event.event_title %></p>
           <hr class="medium-underline">
           <i><p>Course: <%= event.event_location %></p></i>
           <i><p>Date: <%= event.date %></p></i>
@@ -36,7 +38,7 @@
             <%= link_to event_path(event) do %>
             <%= image_tag 'info.png', class: 'event-icon' %>
             <% end %>
-            &nbsp;&nbsp;&nbsp;<mark class="registered"><i>You are registered!</i></mark></span>
+            &nbsp;&nbsp;&nbsp;<span class="tooltip-1" title="You are registered!"><%= image_tag 'checking.png', class: 'event-icon' %></span></span>
           <% else %>
             <%= link_to event_path(event) do %>
             <%= image_tag 'info.png', class: 'event-icon' %>
@@ -45,8 +47,8 @@
          <% end %>
         <hr>
         <% end %>
-      </div> 
+      </div>  
+    </div>
   </div>
-</div>
 </div>
 </div>

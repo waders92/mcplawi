@@ -1,11 +1,11 @@
 <div class="container">
-    <% @events.each do |year, event| %>
     <h4 class="main-section-title">Admin Portal</h4>
-    <hr class="long-underline">
+        <hr class="long-underline">
+    <% @events.each do |year, event| %>
     <% event.each do |e| %>
     <div class="row">
       <div class="col-md-6 col-sm-6 col-xs-6 event-details">
-        <p class="section-title"><%= e.event_title %></p>
+        <p class="section-title event-title"><%= e.event_title %></p>
         <p>Course: <%= e.event_location %></p>
         <p>Date: <%= e.date %></p>
         <p>Cost: $<%= e.event_cost.round %></p>
@@ -35,20 +35,20 @@
         <li><a href="#tabs-2">Registrations by Club</a></li>
         <li><a href="#tabs-3">Registrations by Event</a></li>
       </ul>
-      <div id="tabs-1">
+      <div id="tabs-1" class="event-details">
         <h3 class="section-title">Membership Roster</h3>
         <hr>
         <%= form_tag(admin_path(:anchor => "tabs-1"), method: :get) do %>
         <%= text_field_tag :term, params[:term] %>
         <%= submit_tag 'Search', last_name: nil %>
         <% end %>
-        <p>Search by last name... (ex: anderson, jones, smith)</p>
+        <p>Search by last name... (ex: anderson, jones, smith or partial last names - jo (jones) )</p>
         <br>
         <% @users.each.with_index do |user, index| %>
         <i><p><%= index + 1 %> - <%= user.last_name %>,&nbsp;<%= user.first_name %> - <%= user.home_club %>&nbsp;(<%=user.email %>)</p></i>
         <% end %>
       </div>
-      <div id="tabs-2" class="clubs-tab">
+      <div id="tabs-2" class="clubs-tab event-details">
          <h3 class="section-title">Registrations by Club</h3>
         <hr>
           <p>Currie Park: <%= User.where(:home_club => 'Currie Park').count %></p>
@@ -59,7 +59,7 @@
           <p>Whitnall Park: <%= User.where(:home_club =>  'Whitnall Park').count %></p>
           <p>Browndeer Park: <%= User.where(:home_club => 'Browndeer Park').count %></p>
       </div>
-      <div id="tabs-3" class="clubs-tab">
+      <div id="tabs-3" class="clubs-tab event-details">
          <h3 class="section-title">Registrations by Event</h3>
         <hr>
         <% @events.each do |year, event| %>

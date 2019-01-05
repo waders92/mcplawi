@@ -8,8 +8,9 @@
 }
 
 .event-details p {
-  font-size: 16px;
-  font-style: italic;
+  font-size: 20px;
+  font-weight: 100;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .btn {
@@ -26,4 +27,14 @@
 
 a.btn.btn-primary.btn-md.register {
   margin-left: 0;
+}
+
+.event-title {
+  font-weight: 500 !important;
+  font-size: 24px !important;
+}
+
+mark.registered {
+  font-size: 22px;
+  background: #8ac1f2;
 }
