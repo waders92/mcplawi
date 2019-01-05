@@ -2,17 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.edit-profile {
-  float: right;
-}
-
 .profile-info {
   margin: 20px;
 }
 
 .profile-info p {
   font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 400;
+  font-weight: 100;
   font-size: 2rem;
 }
 
@@ -22,15 +18,11 @@
 }
 
 .user-profile-image img {
-  height: 200px;
+  height: 150px;
 }
 
 .profile {
   border: 1px solid #eeeeee;
-}
-
-a.btn.btn-md.btn-primary.edit-profile {
-  margin-bottom: 25px;
 }
 
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {

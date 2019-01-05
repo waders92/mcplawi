@@ -1,38 +1,38 @@
 <div class="container">
-<h4 class="main-section-title">Events Page</h4>
-<hr class="long-underline">
-<% if @events.present? %>
+  <h4 class="main-section-title">Events Page</h4>
+  <hr class="long-underline">
+  <% if @events.present? %>
     <% @events.each do |year, event| %>
-    <% event.each do |e| %>
-    <div class="row">
-      <div class="col-md-6 col-sm-6 col-xs-6 event-details">
-        <p class="section-title event-title"><%= year %> <%= e.event_title %></p>
-        <p>Course: <%= e.event_location %></p>
-        <p>Date: <%= e.date %></p>
-        <p>Cost: $<%= e.event_cost.round %></p>
-        <p>Time: <%= e.event_start_time %></p>
-        <br>
-        <% if current_user && current_user.registered_in?(e) %>
-        <div class="registered">
-        <mark class="registered"><i>You are registered!</i></mark>
+      <% event.each do |e| %>
+        <div class="row">
+          <div class="col-md-6 col-sm-6 col-xs-6 event-details">
+            <p class="section-title event-title"><%= year %> <%= e.event_title %></p>
+            <p>Course: <%= e.event_location %></p>
+            <p>Date: <%= e.date %></p>
+            <p>Cost: $<%= e.event_cost.round %></p>
+            <p>Time: <%= e.event_start_time %></p>
+            <br>
+            <% if current_user && current_user.registered_in?(e) %>
+              <div class="registered">
+                <mark class="registered"><i>You are registered!</i></mark>
+              </div>
+            <% end %>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 registration-area">
+            <div class="row blue-golf">
+              <%= link_to 'Event Info', event_path(e), class: 'btn btn-md btn-primary' %>
+              <% if e.blue_golf_link.present? %>
+                <%= link_to "Blue Golf Page", e.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-warning' %>
+              <% end %>
+            </div>
+          </div>
         </div>
-        <% end %> 
-      </div>
-      <div class="col-md-6 col-sm-6 col-xs-6 registration-area">
-      <div class="row blue-golf">
-             <%= link_to 'Event Info', event_path(e), class: 'btn btn-md btn-primary' %>
-            <% if e.blue_golf_link.present? %>
-        <%= link_to "Blue Golf Page", e.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-warning' %>
-        <% end %>
-      </div>
-      </div>
-    </div>
-    <hr>
+        <hr>
+      <% end %>
     <% end %>
-    <% end %>
-    <% else %>
+  <% else %>
     <div class="event-details">
       <p>Check back for our events!</p>
     </div>
-    <% end %>
+  <% end %>
 </div>
