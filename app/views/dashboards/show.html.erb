@@ -19,15 +19,14 @@
         <br><br>    
     </div>
   </div>
-   <div id="user-tabs" class="event-details">
-      <ul>
-        <li><a href="#tabs-3">MCPLAWI Posted Events</a></li>
-      </ul>
-      <div id="tabs-3">
+   <div class="event-details">
+      <div>
         <% @event.each do |event| %>
+        <h4 class="main-section-title">MCPLAWI Posted Events</h4>
+        <hr class="long-underline">
         <div>
+        <p class="section-title event-title">Check back later for our events!</p>
           <p class="section-title event-title"><%= event.event_title %></p>
-          <hr class="medium-underline">
           <i><p>Course: <%= event.event_location %></p></i>
           <i><p>Date: <%= event.date %></p></i>
           <i><p>Cost: $<%= event.event_cost.round %></p></i>

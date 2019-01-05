@@ -10,18 +10,22 @@
   </div>
 
   <div class="field">
+    <br>
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name, autofocus: true, autocomplete: "last name" %>
   </div>
 
   <div class="field">
+  <br>
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <br>
   </div>
 
   <div class="field">
+  <br>
     <%= f.label :home_club %><br />
-    <%= f.select :home_club, ['Dretzka Park', 'Oakwood Park', 'Grant Park', 'Currie Park', 'Whitnall Park', 'Browndeer Park', 'Greenfield Park']%>
+    <%= f.select :home_club, ['Dretzka Park', 'Oakwood Park', 'Grant Park', 'Currie Park', 'Whitnall Park', 'Browndeer Park', 'Greenfield Park'] %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
