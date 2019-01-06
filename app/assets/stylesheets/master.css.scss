@@ -144,8 +144,43 @@ body {
   }
 }
 
+.learn-more-button {
+  border-width: 2px;
+  border-style: solid;
+  background-color: transparent;
+  padding: 25px 46px;
+  font-size: 20px;
+  color:  snow;
+  border-color:  snow;
+  text-transform: uppercase;
+  border-radius: 0;
+
+  &:hover {
+    background-color: black;
+    border-color: black;
+  }
+}
+
 mark {
   background: #498ddd !important;
   color: snow !important;
   padding: .5em !important;
+}
+
+.hero-image {
+  background-image: url('/assets/tee.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 1000px;
+
+  h1 {
+    color: snow;
+    font-weight: 100;
+  }
+
+  .main-icons {
+    height: 200px;
+  }
 }
