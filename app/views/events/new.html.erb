@@ -4,6 +4,7 @@
        <%= f.error_notification %>
         <%= f.input :event_title, required: true, placeholder: 'Event Title' %>
         <%= f.input :event_date, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event Date' %>
+        <%= f.input :registration_close, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Registration Closes' %>
         <%= f.input :event_cost, required: true, placeholder: 'Event Cost' %>
         <%= f.input :event_location, required: true, placeholder: 'Event Location' %>
         <%= f.input :event_start_time, required: true, input_html: {class: "timepicker"}, as: :string, placeholder: 'Event Starting Time' %>

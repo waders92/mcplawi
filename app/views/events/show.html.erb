@@ -5,6 +5,7 @@
     <p>Date: <%= @event.date %></p>
     <p>Cost: $<%= @event.event_cost.round %></p>
     <p>Time: <%= @event.event_start_time %></p>
+    <p>Registration Closes: <%= @event.reg_closes %></p>
     <div class="top-buffer">
       <% if @event.blue_golf_link.present? %>
         <%= link_to "Blue Golf Page", @event.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-info blue_golf_link' %>
@@ -15,7 +16,12 @@
           <mark class="show-reg"><i>You are registered!</i></mark>
         </p>
       <% else %>
-        <%= link_to 'Register',event_registrations_path(@event), class: 'btn btn-primary btn-md register', method: :post %>
+      <% if @event.registration_close and Date.today > @event.registration_close %>
+      <button disabled="true" class="btn btn-danger btn-md">Registration Closed</button>
+      <% else %>
+      <%= link_to 'Register',event_registrations_path(@event), class: 'btn btn-primary btn-md register', method: :post %>
+
+      <% end %>
       <% end %>
     </div>
   </div>

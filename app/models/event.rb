@@ -24,4 +24,8 @@ class Event < ApplicationRecord
   def time
     event_start_time.strftime('%I:%M %p')
   end
+  
+  def reg_closes 
+    registration_close.strftime('%b %d, %Y')
+  end
 end
