@@ -1,26 +1,23 @@
 <div class="container">
-<div class="row">
-  <div class="event-details col-md-6 col-sm-6 col-xs-6">
-      <h3 class="section-title"><%= @event.year %> <%= @event.event_title %></h3>
-          <p>Course: <%= @event.event_location %></p>
-          <p>Date: <%= @event.date %></p>
-          <p>Cost: $<%= @event.event_cost.round %></p>
-          <p>Time: <%= @event.event_start_time %></p>
-      <% if current_user && current_user.registered_in?(@event) %>
-      <i><p><mark>You are Registered!</mark></p></i>
-      <% else %>
+  <div class="event-details">
+    <h3 class="section-title"><%= @event.year %> <%= @event.event_title %></h3>
+    <p>Course: <%= @event.event_location %></p>
+    <p>Date: <%= @event.date %></p>
+    <p>Cost: $<%= @event.event_cost.round %></p>
+    <p>Time: <%= @event.event_start_time %></p>
+    <% if current_user && current_user.registered_in?(@event) %>
+      <i>
+        <p><mark>You are Registered!</mark></p>
+      </i>
+    <% else %>
       <%= link_to 'Register',event_registrations_path(@event), class: 'btn btn-primary btn-md register', method: :post %>
-      <% end %> 
-  </div>
-  <div class="col-md-6 col-sm-6 col-xs-6 registration-area">
+    <% end %>
     <% if @event.blue_golf_link.present? %>
       <%= link_to "Blue Golf Page", @event.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-warning' %>
     <% end %>
   </div>
-</div>
-
   <div class="row row-buffer">
-     <div id="event-tabs" class="event-details">
+    <div id="event-tabs" class="event-details">
       <ul>
         <li><a href="#tabs-8">Participants</a></li>
         <li><a href="#tabs-9">Results</a></li>
@@ -29,22 +26,22 @@
         <h4 class="section-title">Participants</h4>
         <hr class="short-underline">
         <% @event.registrations.each.with_index do |event, index| %>
-        <div>
-         <span><%= index + 1 %>- &nbsp;&nbsp;</span><i><span><%= event.user.first_name %>&nbsp;<%= event.user.last_name %></span></i>
-        </div>
-         <% end %>
+          <div>
+            <span><%= index + 1 %>- &nbsp;&nbsp;</span><i><span><%= event.user.first_name %>&nbsp;<%= event.user.last_name %></span></i>
+          </div>
+        <% end %>
       </div>
       <div id="tabs-9">
         <% if @event.winners_picture.present? %>
-        <%= image_tag @event.winners_picture %>
+          <%= image_tag @event.winners_picture %>
         <% else %>
-        <h4 class="section-title">Check back later for results!</h4>
+          <h4 class="section-title">Check back later for results!</h4>
         <% end %>
         <% if @event.image_caption.present? %>
-        <p><%= @event.image_caption %></p>
+          <p><%= @event.image_caption %></p>
         <% end %>
         <hr>
-      </div> 
-  </div> 
+      </div>
+    </div>
   </div>
 </div>

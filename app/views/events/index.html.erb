@@ -4,8 +4,7 @@
   <% if @events.present? %>
     <% @events.each do |year, event| %>
       <% event.each do |e| %>
-        <div class="row">
-          <div class="col-md-6 col-sm-6 col-xs-6 event-details">
+          <div class="event-details">
             <p class="section-title event-title"><%= year %> <%= e.event_title %></p>
             <p>Course: <%= e.event_location %></p>
             <p>Date: <%= e.date %></p>
@@ -17,16 +16,13 @@
                 <mark class="registered"><i>You are registered!</i></mark>
               </div>
             <% end %>
-          </div>
-          <div class="col-md-6 col-sm-6 col-xs-6 registration-area">
-            <div class="row blue-golf">
-              <%= link_to 'Event Info', event_path(e), class: 'btn btn-md btn-primary' %>
+            <div class="blue-golf">
+              <%= link_to 'Event Info', event_path(e), class: 'btn btn-md btn-primary event-info-button' %>
               <% if e.blue_golf_link.present? %>
                 <%= link_to "Blue Golf Page", e.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-warning' %>
               <% end %>
             </div>
           </div>
-        </div>
         <hr>
       <% end %>
     <% end %>
