@@ -32,7 +32,7 @@
     <div id="tabs">
       <ul>
         <li><a href="#tabs-1">Membership Roster</a></li>
-        <li><a href="#tabs-2">Registrations by Club</a></li>
+        <li><a href="#tabs-2">Club Count</a></li>
         <li><a href="#tabs-3">Registrations by Event</a></li>
       </ul>
       <div id="tabs-1" class="event-details">
@@ -49,7 +49,7 @@
         <% end %>
       </div>
       <div id="tabs-2" class="clubs-tab event-details">
-         <h3 class="section-title">Registrations by Club</h3>
+         <h3 class="section-title">Club Count</h3>
         <hr>
           <p>Currie Park: <%= User.where(:home_club => 'Currie Park').count %></p>
           <p>Dretzka Park: <%= User.where(:home_club => 'Dretzka Park').count %></p>

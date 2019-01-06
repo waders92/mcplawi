@@ -1,6 +1,6 @@
 <div class="container">
   <div class="event-details">
-    <h3 class="section-title"><%= @event.year %> <%= @event.event_title %></h3>
+    <h3 class="event-section-title"><%= @event.year %> <%= @event.event_title %></h3>
     <p>Course: <%= @event.event_location %></p>
     <p>Date: <%= @event.date %></p>
     <p>Cost: $<%= @event.event_cost.round %></p>
@@ -16,12 +16,11 @@
           <mark class="show-reg"><i>You are registered!</i></mark>
         </p>
       <% else %>
-      <% if @event.registration_close and Date.today > @event.registration_close %>
-      <button disabled="true" class="btn btn-danger btn-md">Registration Closed</button>
-      <% else %>
-      <%= link_to 'Register',event_registrations_path(@event), class: 'btn btn-primary btn-md register', method: :post %>
-
-      <% end %>
+        <% if @event.registration_close and Date.today > @event.registration_close %>
+          <button disabled="true" class="btn btn-danger btn-md">Registration Closed</button>
+        <% else %>
+          <%= link_to 'Register',event_registrations_path(@event), class: 'btn btn-primary btn-md register', method: :post %>
+        <% end %>
       <% end %>
     </div>
   </div>
