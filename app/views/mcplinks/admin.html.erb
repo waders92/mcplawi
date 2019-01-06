@@ -80,8 +80,7 @@
     <h4>New Event Form!</h4>
         <%= f.error_notification %>
           <%= f.input :event_title, required: true, placeholder: 'Event Title' %><br>
-          <%= f.input :event_date, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event Date' %>
-          <br><br>
+          <%= f.input :event_date, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event Date' %><br>
           <%= f.input :event_cost, required: true, placeholder: 'Event Cost' %><br>
           <%= f.input :event_location, required: true, placeholder: 'Event Location' %><br>
           <%= f.input :event_start_time, required: true, placeholder: 'Event Starting Time' %><br>

@@ -3,6 +3,7 @@ class RegistrationsController < ApplicationController
 
   def create
     current_user.registrations.create(event: current_event)
+    flash[:alert] = 'You are registered for the event!'
     redirect_to events_path
   end
 

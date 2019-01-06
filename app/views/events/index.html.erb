@@ -4,25 +4,23 @@
   <% if @events.present? %>
     <% @events.each do |year, event| %>
       <% event.each do |e| %>
-          <div class="event-details">
-            <p class="section-title event-title"><%= year %> <%= e.event_title %></p>
-            <p>Course: <%= e.event_location %></p>
-            <p>Date: <%= e.date %></p>
-            <p>Cost: $<%= e.event_cost.round %></p>
-            <p>Time: <%= e.event_start_time %></p>
-            <br>
+        <div class="event-details">
+          <p class="section-title event-title"><%= year %> <%= e.event_title %></p>
+          <p>Course: <%= e.event_location %></p>
+          <p>Date: <%= e.date %></p>
+          <p>Cost: $<%= e.event_cost.round %></p>
+          <p>Time: <%= e.event_start_time %></p>
+          <br>
+          <div class="blue-golf">
             <% if current_user && current_user.registered_in?(e) %>
-              <div class="registered">
-                <mark class="registered"><i>You are registered!</i></mark>
-              </div>
+              <span class="tooltip-1" title="You are registered!"><%= image_tag 'checking.png', class: 'event-icon registered-icon' %></span>
             <% end %>
-            <div class="blue-golf">
-              <%= link_to 'Event Info', event_path(e), class: 'btn btn-md btn-primary event-info-button' %>
-              <% if e.blue_golf_link.present? %>
-                <%= link_to "Blue Golf Page", e.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-warning' %>
-              <% end %>
-            </div>
+            <%= link_to 'Event Info', event_path(e), class: 'btn btn-md btn-primary event-info-button' %>
+            <% if e.blue_golf_link.present? %>
+              <%= link_to "Blue Golf Page", e.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-warning' %>
+            <% end %>
           </div>
+        </div>
         <hr>
       <% end %>
     <% end %>

@@ -35,10 +35,31 @@ a.btn.btn-primary.btn-md.register {
 }
 
 mark.registered {
-  font-size: 22px;
-  background: #8ac1f2;
+  margin-top: 20px;
 }
 
 a.btn.btn-md.btn-primary.event-info-button {
+  margin-left: 0px;
+}
+
+a.btn.btn-md.btn-warning.blue_golf_link {
   margin-left: 0;
+}
+
+.event-icon {
+  height: 50px;
+}
+
+.event-icon-show {
+  height: 60px;
+}
+
+.registered-icon {
+  margin-right: 20px;
+}
+
+mark.show-reg {
+  font-size: 22px;
+  font-weight: 100;
+  font-family: 'Roboto Condensed', sans-serif;
 }
