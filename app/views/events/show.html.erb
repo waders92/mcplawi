@@ -41,7 +41,7 @@
       </div>
       <div id="tabs-9">
         <% if @event.winners_picture.present? %>
-          <%= image_tag @event.winners_picture %>
+          <%= image_tag @event.winners_picture, class: 'img-responsive' %>
         <% else %>
           <h4 class="section-title">Check back later for results!</h4>
         <% end %>
