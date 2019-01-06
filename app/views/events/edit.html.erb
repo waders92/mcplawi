@@ -1,19 +1,19 @@
 <div class="container">
-<div class="col-md-6">
-    <h4>Edit Event Form!</h4>
+<div class="col-md-6 top-buffer">
+    <h4 class="main-section-title">Edit Event</h4>
     <%= simple_form_for @event do |f| %>
        <%= f.error_notification %>
         <%= f.input :event_title, required: true, placeholder: 'Event Title' %><br>
         <%= f.input :event_date, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event Date' %><br>
         <%= f.input :event_cost, required: true, placeholder: 'Event Cost' %><br>
         <%= f.input :event_location, required: true, placeholder: 'Event Location' %><br>
-        <%= f.input :event_start_time, required: true, placeholder: 'Event Starting Time' %><br>
+        <%= f.input :event_start_time, required: true, input_html: {class: "timepicker"}, as: :string, placeholder: 'Event Starting Time' %><br>
         <%= f.input :blue_golf_link, required: true, placeholder: 'Blue Golf Link' %><br>
         <%= f.input :event_winner, required: false, placeholder: 'Event Winner' %>
         <%= f.input :winners_picture, required: false, placeholder: 'Winners Picture' %><br>
         <%= f.input :image_caption, required: false, placeholder: 'Image Caption' %>
       <br />
-      <%= f.submit 'Update', class: 'btn btn-primary' %>
+      <%= f.submit 'Update', class: 'btn btn-primary submit' %>
     <% end %>
 </div>
 </div>

@@ -11,9 +11,9 @@
       <center>
         <h4 class="section-title">Profile Information</h4>
       </center>
-      <p>Name - <i><%= current_user.first_name %>&nbsp;<%= current_user.last_name %></i></p>
-      <p>Club - <i><%= current_user.home_club %></i></p>
-      <p>Email -<i><%= current_user.email %></i></p>
+      <p><i><%= current_user.first_name %>&nbsp;<%= current_user.last_name %></i></p>
+      <p><i><%= current_user.home_club %></i></p>
+      <p><i><%= current_user.email %></i></p>
       <hr>
       <center>
         <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-md btn-primary edit-profile' %>

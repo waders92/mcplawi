@@ -42,7 +42,7 @@ a.btn.btn-md.btn-primary.event-info-button {
   margin-left: 0px;
 }
 
-a.btn.btn-md.btn-warning.blue_golf_link {
+a.btn.btn-md.btn-info.blue_golf_link {
   margin-left: 0;
 }
 
@@ -62,4 +62,8 @@ mark.show-reg {
   font-size: 22px;
   font-weight: 100;
   font-family: 'Roboto Condensed', sans-serif;
+}
+
+div.ui-timepicker-container.ui-timepicker-standard {
+  z-index: 9999 !important;
 }

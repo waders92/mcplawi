@@ -3,6 +3,8 @@ div.alert.alert-danger.text-center.notifications {
   border-color: firebrick;
   color: snow;
   border-radius: 0;
+  height: 175px;
+  padding-top: 75px;
 }
 
 p.alert {
@@ -10,14 +12,16 @@ p.alert {
   margin-top: -10px;
   border-radius: none;
   color: snow;
+  height: 175px;
+  padding-top: 75px;
 }
 
 p.notice {
   background: #04beaf;
   border-radius: none;
   color: snow;
-  height: 75px;
-  padding-top: 30px;
+  height: 175px;
+  padding-top: 75px;
 }
 
 .alert {

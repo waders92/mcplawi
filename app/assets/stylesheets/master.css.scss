@@ -38,6 +38,7 @@ body {
     font-style: italic;
     font-size: 3rem;
     margin-top: 50px;
+    color: #498ddd;
 }
 
 .text-buffer {
@@ -140,4 +141,10 @@ body {
   border-color:  #2b5b6d;
   text-transform: uppercase;
   border-radius: 0;
+}
+
+mark {
+  background: #498ddd !important;
+  color: snow !important;
+  padding: .5em !important;
 }
