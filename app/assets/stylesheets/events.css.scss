@@ -1,16 +1,18 @@
+$font: 'Source Sans Pro', sans-serif;
+
 .registration-area {
   margin-top: 175px;
 }
 
 .each-event p {
   font-weight: 100;
-  font-family: 'Roboto Slab', serif; 
+  font-family: $font;
 }
 
 .event-details p {
   font-size: 20px;
   font-weight: 100;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: $font;
 }
 
 .btn {
@@ -61,7 +63,7 @@ a.btn.btn-md.btn-info.blue_golf_link {
 mark.show-reg {
   font-size: 22px;
   font-weight: 100;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: $font;
 }
 
 div.ui-timepicker-container.ui-timepicker-standard {
@@ -72,8 +74,7 @@ div.ui-timepicker-container.ui-timepicker-standard {
   margin-top: 40px;
   margin-bottom: 20px;
   text-transform: uppercase;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: $font;
   font-weight: 400;
   font-size: 22px;
-  color: #498ddd;
 }

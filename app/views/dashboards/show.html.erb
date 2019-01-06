@@ -1,6 +1,6 @@
 <div class="container">
   <h4 class="main-section-title">My Profile</h4>
-  <hr class="long-underline">
+  <hr class="medium-underline">
   <div class="user-profile-image">
     <center>
       <%= image_tag 'user.png', class: 'img-responsive user-image'%>
@@ -25,7 +25,7 @@
   <div class="event-details">
     <div>
       <h4 class="main-section-title">MCPLAWI Events</h4>
-      <hr class="long-underline">
+      <hr class="medium-underline">
       <% if @event.present? %>
         <% @event.each do |event| %>
           <div>

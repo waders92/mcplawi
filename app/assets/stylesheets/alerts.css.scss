@@ -1,3 +1,6 @@
+$notice-background-color: lightgray;
+$font-color: 666;
+
 div.alert.alert-danger.text-center.notifications {
   background-color: firebrick;
   border-color: firebrick;
@@ -8,18 +11,18 @@ div.alert.alert-danger.text-center.notifications {
 }
 
 p.alert {
-  background: #04beaf;
+  background: $notice-background-color;
   margin-top: -10px;
   border-radius: none;
-  color: snow;
+  color: $font-color;
   height: 175px;
   padding-top: 75px;
 }
 
 p.notice {
-  background: #04beaf;
+  background: $notice-background-color;
   border-radius: none;
-  color: snow;
+  color: $font-color;
   height: 175px;
   padding-top: 75px;
 }

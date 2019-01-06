@@ -8,6 +8,7 @@ class Event < ApplicationRecord
   validates :event_location, presence: true
   validates :event_cost, presence: true
   validates :event_start_time, presence: true
+  validates :registration_close, presence: true
 
   def total_registrations
     registrations.count > 0 ? registrations.count : 0
