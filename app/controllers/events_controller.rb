@@ -23,8 +23,8 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event = Event.find(params[:id])
-    @event.update(event_params)
+    @event = Event.find_by_id(params[:id])
+    @event.update_attributes(event_params)
     if @event.invalid?
       send_flash_error('Event not saved! Please fill in all fields!')
     end 
