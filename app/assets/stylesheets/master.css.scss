@@ -24,6 +24,11 @@ body {
   font-style: italic;
 }
 
+.club-welcome-text {
+  font-size: 26px;
+  text-align: center;
+}
+
 .main-title {
   font-family: $font;
   font-size: 3rem;
@@ -168,19 +173,23 @@ mark {
 }
 
 .hero-image {
-  background-image: url('/assets/tee.jpg');
+  background-image: url('/assets/course.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   height: 1000px;
 
-  h1 {
+  h2 {
     color: snow;
     font-weight: 100;
   }
 
   .main-icons {
     height: 200px;
+  }
+
+  @media (max-width: 750px) {
+
   }
 }

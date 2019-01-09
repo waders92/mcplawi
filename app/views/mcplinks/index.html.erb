@@ -1,7 +1,7 @@
 <div class="row hero-image">
   <center>
-    <h1 id="fade1" class="fade-title top-buffer">Milwaukee County<br>
-      Public Links Association</h1>
+    <h2 id="fade1" class="fade-title top-buffer">Milwaukee County<br>
+      Public Links Association</h2>
     <a href="#mcplawi-image">
       <button id="fade2" class="learn-more-button top-buffer">Learn More...</button>
     </a>
@@ -14,13 +14,17 @@
     </div>
   </div>
   <div class="row row-buffer">
+    <p class="club-welcome-text">Welcome from the Milwaukee County Public Links Association!</p>
+    <hr>
+  </div>
+  <div class="row row-buffer">
     <div class="col-md-6 bottom-buffer">
       <center>
-        <%= image_tag 'register.png', class: 'main-icons' %>
+        <%= image_tag 'user-4.png', class: 'main-icons' %>
       </center>
     </div>
     <div class="col-md-6">
-      <p class="club-info-text">Create an account and have quick access to register for any event posted by the Milwaukee County Public Links Association! Keep your profile up to date with your email address and home club!</p>
+      <p class="club-info-text"><%= link_to 'Create an account', new_user_registration_path %> and have quick access to register for any event posted by the Milwaukee County Public Links Association! Keep your profile up to date with your email address and home club!</p>
     </div>
   </div>
   <div class="row row-buffer">

@@ -11,7 +11,7 @@ class McplinksController < ApplicationController
     @users = if params[:term]
       User.where('LOWER(last_name) LIKE ?', "%#{params[:term].downcase}%").order('id DESC')
     else 
-      @users = User.all.order('created_at DESC')
+      @users = User.all.limit(10).order('created_at DESC')
     end
   end
 
