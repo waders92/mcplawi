@@ -183,13 +183,21 @@ mark {
   h2 {
     color: snow;
     font-weight: 100;
+    font-size: 5rem;
   }
 
   .main-icons {
     height: 200px;
   }
 
-  @media (max-width: 750px) {
+  @media only screen and (max-width: 700px) {
+       h2 {
+        font-size: 20px;
+    }
 
+    .learn-more-button {
+      padding: 10px 10px;
+      font-size: 17px;
+    }
   }
 }
