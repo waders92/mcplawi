@@ -34,7 +34,10 @@
               <p>Course: <%= event.event_location %></p>
             </i>
             <i>
-              <p>Date: <%= event.date %></p>
+              <p>Date: <%= event.date %>
+                <% if event.event_end_date.present? %>
+                - <%= event.end_date %>
+              <% end %></p>
             </i>
             <i>
               <p>Cost: $<%= event.event_cost.round %></p>
