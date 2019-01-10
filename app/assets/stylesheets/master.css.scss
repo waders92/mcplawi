@@ -12,6 +12,10 @@ body {
   font-family: $font;
 }
 
+div.row.hero-image {
+  margin-right: 0;
+}
+
 .main-info {
   font-weight: 100;
   font-size: 18px;
@@ -136,8 +140,7 @@ body {
   border-width: 2px;
   border-style: solid;
   background-color: transparent;
-  padding: 25px 46px;
-  font-size: 20px;
+  padding: 15px 25px;
   color:  #2b5b6d;
   border-color:  #2b5b6d;
   text-transform: uppercase;
@@ -153,8 +156,8 @@ body {
   border-width: 2px;
   border-style: solid;
   background-color: transparent;
-  padding: 25px 46px;
-  font-size: 20px;
+  padding: 12px 20px;
+  font-size: 15px;
   color:  snow;
   border-color:  snow;
   text-transform: uppercase;
@@ -173,7 +176,7 @@ mark {
 }
 
 .hero-image {
-  background-image: url('/assets/course.jpg');
+  background-image: url('/assets/tee.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -183,21 +186,9 @@ mark {
   h2 {
     color: snow;
     font-weight: 100;
-    font-size: 5rem;
   }
 
   .main-icons {
     height: 200px;
-  }
-
-  @media only screen and (max-width: 700px) {
-       h2 {
-        font-size: 20px;
-    }
-
-    .learn-more-button {
-      padding: 10px 10px;
-      font-size: 17px;
-    }
   }
 }
