@@ -4,7 +4,8 @@
     <%= simple_form_for @event do |f| %>
       <%= f.error_notification %>
       <%= f.input :event_title, required: true, placeholder: 'Event Title' %><br>
-      <%= f.input :event_date, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event Date' %><br>
+      <%= f.input :event_start_date, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event Date' %><br>
+      <%= f.input :event_end_date, required: false, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event End Date' %><br>
       <%= f.input :registration_close, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Registration Closes' %><br>
       <%= f.input :event_cost, required: true, placeholder: 'Event Cost' %><br>
       <%= f.input :event_location, required: true, placeholder: 'Event Location' %><br>

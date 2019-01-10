@@ -1,98 +1,101 @@
 <div class="container">
-    <h4 class="main-section-title">Admin Portal</h4>
-        <hr class="medium-underline">
-    <% @events.each do |year, event| %>
+  <h4 class="main-section-title">Admin Portal</h4>
+  <hr class="medium-underline">
+  <% @events.each do |year, event| %>
     <% event.each do |e| %>
-    <div class="row">
-      <div class="col-md-6 col-sm-6 col-xs-6 event-details">
-        <p class="section-title event-title"><%= e.event_title %></p>
-        <p>Course: <%= e.event_location %></p>
-        <p>Date: <%= e.date %></p>
-        <p>Cost: $<%= e.event_cost.round %></p>
-        <p>Time: <%= e.event_start_time %></p>
-        <p>Registrations: <%= e.total_registrations %></p>
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6 event-details">
+          <p class="section-title event-title"><%= e.event_title %></p>
+          <p>Course: <%= e.event_location %></p>
+          <p>Date: <%= e.date %>
+            <% if e.event_end_date.present? %>
+              - <%= e.end_date %>
+            <% end %>
+          </p>
+          <p>Cost: $<%= e.event_cost.round %></p>
+          <p>Time: <%= e.event_start_time %></p>
+          <p>Registrations: <%= e.total_registrations %></p>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6 registration-area">
+          <span><%= link_to 'Details', event_path(e), class: 'btn btn-primary btn-md' %><%= link_to 'Edit', edit_event_path(e), class: 'btn btn-md btn-primary' %><%= link_to 'Delete', event_path(e), class: 'btn btn-danger btn-md', method: :delete, data: {confirm: 'Are you sure you want to delete this?'} %></span>
+        </div>
       </div>
-      <div class="col-md-6 col-sm-6 col-xs-6 registration-area">
-        <span><%= link_to 'Details', event_path(e), class: 'btn btn-primary btn-md' %><%= link_to 'Edit', edit_event_path(e), class: 'btn btn-md btn-primary' %><%= link_to 'Delete', event_path(e), class: 'btn btn-danger btn-md', method: :delete, data: {confirm: 'Are you sure you want to delete this?'} %></span>
-      </div>
-    </div>
-    <hr>
+      <hr>
     <% end %>
-    <% end %>
-    <div class="new-events top-buffer bottom-buffer">
-
+  <% end %>
+  <div class="new-events top-buffer bottom-buffer">
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary new-event" data-toggle="modal" data-target="#exampleModal">
       Add New Event
     </button>
-
     <!-- <%= link_to 'Add New Event', new_event_path, class: 'btn btn-primary new event' %> -->
-
-    </div>
-    <div id="tabs">
-      <ul>
-        <li><a href="#tabs-1">Membership Roster</a></li>
-        <li><a href="#tabs-2">Club Count</a></li>
-        <li><a href="#tabs-3">Registrations by Event</a></li>
-      </ul>
-      <div id="tabs-1" class="event-details">
-        <h3 class="section-title">Membership Roster</h3>
-        <hr>
-        <%= form_tag(admin_path(:anchor => "tabs-1"), method: :get) do %>
+  </div>
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-1">Membership Roster</a></li>
+      <li><a href="#tabs-2">Club Count</a></li>
+      <li><a href="#tabs-3">Registrations by Event</a></li>
+    </ul>
+    <div id="tabs-1" class="event-details">
+      <h3 class="section-title">Membership Roster</h3>
+      <hr>
+      <%= form_tag(admin_path(:anchor => "tabs-1"), method: :get) do %>
         <%= text_field_tag :term, params[:term] %>
         <%= submit_tag 'Search', last_name: nil %>
-        <% end %>
-        <p>Search by last name... (ex: anderson, jones, smith or partial last names - jo (jones) )</p>
-        <br>
-        <% @users.each.with_index do |user, index| %>
-        <i><p><%= index + 1 %> - <%= user.last_name %>,&nbsp;<%= user.first_name %> - <%= user.home_club %>&nbsp;(<%=user.email %>)</p></i>
-        <% end %>
-      </div>
-      <div id="tabs-2" class="clubs-tab event-details">
-         <h3 class="section-title">Club Count</h3>
-        <hr>
-          <p>Currie Park: <%= User.where(:home_club => 'Currie Park').count %></p>
-          <p>Dretzka Park: <%= User.where(:home_club => 'Dretzka Park').count %></p>
-          <p>Grant Park: <%= User.where(:home_club =>  'Grant Park').count %></p>
-          <p>Greenfield Park: <%= User.where(:home_club => 'Greenfield Park').count %></p>
-          <p>Oakwood Park: <%= User.where(:home_club => 'Oakwood Park').count %></p>
-          <p>Whitnall Park: <%= User.where(:home_club =>  'Whitnall Park').count %></p>
-          <p>Browndeer Park: <%= User.where(:home_club => 'Browndeer Park').count %></p>
-      </div>
-      <div id="tabs-3" class="clubs-tab event-details">
-         <h3 class="section-title">Registrations by Event</h3>
-        <hr>
-        <% @events.each do |year, event| %>
+      <% end %>
+      <p>Search by last name... (ex: anderson, jones, smith or partial last names - jo (jones) )</p>
+      <br>
+      <% @users.each.with_index do |user, index| %>
+        <i>
+          <p><%= index + 1 %> - <%= user.last_name %>,&nbsp;<%= user.first_name %> - <%= user.home_club %>&nbsp;(<%=user.email %>)</p>
+        </i>
+      <% end %>
+    </div>
+    <div id="tabs-2" class="clubs-tab event-details">
+      <h3 class="section-title">Club Count</h3>
+      <hr>
+      <p>Currie Park: <%= User.where(:home_club => 'Currie Park').count %></p>
+      <p>Dretzka Park: <%= User.where(:home_club => 'Dretzka Park').count %></p>
+      <p>Grant Park: <%= User.where(:home_club =>  'Grant Park').count %></p>
+      <p>Greenfield Park: <%= User.where(:home_club => 'Greenfield Park').count %></p>
+      <p>Oakwood Park: <%= User.where(:home_club => 'Oakwood Park').count %></p>
+      <p>Whitnall Park: <%= User.where(:home_club =>  'Whitnall Park').count %></p>
+      <p>Browndeer Park: <%= User.where(:home_club => 'Browndeer Park').count %></p>
+    </div>
+    <div id="tabs-3" class="clubs-tab event-details">
+      <h3 class="section-title">Registrations by Event</h3>
+      <hr>
+      <% @events.each do |year, event| %>
         <% event.each do |e| %>
-        <p><%= e.event_title %> - <%= e.registrations.count %></p>
+          <p><%= e.event_title %> - <%= e.registrations.count %></p>
         <% end %>
-        <% end %>
-      </div>
+      <% end %>
+    </div>
   </div>
 </div>
-
 <!-- New Modal -->
 <%= simple_form_for @event do |f| %>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-    <h4 class="main-section-title">Add Event</h4>
-        <%= f.error_notification %>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+          <h4 class="main-section-title">Add Event</h4>
+          <%= f.error_notification %>
           <%= f.input :event_title, required: true, placeholder: 'Event Title' %><br>
-          <%= f.input :event_date, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event Date' %><br>
+          <%= f.input :event_start_date, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event Start Date' %><br>
+          <%= f.input :event_end_date, required: false, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event End Date' %><br>
           <%= f.input :registration_close, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Registration Closes' %><br>
           <%= f.input :event_cost, required: true, placeholder: 'Event Cost' %><br>
           <%= f.input :event_location, required: true, placeholder: 'Event Location' %><br>
           <%= f.input :event_start_time, required: true, input_html: {class: "timepicker"}, placeholder: 'Event Starting Time' %><br>
           <%= f.input :blue_golf_link, required: true, placeholder: 'Blue Golf Link' %>
-        <br />
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-         <%= f.submit 'Create', class: 'btn btn-primary' %>
-      </div>
-       <% end %>
+          <br />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= f.submit 'Create', class: 'btn btn-primary' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

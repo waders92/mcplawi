@@ -4,7 +4,7 @@ class Event < ApplicationRecord
   has_many :registrations, dependent: :destroy
 
   validates :event_title, presence: true, length: { minimum: 1 }
-  validates :event_date, presence: true
+  validates :event_start_date, presence: true
   validates :event_location, presence: true
   validates :event_cost, presence: true
   validates :event_start_time, presence: true
@@ -19,7 +19,11 @@ class Event < ApplicationRecord
   end
 
   def date
-    event_date.strftime('%b %d, %Y')
+    event_start_date.strftime('%b %d, %Y')
+  end
+
+  def end_date
+    event_end_date.strftime('%b %d, %Y')
   end
 
   def time

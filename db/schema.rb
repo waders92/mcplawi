@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190106034349) do
+ActiveRecord::Schema.define(version: 20190110021050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20190106034349) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "event_title"
-    t.date     "event_date"
+    t.date     "event_start_date"
     t.decimal  "event_cost"
     t.string   "event_location"
     t.string   "event_start_time"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20190106034349) do
     t.string   "blue_golf_link"
     t.string   "image_caption"
     t.date     "registration_close"
+    t.date     "event_end_date"
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
   end
 

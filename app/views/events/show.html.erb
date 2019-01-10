@@ -2,7 +2,11 @@
   <div class="event-details">
     <h3 class="event-section-title"><%= @event.year %> <%= @event.event_title %></h3>
     <p>Course: <%= @event.event_location %></p>
-    <p>Date: <%= @event.date %></p>
+    <p>Date: <%= @event.date %>
+      <% if @event.event_end_date.present? %>
+        - <%= @event.end_date %>
+      <% end %>
+    </p>
     <p>Cost: $<%= @event.event_cost.round %></p>
     <p>Time: <%= @event.event_start_time %></p>
     <p>Registration Closes: <%= @event.reg_closes %></p>
