@@ -41,7 +41,7 @@ RSpec.describe EventsController, type: :controller do
       post :create, params: { event: {
         event_title: 'Test',
         event_start_date: '2018-09-30',
-        event_cost: '50',
+        event_cost_mcpla: '50',
         event_location: 'Test location',
         event_start_time: '2000-01-01 08:30:00'
       } }

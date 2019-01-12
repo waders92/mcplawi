@@ -36,14 +36,17 @@
             <i>
               <p>Date: <%= event.date %>
                 <% if event.event_end_date.present? %>
-                - <%= event.end_date %>
-              <% end %></p>
-            </i>
-            <i>
-              <p>Cost: $<%= event.event_cost.round %></p>
+                  - <%= event.end_date %>
+                <% end %></p>
             </i>
             <i>
               <p>Time: <%= event.event_start_time %></p>
+            </i>
+            <i>
+              <p>Cost: <br>
+                Members - $<%= event.event_cost_mcpla.round %><br>
+                Non-Members - $<%= event.event_cost_non_mcpla.round %><br>
+                Season Pass Holders - $<%= event.event_cost_season_pass.round %></p>
             </i>
             <br>
             <% if current_user && current_user.registered_in?(event) %>

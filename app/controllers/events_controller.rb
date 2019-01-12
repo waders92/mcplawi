@@ -49,13 +49,14 @@ class EventsController < ApplicationController
     admin_required
     @event = Event.find_by(id: params[:id])
     @event.destroy
+    send_flash_alert('Event has been removed!')
     redirect_to admin_path
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:event_title, :event_start_date, :event_end_date, :event_cost, :registration_close, :event_location, :event_start_time, :event_winner, :winners_picture, :blue_golf_link, :image_caption)
+    params.require(:event).permit(:event_title, :event_start_date, :event_end_date, :event_cost_mcpla, :event_cost_non_mcpla, :event_cost_season_pass, :registration_close, :event_location, :event_start_time, :event_winner, :winners_picture, :blue_golf_link, :image_caption)
   end
 
   def admin_required

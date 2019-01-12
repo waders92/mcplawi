@@ -6,7 +6,9 @@ class Event < ApplicationRecord
   validates :event_title, presence: true, length: { minimum: 1 }
   validates :event_start_date, presence: true
   validates :event_location, presence: true
-  validates :event_cost, presence: true
+  validates :event_cost_mcpla, presence: true
+  validates :event_cost_non_mcpla, presence: true
+  validates :event_cost_season_pass, presence: true
   validates :event_start_time, presence: true
   validates :registration_close, presence: true
 

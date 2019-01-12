@@ -7,7 +7,9 @@
       <%= f.input :event_start_date, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event Date' %><br>
       <%= f.input :event_end_date, required: false, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event End Date' %><br>
       <%= f.input :registration_close, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Registration Closes' %><br>
-      <%= f.input :event_cost, required: true, placeholder: 'Event Cost' %><br>
+      <%= f.input :event_cost_mcpla, required: true, placeholder: 'MCPLA Member Event Cost' %><br>
+      <%= f.input :event_cost_non_mcpla, required: true, placeholder: 'Non-MCPLA Event Cost' %><br>
+      <%= f.input :event_cost_season_pass, required: true, placeholder: 'Season Pass Holder Cost' %><br>
       <%= f.input :event_location, required: true, placeholder: 'Event Location' %><br>
       <%= f.input :event_start_time, required: true, input_html: {class: "timepicker"}, as: :string, placeholder: 'Event Starting Time' %><br>
       <%= f.input :blue_golf_link, required: true, placeholder: 'Blue Golf Link' %><br>

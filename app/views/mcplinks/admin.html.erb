@@ -12,8 +12,8 @@
               - <%= e.end_date %>
             <% end %>
           </p>
-          <p>Cost: $<%= e.event_cost.round %></p>
           <p>Time: <%= e.event_start_time %></p>
+          <p>Cost: <br>Members - $<%= e.event_cost_mcpla.round %><br>Non-Members - $<%= e.event_cost_non_mcpla.round %><br>Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
           <p>Registrations: <%= e.total_registrations %></p>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-6 registration-area">
@@ -32,25 +32,10 @@
   </div>
   <div id="tabs">
     <ul>
-      <li><a href="#tabs-1">Membership Roster</a></li>
       <li><a href="#tabs-2">Club Count</a></li>
       <li><a href="#tabs-3">Registrations by Event</a></li>
     </ul>
-    <div id="tabs-1" class="event-details">
-      <h3 class="section-title">Membership Roster</h3>
-      <hr>
-      <%= form_tag(admin_path(:anchor => "tabs-1"), method: :get) do %>
-        <%= text_field_tag :term, params[:term] %>
-        <%= submit_tag 'Search', last_name: nil %>
-      <% end %>
-      <p>Search by last name... (ex: anderson, jones, smith or partial last names - jo (jones) )</p>
-      <br>
-      <% @users.each.with_index do |user, index| %>
-        <i>
-          <p><%= index + 1 %> - <%= user.last_name %>,&nbsp;<%= user.first_name %> - <%= user.home_club %>&nbsp;(<%=user.email %>)</p>
-        </i>
-      <% end %>
-    </div>
+    
     <div id="tabs-2" class="clubs-tab event-details">
       <h3 class="section-title">Club Count</h3>
       <hr>
@@ -85,7 +70,9 @@
           <%= f.input :event_start_date, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event Start Date' %><br>
           <%= f.input :event_end_date, required: false, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event End Date' %><br>
           <%= f.input :registration_close, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Registration Closes' %><br>
-          <%= f.input :event_cost, required: true, placeholder: 'Event Cost' %><br>
+          <%= f.input :event_cost_mcpla, required: true, placeholder: 'MCPLA Member Event Cost' %><br>
+          <%= f.input :event_cost_non_mcpla, required: true, placeholder: 'Non-MCPLA Event Cost' %><br>
+          <%= f.input :event_cost_season_pass, required: true, placeholder: 'Season Pass Holder Cost' %><br>
           <%= f.input :event_location, required: true, placeholder: 'Event Location' %><br>
           <%= f.input :event_start_time, required: true, input_html: {class: "timepicker"}, placeholder: 'Event Starting Time' %><br>
           <%= f.input :blue_golf_link, required: true, placeholder: 'Blue Golf Link' %>

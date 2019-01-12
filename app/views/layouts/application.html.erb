@@ -32,6 +32,7 @@
         <li><%= link_to 'Member Clubs', clubs_path %></li>
         <li><%= link_to 'Events', events_path %></li>
         <li><%= link_to 'My Profile', dashboards_path %></li>
+        <li><%= link_to 'Membership List', memberships_path %></li>
         <% if current_user.admin? %>
             <li><%= link_to 'Admin', admin_path %></li>
         <% end %>

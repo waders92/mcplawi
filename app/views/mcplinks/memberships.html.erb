@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="event-details">
+    <h4 class="main-section-title">Membership Roster</h4>
+    <hr class="medium-underline">
+    <%= form_tag(memberships_path, method: :get) do %>
+      <%= text_field_tag :term, params[:term] %>
+      <%= submit_tag 'Search', last_name: nil %>
+    <% end %>
+    <p>Search by last name... (ex: anderson, jones, smith or partial last names - jo (jones) )</p>
+    <br>
+    <% @users.each.with_index do |user, index| %>
+      <i>
+        <p><%= index + 1 %> - <%= user.last_name %>,&nbsp;<%= user.first_name %> - <%= user.home_club %>&nbsp;(<%=user.email %>)</p>
+      </i>
+    <% end %>
+  </div>
+</div>

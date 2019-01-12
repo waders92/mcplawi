@@ -12,8 +12,8 @@
               - <%= e.end_date %>
             <% end %>
           </p>
-          <p>Cost: $<%= e.event_cost.round %></p>
           <p>Time: <%= e.event_start_time %></p>
+          <p>Cost: <br>Members - $<%= e.event_cost_mcpla.round %><br>Non-Members - $<%= e.event_cost_non_mcpla.round %><br>Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
           <br>
           <div class="blue-golf">
             <% if current_user && current_user.registered_in?(e) %>

@@ -7,8 +7,8 @@
         - <%= @event.end_date %>
       <% end %>
     </p>
-    <p>Cost: $<%= @event.event_cost.round %></p>
     <p>Time: <%= @event.event_start_time %></p>
+    <p>Cost: <br>Members - $<%= @event.event_cost_mcpla.round %><br>Non-Members - $<%= @event.event_cost_non_mcpla.round %><br>Season Pass Holders - $<%= @event.event_cost_season_pass.round %></p>
     <p>Registration Closes: <%= @event.reg_closes %></p>
     <div class="top-buffer">
       <% if @event.blue_golf_link.present? %>
