@@ -1,40 +1,11 @@
-   <div id="tabs">
-      <ul>
-        <li><a href="#tabs-1">Membership Roster</a></li>
-        <li><a href="#tabs-2">Club Count</a></li>
-        <li><a href="#tabs-3">Registrations by Event</a></li>
-      </ul>
-      <div id="tabs-1" class="event-details">
-        <h3 class="section-title">Membership Roster</h3>
-        <hr>
-        <%= form_tag(admin_path(:anchor => "tabs-1"), method: :get) do %>
-        <%= text_field_tag :term, params[:term] %>
-        <%= submit_tag 'Search', last_name: nil %>
+        <%= form_tag event_registrations_path(@event) do %>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+    data-description="<%= @event.event_title %>"
+    data-amount="500"
+    data-email="<%= current_user.email %>"
+    data-locale="auto"
+    data-name="MCPLA"
+    data-zip-code="true"
+    data-billing-address="true"></script>
         <% end %>
-        <p>Search by last name... (ex: anderson, jones, smith or partial last names - jo (jones) )</p>
-        <br>
-        <% @users.each.with_index do |user, index| %>
-        <i><p><%= index + 1 %> - <%= user.last_name %>,&nbsp;<%= user.first_name %> - <%= user.home_club %>&nbsp;(<%=user.email %>)</p></i>
-        <% end %>
-      </div>
-      <div id="tabs-2" class="clubs-tab event-details">
-         <h3 class="section-title">Club Count</h3>
-        <hr>
-          <p>Currie Park: <%= User.where(:home_club => 'Currie Park').count %></p>
-          <p>Dretzka Park: <%= User.where(:home_club => 'Dretzka Park').count %></p>
-          <p>Grant Park: <%= User.where(:home_club =>  'Grant Park').count %></p>
-          <p>Greenfield Park: <%= User.where(:home_club => 'Greenfield Park').count %></p>
-          <p>Oakwood Park: <%= User.where(:home_club => 'Oakwood Park').count %></p>
-          <p>Whitnall Park: <%= User.where(:home_club =>  'Whitnall Park').count %></p>
-          <p>Browndeer Park: <%= User.where(:home_club => 'Browndeer Park').count %></p>
-      </div>
-      <div id="tabs-3" class="clubs-tab event-details">
-         <h3 class="section-title">Registrations by Event</h3>
-        <hr>
-        <% @events.each do |year, event| %>
-        <% event.each do |e| %>
-        <p><%= e.event_title %> - <%= e.registrations.count %></p>
-        <% end %>
-        <% end %>
-      </div>
-  </div>

@@ -27,7 +27,9 @@
           <% if @event.registration_close and Date.today > @event.registration_close %>
             <button disabled="true" class="btn btn-danger btn-md">Registration Closed</button>
           <% else %>
-            <%= link_to 'Register',event_registrations_path(@event), class: 'btn btn-primary btn-md register', method: :post %>
+            <button type="button" class="btn btn-primary new-event" data-toggle="modal" data-target="#register">
+              Register
+            </button>
           <% end %>
         <% end %>
       </div>
@@ -69,3 +71,27 @@
     </div>
   </div>
 </div>
+<!-- New Modal -->
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content register-modal">
+      <div class="modal-body">
+        <h4 class="">You are registering for the <%= @event.event_title %>!</h4>
+        <p>Your classification and payment amount is listed below...</p>
+        <br />
+      </div>
+      <div class="modal-footer">
+        <%= form_tag event_registrations_path(@event) do %>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            var amount = document.querySelector('input[name="event"]:checked').value;
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="<%= @event.event_title %>"
+            data-amount="2000"
+            data-email="<%= current_user.email %>"
+            data-locale="auto"
+            data-name="MCPLA"
+            data-zip-code="true"
+            data-billing-address="true"></script>
+        <% end %>
+      </div>
+    </div>

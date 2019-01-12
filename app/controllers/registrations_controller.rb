@@ -3,8 +3,25 @@ class RegistrationsController < ApplicationController
 
   def create
     current_user.registrations.create(event: current_event)
-    flash[:alert] = 'You are registered for the event!'
-    redirect_to events_path
+
+    @amount = 500
+
+    customer = Stripe::Customer.create(
+      email: params[:stripeEmail],
+      source: params[:stripeToken]
+    )
+
+    charge = Stripe::Charge.create(
+      customer: customer.id,
+      amount: @amount,
+      description: current_event.event_title,
+      currency: 'usd'
+    )
+
+    redirect_to events_path(current_event)
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to root_path
   end
 
   private

@@ -1,15 +1,15 @@
 class McplinksController < ApplicationController
-  before_action :authenticate_user!, only: %i[admin, memberships]
+  before_action :authenticate_user!, only: %i[admin memberships]
   def index; end
 
   def clubs; end
 
   def memberships
     @users = if params[:term]
-      User.where('LOWER(last_name) LIKE ?', "%#{params[:term].downcase}%").order('id DESC')
-    else 
-      @users = User.all.limit(25).order('created_at DESC')
-    end
+               User.where('LOWER(last_name) LIKE ?', "%#{params[:term].downcase}%").order('id DESC')
+             else
+               @users = User.all.limit(25).order('created_at DESC')
+             end
   end
 
   def admin
