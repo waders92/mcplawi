@@ -13,7 +13,7 @@
             <% end %>
           </p>
           <p>Time: <%= e.event_start_time %></p>
-          <p>Cost: <br>Members - $<%= e.event_cost_mcpla.round %><br>Non-Members - $<%= e.event_cost_non_mcpla.round %><br>Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
+          <p>Cost: <br>MCPLA Members - $<%= e.event_cost_mcpla.round %><br>Non-MCPLA Members - $<%= e.event_cost_non_mcpla.round %><br>Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
           <p>Registrations: <%= e.total_registrations %></p>
         </div>
         <div class="col-md-6 col-sm-6 col-xs-6 registration-area">

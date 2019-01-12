@@ -8,25 +8,34 @@
       <% end %>
     </p>
     <p>Time: <%= @event.event_start_time %></p>
-    <p>Cost: <br>Members - $<%= @event.event_cost_mcpla.round %><br>Non-Members - $<%= @event.event_cost_non_mcpla.round %><br>Season Pass Holders - $<%= @event.event_cost_season_pass.round %></p>
+    <p>Cost: <br>
+      MCPLA Members - $<%= @event.event_cost_mcpla.round %><br>
+      Non-MCPLA Members - $<%= @event.event_cost_non_mcpla.round %><br>
+      Season Pass Holders - $<%= @event.event_cost_season_pass.round %></p>
     <p>Registration Closes: <%= @event.reg_closes %></p>
-    <div class="top-buffer">
-      <% if @event.blue_golf_link.present? %>
-        <%= link_to "Blue Golf Page", @event.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-info blue_golf_link' %>
-      <% end %>
-      <% if current_user && current_user.registered_in?(@event) %>
-        <p>
-          <br>
-          <mark class="show-reg"><i>You are registered!</i></mark>
-        </p>
-      <% else %>
-        <% if @event.registration_close and Date.today > @event.registration_close %>
-          <button disabled="true" class="btn btn-danger btn-md">Registration Closed</button>
-        <% else %>
-          <%= link_to 'Register',event_registrations_path(@event), class: 'btn btn-primary btn-md register', method: :post %>
+    <% if user_signed_in? %>
+      <div class="top-buffer">
+        <% if @event.blue_golf_link.present? %>
+          <%= link_to "Blue Golf Page", @event.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-info blue_golf_link' %>
         <% end %>
-      <% end %>
-    </div>
+        <% if current_user && current_user.registered_in?(@event) %>
+          <p>
+            <br>
+            <span class="tooltip-1" title="You are registered!"><%= image_tag 'checking.png', class: 'event-icon registered-icon' %>&nbsp;&nbsp; You are registered!</span>
+          </p>
+        <% else %>
+          <% if @event.registration_close and Date.today > @event.registration_close %>
+            <button disabled="true" class="btn btn-danger btn-md">Registration Closed</button>
+          <% else %>
+            <%= link_to 'Register',event_registrations_path(@event), class: 'btn btn-primary btn-md register', method: :post %>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="top-buffer">
+        <p><%= link_to 'Sign in', new_user_session_path %> to register and see more info for this event!</p>
+      </div>
+    <% end %>
   </div>
   <div class="row-buffer">
     <div id="event-tabs" class="event-details">
