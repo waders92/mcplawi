@@ -2,6 +2,6 @@ class DashboardsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @event = Event.all
+    @events = Event.all.order('created_at DESC').group_by(&:year)
   end
 end

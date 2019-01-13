@@ -1,5 +1,6 @@
-$notice-background-color: lightgray;
-$font-color: 666;
+$notice-background-color: #007236;
+$font-color: #fff;
+$font-size: 20px;
 
 div.alert.alert-danger.text-center.notifications {
   background-color: firebrick;
@@ -9,6 +10,7 @@ div.alert.alert-danger.text-center.notifications {
   height: 175px;
   padding-top: 75px;
   margin-bottom: 0;
+  font-size: $font-size;
 }
 
 p.alert {
@@ -19,6 +21,7 @@ p.alert {
   height: 175px;
   padding-top: 75px;
   margin-bottom: 0;
+  font-size: $font-size;
 }
 
 p.notice {
@@ -28,6 +31,7 @@ p.notice {
   height: 175px;
   padding-top: 75px;
   margin-bottom: 0;
+  font-size: $font-size;
 }
 
 .alert {

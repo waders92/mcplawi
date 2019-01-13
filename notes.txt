@@ -1,11 +1,1 @@
-        <%= form_tag event_registrations_path(@event) do %>
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-description="<%= @event.event_title %>"
-    data-amount="500"
-    data-email="<%= current_user.email %>"
-    data-locale="auto"
-    data-name="MCPLA"
-    data-zip-code="true"
-    data-billing-address="true"></script>
-        <% end %>
+#f88e44;

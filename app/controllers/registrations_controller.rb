@@ -7,7 +7,7 @@ class RegistrationsController < ApplicationController
     @amount = current_user.event_cost(current_event) * 100.to_i
 
     customer = Stripe::Customer.create(
-      email: params[:stripeEmail],
+      email: current_user.email,
       source: params[:stripeToken]
     )
 
@@ -18,7 +18,8 @@ class RegistrationsController < ApplicationController
       currency: 'usd'
     )
 
-    redirect_to events_path(current_event)
+    flash[:notice] = 'You have registered for the event!'
+    redirect_to confirmation_path
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to root_path

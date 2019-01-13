@@ -77,6 +77,10 @@
     <div class="modal-content register-modal">
       <div class="modal-body registrations">
         <h4 class="">You are registering for the <%= @event.event_title %>!</h4>
+        <p>Please verify your that the information is correct, then 'Pay With Card'.<br>
+          If any information is incorrect, visit <%= link_to 'Your Profile', dashboards_path %> to update it.
+        </p>
+
         <hr>
         <p>Name - <%= current_user.first_name %> <%=current_user.last_name %></p>
         <p>Membership Status - <%= current_user.membership_status %></p>

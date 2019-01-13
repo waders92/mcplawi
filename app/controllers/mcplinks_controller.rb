@@ -1,5 +1,5 @@
 class McplinksController < ApplicationController
-  before_action :authenticate_user!, only: %i[admin memberships]
+  before_action :authenticate_user!, only: %i[admin memberships confirmation]
   def index; end
 
   def clubs; end
@@ -11,6 +11,8 @@ class McplinksController < ApplicationController
                @users = User.all.limit(25).order('created_at DESC')
              end
   end
+
+  def confirmation; end
 
   def admin
     admin_required

@@ -29,7 +29,7 @@ div.row.hero-image {
 }
 
 .club-welcome-text {
-  font-size: 26px;
+  font-size: 40px;
   text-align: center;
 }
 
@@ -114,6 +114,10 @@ div.row.hero-image {
   height: 20px;
 }
 
+.arrow-icon {
+  margin-top: 10px;
+}
+
 .registrations {
   margin-top: 25px;
 }
@@ -148,8 +152,8 @@ div.row.hero-image {
   border-radius: 0;
 
   &:hover {
-    background-color: black;
-    border-color: black;
+    background-color: #007236;
+    border-color:#007236;
   }
 }
 
@@ -177,12 +181,12 @@ mark {
 }
 
 .hero-image {
-  background-image: url('/assets/course.jpg');
+  background-image: url('/assets/course2.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  height: 1000px;
+  height: 800px;
 
   h2 {
     color: snow;
