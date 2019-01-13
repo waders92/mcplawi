@@ -4,7 +4,7 @@ class RegistrationsController < ApplicationController
   def create
     current_user.registrations.create(event: current_event)
 
-    @amount = 500
+    @amount = current_user.event_cost(current_event) * 100.to_i
 
     customer = Stripe::Customer.create(
       email: params[:stripeEmail],

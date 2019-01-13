@@ -88,7 +88,7 @@
             var amount = document.querySelector('input[name="event"]:checked').value;
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description="<%= @event.event_title %>"
-            data-amount="<%= current_user.event_cost(@event) %>"
+            data-amount="<%= current_user.event_cost(@event) * 100.to_i %>"
             data-email="<%= current_user.email %>"
             data-locale="auto"
             data-name="MCPLA"
