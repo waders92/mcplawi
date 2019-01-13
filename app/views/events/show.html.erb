@@ -77,8 +77,10 @@
     <div class="modal-content register-modal">
       <div class="modal-body">
         <h4 class="">You are registering for the <%= @event.event_title %>!</h4>
-        <p>Your classification and payment amount is listed below...</p>
+        <p>Your classification and payment amount are listed below...</p>
         <br />
+        <p>Membership Status - <%= current_user.membership_status %></p>
+        <p>Entry Fee - <%= current_user.event_cost(@event) %></p>
       </div>
       <div class="modal-footer">
         <%= form_tag event_registrations_path(@event) do %>
@@ -86,7 +88,7 @@
             var amount = document.querySelector('input[name="event"]:checked').value;
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description="<%= @event.event_title %>"
-            data-amount="2000"
+            data-amount="<%= current_user.event_cost(@event) %>"
             data-email="<%= current_user.email %>"
             data-locale="auto"
             data-name="MCPLA"
