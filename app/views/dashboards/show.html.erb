@@ -29,40 +29,40 @@
       <hr class="medium-underline">
       <% if @events.present? %>
         <% @events.each do |year, event| %>
-        <% event.each do |e| %>
-          <div>
-            <p class="section-title event-title"><%= year %> <%= e.event_title %></p>
-            <i>
-              <p>Course: <%= e.event_location %></p>
-            </i>
-            <i>
-              <p>Date: <%= e.date %>
-                <% if e.event_end_date.present? %>
-                  - <%= e.end_date %>
-                <% end %></p>
-            </i>
-            <i>
-              <p>Time: <%= e.event_start_time %></p>
-            </i>
-            <i>
-              <p>Cost: <br>
-                MCPLA Members - $<%= e.event_cost_mcpla.round %><br>
-                Non-MCPLA Members - $<%= e.event_cost_non_mcpla.round %><br>
-                Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
-            </i>
-            <br>
-            <% if current_user && current_user.registered_in?(e) %>
-              <span>
+          <% event.each do |e| %>
+            <div>
+              <p class="section-title event-title"><%= year %> <%= e.event_title %></p>
+              <i>
+                <p>Course: <%= e.event_location %></p>
+              </i>
+              <i>
+                <p>Date: <%= e.date %>
+                  <% if e.event_end_date.present? %>
+                    - <%= e.end_date %>
+                  <% end %></p>
+              </i>
+              <i>
+                <p>Time: <%= e.event_start_time %></p>
+              </i>
+              <i>
+                <p>Cost: <br>
+                  MCPLA Members - $<%= e.event_cost_mcpla.round %><br>
+                  Non-MCPLA Members - $<%= e.event_cost_non_mcpla.round %><br>
+                  Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
+              </i>
+              <br>
+              <% if current_user && current_user.registered_in?(e) %>
+                <span>
+                  <%= link_to event_path(e) do %>
+                    <%= image_tag 'info.png', class: 'event-icon' %>
+                  <% end %>
+                  &nbsp;&nbsp;&nbsp;<span class="tooltip-1" title="You are registered!"><%= image_tag 'checking.png', class: 'event-icon' %></span></span>
+              <% else %>
                 <%= link_to event_path(e) do %>
                   <%= image_tag 'info.png', class: 'event-icon' %>
                 <% end %>
-                &nbsp;&nbsp;&nbsp;<span class="tooltip-1" title="You are registered!"><%= image_tag 'checking.png', class: 'event-icon' %></span></span>
-            <% else %>
-              <%= link_to event_path(e) do %>
-                <%= image_tag 'info.png', class: 'event-icon' %>
-              <% end %>
-            </div>
-          <% end %>
+              </div>
+            <% end %>
           <% end %>
           <hr>
         <% end %>
@@ -75,4 +75,5 @@
   </div>
 </div>
 </div>
-
+</div>
+</div>
