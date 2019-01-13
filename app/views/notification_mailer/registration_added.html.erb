@@ -1,7 +1,8 @@
 <p>Hello!</p>
 <p>
   A registration has been added for a <b>MCPLAWI</b> event, the <%= @registered_event.event_title %>.
-  Check it out <%= link_to 'here', event_url(@registered_event) %>.
+  Registration Fee: $<%= @event_registrant.event_cost %>
+  You can view the event <%= link_to 'here', event_url(@registered_event) %>.
 </p>
 
 Regards,<br>
