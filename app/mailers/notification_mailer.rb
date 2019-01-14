@@ -5,7 +5,7 @@ class NotificationMailer < ApplicationMailer
     @registration = event
     @registered_event = @registration.event
     @event_registrant = @registration.user
-    @event_fee = @event_registrant.event_cost(event)
+    @event_fee = @event_registrant.event_cost(@registration.event)
 
     mail(to: @event_registrant.email,
          subject: "A registration has been added for a MCPLAWI event, the #{@registered_event.event_title}")
