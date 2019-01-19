@@ -12,6 +12,10 @@ class User < ApplicationRecord
     registered_events.include?(event)
   end
 
+  def self.admin_users
+    User.where(admin: true).pluck(:email)
+  end
+
   def event_cost(event)
     if self.membership_status == 'MCPLA Member'
       return event.event_cost_mcpla.round
