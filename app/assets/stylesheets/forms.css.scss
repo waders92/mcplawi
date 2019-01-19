@@ -104,3 +104,7 @@ input.btn.btn-primary.submit {
     background-color:#34CACA;
   }
 }
+
+input:-webkit-autofill {
+  background-color: #ffffff !important;
+}
