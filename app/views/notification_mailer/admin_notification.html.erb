@@ -1,9 +1,10 @@
 <p class="club-info-text">
   A registration has been processsed!<br>
   <b>Event: </b><%= @registered_event.event_title %>.<br>
-  <b>Player:</b> <%= @event_registrant.first_name %>&nbsp;<%= @event_registrant.last_name %><br>
-  <b>Club:</b> <%= @users_club %><br>
-  <b>Registration Fee:</b> $<%= @event_fee %> has been paid.<br>
+  <b>Player: </b> <%= @event_registrant.first_name %>&nbsp;<%= @event_registrant.last_name %><br>
+  <b>Club: </b> <%= @users_club %><br>
+  <b>Membership Status: </b><%= @event_registrant.membership_status %>
+  <b>Registration Fee: </b> $<%= @event_fee %> has been paid.<br>
 </p>
 
 Regards,<br>
