@@ -22,12 +22,24 @@ body {
 #footer {
   height: $footer-height;
   color: snow;
-   background: #4D4D4D;
+  background: #4D4D4D;
   font-family: $font;
   padding: 10px 0px;
   font-weight: 100;
-  font-size: 1.5em;
   letter-spacing: 2px;
+}
+
+#footer a{
+  color: rgb(216, 214, 214);
+
+  &:visited {
+    color: rgb(216, 214, 214);
+  }
+
+  &:hover {
+    color: rgb(216, 214, 214);
+    text-decoration: none;
+  }
 }
 
 .footer-content {

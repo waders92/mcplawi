@@ -19,14 +19,14 @@ div.row.hero-image {
 
 .main-info {
   font-weight: 100;
-  font-size: 18px;
+  font-size: 17px;
   font-style: italic;
 }
 
 .club-info-text {
   font-weight: 100;
-  font-size: 23px;
-  font-style: italic;
+  font-size: 17px;
+  letter-spacing: .5px;
 }
 
 .club-welcome-text {
@@ -42,8 +42,7 @@ div.row.hero-image {
 
 .main-section-title {
   font-family: $font;
-  font-weight: 400;
-  font-size: 3rem;
+  font-weight: 100;
   margin-top: 50px;
 }
 
@@ -153,8 +152,8 @@ div.row.hero-image {
   border-radius: 0;
 
   &:hover {
-    background-color: #007236;
-    border-color:#007236;
+    background-color: #4D4D4D;
+    border-color:#4D4D4D;
   }
 }
 
@@ -170,8 +169,7 @@ div.row.hero-image {
   border-radius: 0;
 
   &:hover {
-    background-color: black;
-    border-color: black;
+    border-color: rgba(255, 250, 250, 0.623);
   }
 }
 
@@ -182,7 +180,7 @@ mark {
 }
 
 .hero-image {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/course2.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/course2.jpg');
   background-blend-mode: darken;
   background-position: center;
   background-repeat: no-repeat;
@@ -196,8 +194,12 @@ mark {
   }
 
   .main-icons {
-    height: 200px;
+    height: 175px;
   }
+}
+
+.continuing-text {
+  clear: both;
 }
 
 @media (min-width: 768px) {
