@@ -1,11 +1,13 @@
 <p class="club-info-text">
-  A registration has been processsed!<br>
-  <b>Event: </b><%= @registered_event.event_title %>.<br>
+  A new registration has been processsed!<br>
+  <b>Event: </b><%= @registered_event.event_title %><br>
   <b>Player: </b> <%= @event_registrant.first_name %>&nbsp;<%= @event_registrant.last_name %><br>
   <b>Club: </b> <%= @users_club %><br>
-  <b>Membership Status: </b><%= @event_registrant.membership_status %>
-  <b>Registration Fee: </b> $<%= @event_fee %> has been paid.<br>
+  <b>Membership Status: </b><%= @event_registrant.membership_status %><br>
+  <b>Registration Fee: </b>$<%= @event_fee %> has been paid.<br>
 </p>
+
+<p>Any discrepencies? Please contact the registrant directly.</p>
 
 Regards,<br>
 <i>MCPLAWI Admin Notifications</i>
