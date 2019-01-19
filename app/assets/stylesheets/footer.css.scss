@@ -20,9 +20,10 @@ body {
 /* Set the fixed height of footer here */
 
 #footer {
+  background: url('/assets/dark-paths.png');
+  margin-right: 0;
   height: $footer-height;
   color: snow;
-  background: #4D4D4D;
   font-family: $font;
   padding: 10px 0px;
   font-weight: 100;

@@ -9,6 +9,10 @@ $font: 'Source Sans Pro', sans-serif;
     box-shadow: 2px 2px 2px grey;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 body {
   font-family: $font;
 }
@@ -166,6 +170,7 @@ div.row.hero-image {
   border-color:  snow;
   text-transform: uppercase;
   border-radius: 0;
+  margin-top: 90px;
 
   &:hover {
     border-color: rgba(255, 250, 250, 0.623);
