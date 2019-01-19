@@ -64,21 +64,51 @@
 <!-- New Modal -->
 <%= simple_form_for @event do |f| %>
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-xl form-style-8" role="document">
       <div class="modal-content">
         <div class="modal-body">
-          <h4 class="main-section-title">Add Event</h4>
+          <h2 class="main-section-title">Add Event</h2>
           <%= f.error_notification %>
-          <%= f.input :event_title, required: true, placeholder: 'Event Title' %><br>
-          <%= f.input :event_start_date, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event Start Date' %><br>
-          <%= f.input :event_end_date, required: false, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event End Date' %><br>
-          <%= f.input :registration_close, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Registration Closes' %><br>
-          <%= f.input :event_cost_mcpla, required: true, placeholder: 'MCPLA Member Event Cost' %><br>
-          <%= f.input :event_cost_non_mcpla, required: true, placeholder: 'Non-MCPLA Event Cost' %><br>
-          <%= f.input :event_cost_season_pass, required: true, placeholder: 'Season Pass Holder Cost' %><br>
-          <%= f.input :event_location, required: true, placeholder: 'Event Location' %><br>
-          <%= f.input :event_start_time, required: true, input_html: {class: "timepicker"}, placeholder: 'Event Starting Time' %><br>
-          <%= f.input :blue_golf_link, required: true, placeholder: 'Blue Golf Link' %>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :event_title, required: true, placeholder: 'Presidents Cup' %><br>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :event_start_date, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: '4/15/2019' %><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :event_end_date, required: false, input_html: {class: "datepicker"}, as: :string, placeholder: ' ** Leave blank if 1 day event **'  %><br>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :registration_close, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: '4/7/2019' %><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :event_cost_mcpla, required: true, placeholder: '75' %><br>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :event_cost_non_mcpla, required: true, placeholder: '100' %><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :event_cost_season_pass, required: true, placeholder: '85' %><br>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :event_location, required: true, placeholder: 'Whitnall Park' %><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :event_start_time, required: true, input_html: {class: "timepicker"}, placeholder: '8:30 AM' %><br>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :blue_golf_link, required: true, placeholder: 'https://wsga.bluegolf.com/bluegolf/wsga18/event/wsga1869/index.htm' %>
+            </div>
+          </div>
           <br />
         </div>
         <div class="modal-footer">

@@ -1,21 +1,61 @@
 <div class="container">
-  <div class="col-md-6 top-buffer edit-form">
-    <h4 class="main-section-title" style="margin-top: 0;">Edit Event</h4>
+  <div class="form-style-8 modal-xl">
+    <h2 class="main-section-title" style="margin-left: -30px; margin-right: -30px;">Edit Event</h2>
     <%= simple_form_for @event do |f| %>
       <%= f.error_notification %>
-      <%= f.input :event_title, required: true, placeholder: 'Event Title' %><br>
-      <%= f.input :event_start_date, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event Date' %><br>
-      <%= f.input :event_end_date, required: false, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event End Date' %><br>
-      <%= f.input :registration_close, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Registration Closes' %><br>
-      <%= f.input :event_cost_mcpla, required: true, placeholder: 'MCPLA Member Event Cost' %><br>
-      <%= f.input :event_cost_non_mcpla, required: true, placeholder: 'Non-MCPLA Event Cost' %><br>
-      <%= f.input :event_cost_season_pass, required: true, placeholder: 'Season Pass Holder Cost' %><br>
-      <%= f.input :event_location, required: true, placeholder: 'Event Location' %><br>
-      <%= f.input :event_start_time, required: true, input_html: {class: "timepicker"}, as: :string, placeholder: 'Event Starting Time' %><br>
-      <%= f.input :blue_golf_link, required: true, placeholder: 'Blue Golf Link' %><br>
-      <%= f.input :event_winner, required: false, placeholder: 'Event Winner' %>
-      <%= f.input :winners_picture, required: false, placeholder: 'Winners Picture' %><br>
-      <%= f.input :image_caption, required: false, placeholder: 'Image Caption' %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :event_title, required: true, placeholder: 'Event Title' %><br>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :event_start_date, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: 'Event Date' %><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :event_end_date, required: false, input_html: {class: "datepicker"}, as: :string, placeholder: ' ** Leave blank if 1 day event **' %><br>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :registration_close, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: '6/15/2019' %><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :event_cost_mcpla, required: true %><br>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :event_cost_non_mcpla, required: true %><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :event_cost_season_pass, required: true %><br>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :event_location, required: true %><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :event_start_time, required: true, input_html: {class: "timepicker"}, as: :string %><br>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :blue_golf_link, required: true, placeholder: 'https://wsga.bluegolf.com/bluegolf/wsga18/event/wsga1869/index.htm' %><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :event_winner, required: false, placeholder: 'Jimmy Joe' %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :winners_picture, required: false %><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :image_caption, required: false, placeholder: 'Winnning Score: 74' %>
+        </div>
+      </div>
       <br />
       <%= f.submit 'Update', class: 'btn btn-primary submit' %>
     <% end %>

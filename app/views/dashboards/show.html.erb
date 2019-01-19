@@ -1,24 +1,19 @@
 <div class="container">
-  <h4 class="main-section-title">My Profile</h4>
-  <hr class="medium-underline">
-  <div class="user-profile-image">
-    <center>
-      <%= image_tag 'user.png', class: 'img-responsive user-image'%>
-    </center>
-  </div>
-  <div class="row">
-    <div class="profile-info profile col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+  <div class="row top-buffer">
+    <div class="form-style-8 profile-info profile col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
       <center>
-        <h4 class="section-title">Profile Information</h4>
+        <h2 class="section-title">My Profile Information</h2>
       </center>
       <p><i><%= current_user.first_name %>&nbsp;<%= current_user.last_name %></i></p>
       <p><i><%= current_user.home_club %></i></p>
       <p><i><%= current_user.email %></i></p>
       <p><i><%= current_user.membership_status %></i></p>
       <hr>
-      <center>
-        <%= link_to 'Edit Profile', edit_user_registration_path, class: 'btn btn-md btn-primary edit-profile' %>
-      </center>
+      <%= link_to edit_user_registration_path do %>
+      <button>
+        Edit Profile
+      </button>
+      <% end %>
       <br>
       <br>
     </div>
