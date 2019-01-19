@@ -19,4 +19,5 @@ class NotificationMailer < ApplicationMailer
     @users_club = @event.registrant.home_club
     mail(to: User.admin_users,
       subject: "A registration has been added for a MCPLAWI event, the #{@registered_event.event_title}")
+  end
 end
