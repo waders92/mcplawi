@@ -4,70 +4,90 @@
       <center>
         <h2 class="section-title">My Profile Information</h2>
       </center>
-      <p><i><%= current_user.first_name %>&nbsp;<%= current_user.last_name %></i></p>
-      <p><i><%= current_user.home_club %></i></p>
-      <p><i><%= current_user.email %></i></p>
-      <p><i><%= current_user.membership_status %></i></p>
-      <hr>
-      <%= link_to edit_user_registration_path do %>
+      <div class="row">
+        <div class="col-md-6">
+          <p><b>Name:</b></p>
+        </div>
+        <div class="col-md-6">
+          <p><%= current_user.first_name %>&nbsp;<%= current_user.last_name %></i></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><b>Home Club:</b></p>
+      </div>
+      <div class="col-md-6">
+        <p><%= current_user.home_club %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><b>Email:</b></p>
+      </div>
+      <div class="col-md-6">
+        <p><%= current_user.email %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p><b>Membership:</b></p>
+      </div>
+      <div class="col-md-6">
+        <p><%= current_user.membership_status %> - <i>This determines your pricing!</i></p>
+      </div>
+    </div>
+    <hr>
+    <%= link_to edit_user_registration_path do %>
       <button>
         Edit Profile
       </button>
-      <% end %>
-      <br>
-      <br>
-    </div>
+    <% end %>
+    <br>
+    <br>
   </div>
-  <div class="event-details">
-    <div>
-      <h4 class="main-section-title">MCPLAWI Events</h4>
-      <hr class="medium-underline">
-      <% if @events.present? %>
-        <% @events.each do |year, event| %>
-          <% event.each do |e| %>
-            <div>
-              <p class="section-title event-title"><%= year %> <%= e.event_title %></p>
-              <i>
-                <p>Course: <%= e.event_location %></p>
-              </i>
-              <i>
-                <p>Date: <%= e.date %>
-                  <% if e.event_end_date.present? %>
-                    - <%= e.end_date %>
-                  <% end %></p>
-              </i>
-              <i>
-                <p>Time: <%= e.event_start_time %></p>
-              </i>
-              <i>
-                <p>Cost: <br>
-                  MCPLA Members - $<%= e.event_cost_mcpla.round %><br>
-                  Non-MCPLA Members - $<%= e.event_cost_non_mcpla.round %><br>
-                  Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
-              </i>
-              <br>
-              <% if current_user && current_user.registered_in?(e) %>
-                <span>
-                  <%= link_to event_path(e) do %>
-                    <%= image_tag 'info.png', class: 'event-icon' %>
-                  <% end %>
-                  &nbsp;&nbsp;&nbsp;<span class="tooltip-1" title="You are registered!"><%= image_tag 'checking.png', class: 'event-icon' %></span></span>
-              <% else %>
+</div>
+<div class="event-details">
+  <div>
+    <h2 class="main-section-title">Tournament Schedule</h2>
+    <hr class="medium-underline">
+    <% if @events.present? %>
+      <% @events.each do |year, event| %>
+        <% event.each do |e| %>
+          <div>
+            <p class="section-title event-title"><%= year %> <%= e.event_title %></p>
+            <p>Course: <%= e.event_location %></p>
+            <p>Date: <%= e.date %>
+              <% if e.event_end_date.present? %>
+                - <%= e.end_date %>
+              <% end %></p>
+            <p>Time: <%= e.event_start_time %></p>
+            <p>Cost: <br>
+              MCPLA Members - $<%= e.event_cost_mcpla.round %><br>
+              Non-MCPLA Members - $<%= e.event_cost_non_mcpla.round %><br>
+              Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
+            <br>
+            <% if current_user && current_user.registered_in?(e) %>
+              <span>
                 <%= link_to event_path(e) do %>
                   <%= image_tag 'info.png', class: 'event-icon' %>
                 <% end %>
-              </div>
-            <% end %>
+                &nbsp;&nbsp;&nbsp;<span class="tooltip-1" title="You are registered!"><%= image_tag 'checking.png', class: 'event-icon' %></span></span>
+            <% else %>
+              <%= link_to event_path(e) do %>
+                <%= image_tag 'info.png', class: 'event-icon' %>
+              <% end %>
+            </div>
+            <hr>
           <% end %>
-          <hr>
         <% end %>
-      <% else %>
-        <div class="event-details">
-          <p>Check back for our events!</p>
-        </div>
       <% end %>
-    </div>
+    <% else %>
+      <div class="event-details">
+        <p>Check back for our events!</p>
+      </div>
+    <% end %>
   </div>
+</div>
 </div>
 </div>
 </div>

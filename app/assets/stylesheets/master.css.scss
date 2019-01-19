@@ -20,7 +20,6 @@ div.row.hero-image {
 .main-info {
   font-weight: 100;
   font-size: 17px;
-  font-style: italic;
 }
 
 .club-info-text {
@@ -180,7 +179,7 @@ mark {
 }
 
 .hero-image {
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/course2.jpg');
+  background: linear-gradient(rgba(78, 73, 73, 0.2), rgba(78, 73, 73, 0.2)), url('/assets/course2.jpg');
   background-blend-mode: darken;
   background-position: center;
   background-repeat: no-repeat;
