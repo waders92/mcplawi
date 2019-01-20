@@ -1,5 +1,41 @@
-#f88e44;
+<div class="row-buffer">
+    <div id="event-tabs" class="event-details">
+      <ul>
+        <li><a href="#participants-tab">Registrations</a></li>
+        <li><a href="#tee-time-tab">Tee Times</a></li>
+        <li><a href="#results-tab">Results</a></li>
+      </ul>
+      <div id="participants-tab">
+        <h4 class="section-title">Registrations (<%= @event.registrations.count %>)</h4>
+        <hr class="short-underline">
+        <%= render "shared/player_table" %>
+      </div>
+      <div id = "tee-time-tab">
+        <h4 class="section-title">Tee Times</h4>
+        <hr class="short-underline">
+        Tee times go here.
+      </div>
+      <div id="results-tab">
+        
+      </div>
+    </div>
+  </div>
+</div>
 
-military-yqbtmv9a
-
-<div>Icons made by <a href="https://www.flaticon.com/authors/twitter" title="Twitter">Twitter</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+<div class="container">
+  <div class="event-details">
+    <h4 class="main-section-title">Membership Roster</h4>
+    <hr class="medium-underline">
+    <%= form_tag(memberships_path, method: :get) do %>
+      <%= text_field_tag :term, params[:term] %>
+      <%= submit_tag 'Search', last_name: nil %>
+    <% end %>
+    <p>Search by last name... (ex: anderson, jones, smith or partial last names - jo (jones) )</p>
+    <br>
+    <% @users.each.with_index do |user, index| %>
+      <i>
+        <p><%= index + 1 %> - <%= user.last_name %>,&nbsp;<%= user.first_name %> - <%= user.home_club %>&nbsp;(<%=user.email %>)</p>
+      </i>
+    <% end %>
+  </div>
+</div>

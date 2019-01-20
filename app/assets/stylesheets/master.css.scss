@@ -190,7 +190,7 @@ mark {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  height: 800px;
+  height: 700px;
 
   h2 {
     color: snow;
@@ -204,6 +204,20 @@ mark {
 
 .continuing-text {
   clear: both;
+}
+
+.flat-icon p {
+  font-size: 15px;
+  color: rgb(204, 198, 198);
+}
+
+.flat-icon a {
+  font-size: 15px;
+  color: rgb(204, 198, 198);
+
+  &:hover {
+    color: rgb(204, 198, 198);
+  }
 }
 
 @media (min-width: 768px) {

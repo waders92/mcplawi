@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create show edit update destroy]
 
   def index
-    @events = Event.all.order('created_at DESC').group_by(&:year)
+    @events = Event.all.order("created_at ASC").group_by(&:year)
   end
 
   def new
@@ -25,7 +25,7 @@ class EventsController < ApplicationController
     @event.update(event_params)
     if @event.save
       send_flash_alert('Event was updated!')
-      redirect_to admin_path
+      redirect_to event_path(@event)
     else
       render 'events/edit'
     end

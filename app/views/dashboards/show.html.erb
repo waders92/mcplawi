@@ -30,10 +30,10 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <p><b>Membership:</b></p>
+        <p><b>Membership:</b><br><i>This determines your pricing!</i></p>
       </div>
       <div class="col-md-6">
-        <p><%= current_user.membership_status %> - <i>This determines your pricing!</i></p>
+        <p><%= current_user.membership_status %></p>
       </div>
     </div>
     <hr>
@@ -53,15 +53,15 @@
     <% if @events.present? %>
       <% @events.each do |year, event| %>
         <% event.each do |e| %>
-          <div>
+          <div class="top-buffer">
             <p class="section-title event-title"><%= year %> <%= e.event_title %></p>
-            <p>Course: <%= e.event_location %></p>
-            <p>Date: <%= e.date %>
+            <p><%= e.event_location %></p>
+            <p><%= e.date %>
               <% if e.event_end_date.present? %>
                 - <%= e.end_date %>
               <% end %></p>
-            <p>Time: <%= e.event_start_time %></p>
-            <p>Cost: <br>
+            <p><%= e.event_start_time %></p><br>
+            <p>Entry Fee-<br>
               MCPLA Members - $<%= e.event_cost_mcpla.round %><br>
               Non-MCPLA Members - $<%= e.event_cost_non_mcpla.round %><br>
               Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
@@ -77,8 +77,8 @@
                 <%= image_tag 'info.png', class: 'event-icon' %>
               <% end %>
             </div>
-            <hr>
           <% end %>
+          <hr>
         <% end %>
       <% end %>
     <% else %>

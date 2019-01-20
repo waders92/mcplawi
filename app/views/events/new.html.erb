@@ -5,39 +5,39 @@
          <%= f.error_notification %>
          <div class="row">
             <div class="col-md-6 field_with_errors">
-              <%= f.input :event_title, required: true, placeholder: 'Presidents Cup' %><br>
+              <%= f.input :event_title, required: true %><br>
             </div>
             <div class="col-md-6">
-              <%= f.input :event_start_date, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: '4/15/2019' %><br>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <%= f.input :event_end_date, required: false, input_html: {class: "datepicker"}, as: :string, placeholder: ' ** Leave blank if 1 day event **'  %><br>
-            </div>
-            <div class="col-md-6">
-              <%= f.input :registration_close, required: true, input_html: {class: "datepicker"}, as: :string, placeholder: '4/7/2019' %><br>
+              <%= f.input :event_start_date, required: true, input_html: {class: "datepicker"}, as: :string %><br>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
-              <%= f.input :event_cost_mcpla, required: true, placeholder: '75' %><br>
+              <%= f.input :event_end_date, required: false, input_html: {class: "datepicker"}, as: :string %><br>
             </div>
             <div class="col-md-6">
-              <%= f.input :event_cost_non_mcpla, required: true, placeholder: '100' %><br>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <%= f.input :event_cost_season_pass, required: true, placeholder: '85' %><br>
-            </div>
-            <div class="col-md-6">
-              <%= f.input :event_location, required: true, placeholder: 'Whitnall Park' %><br>
+              <%= f.input :registration_close, required: true, input_html: {class: "datepicker"}, as: :string %><br>
             </div>
           </div>
           <div class="row">
             <div class="col-md-6">
-              <%= f.input :event_start_time, required: true, input_html: {class: "timepicker"}, placeholder: '8:30 AM' %><br>
+              <%= f.input :event_cost_mcpla, required: true %><br>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :event_cost_non_mcpla, required: true %><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :event_cost_season_pass, required: true %><br>
+            </div>
+            <div class="col-md-6">
+              <%= f.input :event_location, required: true %><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :event_start_time, required: true, input_html: {class: "timepicker"} %><br>
             </div>
             <div class="col-md-6">
               <%= f.input :blue_golf_link, required: true, placeholder: 'https://wsga.bluegolf.com/bluegolf/wsga18/event/wsga1869/index.htm' %>

@@ -17,7 +17,7 @@ class McplinksController < ApplicationController
   def admin
     admin_required
     @event = Event.new
-    @events = Event.all.order('created_at DESC').group_by(&:year)
+    @events = Event.all.order('created_at ASC').group_by(&:year)
   end
 
   private

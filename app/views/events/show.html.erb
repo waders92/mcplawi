@@ -1,14 +1,15 @@
 <div class="container">
   <div class="event-details">
     <h3 class="event-section-title"><%= @event.year %> <%= @event.event_title %></h3>
-    <p>Course: <%= @event.event_location %></p>
-    <p>Date: <%= @event.date %>
+    <p><%= @event.event_location %></p>
+    <p><%= @event.date %>
       <% if @event.event_end_date.present? %>
         - <%= @event.end_date %>
       <% end %>
     </p>
-    <p>Time: <%= @event.event_start_time %></p>
-    <p>Cost: <br>
+    <p><%= @event.event_start_time %></p>
+    <br>
+    <p>Entry Fee-<br>
       MCPLA Members - $<%= @event.event_cost_mcpla.round %><br>
       Non-MCPLA Members - $<%= @event.event_cost_non_mcpla.round %><br>
       Season Pass Holders - $<%= @event.event_cost_season_pass.round %></p>
@@ -39,57 +40,55 @@
       </div>
     <% end %>
   </div>
-  <div class="row-buffer">
-    <div id="event-tabs" class="event-details">
-      <ul>
-        <li><a href="#tabs-8">Participants</a></li>
-        <li><a href="#tabs-9">Results</a></li>
-      </ul>
-      <div id="tabs-8">
-        <h4 class="section-title">Participants</h4>
-        <hr class="short-underline">
-        <% @event.registrations.each.with_index do |event, index| %>
-          <div>
-            <span><%= index + 1 %>- &nbsp;&nbsp;</span><i><span><%= event.user.first_name %>&nbsp;<%= event.user.last_name %></span></i>
-          </div>
-        <% end %>
-      </div>
-      <div id="tabs-9">
-        <% if @event.winners_picture.present? %>
-          <div class="winners-picture">
-            <p>Winner: <%= @event.event_winner %></p>
-            <br>
-            <%= image_tag @event.winners_picture, class: 'img-responsive' %>
-          </div>
-        <% else %>
-          <h4 class="section-title">Check back later for results!</h4>
-        <% end %>
-        <% if @event.image_caption.present? %>
-          <p class="caption"><%= @event.image_caption %></p>
-        <% end %>
-      </div>
-    </div>
+  <div class="event-extras">
+    <h3 id="registrations-area" class="section-title">Registrations</h3>
+    <%= render "shared/player_table" %>
   </div>
-</div>
-<!-- New Modal -->
-<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content register-modal">
-      <div class="modal-body registrations">
-        <h4 class="">You are registering for the <%= @event.event_title %>!</h4>
-        <p>Please verify that your information is correct, then 'Pay With Card'.<br>
-          If any information is incorrect, visit <%= link_to 'Your Profile', dashboards_path %> to update it.
-        </p>
-
-        <hr>
-        <p>Name - <%= current_user.first_name %> <%=current_user.last_name %></p>
-        <p>Email - <%= current_user.email %></p>
-        <p>Membership Status - <%= current_user.membership_status %></p>
-        <p>Entry Fee - $<%= current_user.event_cost(@event).round %></p>
+  <hr>
+  <div>
+    <h3 id="tee-times" class="section-title">Tee Times</h3>
+    <% if @event.blue_golf_link.present? %>
+      <%= link_to 'Tee Times', @event.blue_golf_link,:target => "_blank" %>
+    <% else %>
+      <p> Check back later for tee times!</p>
+    <% end %>
+  </div>
+  <hr>
+  <div>
+    <h3 id="results" class="section-title">Results</h3>
+    <% if @event.winners_picture.present? %>
+      <div class="winners-picture">
+        <p>Winner: <%= @event.event_winner %></p>
+        <br>
+        <%= image_tag @event.winners_picture, class: 'img-responsive' %>
       </div>
-      <div class="modal-footer">
-        <%= form_tag event_registrations_path(@event) do %>
-          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    <% else %>
+      <span> <p>Check back later for results!</p><% if current_user.admin? %>
+        <%= link_to 'Add Winner', edit_event_path(@event), class: 'btn btn-md btn-primary add-winner' %>
+        <% end %></span>
+    <% end %>
+    <% if @event.image_caption.present? %>
+      <p class="caption"><%= @event.image_caption %></p>
+    <% end %>
+  </div>
+  <!-- New Modal -->
+  <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content register-modal">
+        <div class="modal-body registrations">
+          <h4 class="">You are registering for the <%= @event.event_title %>!</h4>
+          <p>Please verify that your information is correct, then 'Pay With Card'.<br>
+            If any information is incorrect, visit <%= link_to 'Your Profile', dashboards_path %> to update it.
+          </p>
+          <hr>
+          <p>Name - <%= current_user.first_name %> <%=current_user.last_name %></p>
+          <p>Email - <%= current_user.email %></p>
+          <p>Membership Status - <%= current_user.membership_status %></p>
+          <p>Entry Fee - $<%= current_user.event_cost(@event).round %></p>
+        </div>
+        <div class="modal-footer">
+          <%= form_tag event_registrations_path(@event) do %>
+            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             var amount = document.querySelector('input[name="event"]:checked').value;
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description="<%= @event.event_title %>"
@@ -99,6 +98,6 @@
             data-name="MCPLA"
             data-zip-code="true"
             data-billing-address="true"></script>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>

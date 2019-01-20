@@ -8,10 +8,6 @@
     <% end %>
     <p>Search by last name... (ex: anderson, jones, smith or partial last names - jo (jones) )</p>
     <br>
-    <% @users.each.with_index do |user, index| %>
-      <i>
-        <p><%= index + 1 %> - <%= user.last_name %>,&nbsp;<%= user.first_name %> - <%= user.home_club %>&nbsp;(<%=user.email %>)</p>
-      </i>
-    <% end %>
+    <%= render "shared/player_list" %>
   </div>
 </div>

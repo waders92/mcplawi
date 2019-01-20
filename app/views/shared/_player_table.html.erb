@@ -1,0 +1,28 @@
+<div class="player-table">
+  <div>
+    <% if @event.registrations.count > 0 %>
+      <table id="registrations" class="registrations-table">
+        <thead>
+          <tr>
+            <th>Reg #</th>
+            <th>Player</th>
+            <th>Home Club</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <% @event.registrations.each.with_index do |event, index| %>
+          <tbody>
+            <tr>
+              <td><%= index +1 %></td>
+              <td><%= event.user.first_name %>&nbsp;<%= event.user.last_name %></td>
+              <td><%= event.user.home_club %></td>
+              <td><%= event.user.email %></td>
+            </tr>
+          </tbody>
+        <% end %>
+      <% else %>
+        <p>No registrations at this time!</p>
+      <% end %>
+    </table>
+  </div>
+</div>

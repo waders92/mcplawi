@@ -14,6 +14,7 @@ $font: 'Source Sans Pro', sans-serif;
   font-weight: 100;
   font-family: $font;
   letter-spacing: .5px;
+  margin: 0;
 }
 
 .btn {
@@ -99,4 +100,12 @@ div#register.modal.fade.in {
 .registrations p {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.event-extras {
+  margin-top: 100px;
+}
+
+a.btn.btn-md.btn-primary.add-winner {
+  margin-left: 0;
 }

@@ -99,4 +99,20 @@ RSpec.describe EventsController, type: :controller do
       expect(response).to have_http_status(:not_found)
     end
   end
+
+  describe ('events#update action') do
+    it 'should allow admin to update the event' do
+      event = FactoryBot.create(:event, event_title: "Title 1")
+      user = User.create(
+        email: 'fakeuser@gmail.com',
+        password: 'secretPassword',
+        password_confirmation: 'secretPassword',
+        admin: 'true'
+      )
+      sign_in user
+      patch :update, id: event.id, event: { event_title: 'Changed' }
+      event.reload
+      expect(event.event_title).to eq ('Changed')
+     end
+  end
 end
