@@ -4,7 +4,7 @@ class McplinksController < ApplicationController
 
   def clubs; end
 
-  def memberships
+  def players
     @users = if params[:term]
                User.where('LOWER(last_name) LIKE ?', "%#{params[:term].downcase}%").order('id DESC')
              else

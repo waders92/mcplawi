@@ -1,25 +1,20 @@
-<div class="player-table">
-    <div>
-        <table id="registrations" class="registrations-table">
-          <thead>
-            <tr>
-              <th>Reg #</th>
-              <th>Player</th>
-              <th>Home Club</th>
-              <th>Email</th>
-            </tr>
-          </thead>
-          <% @users.each.with_index do |user, index| %>
-            <tbody>
-              <tr>
-                <td><%= index +1 %></td>
-                <td><%= user.first_name %>&nbsp;<%= user.last_name %></td>
-                <td><%= user.home_club %></td>
-                <td><%= user.email %></td>
-              </tr>
-            </tbody>
-          <% end %>
-      </table>
-    </div>
-  </div>
-  
+<div>
+  <table id="registrations" class="player-table">
+    <thead>
+      <tr>
+        <th>Player</th>
+        <th>Home Club</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <% @users.each do |user| %>
+      <tbody>
+        <tr>
+          <td><%= user.first_name %>&nbsp;<%= user.last_name %></td>
+          <td><%= user.home_club %></td>
+          <td><%= user.email %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>

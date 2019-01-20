@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'mcplinks#index'
   get '/clubs', to: 'mcplinks#clubs'
   get '/admin', to: 'mcplinks#admin'
-  get '/memberships', to: 'mcplinks#memberships'
+  get '/players', to: 'mcplinks#players'
   get '/confirmation', to: 'mcplinks#confirmation'
   resources :events do
     resources :registrations, only: %i[create show]
