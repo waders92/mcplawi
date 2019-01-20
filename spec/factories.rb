@@ -4,9 +4,12 @@ FactoryBot.define do
   factory :event do
     event_title { 'Test' }
     event_start_date { '2018-09-30' }
-    event_cost_mcpla { '50' }
+    event_cost_mcpla { 50 }
+    event_cost_non_mcpla { 100 }
+    event_cost_season_pass { 150 }
     event_location { 'Test location' }
     event_start_time { '2000-01-01 08:30:00' }
+    registration_close { '1999-12-20 08:30:00' }
     association :user
   end
   factory :user do

@@ -20,9 +20,9 @@ class RegistrationsController < ApplicationController
 
     flash[:notice] = 'You have registered for the event!'
     redirect_to confirmation_path
-    rescue Stripe::CardError => e
-      flash[:error] = e.message
-      redirect_to root_path
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to root_path
   end
 
   private

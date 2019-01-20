@@ -16,7 +16,7 @@ class EventsController < ApplicationController
       send_flash_alert('Event was created!')
       redirect_to admin_path
     else
-      render "events/new"
+      render 'events/new'
     end
   end
 
@@ -27,7 +27,7 @@ class EventsController < ApplicationController
       send_flash_alert('Event was updated!')
       redirect_to admin_path
     else
-      render "events/edit"
+      render 'events/edit'
     end
   end
 

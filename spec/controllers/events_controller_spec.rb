@@ -41,9 +41,12 @@ RSpec.describe EventsController, type: :controller do
       post :create, params: { event: {
         event_title: 'Test',
         event_start_date: '2018-09-30',
-        event_cost_mcpla: '50',
+        event_cost_mcpla: 50,
+        event_cost_non_mcpla: 75,
+        event_cost_season_pass: 100,
         event_location: 'Test location',
-        event_start_time: '2000-01-01 08:30:00'
+        event_start_time: '2000-01-01 08:30:00',
+        registration_close: '1999-12-25 08:30:00'
       } }
 
       expect(response).to redirect_to admin_path
@@ -73,11 +76,25 @@ RSpec.describe EventsController, type: :controller do
   describe 'events#show action' do
     it 'should render the show page if the event is found' do
       event = FactoryBot.create(:event)
+      user = User.create(
+        email: 'fakeuser@gmail.com',
+        password: 'secretPassword',
+        password_confirmation: 'secretPassword',
+        admin: 'true'
+      )
+      sign_in user
       get :show, params: { id: event.id }
       expect(response).to have_http_status(:success)
     end
 
     it 'should return a 404 if the event is not found' do
+      user = User.create(
+        email: 'fakeuser@gmail.com',
+        password: 'secretPassword',
+        password_confirmation: 'secretPassword',
+        admin: 'true'
+      )
+      sign_in user
       get :show, params: { id: '5' }
       expect(response).to have_http_status(:not_found)
     end
