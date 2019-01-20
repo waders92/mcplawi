@@ -6,9 +6,9 @@ class Event < ApplicationRecord
   validates :event_title, presence: true, length: { minimum: 1 }
   validates :event_start_date, presence: true
   validates :event_location, presence: true
-  validates_presence_of :event_cost_mcpla, numericality: { only_integer: true }
-  validates_presence_of :event_cost_non_mcpla, numericality: { only_integer: true }
-  validates_presence_of :event_cost_season_pass, numericality: { only_integer: true }
+  validates :event_cost_mcpla, numericality: { greater_than: 0 }
+  validates :event_cost_non_mcpla, numericality: { greater_than: 0 }
+  validates :event_cost_season_pass, numericality: { greater_than: 0 }
   validates :event_start_time, presence: true
   validates :registration_close, presence: true
 

@@ -11,19 +11,24 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.events.create(event_params)
-
-    send_flash_error('Event not saved! Please fill in all fields!') if @event.invalid?
-    send_flash_alert('Event was created!') if @event.valid?
-    redirect_to admin_path
+    @event = current_user.events.build(event_params)
+    if @event.save
+      send_flash_alert('Event was created!')
+      redirect_to admin_path
+    else
+      render "events/new"
+    end
   end
 
   def update
     @event = Event.find_by(id: params[:id])
     @event.update(event_params)
-    send_flash_error('Event not saved! Please fill in all fields!') if @event.invalid?
-    send_flash_alert('Event was updated!') if @event.valid?
-    redirect_to event_path(@event)
+    if @event.save
+      send_flash_alert('Event was updated!')
+      redirect_to admin_path
+    else
+      render "events/edit"
+    end
   end
 
   def edit

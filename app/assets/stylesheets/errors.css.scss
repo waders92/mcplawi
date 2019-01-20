@@ -1,0 +1,10 @@
+$font: 'Source Sans Pro', sans-serif;
+
+.error, .error_notification {
+  padding: 3px;
+  background-color: rgba(228, 13, 49, 0.7);
+  text-transform: uppercase;
+  color: snow;
+  font-family: $font;
+  margin-bottom: 5px;
+}
