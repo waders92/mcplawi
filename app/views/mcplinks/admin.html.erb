@@ -6,14 +6,14 @@
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-6 event-details">
           <p class="section-title event-title"><%= year %> <%= e.event_title %></p>
-          <p>Course: <%= e.event_location %></p>
-          <p>Date: <%= e.date %>
+          <p><%= e.event_location %></p>
+          <p><%= e.date %>
             <% if e.event_end_date.present? %>
               - <%= e.end_date %>
             <% end %>
           </p>
-          <p>Time: <%= e.event_start_time %></p>
-          <p>Cost: <br>
+          <p><%= e.event_start_time %></p><br>
+          <p>Entry Fee -<br>
             MCPLA Members - $<%= e.event_cost_mcpla.round %><br>
             Non-MCPLA Members - $<%= e.event_cost_non_mcpla.round %><br>
             Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
