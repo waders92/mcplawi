@@ -12,7 +12,8 @@
               - <%= e.end_date %>
             <% end %>
           </p>
-          <p><%= e.event_start_time %></p><br>
+          <p><%= e.event_start_time %></p>
+          <br>
           <p>Entry Fee -<br>
             MCPLA Members - $<%= e.event_cost_mcpla.round %><br>
             Non-MCPLA Members - $<%= e.event_cost_non_mcpla.round %><br>
@@ -108,6 +109,12 @@
             <div class="col-md-6">
               <%= f.input :blue_golf_link, required: true, placeholder: 'https://wsga.bluegolf.com/bluegolf/wsga18/event/wsga1869/index.htm' %>
             </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.label :is_partner_event do %>
+                <%= f.check_box :is_partner_event, checked_value: true, unchecked_value: false %> <span class="labelText">Does this event require a partner?</span>
+              <% end %>            </div>
           </div>
           <br />
         </div>

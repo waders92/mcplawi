@@ -55,6 +55,11 @@
         <div class="col-md-6">
           <%= f.input :image_caption, required: false %>
         </div>
+        <div class="col-md-6">
+          <%= f.label :is_partner_event do %>
+            <%= f.check_box :is_partner_event, checked_value: true, unchecked_value: false %> <span class="labelText">Does this event require a partner?</span>
+          <% end %>
+        </div>
       </div>
       <br />
       <%= f.submit 'Update', class: 'btn btn-primary submit' %>

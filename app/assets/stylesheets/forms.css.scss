@@ -122,3 +122,9 @@ input:-webkit-autofill:focus {
     input.required {
       border: 1px solid red !important;
     }
+
+    input[type="checkbox"] {
+      height: 20px;
+      width: 20px;
+    }
+    

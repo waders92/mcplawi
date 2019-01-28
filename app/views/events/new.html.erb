@@ -1,50 +1,56 @@
 <div class="container">
   <div class="form-style-8 modal-xl">
-      <h2 style="margin-left: -30px; margin-right: -30px;">New Event Form!</h2>
-      <%= simple_form_for @event do |f| %>
-         <%= f.error_notification %>
-         <div class="row">
-            <div class="col-md-6 field_with_errors">
-              <%= f.input :event_title, required: true %><br>
-            </div>
-            <div class="col-md-6">
-              <%= f.input :event_start_date, required: true, input_html: {class: "datepicker"}, as: :string %><br>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <%= f.input :event_end_date, required: false, input_html: {class: "datepicker"}, as: :string %><br>
-            </div>
-            <div class="col-md-6">
-              <%= f.input :registration_close, required: true, input_html: {class: "datepicker"}, as: :string %><br>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <%= f.input :event_cost_mcpla, required: true %><br>
-            </div>
-            <div class="col-md-6">
-              <%= f.input :event_cost_non_mcpla, required: true %><br>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <%= f.input :event_cost_season_pass, required: true %><br>
-            </div>
-            <div class="col-md-6">
-              <%= f.input :event_location, required: true %><br>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <%= f.input :event_start_time, required: true, input_html: {class: "timepicker"} %><br>
-            </div>
-            <div class="col-md-6">
-              <%= f.input :blue_golf_link, required: true, placeholder: 'https://wsga.bluegolf.com/bluegolf/wsga18/event/wsga1869/index.htm' %>
-            </div>
-          </div>
-        <br />
-        <%= f.submit 'Create', class: 'btn btn-primary' %>
-      <% end %>
+    <h2 style="margin-left: -30px; margin-right: -30px;">New Event Form!</h2>
+    <%= simple_form_for @event do |f| %>
+      <%= f.error_notification %>
+      <div class="row">
+        <div class="col-md-6 field_with_errors">
+          <%= f.input :event_title, required: true %><br>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :event_start_date, required: true, input_html: {class: "datepicker"}, as: :string %><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :event_end_date, required: false, input_html: {class: "datepicker"}, as: :string %><br>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :registration_close, required: true, input_html: {class: "datepicker"}, as: :string %><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :event_cost_mcpla, required: true %><br>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :event_cost_non_mcpla, required: true %><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :event_cost_season_pass, required: true %><br>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :event_location, required: true %><br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :event_start_time, required: true, input_html: {class: "timepicker"} %><br>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :blue_golf_link, required: true, placeholder: 'https://wsga.bluegolf.com/bluegolf/wsga18/event/wsga1869/index.htm' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.label :is_partner_event do %>
+            <%= f.check_box :is_partner_event, checked_value: true, unchecked_value: false %> <span class="labelText">Does this event require a partner?</span>
+          <% end %>              </div>
+      </div>
+      <br />
+      <%= f.submit 'Create', class: 'btn btn-primary' %>
+    <% end %>
   </div>
 </div>
