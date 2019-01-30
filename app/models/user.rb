@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :registrations, dependent: :destroy
   has_many :registered_events, through: :registrations, source: :event
+  has_one :partner
 
   def registered_in?(event)
     registered_events.include?(event)

@@ -1,4 +1,7 @@
 FactoryBot.define do
+  factory :partner do
+    
+  end
   factory :registration do
   end
   factory :event do
