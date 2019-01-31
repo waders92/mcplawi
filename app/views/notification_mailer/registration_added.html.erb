@@ -1,6 +1,7 @@
 <p class="club-info-text">
   You have registered for the <%= @registered_event.event_title %>!<br>
   Registration Fee: $<b><%= @event_fee %></b> has been paid.<br>
+  Partner - <%= @player_partner %>
   You can view the event <%= link_to 'here', event_url(@registered_event) %>.
 </p>
 
