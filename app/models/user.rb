@@ -7,8 +7,7 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :registrations, dependent: :destroy
   has_many :registered_events, through: :registrations, source: :event
-  has_many :partners, as: :partnerable
-  has_many :event_partners, through: :partners, source: :event
+  has_one :partner
 
   def registered_in?(event)
     registered_events.include?(event)
@@ -25,11 +24,7 @@ class User < ApplicationRecord
   end
 
   def event_partner
-    if self.partners.length > 0
-    return true
-    else
-      return false
-    end
+    puts self.partner.first_name + " " + self.partner.last_name
   end
 
 end
