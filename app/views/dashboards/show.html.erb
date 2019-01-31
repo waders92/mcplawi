@@ -65,7 +65,16 @@
               MCPLA Members - $<%= e.event_cost_mcpla.round %><br>
               Non-MCPLA Members - $<%= e.event_cost_non_mcpla.round %><br>
               Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
-            <br>
+            <div>
+                <% if e.is_partner_event? %>
+                 <% if current_user.event_partner %>
+                <p>Your partner - <%= current_user.partners[0].first_name %> <%= current_user.partners[0].last_name %></p>
+                <% else %>
+                <p>You don't have a partner! Add one here...</p>
+                <% end %>
+                <% end %>
+                <br>
+            </div>
             <% if current_user && current_user.registered_in?(e) %>
               <span>
                 <%= link_to event_path(e) do %>

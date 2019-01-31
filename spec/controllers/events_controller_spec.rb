@@ -110,7 +110,7 @@ RSpec.describe EventsController, type: :controller do
         admin: 'true'
       )
       sign_in user
-      patch :update, id: event.id, event: { event_title: 'Changed' }
+      patch :update, params: { id: event.id, event: { event_title: 'Changed' } }
       event.reload
       expect(event.event_title).to eq ('Changed')
      end

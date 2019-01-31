@@ -63,8 +63,10 @@
         <%= image_tag @event.winners_picture, class: 'img-responsive' %>
       </div>
     <% else %>
-      <span> <p>Check back later for results!</p><% if current_user.admin? %>
-        <%= link_to 'Add Winner', edit_event_path(@event), class: 'btn btn-md btn-primary add-winner' %>
+      <span>
+        <p>Check back later for results!</p>
+        <% if current_user.admin? %>
+          <%= link_to 'Add Winner', edit_event_path(@event), class: 'btn btn-md btn-primary add-winner' %>
         <% end %></span>
     <% end %>
     <% if @event.image_caption.present? %>
@@ -85,6 +87,13 @@
           <p>Email - <%= current_user.email %></p>
           <p>Membership Status - <%= current_user.membership_status %></p>
           <p>Entry Fee - $<%= current_user.event_cost(@event).round %></p>
+          <% if @event.is_partner_event? %>
+            <% if current_user.event_partner %>
+              <p>Your partner - <%= current_user.partners[0].first_name %> <%= current_user.partners[0].last_name %></p>
+            <% else %>
+              <!-- <p>You don't have a partner! Add one <#%= link_to 'here', new_partners_path %#></p> -->
+            <% end %>
+          <% end %>
         </div>
         <div class="modal-footer">
           <%= form_tag event_registrations_path(@event) do %>

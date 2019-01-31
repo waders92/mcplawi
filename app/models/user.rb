@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :registrations, dependent: :destroy
   has_many :registered_events, through: :registrations, source: :event
-  has_one :partner
+  has_many :partners, as: :partnerable
+  has_many :event_partners, through: :partners, source: :event
 
   def registered_in?(event)
     registered_events.include?(event)
@@ -22,4 +23,13 @@ class User < ApplicationRecord
     return event.event_cost_non_mcpla.round if membership_status == 'Non-Member'
     return event.event_cost_season_pass.round if membership_status == 'Season Pass Holder'
   end
+
+  def event_partner
+    if self.partners.length > 0
+    return true
+    else
+      return false
+    end
+  end
+
 end
