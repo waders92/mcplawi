@@ -6,6 +6,11 @@ class NotificationMailer < ApplicationMailer
     @registered_event = @registration.event
     @event_registrant = @registration.user
     @event_fee = @event_registrant.event_cost(@registration.event)
+    if @event_registrant.partner.present?
+      @player_partner = @event_registrant.partner.first_name + " " + @event_registrant.partner.last_name
+    else 
+      @player_partner = "NO PARTNER ADDED - CONTACT THE MCPLA TO NOTFIY THEM OF YOUR PARTNER!"
+    end
 
     mail(to: @event_registrant.email,
          subject: "A registration has been added for a MCPLAWI event, the #{@registered_event.event_title}")
