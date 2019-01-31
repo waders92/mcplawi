@@ -2,6 +2,9 @@ Hello!
 
   A registration has been added for a MCPLAWI event, the <%= @registered_event.event_title %>
   Player: <%= @event_registrant.first_name %> <%= @event_registrant.last_name %>
+  <% if @registered_event.is_partner_event %>
+  Partner: <%= @player_partner %>
+  <% end %>
   Club: <%= @users_club %>
   Registration Fee: $<%= @event_fee %>has been paid.
 

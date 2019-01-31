@@ -2,6 +2,9 @@
   A new registration has been processsed!<br>
   <b>Event: </b><%= @registered_event.event_title %><br>
   <b>Player: </b> <%= @event_registrant.first_name %>&nbsp;<%= @event_registrant.last_name %><br>
+  <% if @registered_event.is_partner_event %>
+  <b>Partner: <%= @player_partner %> </b>
+  <% end %>
   <b>Club: </b> <%= @users_club %><br>
   <b>Membership Status: </b><%= @event_registrant.membership_status %><br>
   <b>Registration Fee: </b>$<%= @event_fee %> has been paid.<br>
