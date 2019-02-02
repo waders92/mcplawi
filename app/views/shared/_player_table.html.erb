@@ -5,24 +5,20 @@
         <thead>
           <tr>
             <th>Reg #</th>
-            <th>Player</th>
+            <th>Players</th>
             <th>Home Club</th>
-            <th>Email</th>
           </tr>
         </thead>
         <% @event.registrations.each.with_index do |event, index| %>
           <tbody>
             <tr>
               <td><%= index +1 %></td>
-              <% if event.event.is_partner_event %>
-                <% if event.user.partner.present? %>
+              <% if event.event.is_partner_event && event.user.partner.present? %>
               <td><%= event.user.first_name %>&nbsp;<%= event.user.last_name %> / <%= event.user.partner.first_name %>&nbsp;<%= event.user.partner.last_name %></td>
               <% else %>
-              <td><%= event.user.first_name %>&nbsp;<%= event.user.last_name %> / No Parnter Picked</td>
-              <% end %>
+              <td><%= event.user.first_name %>&nbsp;<%= event.user.last_name %></td>
               <% end %>
               <td><%= event.user.home_club %></td>
-              <td><%= event.user.email %></td>
             </tr>
           </tbody>
         <% end %>
