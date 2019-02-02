@@ -8,8 +8,9 @@ class McplinksController < ApplicationController
     @users = if params[:term]
                User.where('LOWER(last_name) LIKE ?', "%#{params[:term].downcase}%").order('id DESC')
              else
-               @users = User.all.limit(25).order('created_at DESC')
+               @users = User.all.limit(50).order('created_at DESC')
              end
+    @total_users = User.all.count
   end
 
   def confirmation; end
