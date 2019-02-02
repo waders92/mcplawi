@@ -14,7 +14,9 @@
       Non-MCPLA Members - $<%= @event.event_cost_non_mcpla.round %><br>
       Season Pass Holders - $<%= @event.event_cost_season_pass.round %></p>
     <p>Registration Closes: <%= @event.reg_closes %></p><br>
+    <% if @event.is_partner_event? %>
     <%= render "shared/partner" %>
+    <% end %>
     <% if user_signed_in? %>
       <div class="top-buffer">
         <% if @event.blue_golf_link.present? %>
@@ -88,7 +90,9 @@
           <p>Email - <%= current_user.email %></p>
           <p>Membership Status - <%= current_user.membership_status %></p>
           <p>Entry Fee - $<%= current_user.event_cost(@event).round %></p>
+          <% if @event.is_partner_event? %>
           <%= render "shared/partner" %>
+          <% end %>
         </div>
         <div class="modal-footer">
           <%= form_tag event_registrations_path(@event) do %>

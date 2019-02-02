@@ -11,6 +11,7 @@ class Event < ApplicationRecord
   validates :event_cost_season_pass, numericality: { greater_than: 0 }
   validates :event_start_time, presence: true
   validates :registration_close, presence: true
+  validates :is_partner_event, inclusion: { in: [ true, false ] }
 
   def total_registrations
     registrations.count > 0 ? registrations.count : 0

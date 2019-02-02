@@ -9,7 +9,7 @@ class NotificationMailer < ApplicationMailer
     if @event_registrant.partner.present?
       @player_partner = @event_registrant.partner.first_name + " " + @event_registrant.partner.last_name
     else 
-      @player_partner = "NO PARTNER ADDED - CONTACT THE MCPLA TO NOTFIY THEM OF YOUR PARTNER!"
+      @player_partner = "NO PARTNER ADDED - CONTACT THE MCPLA TO NOTFIY THEM OF YOUR PARTNER! YOU CAN ALSO ADD ONE IN YOUR PROFILE."
     end
 
     mail(to: @event_registrant.email,

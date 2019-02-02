@@ -14,7 +14,13 @@
           <tbody>
             <tr>
               <td><%= index +1 %></td>
-              <td><%= event.user.first_name %>&nbsp;<%= event.user.last_name %></td>
+              <% if event.event.is_partner_event %>
+                <% if event.user.partner.present? %>
+              <td><%= event.user.first_name %>&nbsp;<%= event.user.last_name %> / <%= event.user.partner.first_name %>&nbsp;<%= event.user.partner.last_name %></td>
+              <% else %>
+              <td><%= event.user.first_name %>&nbsp;<%= event.user.last_name %> / No Parnter Picked</td>
+              <% end %>
+              <% end %>
               <td><%= event.user.home_club %></td>
               <td><%= event.user.email %></td>
             </tr>
