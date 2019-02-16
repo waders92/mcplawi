@@ -1,9 +1,51 @@
-           <% if event.event.is_partner_event %>
-                <% if event.user.partner.present? %>
-              <td><%= event.user.first_name %>&nbsp;<%= event.user.last_name %> / <%= event.user.partner.first_name %>&nbsp;<%= event.user.partner.last_name %></td>
-              <% else %>
-              <td><%= event.user.first_name %>&nbsp;<%= event.user.last_name %> / No Parnter Picked</td>
-              <% end %>
-              <td><%= event.user.first_name %>&nbsp;<%= event.user.last_name %></td>
-              <% end %>
-              <td><%= event.user.home_club %></td>
+
+
+MCPLA CLUB TREASURERS (updated 01/13/2016)
+
+Brown Deer Golf Club
+%Mike Kruck
+5630 S. Honey Creek Dr
+Milwaukee,WI 53221
+414-491-7473
+Mikek5630@gmail.com
+
+Currie Park Men’s Golf Club
+% Brian Peterson
+405 N Rosedale Dr
+Brookfield, WI 53005
+262-938-0139  cell 414-339-3738
+
+Dretzka Park Men’s Golf Club
+% Jim Franke
+S52 W25258 Poppy Fields Road
+Waukesha, WI 53189
+262-547-9543 cell 262-547-9494
+jfranke2@wi.rr.com
+
+Grant Park Men’s Club
+% Ken Lauffer
+617 Oak Street
+South Milwaukee, WI 53172
+762-1742 cell 571-5800
+ken.lauffer@hotmail.com
+
+Greenfield Park Golf Club
+% Lou Luedtke
+1816 Kristin Lane
+South Milwaukee, WI 53172
+414-416-6457
+brewerlou@gmail.com
+
+Oakwood Men’s Golf Club
+% Kurtis Beronja
+7606 S Barbian Ct
+Franklin, WI 53132
+414-425-5822
+kberonja@wi.rr.com
+
+Whitnall Park Men’s Golf Club
+% Rick Bartman
+5810 Glen Flora Dr
+Greendale, WI 53129
+531-9833
+rickbartman2@gmail.com
