@@ -1,4 +1,9 @@
 FactoryBot.define do
+  factory :photo do
+    flight_winner { "" }
+    winners_image { "" }
+    which_flight { "MyString" }
+  end
   factory :partner do
     
   end

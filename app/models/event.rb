@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user
-  mount_uploader :winners_picture, ImageUploader
   has_many :registrations, dependent: :destroy
+  has_many :photos
 
   validates :event_title, presence: true, length: { minimum: 1 }
   validates :event_start_date, presence: true

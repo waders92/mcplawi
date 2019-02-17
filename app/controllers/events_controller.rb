@@ -53,7 +53,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:event_title, :event_start_date, :event_end_date, :event_cost_mcpla, :event_cost_non_mcpla, :event_cost_season_pass, :registration_close, :event_location, :event_start_time, :event_winner, :winners_picture, :blue_golf_link, :image_caption, :is_partner_event)
+    params.require(:event).permit(:event_title, :event_start_date, :event_end_date, :event_cost_mcpla, :event_cost_non_mcpla, :event_cost_season_pass, :registration_close, :event_location, :event_start_time, :blue_golf_link, :is_partner_event)
   end
 
   def admin_required

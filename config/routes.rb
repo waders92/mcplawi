@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   get '/confirmation', to: 'mcplinks#confirmation'
   resources :events do
     resources :registrations, only: %i[create show]
+    resources :photos
   end
 end

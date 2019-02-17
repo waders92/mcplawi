@@ -59,22 +59,23 @@
   <hr>
   <div>
     <h3 id="results" class="section-title">Results</h3>
-    <% if @event.winners_picture.present? %>
-      <div class="winners-picture">
-        <p>Winner: <%= @event.event_winner %></p>
+    <div class="admin-area top-buffer bottom-buffer">
+      <% if current_user.admin? %>
+      <%= link_to 'Add Flight Winners', new_event_photo_path(@event), class: 'btn btn-primary btn-md winner-btn' %>
+      <% end %>
+    </div>
+    <div class="event-winners club-info-text">
+      <% @event.photos.each do |event| %>
+      <div>
+        <h3 class="section-title"><%= event.which_flight %></h3>
+        <p>Winner: <%= event.flight_winner %></p>
+        <p>Score: <%= event.winning_score %></p>
+        <%= image_tag event.winners_image, class: 'img-responsive' %>
         <br>
-        <%= image_tag @event.winners_picture, class: 'img-responsive' %>
       </div>
-    <% else %>
-      <span>
-        <p>Check back later for results!</p>
-        <% if current_user.admin? %>
-          <%= link_to 'Add Winner', edit_event_path(@event), class: 'btn btn-md btn-primary add-winner' %>
-        <% end %></span>
-    <% end %>
-    <% if @event.image_caption.present? %>
-      <p class="caption"><%= @event.image_caption %></p>
-    <% end %>
+      <hr>
+      <% end %>
+    </div>
   </div>
   <!-- New Modal -->
   <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
