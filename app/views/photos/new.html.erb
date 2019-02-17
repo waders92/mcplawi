@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="form-style-8 modal-xl">
+    <h2 style="margin-left: -30px; margin-right: -30px;">Add a flight winner</h2>
+    <%= simple_form_for @photo, url: event_photos_path(@event) do |f| %>
+      <%= f.error_notification %>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :which_flight, required: true %><br>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :winners_image %><br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :flight_winner, require: true %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :winning_score, required: true %>
+          </div>
+        </div>
+      <br />
+      <%= f.submit 'Create', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

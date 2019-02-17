@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190131003619) do
+ActiveRecord::Schema.define(version: 20190216145947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,11 +23,8 @@ ActiveRecord::Schema.define(version: 20190131003619) do
     t.decimal  "event_cost_mcpla"
     t.string   "event_location"
     t.string   "event_start_time"
-    t.string   "event_winner"
-    t.string   "winners_picture"
     t.integer  "user_id"
     t.string   "blue_golf_link"
-    t.string   "image_caption"
     t.date     "registration_close"
     t.date     "event_end_date"
     t.decimal  "event_cost_non_mcpla"
@@ -48,6 +45,16 @@ ActiveRecord::Schema.define(version: 20190131003619) do
     t.index ["event_id"], name: "index_partners_on_event_id", using: :btree
     t.index ["partnerable_type", "partnerable_id"], name: "index_partners_on_partnerable_type_and_partnerable_id", using: :btree
     t.index ["user_id"], name: "index_partners_on_user_id", using: :btree
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string   "flight_winner"
+    t.string   "winners_image"
+    t.string   "which_flight"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "event_id"
+    t.integer  "winning_score"
   end
 
   create_table "registrations", force: :cascade do |t|
