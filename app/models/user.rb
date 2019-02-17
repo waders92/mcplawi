@@ -14,7 +14,7 @@ class User < ApplicationRecord
   end
 
   def self.admin_users
-    User.where(admin: true).pluck(:email)
+    User.where(isTreasurer: true).pluck(:email)
   end
 
   def event_cost(event)
