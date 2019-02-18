@@ -1,41 +1,14 @@
 class PartnersController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy]
-  respond_to :html, :xml, :json
-
-  def new
-   @partner = Partner.new
- end
 
   def create
-    @partner =current_user.create_partner(partner_params)
-
-    if @partner.save
-     send_flash_alert('Partner was added!')
-     redirect_to dashboards_path
-   else
-     render 'partners/new'
-   end
- end
-
-  def edit
-    @partner = Partner.find_by(id: params[:id])
-  end
-
-  def update 
-   @partner = Partner.find_by(id: params[:id])
-   @partner.update(partner_params)
-     if @partner.save
-      send_flash_alert('Partner was updated!')
-      redirect_to dashboards_path
-     else
-      render 'partners/edit'
-     end
-  end
-  
-  def destroy
-    @partner = Partner.find_by(id: params[:id])
-    @partner.destroy
-    send_flash_alert('Parnter has been removed!')
+    @event = Event.find(params[:event_id])
+    @event.partners.create(partner_params.merge(user: current_user))
+    if @event.save
+      send_flash_alert('Partner was added!')
+    else
+      send_flash_alert('Partner was not added!')
+    end
     redirect_to dashboards_path
   end
 
@@ -47,6 +20,15 @@ class PartnersController < ApplicationController
 
   def send_flash_alert(message)
     flash[:alert] = message
+  end
+
+  def find_partnerable
+    params.each do |name, value|
+      if name =~ /(.+)_id$/
+        return $1.classify.constantize.find(value)
+      end
+    end
+    nil
   end
 end
 

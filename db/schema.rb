@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190217164159) do
+ActiveRecord::Schema.define(version: 20190217233701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,16 +34,13 @@ ActiveRecord::Schema.define(version: 20190217164159) do
   end
 
   create_table "partners", force: :cascade do |t|
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "user_id"
     t.integer  "event_id"
-    t.integer  "partnerable_id"
-    t.string   "partnerable_type"
     t.index ["event_id"], name: "index_partners_on_event_id", using: :btree
-    t.index ["partnerable_type", "partnerable_id"], name: "index_partners_on_partnerable_type_and_partnerable_id", using: :btree
     t.index ["user_id"], name: "index_partners_on_user_id", using: :btree
   end
 

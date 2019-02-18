@@ -30,33 +30,11 @@
     </div>
     <div class="row">
       <div class="col-md-6">
-        <p><b>Membership:</b><br><i>This determines your pricing!</i></p>
+        <p><b>Membership:</b><br>
+          <i>This determines your pricing!</i></p>
       </div>
       <div class="col-md-6">
         <p><%= current_user.membership_status %></p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <p><b>My Partner (2 Man Events Only):</b></p>
-      </div>
-      <div class="col-md-6">
-          <% if current_user.partner.present? %>
-          <p><%= current_user.partner.first_name %> <%=current_user.partner.last_name %> 
-            <%= link_to edit_partner_path(current_user.partner) do %>
-            <%= image_tag 'pencil.png', class: 'info-icons' %>
-            <% end %>
-            <%= link_to partner_path(current_user.partner), method: :delete, data: {confirm: 'Are you sure you want to remove your partner?'} do %>
-            <%= image_tag 'x-mark.png', class: 'info-icons' %>
-            <% end %>
-          </p>
-          <% else %>
-          <p>Add a partner 
-            <%= link_to new_partner_path do %>
-            <%= image_tag 'add.png', class: 'add-icon' %>
-            <% end %>
-          </p>
-          <% end %>
       </div>
     </div>
     <hr>
@@ -83,16 +61,42 @@
               <% if e.event_end_date.present? %>
                 - <%= e.end_date %>
               <% end %></p>
-            <p><%= e.event_start_time %></p><br>
+            <p><%= e.event_start_time %></p>
+            <br>
             <p>Entry Fee-<br>
               MCPLA Members - $<%= e.event_cost_mcpla.round %><br>
               Non-MCPLA Members - $<%= e.event_cost_non_mcpla.round %><br>
-              Season Pass Holders - $<%= e.event_cost_season_pass.round %></p><br>
-            <div>
-                <% if e.is_partner_event? %>
-                <%= render "shared/partner" %>
-                <% end %>
-                <br>
+              Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
+            <br>
+            <div class="bottom-buffer">
+              <% if current_user.partners.any? %>
+              <p>Your partner for the <%= e.event_title %> is <%= current_user.event_partner(e) %></p>
+              <% else %>
+              <p>This event requires a partner.</p>
+              <button class="btn btn-primary btn-md partner-btn bottom-buffer" data-toggle="modal" data-target="#partnerModal">
+                Add a Partner
+              </button>
+              <% end %>
+            </div>
+            <!-- partner modal -->
+            <%= simple_form_for @partner, url: event_partners_path(e) do |f| %>
+              <div class="modal fade" id="partnerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl form-style-8" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <h2 class="main-section-title">Add Partner</h2>
+                      <%= f.error_notification %>
+                      <br />
+                      <div>
+                          <%= f.input :first_name %>
+                          <%= f.input :last_name %>
+                          <br>
+                          <%= f.submit "Add a Partner", class: 'btn btn-primary btn-md' %>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
             </div>
             <% if current_user && current_user.registered_in?(e) %>
               <span>

@@ -1,12 +1,13 @@
 <div class="container">
   <div class="form-style-8 modal-md">
-    <h2 style="margin-left: -30px; margin-right: -30px;">Add a partner!</h2>
-    <%= simple_form_for [@partner] do |f| %>
+    <h2 style="margin-left: -30px; margin-right: -30px;">Add a partner</h2>
+    <%= simple_form_for @partner do |f| %>
       <%= f.error_notification %>
       <div class="row">
           <div class="col-md-6 field_with_errors">
             <%= f.input :first_name, required: true %><br>
             <%= f.input :last_name, required: true %><br>
+            <%= hidden_field_tag "user_id", current_user.id%>
           </div>
         </div>
       <br />

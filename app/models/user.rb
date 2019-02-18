@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :registrations, dependent: :destroy
   has_many :registered_events, through: :registrations, source: :event
-  has_one :partner
+  has_many :partners
 
   def registered_in?(event)
     registered_events.include?(event)
@@ -23,8 +23,13 @@ class User < ApplicationRecord
     return event.event_cost_season_pass.round if membership_status == 'Season Pass Holder'
   end
 
-  def event_partner
-    puts self.partner.first_name + " " + self.partner.last_name
+  def event_partner(event)
+    event.partners.each do |p|
+      self.partners.each do |m|
+        if p.user_id == self.id && m.event_id == p.event_id
+          return p
+        end
+      end
+    end
   end
-
 end
