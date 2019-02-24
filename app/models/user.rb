@@ -23,13 +23,37 @@ class User < ApplicationRecord
     return event.event_cost_season_pass.round if membership_status == 'Season Pass Holder'
   end
 
-  def event_partner(event)
-    event.partners.each do |p|
-      self.partners.each do |m|
-        if p.user_id == self.id && m.event_id == p.event_id
-          return p
-        end
+  def event_partner(current_event)
+    first_name = ""
+    last_name = ""
+    current_partner = []
+
+    @partners = partners.all
+    @partners.each do |p|
+      current_partner << p
+    end
+
+    current_partner.each do |p|
+      if p.event_id == current_event.id
+          first_name = p.first_name
+          last_name = p.last_name
       end
     end
+    return first_name + " " + last_name
+  end
+
+  def has_partner_for_event(current_event)
+    @partners = partners.all
+    @partners.each do |p|
+      if p.event_id == current_event.id
+        return true
+      end
+    end
+    return false
+  end
+
+  def registered_partner(registration)
+    event = registration.event
+    return event_partner(event)
   end
 end

@@ -38,6 +38,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @partner = Partner.new
     @event = Event.find_by(id: params[:id])
     return render_not_found if @event.blank?
   end

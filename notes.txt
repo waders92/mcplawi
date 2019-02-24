@@ -6,3 +6,48 @@
                     <%= f.submit "Add a Partner", class: 'btn btn-primary btn-md' %>
                 </div>
                 <% end %>
+
+
+                  def event_partner(event)
+    event.partners.each do |p|
+      self.partners.each do |m|
+        if p.user_id == self.id && m.event_id == p.event_id
+          p
+        end
+      end
+    end
+  end
+
+
+               <% if e.player_partner(current_user, e) %>
+              <!-- figure out how to display the name of the partner and not the collection-->
+              <p>Your partner for the <%= e.event_title %> is <%= current_user.event_partner(e) %></p>
+              <% else %>
+              <p>This event requires a partner.</p>
+              <button class="btn btn-primary btn-md partner-btn bottom-buffer" data-toggle="modal" data-target="#partnerModal">
+                Add a Partner
+              </button>
+              <% end %>
+
+                                <!-- partner modal -->
+                  <%= simple_form_for @partner, url: event_partners_path(@event) do |f| %>
+                  <div class="modal fade" id="partnerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl form-style-8" role="document">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <h2 class="main-section-title">Add Partner</h2>
+                          <%= f.error_notification %>
+                          <br />
+                          <div>
+                              <%= f.input :first_name %>
+                              <%= f.input :last_name %>
+                              <br>
+                              <%= f.submit "Add a Partner", class: 'btn btn-primary btn-md' %>
+                          </div>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+
+                      self.partners.where(current_event.id == event_ids == event_id).select("first_name, last_name").first 

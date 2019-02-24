@@ -13,10 +13,21 @@
       MCPLA Members - $<%= @event.event_cost_mcpla.round %><br>
       Non-MCPLA Members - $<%= @event.event_cost_non_mcpla.round %><br>
       Season Pass Holders - $<%= @event.event_cost_season_pass.round %></p>
-    <p>Registration Closes: <%= @event.reg_closes %></p><br>
-    <% if @event.is_partner_event? %>
-    <%= render "shared/partner" %>
-    <% end %>
+    <p>Registration Closes: <%= @event.reg_closes %></p>
+    <% if @event.is_partner_event? && current_user.has_partner_for_event(@event) == false %>
+      <p>This event requires a partner.</p>
+   <% end %>
+    <div class="bottom-buffer">
+      <% if current_user.has_partner_for_event(@event) %>
+        <p class="club-info-text">
+          Partner: <%= current_user.event_partner(@event) %>
+        </p>
+      <% else %>
+      <% if @event.is_partner_event? %>
+        <%= link_to 'Add a Partner', new_event_partner_path(@event), class: 'btn btn-primary btn-md partner-btn bottom-buffer' %>
+      <% end %>
+      <% end %>
+    </div>
     <% if user_signed_in? %>
       <div class="top-buffer">
         <% if @event.blue_golf_link.present? %>
@@ -61,19 +72,19 @@
     <h3 id="results" class="section-title">Results</h3>
     <div class="admin-area top-buffer bottom-buffer">
       <% if current_user.admin? %>
-      <%= link_to 'Add Flight Winners', new_event_photo_path(@event), class: 'btn btn-primary btn-md winner-btn' %>
+        <%= link_to 'Add Flight Winners', new_event_photo_path(@event), class: 'btn btn-primary btn-md winner-btn' %>
       <% end %>
     </div>
     <div class="event-winners club-info-text">
       <% @event.photos.each do |event| %>
-      <div>
-        <h3 class="section-title"><%= event.which_flight %></h3>
-        <p>Winner: <%= event.flight_winner %></p>
-        <p>Score: <%= event.winning_score %></p>
-        <%= image_tag event.winners_image, class: 'img-responsive' %>
-        <br>
-      </div>
-      <hr>
+        <div>
+          <h3 class="section-title"><%= event.which_flight %></h3>
+          <p>Winner: <%= event.flight_winner %></p>
+          <p>Score: <%= event.winning_score %></p>
+          <%= image_tag event.winners_image, class: 'img-responsive' %>
+          <br>
+        </div>
+        <hr>
       <% end %>
     </div>
   </div>
@@ -92,7 +103,7 @@
           <p>Membership Status - <%= current_user.membership_status %></p>
           <p>Entry Fee - $<%= current_user.event_cost(@event).round %></p>
           <% if @event.is_partner_event? %>
-          <%= render "shared/partner" %>
+            <%= render "shared/partner" %>
           <% end %>
         </div>
         <div class="modal-footer">

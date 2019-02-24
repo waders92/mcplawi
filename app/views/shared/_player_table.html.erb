@@ -13,8 +13,8 @@
           <tbody>
             <tr>
               <td><%= index +1 %></td>
-              <% if event.event.is_partner_event && event.user.partner.present? %>
-              <td><%= event.user.first_name %>&nbsp;<%= event.user.last_name %> / <%= event.user.partner.first_name %>&nbsp;<%= event.user.partner.last_name %></td>
+              <% if event.event.is_partner_event? %>
+              <td><%= event.user.first_name %>&nbsp;<%= event.user.last_name %> / <%= event.user.registered_partner(event) %></td>
               <% else %>
               <td><%= event.user.first_name %>&nbsp;<%= event.user.last_name %></td>
               <% end %>

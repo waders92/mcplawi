@@ -1,7 +1,7 @@
 <div class="container">
   <div class="form-style-8 modal-md">
-    <h2 style="margin-left: -30px; margin-right: -30px;">Add a partner</h2>
-    <%= simple_form_for @partner do |f| %>
+    <h2 style="margin-left: -30px; margin-right: -30px;">Add a partner for <%= @event.event_title %></h2>
+    <%= simple_form_for @partner, url: event_partners_path(@event) do |f| %>
       <%= f.error_notification %>
       <div class="row">
           <div class="col-md-6 field_with_errors">

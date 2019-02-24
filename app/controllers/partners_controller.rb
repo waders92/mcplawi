@@ -1,6 +1,11 @@
 class PartnersController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update destroy]
 
+  def new
+    @event = Event.find(params[:event_id])
+    @partner = Partner.new
+  end
+  
   def create
     @event = Event.find(params[:event_id])
     @event.partners.create(partner_params.merge(user: current_user))
@@ -9,7 +14,7 @@ class PartnersController < ApplicationController
     else
       send_flash_alert('Partner was not added!')
     end
-    redirect_to dashboards_path
+    redirect_to event_path(@event)
   end
 
   private

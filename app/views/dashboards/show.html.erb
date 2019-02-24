@@ -67,36 +67,19 @@
               MCPLA Members - $<%= e.event_cost_mcpla.round %><br>
               Non-MCPLA Members - $<%= e.event_cost_non_mcpla.round %><br>
               Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
-            <br>
-            <div class="bottom-buffer">
-              <% if current_user.partners.any? %>
-              <p>Your partner for the <%= e.event_title %> is <%= current_user.event_partner(e) %></p>
+            <div class="partner">
+              <% if e.is_partner_event? %>
+               <% if current_user.has_partner_for_event(e) %>
+              <p class="club-info-text">
+                 Partner:  <%= current_user.event_partner(e) %>
+              </p>
               <% else %>
-              <p>This event requires a partner.</p>
-              <button class="btn btn-primary btn-md partner-btn bottom-buffer" data-toggle="modal" data-target="#partnerModal">
-                Add a Partner
-              </button>
+              <p class="club-info-text">
+                  Partner: NO PARTNER SELECTED. Add one on the <%= link_to 'EVENT PAGE', event_path(e) %>
+               </p>
               <% end %>
-            </div>
-            <!-- partner modal -->
-            <%= simple_form_for @partner, url: event_partners_path(e) do |f| %>
-              <div class="modal fade" id="partnerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-xl form-style-8" role="document">
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <h2 class="main-section-title">Add Partner</h2>
-                      <%= f.error_notification %>
-                      <br />
-                      <div>
-                          <%= f.input :first_name %>
-                          <%= f.input :last_name %>
-                          <br>
-                          <%= f.submit "Add a Partner", class: 'btn btn-primary btn-md' %>
-                      </div>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
+              <% end %>
+              <br>
             </div>
             <% if current_user && current_user.registered_in?(e) %>
               <span>
