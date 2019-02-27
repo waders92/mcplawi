@@ -3,5 +3,6 @@ class DashboardsController < ApplicationController
 
   def show
     @events = Event.all.order('created_at ASC').group_by(&:year)
+    @partner = Partner.new
   end
 end

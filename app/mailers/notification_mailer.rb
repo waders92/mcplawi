@@ -6,8 +6,8 @@ class NotificationMailer < ApplicationMailer
     @registered_event = @registration.event
     @event_registrant = @registration.user
     @event_fee = @event_registrant.event_cost(@registration.event)
-    if @event_registrant.partner.present?
-      @player_partner = @event_registrant.partner.first_name + " " + @event_registrant.partner.last_name
+    if @event_registrant.has_partner_for_event(@registered_event)
+      @player_partner = @event_registrant.event_partner(@registered_event)
     else 
       @player_partner = "NO PARTNER ADDED - CONTACT THE MCPLA TO NOTFIY THEM OF YOUR PARTNER! YOU CAN ALSO ADD ONE IN YOUR PROFILE."
     end
@@ -23,7 +23,7 @@ class NotificationMailer < ApplicationMailer
     @event_fee = @event_registrant.event_cost(@registration.event)
     @users_club = @event_registrant.home_club
     if @event_registrant.partner.present?
-      @player_partner = @event_registrant.partner.first_name + " " + @event_registrant.partner.last_name
+      @player_partner = @event_registrant.has_partner_for_event(@registered_event)
     else 
       @player_partner = "NO PARTNER ADDED - CONTACT PLAYER DIRECTLY!"
     end

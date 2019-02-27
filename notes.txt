@@ -1,51 +1,53 @@
+                <%= simple_form_for @partner, url: event_partners_path(e) do |f| %>
+                <div class="form-style-8 modal-md">
+                    <%= f.input :first_name %>
+                    <%= f.input :last_name %>
+                    <br>
+                    <%= f.submit "Add a Partner", class: 'btn btn-primary btn-md' %>
+                </div>
+                <% end %>
 
 
-MCPLA CLUB TREASURERS (updated 01/13/2016)
+                  def event_partner(event)
+    event.partners.each do |p|
+      self.partners.each do |m|
+        if p.user_id == self.id && m.event_id == p.event_id
+          p
+        end
+      end
+    end
+  end
 
-Brown Deer Golf Club
-%Mike Kruck
-5630 S. Honey Creek Dr
-Milwaukee,WI 53221
-414-491-7473
-Mikek5630@gmail.com
 
-Currie Park Men’s Golf Club
-% Brian Peterson
-405 N Rosedale Dr
-Brookfield, WI 53005
-262-938-0139  cell 414-339-3738
+               <% if e.player_partner(current_user, e) %>
+              <!-- figure out how to display the name of the partner and not the collection-->
+              <p>Your partner for the <%= e.event_title %> is <%= current_user.event_partner(e) %></p>
+              <% else %>
+              <p>This event requires a partner.</p>
+              <button class="btn btn-primary btn-md partner-btn bottom-buffer" data-toggle="modal" data-target="#partnerModal">
+                Add a Partner
+              </button>
+              <% end %>
 
-Dretzka Park Men’s Golf Club
-% Jim Franke
-S52 W25258 Poppy Fields Road
-Waukesha, WI 53189
-262-547-9543 cell 262-547-9494
-jfranke2@wi.rr.com
+                                <!-- partner modal -->
+                  <%= simple_form_for @partner, url: event_partners_path(@event) do |f| %>
+                  <div class="modal fade" id="partnerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl form-style-8" role="document">
+                      <div class="modal-content">
+                        <div class="modal-body">
+                          <h2 class="main-section-title">Add Partner</h2>
+                          <%= f.error_notification %>
+                          <br />
+                          <div>
+                              <%= f.input :first_name %>
+                              <%= f.input :last_name %>
+                              <br>
+                              <%= f.submit "Add a Partner", class: 'btn btn-primary btn-md' %>
+                          </div>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
 
-Grant Park Men’s Club
-% Ken Lauffer
-617 Oak Street
-South Milwaukee, WI 53172
-762-1742 cell 571-5800
-ken.lauffer@hotmail.com
-
-Greenfield Park Golf Club
-% Lou Luedtke
-1816 Kristin Lane
-South Milwaukee, WI 53172
-414-416-6457
-brewerlou@gmail.com
-
-Oakwood Men’s Golf Club
-% Kurtis Beronja
-7606 S Barbian Ct
-Franklin, WI 53132
-414-425-5822
-kberonja@wi.rr.com
-
-Whitnall Park Men’s Golf Club
-% Rick Bartman
-5810 Glen Flora Dr
-Greendale, WI 53129
-531-9833
-rickbartman2@gmail.com
+                      self.partners.where(current_event.id == event_ids == event_id).select("first_name, last_name").first 

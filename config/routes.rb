@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   resource :dashboards, only: [:show]
-  resources :partners
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'mcplinks#index'
   get '/clubs', to: 'mcplinks#clubs'
@@ -12,5 +11,6 @@ Rails.application.routes.draw do
   resources :events do
     resources :registrations, only: %i[create show]
     resources :photos
+    resources :partners
   end
 end

@@ -196,6 +196,10 @@ mark {
   padding: .5em !important;
 }
 
+button.btn.btn-primary.btn-md.partner-btn {
+  margin-left: 0;
+}
+
 .hero-image {
   background: linear-gradient(rgba(78, 73, 73, 0.2), rgba(78, 73, 73, 0.2)), url('/assets/course2.jpg');
   background-blend-mode: darken;

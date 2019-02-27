@@ -1,5 +1,5 @@
-<% if current_user.partner.present? %>
-  <p><b>Parnter - </b><%= current_user.partner.first_name %> <%= current_user.partner.last_name %></p>
+<% if current_user.has_partner_for_event(@event) %>
+<p>Your partner is <%= current_user.event_partner(@event) %>.</p>
 <% else %>
-  <p>You don't have a partner, add one <%= link_to 'here', new_partner_path %></p>
+<p>You don't have a partner! Add one <%= link_to 'HERE', event_path(@event) %>
 <% end %>
