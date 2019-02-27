@@ -22,8 +22,8 @@ class NotificationMailer < ApplicationMailer
     @event_registrant = @registration.user
     @event_fee = @event_registrant.event_cost(@registration.event)
     @users_club = @event_registrant.home_club
-    if @event_registrant.partner.present?
-      @player_partner = @event_registrant.has_partner_for_event(@registered_event)
+    if @event_registrant.has_partner_for_event(@registered_event)
+      @player_partner = @event_registrant.event_partner(@registered_event)
     else 
       @player_partner = "NO PARTNER ADDED - CONTACT PLAYER DIRECTLY!"
     end

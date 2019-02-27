@@ -2,7 +2,7 @@
   You have registered for the <%= @registered_event.event_title %>!<br>
   Registration Fee: $<%= @event_fee %> has been paid.<br>
   <% if @registered_event.is_partner_event %>
-  Partner: %= @player_partner %><br>
+  Partner: <%= @player_partner %><br>
   <% end %>
   You can view the event <%= link_to 'here', event_url(@registered_event) %>.
 </p>
