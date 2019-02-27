@@ -26,15 +26,6 @@ class PartnersController < ApplicationController
   def send_flash_alert(message)
     flash[:alert] = message
   end
-
-  def find_partnerable
-    params.each do |name, value|
-      if name =~ /(.+)_id$/
-        return $1.classify.constantize.find(value)
-      end
-    end
-    nil
-  end
 end
 
 

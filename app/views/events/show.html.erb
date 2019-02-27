@@ -28,6 +28,12 @@
       <% end %>
       <% end %>
     </div>
+    <% if current_user && current_user.registered_in?(@event) %>
+    <% else %>
+    <div>
+      <p style="color: red";>YOU ARE NOT REGISTERED FOR THIS EVENT.</p>
+    </div>
+    <% end %>
     <% if user_signed_in? %>
       <div class="top-buffer">
         <% if @event.blue_golf_link.present? %>
@@ -56,7 +62,12 @@
   </div>
   <div class="event-extras">
     <h3 id="registrations-area" class="section-title">Registrations</h3>
-    <%= render "shared/player_table" %>
+    <div id="registrations">
+        <%= render "shared/player_table" %>
+    </div>
+    <% if @event.registrations.count > 0 %>
+    <button class="reg-btn top-buffer">Show/Hide Registrations</button>
+    <% end %>
   </div>
   <hr>
   <div>
