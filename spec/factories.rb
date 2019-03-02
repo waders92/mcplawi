@@ -1,4 +1,7 @@
 FactoryBot.define do
+  factory :minute do
+    
+  end
   factory :photo do
     flight_winner { "" }
     winners_image { "" }

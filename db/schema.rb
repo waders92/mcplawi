@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190217233701) do
+ActiveRecord::Schema.define(version: 20190302194425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 20190217233701) do
     t.decimal  "event_cost_season_pass"
     t.boolean  "is_partner_event",       default: false
     t.index ["user_id"], name: "index_events_on_user_id", using: :btree
+  end
+
+  create_table "minutes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "title"
+    t.string   "pdf_file"
+    t.integer  "user_id"
+    t.date     "date"
   end
 
   create_table "partners", force: :cascade do |t|
