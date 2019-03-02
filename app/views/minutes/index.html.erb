@@ -1,0 +1,32 @@
+<div class="container">
+  <h2 class="main-section-title">Meeting Minutes</h2>
+  <hr class="medium-underline">
+  <% if current_user && current_user.admin? %>
+  <div class="bottom-buffer">
+    <%= link_to 'Add New Meeting Minutes', new_minute_path, class: 'btn btn-md btn-primary btn-minutes' %>
+  </div>
+  <% end %>
+  <% if @minutes.present? %>
+    <% @minutes.each do |year, minute| %>
+      <% minute.each do |m| %>
+        <div class="event-details">
+          <p class="section-title event-title"><%= year %> <%= m.title %></p>
+          <p><%= m.minutes_date %></p>
+          <br>
+          <span>
+            <%= link_to m.pdf_file.url, target: '_blank' do %>
+            <%= image_tag 'pdf.png', class: 'event-icon' %>
+            <% end %>&nbsp;&nbsp;
+            <% if current_user && current_user.admin? %>
+            <%= link_to 'Edit', edit_minute_path(m) %>
+            &nbsp;&nbsp;
+            <%= link_to 'Delete', minute_path(m), method: :delete, data: {confirm: 'Are you sure you want to delete this?'} %>
+            <% end %>
+          </span>
+          <br>
+        </div>
+        <hr>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
