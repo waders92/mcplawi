@@ -24,7 +24,7 @@ class RegistrationsController < ApplicationController
     rescue Stripe::CardError, Stripe::InvalidRequestError, Stripe::StripeError, Stripe::AuthenticationError, Stripe::RateLimitError, Stripe::APIConnectionError  => e
     flash[:error] = e.message
     redirect_to event_path(current_event)
-    NotificationMailer.send_declined_notice(current_event, current_user).deliver_now
+    send_declined_email(current_event, current_user)
     end
   end
 
@@ -32,5 +32,9 @@ class RegistrationsController < ApplicationController
 
   def current_event
     @current_event ||= Event.find(params[:event_id])
+  end
+
+  def send_declined_email(current_event, current_user)
+    NotificationMailer.send_declined_notice(current_event, current_user).deliver_now
   end
 end
