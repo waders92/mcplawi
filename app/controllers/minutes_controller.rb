@@ -49,19 +49,4 @@ class MinutesController < ApplicationController
   def minute_params
     params.require(:minute).permit(:title, :date, :pdf_file)
   end
-
-  def send_flash_alert(message)
-    flash[:alert] = message
-  end
-
-  def render_not_found(status = :not_found)
-    render plain: status.to_s.titleize.to_s, status: status
-  end
-
-  def admin_required
-    unless current_user && current_user.admin?
-      redirect_to root_path
-      flash[:alert] = 'You are not an authorized administrator!'
-    end
-  end
 end

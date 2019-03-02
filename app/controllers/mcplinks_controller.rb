@@ -22,13 +22,4 @@ class McplinksController < ApplicationController
     @event = Event.new
     @events = Event.all.order('created_at ASC').group_by(&:year)
   end
-
-  private
-
-  def admin_required
-    unless current_user && current_user.admin?
-      redirect_to root_path
-      flash[:alert] = 'You are not an authorized administrator!'
-    end
-  end
 end

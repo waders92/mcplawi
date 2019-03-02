@@ -39,26 +39,7 @@ class PhotosController < ApplicationController
 
     private
 
-    def admin_required
-      unless current_user && current_user.admin?
-        redirect_to root_path
-        flash[:alert] = 'You are not an authorized administrator!'
-      end
-    end
-
     def photo_params
       params.require(:photo).permit(:flight_winner, :winners_image, :which_flight, :winning_score)
-    end
-
-    def send_flash_alert(message)
-      flash[:alert] = message
-    end
-  
-    def send_flash_error(message)
-      flash[:error] = message
-    end
-
-    def render_not_found(status = :not_found)
-      render plain: status.to_s.titleize.to_s, status: status
     end
 end

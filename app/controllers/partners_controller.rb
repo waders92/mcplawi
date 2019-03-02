@@ -22,10 +22,6 @@ class PartnersController < ApplicationController
   def partner_params
     params.require(:partner).permit(:first_name, :last_name)
   end
-
-  def send_flash_alert(message)
-    flash[:alert] = message
-  end
 end
 
 

@@ -32,15 +32,4 @@ class RegistrationsController < ApplicationController
   def current_event
     @current_event ||= Event.find(params[:event_id])
   end
-
-  def deny_registration
-    @registration = Registration.last
-    @registration.destroy
-  end
-
-  def check_for_valid_registration(first, second)
-    if second > first
-      deny_registration
-    end
-  end
 end

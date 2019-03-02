@@ -56,23 +56,4 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:event_title, :event_start_date, :event_end_date, :event_cost_mcpla, :event_cost_non_mcpla, :event_cost_season_pass, :registration_close, :event_location, :event_start_time, :blue_golf_link, :is_partner_event)
   end
-
-  def admin_required
-    unless current_user && current_user.admin?
-      redirect_to root_path
-      flash[:alert] = 'You are not an authorized administrator!'
-    end
-  end
-
-  def render_not_found(status = :not_found)
-    render plain: status.to_s.titleize.to_s, status: status
-  end
-
-  def send_flash_alert(message)
-    flash[:alert] = message
-  end
-
-  def send_flash_error(message)
-    flash[:error] = message
-  end
 end
