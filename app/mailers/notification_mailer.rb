@@ -30,4 +30,11 @@ class NotificationMailer < ApplicationMailer
     mail(to: User.admin_users,
          subject: "MCPLA ADMIN - A registration has been added for a MCPLAWI event, the #{@registered_event.event_title}")
   end
+
+  def send_declined_notice(current_event, current_user)
+    @current_event = current_event
+    @current_user = current_user
+    mail(to: User.admin_users,
+      subject: "Credit Card Declined for #{current_event.event_title}")
+  end
 end

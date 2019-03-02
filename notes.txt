@@ -1,1 +1,1 @@
-          <p><%= link_to 'View Meeting Minutes',  m.pdf_file.url, class: 'btn btn-success btn-md btn-minutes', target: '_blank' %></p>
+heroku logs -n 1500
