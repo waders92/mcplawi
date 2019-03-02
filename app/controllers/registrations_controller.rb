@@ -22,7 +22,7 @@ class RegistrationsController < ApplicationController
     flash[:notice] = 'You have registered for the event!'
     redirect_to confirmation_path
 
-    rescue Stripe::CardError => e
+    rescue Stripe::CardError, Stripe::InvalidRequestError, Stripe::StripeError, Stripe::AuthenticationError, Stripe::RateLimitError, Stripe::APIConnectionError  => e
     flash[:error] = e.message
     @second_count = Registration.count
     check_for_valid_registration(@first_count, @second_count)
