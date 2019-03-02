@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :registrations, dependent: :destroy
   has_many :registered_events, through: :registrations, source: :event
-  has_many :partners
+  has_many :partners, dependent: :destroy
   has_many :minutes
 
   def registered_in?(event)

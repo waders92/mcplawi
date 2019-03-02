@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user
   has_many :registrations, dependent: :destroy
-  has_many :photos
+  has_many :photos, dependent: :destroy
   has_many :partners, dependent: :destroy
 
   validates :event_title, presence: true, length: { minimum: 1 }
