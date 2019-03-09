@@ -1,5 +1,5 @@
 class McplinksController < ApplicationController
-  before_action :authenticate_user!, only: %i[admin memberships confirmation]
+  
   def index; end
 
   def clubs; end
