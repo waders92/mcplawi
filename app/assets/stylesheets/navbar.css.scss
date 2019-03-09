@@ -61,3 +61,8 @@ p.buffer-row.text-center {
   margin-top: 14px;
   text-transform: uppercase;
 }
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+  background-color: #047fd1;
+  color: #fff;
+}
