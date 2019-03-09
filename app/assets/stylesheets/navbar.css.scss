@@ -1,10 +1,11 @@
 $font: 'Source Sans Pro', sans-serif;
+$color : #047fd1;
 
 .navbar-inverse {
     // background-color: #464242;
     // border-color: #464242;
-    background-color: #047fd1;
-    border-color: #047fd1;
+    background-color: $color;
+    border-color: $color;
     border-radius: 0;
     font-family: $font;
 }
@@ -65,4 +66,22 @@ p.buffer-row.text-center {
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
   background-color: #047fd1;
   color: #fff;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+  color: snow;
+  font-family: $font;
+
+  &:hover {
+    color: rgba(255, 252, 252, .7);
+  }
+}
+
+.dropdown-menu {
+  background-color: $color;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
+  background-color: $color;
+  color: rgba(255, 252, 252, .7);
 }

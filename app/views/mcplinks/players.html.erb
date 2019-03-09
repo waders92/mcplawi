@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="event-details">
+  <div class="player-table-text">
     <h2 class="main-section-title">Player List</h2>
     <hr class="medium-underline">
     <p class="club-info-text">
-      Search for fellow MCPLA golfers! Note - only players that have registered a profile for this site will
+      Search for fellow MCPLA golfers!<br>Only players that have created a profile for this site are
       able to be searched.
     </p>
     <div class="top-buffer">
@@ -14,7 +14,7 @@
       <p>Search by last name... (ex: anderson, jones, smith or partial last names - jo (jones) )</p>
       <br>
     </div>
-    <div class="player-count club-info-text">
+    <div class="player-count top-buffer">
       <p>Showing <%= @users.count %> of <%= @total_users %> total players.</p>
     </div>
     <%= render "shared/player_list" %>
