@@ -60,17 +60,7 @@
       </div>
     <% end %>
   </div>
-  <div class="event-extras">
-    <h3 id="registrations-area" class="section-title">Registrations</h3>
-    <div id="registrations">
-        <%= render "shared/player_table" %>
-    </div>
-    <% if @event.registrations.count > 0 %>
-    <button class="reg-btn top-buffer">Show/Hide Registrations</button>
-    <% end %>
-  </div>
-  <hr>
-  <div>
+  <div class="tee-times event-extras">
     <h3 id="tee-times" class="section-title">Tee Times</h3>
     <% if @event.blue_golf_link.present? %>
       <%= link_to 'Tee Times', @event.blue_golf_link,:target => "_blank" %>
@@ -78,8 +68,7 @@
       <p> Check back later for tee times!</p>
     <% end %>
   </div>
-  <hr>
-  <div>
+  <div class="results event-extras">
     <h3 id="results" class="section-title">Results</h3>
     <div class="admin-area top-buffer bottom-buffer">
       <% if current_user.admin? %>
@@ -99,6 +88,19 @@
       <% end %>
     </div>
   </div>
+  <div class="event-extras">
+    <h3 id="registrations-area" class="section-title">Registrations</h3>
+    <% if @event.registrations.count > 0 %>
+    <p>Total - (<%= @event.registrations.count %>)</p>
+    <% end %>
+    <div id="registrations">
+        <%= render "shared/player_table" %>
+    </div>
+    <% if @event.registrations.count > 0 %>
+    <button class="reg-btn top-buffer">Show/Hide Registrations</button>
+    <% end %>
+  </div>
+</div>
   <!-- New Modal -->
   <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -132,3 +134,5 @@
           <% end %>
         </div>
       </div>
+    </div>
+  </div>
