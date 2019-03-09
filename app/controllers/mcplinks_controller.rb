@@ -6,6 +6,8 @@ class McplinksController < ApplicationController
 
   def officers; end
 
+  def contact; end
+
   def players
     @users = if params[:term]
                User.where('LOWER(last_name) LIKE ?', "%#{params[:term].downcase}%").order('id DESC')

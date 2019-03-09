@@ -34,11 +34,12 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Our Club <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><%= link_to 'Current Officers', officers_path %></li>
-                    <li><%= link_to 'Member Clubs', clubs_path %></li>
+                    <li><%= link_to 'Our History', clubs_path %></li>
+                    <li><%= link_to 'Member Clubs', clubs_path(:anchor => 'clubs') %></li>
                     <li><%= link_to 'Meeting Minutes', minutes_path %></li>
                     <li><%= link_to 'Player List', players_path %></li>
                     <li role="separator" class="divider"></li>
-                    <li><%= link_to 'Contact Us' %></li>
+                    <li><%= link_to 'Contact Us', contact_path %></li>
                   </ul>
                 </li>
              
@@ -53,11 +54,12 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Our Club <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><%= link_to 'Current Officers', officers_path %></li>
-                    <li><%= link_to 'Member Clubs', clubs_path %></li>
+                    <li><%= link_to 'Our History', clubs_path %></li>
+                    <li><%= link_to 'Member Clubs', clubs_path(anchor: 'clubs') %></li>
                     <li><%= link_to 'Meeting Minutes', minutes_path %></li>
                     <li><%= link_to 'Player List', players_path %></li>
                     <li role="separator" class="divider"></li>
-                    <li><%= link_to 'Contact Us' %></li>
+                    <li><%= link_to 'Contact Us', contact_path %></li>
                   </ul>
                 </li>
                 <li><%= link_to 'Golf Events', events_path %></li>

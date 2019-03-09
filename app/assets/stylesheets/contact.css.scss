@@ -1,0 +1,26 @@
+$font: 'Source Sans Pro', sans-serif;
+
+.inquiry-icon {
+  height: 90px;
+  transition: transform .2s;
+}
+
+.contact-info p {
+  font-weight: 100;
+  font-size: 21px;
+  letter-spacing: .5px;
+  font-family: $font;
+  margin-top: 18px;
+}
+
+.main-logo-contact {
+  margin-top: 200px;
+}
+
+.contact-info {
+  margin-top: 100px;
+}
+
+.inquiry-icon:hover {
+  transform: scale(1.2); 
+}

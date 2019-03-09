@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="contact-us">
+    <h2 class="main-section-title">Contact Us</h2>
+    <hr class="medium-underline">
+  </div>
+  <div class="contact-intro">
+    <p class="club-info-text">
+      We want you to enjoy your time as an MCPLA participant! If for any reason you need to contact us, we are there for you!
+      Feel free to contact us using the links below.
+    </p>
+  </div>
+  <div class="row top-buffer">
+    <div class="col-md-4 col-sm-4 top-buffer bottom-buffer contact-info">
+      <center>
+        <%= mail_to 'packers2003@sbcglobal.net' do %>
+        <%= image_tag 'question-3.png', class: 'inquiry-icon' %>
+        <% end %>
+        <p>General Inquiries</p>
+      </center>
+    </div>
+    <div class="col-md-4 col-sm-4 top-buffer bottom-buffer contact-info">
+      <center>
+        <%= mail_to 'rfreuckjr@aol.com' do %>
+        <%= image_tag 'money.png', class: 'inquiry-icon' %>
+        <% end %>
+        <p>Payment & Registration Inquiries</p>
+      </center>
+    </div>
+    <div class="col-md-4 col-sm-4 top-buffer bottom-buffer contact-info">
+      <center>
+        <%= mail_to 'rfreuckjr@aol.com' do %>
+        <%= image_tag 'golf-3.png', class: 'inquiry-icon' %>
+        <% end %>
+        <p>Specific Event Inquiries</p>
+      </center>
+    </div>
+  </div>
+  <div class="main-logo-contact col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+    <%= image_tag 'mcplawi.jpg', class: 'img-responsive main-logo' %>
+  </div>
+</div>

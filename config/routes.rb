@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/players', to: 'mcplinks#players'
   get '/officers', to: 'mcplinks#officers'
   get '/confirmation', to: 'mcplinks#confirmation'
+  get '/contact', to: 'mcplinks#contact'
   resources :events do
     resources :registrations, only: %i[create show]
     resources :photos
