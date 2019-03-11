@@ -1,1 +1,19 @@
 heroku logs -n 1500
+
+FIRST TEAM MATCH SCHEDULE
+May 11 Greenfield
+June 15 Oakwood
+July 7 Dretzka
+September 22 Whitnall
+
+SECOND TEAM MATCH SCHEDULE
+May 5  Brown Deer
+June 8  Dretzka
+June 22 Currie
+August 31 Greenfield 
+
+WPLA TOURNAMENT SCHEDULE
+July 13-14  Glen Erin
+Sept. 7-8  Wanaki
+
+MCPLA-NIMAGA CHALLENGE Sept. 21
