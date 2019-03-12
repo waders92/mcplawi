@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :registered_events, through: :registrations, source: :event
   has_many :partners, dependent: :destroy
   has_many :minutes
+  has_many :teams
 
   def registered_in?(event)
     registered_events.include?(event)
