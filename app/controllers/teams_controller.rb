@@ -12,7 +12,7 @@ class TeamsController < ApplicationController
   def create
     @team = current_user.teams.build(team_params)
     if @team.save
-      send_flash_alert('Team scehdule was created!')
+      send_flash_alert('Team schedule was created!')
       redirect_to teams_path
     else
       render 'teams/new'
