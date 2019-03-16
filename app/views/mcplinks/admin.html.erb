@@ -1,6 +1,14 @@
 <div class="container">
   <h2 class="main-section-title">Admin Portal</h2>
   <hr class="medium-underline">
+
+  <div class="new-events top-buffer bottom-buffer">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary new-event" data-toggle="modal" data-target="#exampleModal">
+      Add New Event
+    </button>
+  </div>
+
   <% @events.each do |year, event| %>
     <% event.each do |e| %>
       <div class="row">
@@ -28,14 +36,13 @@
       <hr>
     <% end %>
   <% end %>
-  <div class="new-events top-buffer bottom-buffer">
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary new-event" data-toggle="modal" data-target="#exampleModal">
-      Add New Event
-    </button>
-    <!-- <%= link_to 'Add New Event', new_event_path, class: 'btn btn-primary new event' %> -->
+
+  <div class="metrics top-buffer bottom-bffer">
+      <h2 class="main-section-title">Metrics</h2>
+      <hr class="medium-underline">
   </div>
-  <div id="tabs">
+
+  <div id="tabs" class="top-buffer">
     <ul>
       <li><a href="#tabs-2">Club Count</a></li>
       <li><a href="#tabs-3">Registrations by Event</a></li>
