@@ -10,9 +10,9 @@ class McplinksController < ApplicationController
 
   def players
     @users = if params[:term]
-               User.where('LOWER(last_name) LIKE ?', "%#{params[:term].downcase}%").order('id DESC')
+               User.where('LOWER(last_name) LIKE ?', "%#{params[:term].downcase}%").order('id DESC').paginate(page: params[:page])
              else
-               @users = User.all.order('created_at DESC')
+               @users = User.all.order('last_name ASC').paginate(page: params[:page], per_page: 10)
              end
     @total_users = User.all.count
   end
