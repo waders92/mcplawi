@@ -117,6 +117,9 @@
           <p>Entry Fee - $<%= current_user.event_cost(@event).round %></p>
           <% if @event.is_partner_event? %>
             <%= render "shared/partner" %>
+            <p>You are only paying for your portion!<br>
+            Your partner must also register and pay for their entry fee.
+          </p>
           <% end %>
         </div>
         <div class="modal-footer">
