@@ -62,10 +62,12 @@
       <h3 class="section-title">Registrations by Event</h3>
       <hr>
       <% @events.each do |year, event| %>
+      <p><b><%= year %></b></p>
         <% event.each do |e| %>
           <p><%= e.event_title %> - <%= e.registrations.count %></p>
         <% end %>
       <% end %>
+      <hr>
     </div>
   </div>
 </div>
