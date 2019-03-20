@@ -108,6 +108,15 @@ input.btn.btn-primary.submit {
   }
 }
 
+.cancel-btn {
+  background-color: firebrick !important;
+  border: firebrick !important;
+
+  &:hover {
+    background:linear-gradient(to bottom, firebrick 5%, #30C9C9 100%);
+  }
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:active,

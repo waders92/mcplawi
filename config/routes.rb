@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resource :dashboards, only: [:show]
   resources :minutes
   resources :teams
+  resources :notes
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'mcplinks#index'
   get '/clubs', to: 'mcplinks#clubs'
