@@ -1,4 +1,7 @@
 FactoryBot.define do
+  factory :note do
+    
+  end
   factory :team do
     
   end

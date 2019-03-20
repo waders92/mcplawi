@@ -1,0 +1,30 @@
+<div class="container">
+    <h2 class="main-section-title">News & Updates</h2>
+    <hr class="medium-underline">
+    <% if current_user && current_user.admin? %>
+    <div class="bottom-buffer">
+      <%= link_to 'Add New News / Update', new_note_path, class: 'btn btn-md btn-primary btn-minutes' %>
+    </div>
+    <% end %>
+    <% if @notes.present? %>
+      <% @notes.each do |year, note| %>
+      <p class="section-title event-title"><%= year %></p>
+        <% note.each do |n| %>
+          <div class="event-details">
+            <p style="white-space: pre-wrap;"><%= n.note_update %></p>
+            <span>
+              <% if current_user && current_user.admin? %>
+              <br>
+              <%= link_to 'Edit', edit_note_path(n) %>
+              &nbsp;&nbsp;
+              <%= link_to 'Delete', note_path(n), method: :delete, data: {confirm: 'Are you sure you want to delete this?'} %>
+              <% end %>
+              <br>
+            </span>
+            <br>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  
