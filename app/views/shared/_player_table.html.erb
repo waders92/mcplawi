@@ -8,8 +8,7 @@
             <th>Home Club</th>
           </tr>
         </thead>
-        <% @result = Registration.ordered_by_user_name %>
-        <% @result.each.with_index do |event, index| %>
+        <% @event.registrations.each.with_index do |event, index| %>
           <tbody>
             <tr>
               <% if event.event.is_partner_event? %>
