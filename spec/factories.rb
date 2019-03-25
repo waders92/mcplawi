@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :teetime do
+    team_tee_time { "MyText" }
+    user_id { 1 }
+  end
   factory :note do
     
   end

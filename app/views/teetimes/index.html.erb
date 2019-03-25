@@ -1,0 +1,34 @@
+<!-- Tee Times Section --> 
+
+<div class="container">
+  <h2 class="main-section-title">First & Second Team Tee Times</h2>
+  <hr class="medium-underline">
+  <% if current_user && current_user.admin? %>
+  <div class="bottom-buffer">
+    <%= link_to 'Add New Tee Time', new_teetime_path, class: 'btn btn-md btn-primary btn-minutes' %>
+  </div>
+  <% end %>
+  <% if @teetimes.present? %>
+  <%= link_to 'VIEW TEAM SCHEDULES', teams_path, class: 'btn btn-sm btn-success team-sched' %>
+    <% @teetimes.each do |month, time| %>
+      <% time.each do |t| %>
+        <div class="event-details">
+          <p style="white-space: pre-wrap;"><%= t.team_tee_time %></p>
+          <span>
+            <% if current_user && current_user.admin? %>
+            <%= link_to 'Edit', edit_teetime_path(t) %>
+            &nbsp;&nbsp;
+            <%= link_to 'Delete', teetime_path(t), method: :delete, data: {confirm: 'Are you sure you want to delete this?'} %>
+            <% end %>
+            <br>
+          </span>
+          <br>
+        </div>
+      <% end %>
+    <% end %>
+    <% else %>
+    <p class="club-info-text">Check back for posted tee times!</p>
+    <%= link_to 'VIEW TEAM SCHEDULES', teams_path, class: 'btn btn-sm btn-success team-sched' %>
+  <% end %>
+
+</div>
