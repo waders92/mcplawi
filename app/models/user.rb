@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :minutes
   has_many :teams
   has_many :notes
+  has_many :teetimes
 
   def registered_in?(event)
     registered_events.include?(event)
