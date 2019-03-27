@@ -3,9 +3,17 @@
     <h2 style="margin-left: -30px; margin-right: -30px;">Edit Tee Times!</h2>
     <%= simple_form_for @teetime do |f| %>
       <%= f.error_notification %>
+      <div class="row">
+          <div class="col-md-6">
+            <%= f.input :date, required: true, input_html: {class: "datepicker"}, as: :string %><br>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :teetime_pdf, required: true %>
+          </div>
+        </div>
         <div class="row">
-          <div class="col-md-12">
-              <%= f.input :team_tee_time, :as => :text, :input_html => { :cols => 100, :rows => 15 }, required: true %><br>
+          <div class="col-md-6">
+            <%= f.input :title, required: true %>
           </div>
         </div>
       <br />
