@@ -47,6 +47,6 @@ class TeetimesController < ApplicationController
   private
 
   def teetime_params
-    params.require(:teetime).permit(:team_tee_time)
+    params.require(:teetime).permit(:teetime_pdf, :title, :date)
   end
 end
