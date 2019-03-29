@@ -1,14 +1,34 @@
 heroku logs -n 1500
 figaro heroku:set -e production
 
-FIRST TEAM MATCH SCHEDULE
-May 11 Greenfield
-June 15 Oakwood
-July 7 Dretzka
-September 22 Whitnall
+  describe 'minutes#create action' do
+    it 'should add the minutes to the database' do 
+      user = FactoryBot.create(:user)
+      sign_in user
 
-May 30 - Grant
-7:30 - Jones, Smith, Reynolds
-7:40 - Jones, Smith, Reynolds
-7:50 - Jones, Smith, Reynolds
-8:00 - Jones, Smith, Reynolds
+      post :create, params: { minute: {
+        title: 'Test',
+        date: '2018-09-30',
+        pdf_file: 'pdf-file'
+      } }
+
+      minute = Minute.last
+      expect(response).to be_ok
+      expect(Minute.count).to eq 1
+      expect(minute.title).to eq('Test')
+      expect(minute.user).to eq(user)
+      expect(minute.date).to eq('2018-09-30')
+    end
+  end
+
+
+  describe 'minutes#edit action' do
+    it 'should redirect non-admin from the edit page' do
+      user = FactoryBot.create(:user)
+      minute = FactoryBot.create(:minute)
+      sign_in user
+
+      get :edit, params: { id: minute.id }
+      expect(response).to redirect_to root_path
+    end
+  end
