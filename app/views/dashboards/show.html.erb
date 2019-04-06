@@ -67,6 +67,9 @@
               MCPLA Members - $<%= e.event_cost_mcpla.round %><br>
               Non-MCPLA Members - $<%= e.event_cost_non_mcpla.round %><br>
               Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
+              <% if e.event_cost_season_pass_browndeer %>
+              <p>Season Pass Holders (With Browndeer) - $<%= e.event_cost_season_pass_browndeer.round %></p>
+              <% end %>
             <div class="partner">
               <% if e.is_partner_event? %>
                <% if current_user.has_partner_for_event(e) %>

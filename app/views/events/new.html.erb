@@ -36,6 +36,11 @@
         </div>
       </div>
       <div class="row">
+          <div class="col-md-6">
+            <%= f.input :event_cost_season_pass_browndeer, required: false %><br>
+          </div>
+        </div>
+      <div class="row">
         <div class="col-md-6">
           <%= f.input :event_start_time, required: true, input_html: {class: "timepicker"} %><br>
         </div>
@@ -47,7 +52,8 @@
         <div class="col-md-6">
           <%= f.label :is_partner_event do %>
             <%= f.check_box :is_partner_event, checked_value: true, unchecked_value: false %> <span class="labelText">Does this event require a partner?</span>
-          <% end %>              </div>
+          <% end %>
+        </div>
       </div>
       <br />
       <%= f.submit 'Create', class: 'btn btn-primary' %>

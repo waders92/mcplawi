@@ -13,7 +13,12 @@
             <% end %>
           </p>
           <p><%= e.event_start_time %></p><br>
-          <p>Entry Fee -<br>MCPLA Members - $<%= e.event_cost_mcpla.round %><br>Non-MCPLA Members - $<%= e.event_cost_non_mcpla.round %><br>Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
+          <p>Entry Fee -<br>MCPLA Members - $<%= e.event_cost_mcpla.round %><br>
+            Non-MCPLA Members - $<%= e.event_cost_non_mcpla.round %><br>
+            Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
+            <% if e.event_cost_season_pass_browndeer %>
+            <p>Season Pass Holders (With Browndeer) - $<%= e.event_cost_season_pass_browndeer.round %></p>
+            <% end %>
           <br>
           <div class="blue-golf">
             <% if current_user && current_user.registered_in?(e) %>

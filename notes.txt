@@ -1,14 +1,6 @@
 heroku logs -n 1500
 figaro heroku:set -e production
 
-FIRST TEAM MATCH SCHEDULE
-May 11 Greenfield
-June 15 Oakwood
-July 7 Dretzka
-September 22 Whitnall
+update season pass ideas -
 
-May 30 - Grant
-7:30 - Jones, Smith, Reynolds
-7:40 - Jones, Smith, Reynolds
-7:50 - Jones, Smith, Reynolds
-8:00 - Jones, Smith, Reynolds
+create 1 new tier - seasonpassholder with browndeer
