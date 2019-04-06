@@ -11,7 +11,7 @@
       <% minute.each do |m| %>
         <div class="event-details">
           <p class="section-title event-title"><%= year %> <%= m.title %></p>
-          <p><%= m.minutes_date %></p>
+          <p class="published-date"><%= m.minutes_date %></p>
           <br>
           <span>
             <%= link_to m.pdf_file.url, target: '_blank' do %>

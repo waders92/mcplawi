@@ -11,7 +11,7 @@
       <p class="section-title event-title"><%= year %></p>
         <% note.each do |n| %>
           <div class="event-details">
-            <p><%= n.published_date %></p>
+            <p class="published-date"><%= n.published_date %></p>
             <p style="white-space: pre-wrap;"><%= n.note_update %></p>
             <span>
               <% if current_user && current_user.admin? %>
