@@ -1,8 +1,8 @@
 <div id="mcplawi-start" class="container">
   <div class="row row-buffer">
-      <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
-          <%= image_tag 'mcplawi.jpg', class: 'img-responsive main-logo' %>
-        </div>
+    <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+      <%= image_tag 'mcplawi.jpg', class: 'img-responsive main-logo' %>
+    </div>
   </div>
   <div class="row row-buffer">
     <div class="col-md-6 bottom-buffer">
@@ -11,7 +11,7 @@
       </center>
     </div>
     <div class="col-md-6">
-      <p class="club-info-text"><b><%= link_to 'CREATE AN ACCOUNT', new_user_registration_path %></b> to register for any event posted by the Milwaukee County Public Links Association! Already create an account? You can <b><%= link_to 'LOGIN', new_user_session_path %></b> here. Keep your <b><%= link_to 'PROFILE', dashboards_path %></b> up to date with your email address, home club and membership status!</p>
+      <p class="club-info-text"><b><%= link_to 'CREATE AN ACCOUNT', new_user_registration_path %></b> to register for any event posted by the Milwaukee County Public Links Association! Already created an account? You can <b><%= link_to 'LOGIN', new_user_session_path %></b>. Keep your <b><%= link_to 'PROFILE', dashboards_path %></b> up to date with your email address, home club and membership status!</p>
     </div>
   </div>
   <div class="row row-buffer">
@@ -35,20 +35,29 @@
     </div>
   </div>
   <div class="row row-buffer">
-      <div class="col-md-6 bottom-buffer">
-        <center>
-          <%= image_tag 'newspaper.png', class: 'main-icons' %>
-        </center>
-      </div>
-      <div class="col-md-6">
-        <p class="club-info-text">Keep up to date with the MCPLAWI! We will periodically post <b><%= link_to 'MEETING MINUTES', minutes_path %></b> as well as new <b><%= link_to 'NEWS AND UPDATES', notes_path %></b> to help keep you informed!</p>
-      </div>
-    </div>
-  <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
-      <br>
-      <br>
-      <center class="flat-icon"> 
-        <p>Icons made by <a href="https://www.flaticon.com/authors/twitter" target="_blank" title="Twitter">Twitter</a> from <a href="https://www.flaticon.com/" target="_blank" title="Flaticon">www.flaticon.com</a><br>Licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
+    <div class="col-md-6 bottom-buffer">
+      <center>
+        <%= image_tag 'newspaper.png', class: 'main-icons' %>
       </center>
+    </div>
+    <div class="col-md-6">
+      <p class="club-info-text">Keep up to date with the MCPLAWI! We will periodically post <b><%= link_to 'MEETING MINUTES', minutes_path %></b> as well as new <b><%= link_to 'NEWS AND UPDATES', notes_path %></b> to help keep you informed!</p>
+    </div>
+  </div>
+  <hr>
+  <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1 next-event-info top-buffer">
+    <h2 class="main-section-title text-center">
+      Upcoming Events...
+    </h2>
+    <br>
+    <%= image_tag 'whitnall.png', class: 'img-responsive' %>
+  </div>
+  <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+    <br>
+    <br>
+    <center class="flat-icon">
+      <p>Icons made by <a href="https://www.flaticon.com/authors/twitter" target="_blank" title="Twitter">Twitter</a> from <a href="https://www.flaticon.com/" target="_blank" title="Flaticon">www.flaticon.com</a><br>
+        Licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
+    </center>
   </div>
 </div>
