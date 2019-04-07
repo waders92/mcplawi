@@ -33,7 +33,9 @@ div.row.hero-image {
 }
 
 .club-welcome-text {
-  font-size: 40px;
+  font-size: 25px;
+  font-weight: 100;
+  font-style: italic;
   text-align: center;
 }
 
@@ -216,8 +218,16 @@ button.btn.btn-primary.btn-md.partner-btn {
   }
 
   .main-icons {
-    height: 175px;
+    height: 105px;
   }
+}
+
+.main-icons {
+  height: 105px;
+}
+
+.notice {
+  color: red;
 }
 
 .continuing-text {
