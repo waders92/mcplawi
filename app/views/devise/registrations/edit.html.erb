@@ -26,14 +26,14 @@
       <div class="field">
         <br>
         <%= f.label :membership_status %><br />
-        <%= f.select :membership_status, ['MCPLA Member', 'Non-Member', 'Season Pass Holder'] %>
+        <%= f.select :membership_status, ['MCPLA Member', 'Non-Member', 'Season Pass Holder', 'Season Pass Holder With Browndeer'] %>
       </div>
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
       <div class="field">
         <br>
-        <p style="margin: 0;">Create a new password here</p>
+        <p style="margin: 0;">Change your Password? Create a new password here!</p>
         <%= f.label :password %><br />
         <%= f.password_field :password, autocomplete: "off" %>
         <% if @minimum_password_length %>
@@ -48,7 +48,7 @@
       </div>
       <div class="field">
         <br>
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)<br />
+        <%= f.label :current_password %> <i style="color: red;">(we need your current password to confirm your changes)<br />
           <%= f.password_field :current_password, autocomplete: "off" %>
         </div>
         <div class="actions">

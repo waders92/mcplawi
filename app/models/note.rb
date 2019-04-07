@@ -6,4 +6,8 @@ class Note < ApplicationRecord
   def year
     created_at.strftime('%B %Y')
   end
+
+  def published_date
+    created_at.strftime('%b %d, %Y')
+  end
 end

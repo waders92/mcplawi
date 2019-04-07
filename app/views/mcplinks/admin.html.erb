@@ -1,14 +1,12 @@
 <div class="container">
   <h2 class="main-section-title">Admin Portal</h2>
   <hr class="medium-underline">
-
   <div class="new-events top-buffer bottom-buffer">
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary new-event" data-toggle="modal" data-target="#exampleModal">
       Add New Event
     </button>
   </div>
-
   <% @events.each do |year, event| %>
     <% event.each do |e| %>
       <div class="row">
@@ -26,6 +24,9 @@
             MCPLA Members - $<%= e.event_cost_mcpla.round %><br>
             Non-MCPLA Members - $<%= e.event_cost_non_mcpla.round %><br>
             Season Pass Holders - $<%= e.event_cost_season_pass.round %></p>
+            <% if e.event_cost_season_pass_browndeer %>
+            <p>Season Pass Holders (With Browndeer) - $<%= e.event_cost_season_pass_browndeer.round %></p>
+            <% end %>
           <p>Registrations: <%= e.total_registrations %></p>
           <br>
           <%= link_to 'Details', event_path(e), class: 'btn btn-primary btn-md event-details' %>
@@ -36,12 +37,10 @@
       <hr>
     <% end %>
   <% end %>
-
   <div class="metrics top-buffer bottom-bffer">
-      <h2 class="main-section-title">Metrics</h2>
-      <hr class="medium-underline">
+    <h2 class="main-section-title">Metrics</h2>
+    <hr class="medium-underline">
   </div>
-
   <div id="tabs" class="top-buffer">
     <ul>
       <li><a href="#tabs-2">Club Count</a></li>
@@ -62,7 +61,7 @@
       <h3 class="section-title">Registrations by Event</h3>
       <hr>
       <% @events.each do |year, event| %>
-      <p><b><%= year %></b></p>
+        <p><b><%= year %></b></p>
         <% event.each do |e| %>
           <p><%= e.event_title %> - <%= e.registrations.count %></p>
         <% end %>
@@ -109,6 +108,11 @@
             </div>
             <div class="col-md-6">
               <%= f.input :event_location, required: true %><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <%= f.input :event_cost_season_pass_browndeer, required: false %><br>
             </div>
           </div>
           <div class="row">

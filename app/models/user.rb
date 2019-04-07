@@ -25,6 +25,7 @@ class User < ApplicationRecord
     return event.event_cost_mcpla.round if membership_status == 'MCPLA Member'
     return event.event_cost_non_mcpla.round if membership_status == 'Non-Member'
     return event.event_cost_season_pass.round if membership_status == 'Season Pass Holder'
+    return event.event_cost_season_pass_browndeer.round if membership_status == 'Season Pass Holder With Browndeer'
   end
 
   def event_partner(current_event)

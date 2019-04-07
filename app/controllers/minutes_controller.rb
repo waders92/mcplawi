@@ -1,7 +1,7 @@
 class MinutesController < ApplicationController
 
   def index
-    @minutes = Minute.all.order("created_at ASC").group_by(&:year)
+    @minutes = Minute.all.order("created_at DESC").group_by(&:year)
   end
 
   def new
