@@ -1,5 +1,6 @@
 heroku logs -n 1500
 figaro heroku:set -e production
+<%= event.user.registered_partner(event) %>
 
 update season pass ideas -
 

@@ -95,13 +95,15 @@
     <h3 id="registrations-area" class="section-title">Registrations</h3>
     <% if @event.registrations.count > 0 %>
     <p>Total - (<%= @event.registrations.count %>)</p>
+    <% if @event.is_partner_event? %>
+    <div class="partner-clause">
+      <%= image_tag 'verified.png', class: 'icon-tiny' %> <span class="denotes">Denotes player has registered with a partner.</span>
+    </div>
+    <% end %>
     <% end %>
     <div id="registrations">
         <%= render "shared/player_table" %>
     </div>
-    <!-- <% if @event.registrations.count > 0 %>
-    <button class="reg-btn top-buffer">Show / Hide Registrations</button>
-    <% end %> -->
   </div>
 </div>
   <!-- New Modal -->
