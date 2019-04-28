@@ -13,7 +13,11 @@
           <tbody>
             <tr>
               <% if event.event.is_partner_event? %>
-              <td><%= event.user.first_name %>&nbsp;<%= event.user.last_name %> / <%= event.user.registered_partner(event) %></td>
+              <td><%= event.user.first_name %>&nbsp;<%= event.user.last_name %> 
+                <% if event.user.has_partner_for_event(event.event) %>
+                <span class="tooltip-1" title="<%= event.user.first_name %>&nbsp;<%= event.user.last_name %> is playing with <%= event.user.registered_partner(event) %>"><%= image_tag 'verified.png', class: 'icon-tiny' %></span>
+                <% end %>
+              </td>
               <% else %>
               <td><%= event.user.first_name %>&nbsp;<%= event.user.last_name %></td>
               <% end %>
@@ -27,3 +31,9 @@
     </table>
   </div>
 </div>
+
+<script>
+  function showEventPartner(partner) {
+    alert(partner);
+  }
+</script>
