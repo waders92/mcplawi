@@ -79,13 +79,18 @@
       <% end %>
     </div>
     <div class="event-winners club-info-text">
-      <% @event.photos.each do |event| %>
+      <% @results = @event.photos.sort { |a,b| b.created_at <=> a.created_at } %>
+      <% @results.each do |event| %>
         <div>
           <h3 class="section-title">Flight: <%= event.which_flight %></h3>
           <p>Winner: <%= event.flight_winner %></p>
           <p>Score: <%= event.winning_score %></p>
           <%= image_tag event.winners_image, class: 'img-responsive' %>
           <br>
+          <% if current_user.admin? %>
+            <%= link_to 'Edit Result', edit_event_photo_path(@event, event), class: 'btn btn-md btn-primary' %>
+            <%= link_to 'Delete Result', event_photo_path(@event, event), class: 'btn btn-danger btn-md', method: :delete, data: {confirm: 'Are you sure you want to delete this?'} %>
+          <% end %>
         </div>
         <hr>
       <% end %>
