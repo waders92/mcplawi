@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="past-results">
+    <h2 class="main-section-title">Result History</h2>
+    <hr class="medium-underline">
+  </div>
+  <div class="event-winners club-info-text">
+    <% @events.each do |year, event| %>
+      <h2 class="main-section-title"><%= year %></h2>
+      <% event.each do |e| %>
+        <% e.photos.each do |p| %>
+          <div class="col-md-4 col-sm-4 event-results-recap">
+            <% if e.photos.length > 0 %>
+              <h4 class="main-section-title"><b><%= e.event_title %></b></h4>
+            <% end %>
+            <p>Flight: <%= p.which_flight %></p>
+            <p>Winner: <%= p.flight_winner %></p>
+            <p>Score: <%= p.winning_score %></p>
+            <br>
+            <% if p.winners_image.present? %>
+            <%= image_tag p.winners_image, class: 'img-responsive' %>
+            <% else %>
+            <%= image_tag 'golf-hole.jpg', class: 'img-responsive' %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
