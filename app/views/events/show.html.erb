@@ -79,7 +79,7 @@
       <% end %>
     </div>
     <div class="event-winners club-info-text">
-      <% @results = @event.photos.sort { |a,b| b.created_at <=> a.created_at } %>
+      <% @results = @event.photos.sort { |a,b| a.created_at <=> b.created_at } %>
       <% @results.each do |event| %>
         <div>
           <h3 class="section-title">Flight: <%= event.which_flight %></h3>
