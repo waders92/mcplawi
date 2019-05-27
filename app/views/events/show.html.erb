@@ -85,7 +85,11 @@
           <h3 class="section-title">Flight: <%= event.which_flight %></h3>
           <p>Winner: <%= event.flight_winner %></p>
           <p>Score: <%= event.winning_score %></p>
+          <% if event.winners_image.present? %>
           <%= image_tag event.winners_image, class: 'img-responsive' %>
+          <% else %>
+          <%= image_tag 'golf-hole.jpg', class: 'img-responsive' %>
+          <% end %>
           <br>
           <% if current_user.admin? %>
             <%= link_to 'Edit Result', edit_event_photo_path(@event, event), class: 'btn btn-md btn-primary' %>
