@@ -13,5 +13,4 @@ class Photo < ApplicationRecord
   def date
     result_date.strftime('%b %d, %Y')
   end
-
 end
