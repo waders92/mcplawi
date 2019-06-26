@@ -8,9 +8,10 @@
   <% end %>
   <% if @minutes.present? %>
     <% @minutes.each do |year, minute| %>
+    <p class="section-title"><%= year %></p>
       <% minute.each do |m| %>
-        <div class="event-details">
-          <p class="section-title event-title"><%= year %> <%= m.title %></p>
+        <div class="col-md-4 col-sm-4 event-details">
+          <p class="section-title event-title"><%= m.title %></p>
           <p class="published-date"><%= m.minutes_date %></p>
           <br>
           <span>
@@ -25,7 +26,6 @@
           </span>
           <br>
         </div>
-        <hr>
       <% end %>
     <% end %>
   <% end %>
