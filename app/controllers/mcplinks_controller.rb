@@ -1,6 +1,9 @@
 class McplinksController < ApplicationController
   
-  def index; end
+  def index
+    @notes = Note.last(3)
+    @photo = Photo.last
+  end
 
   def clubs; end
 

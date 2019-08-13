@@ -37,4 +37,8 @@ class Event < ApplicationRecord
   def reg_closes
     registration_close.strftime('%b %d, %Y')
   end
+
+  def has_event_passed?
+    return true if self.event_start_date < Date.today
+  end
 end
