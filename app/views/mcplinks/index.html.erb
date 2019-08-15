@@ -6,7 +6,7 @@
   </div>
   <div class="row row-buffer">
     <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
-      <h2 class="latest-update-title">Latest News and Updates....</h2>
+      <h2 class="latest-update-title recent-results">Latest News and Updates....</h2>
       <% @notes.each do |n | %>
       <div class="latest-note">
         <p><i><%= n.published_date %> -</i></p>
@@ -20,14 +20,23 @@
   <hr>
   <div class="row row-buffer">
     <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
-      <h2 class="latest-update-title">Recent event results....</h2>
-      <div class="latest-note">
-          <p><i>Flight: <%= @photo.which_flight %> -</i></p>
-          <p>Winner: <%= @photo.flight_winner %></p>
-          <p>Score: <%= @photo.winning_score %></p>
-          <p><%= image_tag @photo.winners_image, class: 'img-responsive' %></p>
+      <h2 class="latest-update-title recent-results">Recent event results....</h2>
+      <% @events.each do |event| %>
+        <% event.photos.each do |photo| %>
+        <% if photo.winners_image? %>
+        <div class="col-md-4 col-sm-4 latest-note">
+          <p class="text-center"><%= event.event_title %><br><i style="font-size:16px;"><%= event.date %></i></p>
+          <p><i>Flight: <%= photo.which_flight %></i><br>
+          Winner: <%= photo.flight_winner %><br>
+          Score: <%= photo.winning_score %><br>
+          <p><%= image_tag photo.winners_image, class: 'img-responsive' %></p><br>
         </div>
-        <span style="margin-left: -10px;"><%= link_to "More event results!", result_history_path, class: 'btn btn-md btn-primary' %></span>
+        <% end %>
+        <% end %>
+        <% end %>
+    </div>
+    <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+      <%= link_to "More event results!", result_history_path, class: 'btn btn-md btn-primary' %>
     </div>
   </div>
   <hr>
