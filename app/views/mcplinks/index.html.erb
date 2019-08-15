@@ -37,6 +37,10 @@
     </div>
     <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
       <%= link_to "More event results!", result_history_path, class: 'btn btn-md btn-primary' %>
+      <% @last_event = @events[0] %>
+      <% if @last_event.blue_golf_link? %>
+      <%= link_to @last_event.event_title + " - Blue Golf Page", @last_event.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-info blue_golf_link' %>
+      <% end %>
     </div>
   </div>
   <hr>
