@@ -1,6 +1,9 @@
 class McplinksController < ApplicationController
   
-  def index; end
+  def index
+    @notes = Note.last(3)
+    @events = get_last_two_results()
+  end
 
   def clubs; end
 
@@ -27,5 +30,18 @@ class McplinksController < ApplicationController
     admin_required
     @event = Event.new
     @events = Event.all.order('created_at ASC').group_by(&:year)
+  end
+
+  private
+
+  def get_last_two_results
+    results = []
+    @events = Event.all
+    @events.each do |event|
+      if event.has_event_passed?(event)
+        results << event
+      end
+    end
+    return results.last(2)
   end
 end

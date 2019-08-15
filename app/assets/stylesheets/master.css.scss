@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,400&display=swap');
 @import "bootstrap-sprockets";
 @import "bootstrap";
 $font: 'Source Sans Pro', sans-serif;
@@ -49,6 +50,21 @@ div.row.hero-image {
   font-family: $font;
   font-weight: 100;
   margin-top: 50px;
+}
+
+.latest-update-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  font-size: 29px;
+  text-transform: uppercase;
+  // color: rgba(35, 90, 197, 0.99);
+  color: black;
+}
+
+.latest-note {
+  @extend .club-info-text;
+  margin-top: 20px;
 }
 
 .text-buffer {
@@ -200,6 +216,10 @@ mark {
 
 button.btn.btn-primary.btn-md.partner-btn {
   margin-left: 0;
+}
+
+.recent-results {
+  margin-bottom: 40px;
 }
 
 .hero-image {

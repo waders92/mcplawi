@@ -5,6 +5,51 @@
     </div>
   </div>
   <div class="row row-buffer">
+    <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+      <h2 class="latest-update-title recent-results">Latest News and Updates....</h2>
+      <% @notes.each do |n | %>
+      <div class="latest-note">
+        <p><i><%= n.published_date %> -</i></p>
+        <p><%= n.note_update %></p>
+      </div>
+      <% end %>
+      <br>
+      <span style="margin-left: -10px;"><%= link_to "More news and updates!", notes_path, class: 'btn btn-md btn-primary' %></span>
+    </div>
+  </div>
+  <hr>
+  <div class="row row-buffer">
+    <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+      <h2 class="latest-update-title recent-results">Recent event results....</h2>
+      <% @events.each do |event| %>
+        <% event.photos.each do |photo| %>
+        <% if photo.winners_image? %>
+        <div class="col-md-4 col-sm-4 latest-note">
+          <p class="text-center"><%= event.event_title %><br><i style="font-size:16px;"><%= event.date %></i></p>
+          <p><i>Flight: <%= photo.which_flight %></i><br>
+          Winner: <%= photo.flight_winner %><br>
+          Score: <%= photo.winning_score %><br>
+          <p><%= image_tag photo.winners_image, class: 'img-responsive' %></p><br>
+        </div>
+        <% end %>
+        <% end %>
+        <% end %>
+    </div>
+    <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+      <%= link_to "More event results!", result_history_path, class: 'btn btn-md btn-primary' %>
+    </div>
+  </div>
+  <hr>
+  <div class="row row-buffer">
+    <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+    </div>
+  </div>
+  <div class="row row-buffer">
+      <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+        <h2 class="latest-update-title">Take the next steps....</h2>
+      </div>
+    </div>
+  <div class="row row-buffer">
     <div class="col-md-6 bottom-buffer">
       <center>
         <%= image_tag 'user-5.png', class: 'main-icons' %>
