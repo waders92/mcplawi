@@ -1,7 +1,7 @@
 class McplinksController < ApplicationController
   
   def index
-    @notes = Note.last(3)
+    @notes = Note.last(3).reverse
     @events = get_last_two_results()
   end
 
