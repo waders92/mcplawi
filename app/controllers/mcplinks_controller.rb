@@ -42,6 +42,6 @@ class McplinksController < ApplicationController
         results << event
       end
     end
-    return results.last(2)
+    return results.last(1)
   end
 end
