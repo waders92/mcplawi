@@ -8,10 +8,18 @@
     <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
       <h2 class="latest-update-title recent-results">Latest News and Updates....</h2>
       <% @notes.each do |n | %>
-      <div class="latest-note">
-        <p><i><%= n.published_date %> -</i></p>
-        <p><%= n.note_update %></p>
-      </div>
+        <div class="latest-note">
+          <p><i><%= n.published_date %> -</i></p>
+          <p><%= n.note_update %></p>
+          <% if n.event_pdf? %>
+            <span>
+              <%= link_to n.event_pdf.url, target: '_blank' do %>
+                <%= image_tag 'clipboard.png', class: 'event-icon' %>
+              <% end %>
+              <br>
+            </span>
+          <% end %>
+        </div>
       <% end %>
       <br>
       <span style="margin-left: -10px;"><%= link_to "More news and updates!", notes_path, class: 'btn btn-md btn-primary' %></span>
@@ -23,74 +31,78 @@
       <h2 class="latest-update-title recent-results">Recent event results....</h2>
       <% @events.each do |event| %>
         <% event.photos.each do |photo| %>
-        <% if photo.winners_image? %>
-        <div class="col-md-4 col-sm-4 latest-note">
-          <p class="text-center"><%= event.event_title %><br><i style="font-size:16px;"><%= event.date %></i></p>
-          <p><i>Flight: <%= photo.which_flight %></i><br>
-          Winner: <%= photo.flight_winner %><br>
-          Score: <%= photo.winning_score %><br>
-          <p><%= image_tag photo.winners_image, class: 'img-responsive' %></p><br>
+          <% if photo.winners_image? %>
+            <div class="col-md-4 col-sm-4 latest-note">
+              <p class="text-center"><%= event.event_title %><br>
+                <i style="font-size:16px;"><%= event.date %></i></p>
+              <p><i>Flight: <%= photo.which_flight %></i><br>
+                Winner: <%= photo.flight_winner %><br>
+                Score: <%= photo.winning_score %><br>
+                <p><%= image_tag photo.winners_image, class: 'img-responsive' %></p>
+                <br>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+          <% @last_event = @events[0] %>
+          <% if @last_event.blue_golf_link? %>
+            <%= link_to "Blue Golf Results", @last_event.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-info' %>
+          <% end %>
+          <%= link_to "More Event Results!", result_history_path, class: 'btn btn-md btn-default' %>
         </div>
-        <% end %>
-        <% end %>
-        <% end %>
+      </div>
     </div>
-    <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
-      <% @last_event = @events[0] %>
-      <% if @last_event.blue_golf_link? %>
-      <%= link_to "Blue Golf Results", @last_event.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-info blue_golf_link' %>
-      <% end %>
-      <%= link_to "More Event Results!", result_history_path, class: 'btn btn-md btn-default' %>
-    </div>
-  </div>
-  <hr>
-  <div class="row row-buffer">
+    <hr>
+    <div class="row row-buffer">
       <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
         <h2 class="latest-update-title">Take the next steps....</h2>
       </div>
     </div>
-  <div class="row row-buffer">
-    <div class="col-md-6 bottom-buffer">
-      <center>
-        <%= image_tag 'user-5.png', class: 'main-icons' %>
-      </center>
+    <div class="row row-buffer">
+      <div class="col-md-6 bottom-buffer">
+        <center>
+          <%= image_tag 'user-5.png', class: 'main-icons' %>
+        </center>
+      </div>
+      <div class="col-md-6">
+        <p class="club-info-text"><b><%= link_to 'CREATE AN ACCOUNT', new_user_registration_path %></b> to register for any event posted by the Milwaukee County Public Links Association! Already created an account? You can <b><%= link_to 'LOGIN', new_user_session_path %></b>. Keep your <b><%= link_to 'PROFILE', dashboards_path %></b> up to date with your email address, home club and membership status!</p>
+      </div>
     </div>
-    <div class="col-md-6">
-      <p class="club-info-text"><b><%= link_to 'CREATE AN ACCOUNT', new_user_registration_path %></b> to register for any event posted by the Milwaukee County Public Links Association! Already created an account? You can <b><%= link_to 'LOGIN', new_user_session_path %></b>. Keep your <b><%= link_to 'PROFILE', dashboards_path %></b> up to date with your email address, home club and membership status!</p>
+    <div class="row row-buffer">
+      <div class="col-md-6 bottom-buffer">
+        <center>
+          <%= image_tag 'credit-card.png', class: 'main-icons' %>
+        </center>
+      </div>
+      <div class="col-md-6">
+        <p class="club-info-text">Register and pay for <b><%= link_to 'EVENTS', events_path %></b> online! Payments are easy as you can pay from the conveinence of your home or mobile phone! You will be emailed a receipt and a confirmation for your event registration.</p>
+      </div>
     </div>
-  </div>
-  <div class="row row-buffer">
-    <div class="col-md-6 bottom-buffer">
-      <center>
-        <%= image_tag 'credit-card.png', class: 'main-icons' %>
-      </center>
+    <div class="row row-buffer">
+      <div class="col-md-6 bottom-buffer">
+        <center>
+          <%= image_tag 'golfer.png', class: 'main-icons' %>
+        </center>
+      </div>
+      <div class="col-md-6">
+        <p class="club-info-text">Check back here as the tournament date approaches as we post tee times to keep you informed. Checkout <b><%= link_to 'PAST RESULTS', result_history_path%></b> to keep an eye on all of the action. Utilize the <b><%= link_to 'PLAYERS PAGE', players_path %></b> to find and connect with fellow MCPLA golfers.</p>
+      </div>
     </div>
-    <div class="col-md-6">
-      <p class="club-info-text">Register and pay for <b><%= link_to 'EVENTS', events_path %></b> online! Payments are easy as you can pay from the conveinence of your home or mobile phone! You will be emailed a receipt and a confirmation for your event registration.</p>
+    <div class="row row-buffer">
+      <div class="col-md-6 bottom-buffer">
+        <center>
+          <%= image_tag 'newspaper.png', class: 'main-icons' %>
+        </center>
+      </div>
+      <div class="col-md-6">
+        <p class="club-info-text">Keep up to date with the MCPLAWI! We will periodically post <b><%= link_to 'MEETING MINUTES', minutes_path %></b> as well as new <b><%= link_to 'NEWS AND UPDATES', notes_path %></b> to help keep you informed!</p>
+      </div>
     </div>
-  </div>
-  <div class="row row-buffer">
-    <div class="col-md-6 bottom-buffer">
-      <center>
-        <%= image_tag 'golfer.png', class: 'main-icons' %>
-      </center>
-    </div>
-    <div class="col-md-6">
-      <p class="club-info-text">Check back here as the tournament date approaches as we post tee times to keep you informed. Checkout <b><%= link_to 'PAST RESULTS', result_history_path%></b> to keep an eye on all of the action. Utilize the <b><%= link_to 'PLAYERS PAGE', players_path %></b> to find and connect with fellow MCPLA golfers.</p>
-    </div>
-  </div>
-  <div class="row row-buffer">
-    <div class="col-md-6 bottom-buffer">
-      <center>
-        <%= image_tag 'newspaper.png', class: 'main-icons' %>
-      </center>
-    </div>
-    <div class="col-md-6">
-      <p class="club-info-text">Keep up to date with the MCPLAWI! We will periodically post <b><%= link_to 'MEETING MINUTES', minutes_path %></b> as well as new <b><%= link_to 'NEWS AND UPDATES', notes_path %></b> to help keep you informed!</p>
-    </div>
-  </div>
-  <hr>
-  <!--
+    <hr>
+    <!--
   <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1 next-event-info top-buffer">
     <h2 class="main-section-title text-center">
       Upcoming Events...
@@ -98,12 +110,12 @@
     <br>
     <%= image_tag 'whitnall.png', class: 'img-responsive' %>
   </div> -->
-  <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
-    <br>
-    <br>
-    <center class="flat-icon">
-      <p>Icons made by <a href="https://www.flaticon.com/authors/twitter" target="_blank" title="Twitter">Twitter</a> from <a href="https://www.flaticon.com/" target="_blank" title="Flaticon">www.flaticon.com</a><br>
-        Licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
-    </center>
+    <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+      <br>
+      <br>
+      <center class="flat-icon">
+        <p>Icons made by <a href="https://www.flaticon.com/authors/twitter" target="_blank" title="Twitter">Twitter</a> from <a href="https://www.flaticon.com/" target="_blank" title="Flaticon">www.flaticon.com</a><br>
+          Licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
+      </center>
+    </div>
   </div>
-</div>

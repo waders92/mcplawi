@@ -2,7 +2,7 @@ class McplinksController < ApplicationController
   
   def index
     @notes = Note.last(3).reverse
-    @events = get_last_two_results()
+    @events = get_last_event_result()
   end
 
   def clubs; end
@@ -34,7 +34,7 @@ class McplinksController < ApplicationController
 
   private
 
-  def get_last_two_results
+  def get_last_event_result
     results = []
     @events = Event.all
     @events.each do |event|
