@@ -13,35 +13,32 @@
       MCPLA Members - $<%= @event.event_cost_mcpla.round %><br>
       Non-MCPLA Members - $<%= @event.event_cost_non_mcpla.round %><br>
       Season Pass Holders - $<%= @event.event_cost_season_pass.round %></p>
-      <% if @event.event_cost_season_pass_browndeer %>
-     <p>Season Pass Holders (With Browndeer) - $<%= @event.event_cost_season_pass_browndeer.round %></p>
-     <% end %>
+    <% if @event.event_cost_season_pass_browndeer %>
+      <p>Season Pass Holders (With Browndeer) - $<%= @event.event_cost_season_pass_browndeer.round %></p>
+    <% end %>
     <p>Registration Closes: <%= @event.reg_closes %></p>
     <% if @event.is_partner_event? && current_user.has_partner_for_event(@event) == false %>
       <p>This event requires a partner.</p>
-   <% end %>
+    <% end %>
     <div class="bottom-buffer">
       <% if current_user.has_partner_for_event(@event) %>
         <p class="club-info-text">
           Partner: <%= current_user.event_partner(@event) %>
         </p>
       <% else %>
-      <% if @event.is_partner_event? %>
-        <%= link_to 'Add a Partner', new_event_partner_path(@event), class: 'btn btn-primary btn-md partner-btn bottom-buffer' %>
-      <% end %>
+        <% if @event.is_partner_event? %>
+          <%= link_to 'Add a Partner', new_event_partner_path(@event), class: 'btn btn-primary btn-md partner-btn bottom-buffer' %>
+        <% end %>
       <% end %>
     </div>
     <% if current_user && current_user.registered_in?(@event) %>
     <% else %>
-    <div>
-      <p style="color: red";>YOU ARE NOT REGISTERED FOR THIS EVENT.</p>
-    </div>
+      <div>
+        <p style="color: red";>YOU ARE NOT REGISTERED FOR THIS EVENT.</p>
+      </div>
     <% end %>
     <% if user_signed_in? %>
       <div class="top-buffer">
-        <% if @event.blue_golf_link.present? %>
-          <%= link_to "Blue Golf Page", @event.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-info blue_golf_link' %>
-        <% end %>
         <% if current_user && current_user.registered_in?(@event) %>
           <p>
             <br>
@@ -64,11 +61,14 @@
     <% end %>
   </div>
   <div class="tee-times event-extras">
-    <h3 id="tee-times" class="section-title">Tee Times</h3>
     <% if @event.blue_golf_link.present? %>
-      <%= link_to 'Tee Times', @event.blue_golf_link,:target => "_blank" %>
-    <% else %>
-      <p> Check back later for tee times!</p>
+      <h3 id="tee-times" class="section-title">Blue Golf Link - 
+        <span>
+          <%= link_to @event.blue_golf_link, target: '_blank' do %>
+            <%= image_tag 'score.png', class: 'blue-golf-icon' %>
+          <% end %>
+        </span>
+      </h3>
     <% end %>
   </div>
   <div class="results event-extras">
@@ -86,9 +86,9 @@
           <p>Winner: <%= event.flight_winner %></p>
           <p>Score: <%= event.winning_score %></p>
           <% if event.winners_image.present? %>
-          <%= image_tag event.winners_image, class: 'img-responsive' %>
+            <%= image_tag event.winners_image, class: 'img-responsive' %>
           <% else %>
-          <%= image_tag 'golf-hole.jpg', class: 'img-responsive' %>
+            <%= image_tag 'golf-hole.jpg', class: 'img-responsive' %>
           <% end %>
           <br>
           <% if current_user.admin? %>
@@ -103,42 +103,42 @@
   <div class="event-extras">
     <h3 id="registrations-area" class="section-title">Registrations</h3>
     <% if @event.registrations.count > 0 %>
-    <p>Total - (<%= @event.registrations.count %>)</p>
-    <% if @event.is_partner_event? %>
-    <div class="partner-clause">
-      <%= image_tag 'verified.png', class: 'icon-tiny' %> <span class="denotes">Denotes player has registered with a partner. Hover over the check to view the details.</span>
-    </div>
-    <% end %>
+      <p>Total - (<%= @event.registrations.count %>)</p>
+      <% if @event.is_partner_event? %>
+        <div class="partner-clause">
+          <%= image_tag 'verified.png', class: 'icon-tiny' %> <span class="denotes">Denotes player has registered with a partner. Hover over the check to view the details.</span>
+        </div>
+      <% end %>
     <% end %>
     <div id="registrations">
-        <%= render "shared/player_table" %>
+      <%= render "shared/player_table" %>
     </div>
   </div>
 </div>
-  <!-- New Modal -->
-  <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content register-modal">
-        <div class="modal-body registrations">
-          <h4 class="">You are registering for the <%= @event.event_title %>!</h4>
-          <p>Please verify that your information is correct, then 'Pay With Card'.<br>
-            If any information is incorrect, visit <%= link_to 'Your Profile', dashboards_path %> to update it.
-          </p>
-          <hr>
-          <p>Name - <%= current_user.first_name %> <%=current_user.last_name %></p>
-          <p>Email - <%= current_user.email %></p>
-          <p>Membership Status - <%= current_user.membership_status %></p>
-          <p>Entry Fee - $<%= current_user.event_cost(@event).round %></p>
-          <% if @event.is_partner_event? %>
-            <%= render "shared/partner" %>
-            <p>You are only paying for your portion!<br>
+<!-- New Modal -->
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content register-modal">
+      <div class="modal-body registrations">
+        <h4 class="">You are registering for the <%= @event.event_title %>!</h4>
+        <p>Please verify that your information is correct, then 'Pay With Card'.<br>
+          If any information is incorrect, visit <%= link_to 'Your Profile', dashboards_path %> to update it.
+        </p>
+        <hr>
+        <p>Name - <%= current_user.first_name %> <%=current_user.last_name %></p>
+        <p>Email - <%= current_user.email %></p>
+        <p>Membership Status - <%= current_user.membership_status %></p>
+        <p>Entry Fee - $<%= current_user.event_cost(@event).round %></p>
+        <% if @event.is_partner_event? %>
+          <%= render "shared/partner" %>
+          <p>You are only paying for your portion!<br>
             Your partner must also register and pay for their entry fee.
           </p>
-          <% end %>
-        </div>
-        <div class="modal-footer">
-          <%= form_tag event_registrations_path(@event) do %>
-            <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <%= form_tag event_registrations_path(@event) do %>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             var amount = document.querySelector('input[name="event"]:checked').value;
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description="<%= @event.event_title %>"
@@ -148,8 +148,8 @@
             data-name="MCPLA"
             data-zip-code="true"
             data-billing-address="true"></script>
-          <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
+</div>

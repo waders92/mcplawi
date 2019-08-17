@@ -20,6 +20,12 @@
             <p>Season Pass Holders (With Browndeer) - $<%= e.event_cost_season_pass_browndeer.round %></p>
             <% end %>
           <br>
+          <% if e.registration_close and Date.today > e.registration_close %>
+          <p class="reg-closes-date">Registration Closed!</p>
+        <% else %>
+            <p class="reg-closes-date">Registration Closes - <%= e.reg_closes %></p>
+        <% end %>
+          <br>
           <div class="blue-golf">
             <% if current_user && current_user.registered_in?(e) %>
               <span class="tooltip-1" title="You are registered!"><%= image_tag 'checking.png', class: 'event-icon registered-icon' %></span>
