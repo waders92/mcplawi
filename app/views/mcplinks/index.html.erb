@@ -20,13 +20,14 @@
             </span>
           <% end %>
         </div>
+        <hr>
       <% end %>
       <br>
       <span style="margin-left: -10px;"><%= link_to "More news and updates!", notes_path, class: 'btn btn-md btn-primary' %></span>
     </div>
   </div>
   <hr>
-  <div class="row row-buffer">
+  <div class="row-buffer">
     <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
       <h2 class="latest-update-title recent-results">Recent event results....</h2>
       <% @events.each do |event| %>
@@ -49,9 +50,9 @@
         <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
           <% @last_event = @events[0] %>
           <% if @last_event.blue_golf_link? %>
-            <%= link_to "Blue Golf Results", @last_event.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-info' %>
+            <%= link_to "Blue Golf Results", @last_event.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-primary' %>
           <% end %>
-          <%= link_to "More Event Results!", result_history_path, class: 'btn btn-md btn-default' %>
+          <%= link_to "Result History", result_history_path, class: 'btn btn-md btn-success' %>
         </div>
       </div>
     </div>
