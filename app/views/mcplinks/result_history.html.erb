@@ -3,27 +3,44 @@
     <h2 class="main-section-title">Result History</h2>
     <hr class="medium-underline">
   </div>
+  <% @events.each do |year, event| %>
+  <div class="col-lg-8 col-md-8 col-sm-8 club-info-text">
+      <h4 class="main-section-title"><b><%= year %> - Blue Golf Results</b></h4>
+      <% event.each do |e| %>
+        <% if e.blue_golf_link? %>
+          <div class="blue-golf-results">
+            <p class="blue-golf-title"><%= e.event_title %>: 
+              <%= link_to e.blue_golf_link, target: '_blank' do %>
+              <%= image_tag 'score.png', class: 'blue-golf-icon' %>
+            <% end %>
+            <% end %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+    <hr>
   <div class="event-winners club-info-text">
     <% @events.each do |year, event| %>
-      <h2 class="main-section-title"><%= year %></h2>
       <% event.each do |e| %>
         <% e.photos.each do |p| %>
           <div class="col-lg-6 col-md-6 col-sm-6 event-results-recap">
             <% if e.photos.length > 0 %>
-              <h3 class="main-section-title" style="margin-bottom: 3px;"><%= e.event_title %></h3>
+              <h4 class="main-section-title" style="margin-bottom: 3px;"><b><%= year %> - <%= e.event_title %></b></h4>
             <% end %>
             <p>Flight: <%= p.which_flight %></p>
             <p>Winner: <i><%= p.flight_winner %></i></p>
             <p>Score: <%= p.winning_score %></p>
             <br>
             <% if p.winners_image.present? %>
-            <%= image_tag p.winners_image, class: 'img-responsive' %>
+              <%= image_tag p.winners_image, class: 'img-responsive' %>
             <% else %>
-            <%= image_tag 'golf-hole.jpg', class: 'img-responsive' %>
+              <%= image_tag 'golf-hole.jpg', class: 'img-responsive' %>
             <% end %>
           </div>
         <% end %>
       <% end %>
     <% end %>
   </div>
+</div>
 </div>

@@ -7,7 +7,11 @@
             <div class="col-md-12">
               <%= f.input :note_update, :as => :text, :input_html => { :cols => 100, :rows => 15 }, required: true %><br>
             </div>
+            <div class="col-md-6">
+              <%= f.input :event_pdf %>
+            </div>
           </div>
+          <p class="pdf-notice">Add a PDF for a TEE TIME notice or Event Recap</p>
         <br />
         <%= f.submit 'Update', class: 'btn btn-primary' %>
         <button onclick="window.history.go(-1); return false;" value="Back" class="btn btn-md btn-danger cancel-btn">Cancel</button>

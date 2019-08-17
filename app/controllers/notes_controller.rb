@@ -47,7 +47,7 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:note_update)
+    params.require(:note).permit(:note_update, :event_pdf)
   end
 
 end
