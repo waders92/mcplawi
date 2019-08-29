@@ -1,11 +1,11 @@
 <div id="mcplawi-start" class="container">
-  <div class="row row-buffer">
-    <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+  <div class="row">
+    <div class="row-buffer col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
       <%= image_tag 'mcplawi.jpg', class: 'img-responsive main-logo' %>
     </div>
   </div>
-  <div class="row row-buffer">
-    <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+  <div class="row">
+    <div class="row-buffer col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
       <h2 class="latest-update-title recent-results">Latest News and Updates....</h2>
       <% @notes.each do |n | %>
         <div class="latest-note">
@@ -20,19 +20,19 @@
             </span>
           <% end %>
         </div>
-        <hr>
       <% end %>
-      <br>
+      <br><br><br>
       <span style="margin-left: -10px;"><%= link_to "More news and updates!", notes_path, class: 'btn btn-md btn-primary' %></span>
     </div>
   </div>
-  <div class="row-buffer">
+  <hr class="row-buffer">
+  <div class="row row-buffer">
     <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
-      <h2 class="latest-update-title recent-results">Recent event results....</h2>
+      <h2 class="latest-update-title recent-results">Recent event winners....</h2>
       <% @events.each do |event| %>
         <% event.photos.each do |photo| %>
           <% if photo.winners_image? %>
-            <div class="col-md-4 col-sm-4 latest-note">
+            <div class="col-md-6 col-sm-6 latest-note">
               <p class="text-center"><%= event.event_title %><br>
                 <i style="font-size:16px;"><%= event.date %></i></p>
               <p><i>Flight: <%= photo.which_flight %></i><br>
@@ -45,19 +45,28 @@
           <% end %>
         <% end %>
       </div>
-      <div class="row">
-        <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
-          <% @last_event = @events[0] %>
-          <% if @last_event.blue_golf_link? %>
-            <%= link_to "Blue Golf Results", @last_event.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-primary' %>
+    </div>
+    <span><%= link_to "Result History", result_history_path, class: 'btn btn-md btn-success' %></span>
+    <br><br><br>
+    <hr>
+    <div class="row">
+      <div class="row-buffer col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+        <h2 class="latest-update-title">Recent Blue Golf Results....</h2>
+        <% @events.each do |event| %>
+          <% if event.blue_golf_link? %>
+            <div class="row-buffer col-md-6 col-sm-6 latest-note">
+              <p class="blue-golf-title text-center"><%= event.event_title %><br><br> 
+                <%= link_to event.blue_golf_link, target: '_blank' do %>
+                  <%= image_tag 'score.png', class: 'blue-golf-icon-index' %>
+                <% end %>
+              <% end %>
+            </p>
+          </div>
           <% end %>
-          <%= link_to "Result History", result_history_path, class: 'btn btn-md btn-success' %>
         </div>
       </div>
-    </div>
-    <hr>
-    <div class="row row-buffer">
-      <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+    <div class="row">
+      <div class="row-buffer col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
         <h2 class="latest-update-title">Take the next steps....</h2>
       </div>
     </div>
