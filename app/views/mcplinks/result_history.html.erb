@@ -15,11 +15,13 @@
         <% @events.each do |year, event| %>
           <tbody>
             <% event.each do |e| %>
+            <% if e.blue_golf_link? %>
               <tr>
                 <td><%= e.created_at.year %></td>
                 <td><%= e.event_title %></td>
                 <td><%= link_to "Blue Golf Results", e.blue_golf_link %></td>
               </tr>
+              <% end %>
             <% end %>
           </tbody>
         <% end %>
