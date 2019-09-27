@@ -10,7 +10,7 @@
       <% @notes.each do |n | %>
         <div class="latest-note">
           <p><i><%= n.published_date %> -</i></p>
-          <p><%= n.note_update %></p>
+          <p style="white-space: pre-wrap;"><%= n.note_update %></p>
           <% if n.event_pdf? %>
             <span>
               <%= link_to n.event_pdf.url, target: '_blank' do %>

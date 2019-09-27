@@ -12,7 +12,7 @@ class McplinksController < ApplicationController
   def contact; end
 
   def result_history
-    @events = Event.all.order('created_at ASC').group_by(&:year)
+    @events = Event.all.order('created_at DESC').group_by(&:year)
   end
 
   def players
@@ -29,7 +29,9 @@ class McplinksController < ApplicationController
   def admin
     admin_required
     @event = Event.new
-    @events = Event.all.order('created_at ASC').group_by(&:year)
+    events = Event.all.order("created_at ASC")
+    sorted_events = get_current_year_events(events)
+    @events = sorted_events
   end
 
   private

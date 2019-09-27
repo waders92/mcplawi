@@ -7,11 +7,10 @@
       Add New Event
     </button>
   </div>
-  <% @events.each do |year, event| %>
-    <% event.each do |e| %>
+  <% @events.each do |e| %>
       <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-6 event-details">
-          <p class="section-title event-title"><%= year %> <%= e.event_title %></p>
+          <p class="section-title event-title"><%= e.event_title %></p>
           <p><%= e.event_location %></p>
           <p><%= e.date %>
             <% if e.event_end_date.present? %>
@@ -35,7 +34,6 @@
         </div>
       </div>
       <hr>
-    <% end %>
   <% end %>
   <div class="metrics top-buffer bottom-bffer">
     <h2 class="main-section-title">Metrics</h2>
@@ -60,11 +58,8 @@
     <div id="tabs-3" class="clubs-tab event-details">
       <h3 class="section-title">Registrations by Event</h3>
       <hr>
-      <% @events.each do |year, event| %>
-        <p><b><%= year %></b></p>
-        <% event.each do |e| %>
+      <% @events.each do |e| %>
           <p><%= e.event_title %> - <%= e.registrations.count %></p>
-        <% end %>
       <% end %>
       <hr>
     </div>
