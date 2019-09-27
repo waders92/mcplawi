@@ -49,13 +49,12 @@
 </div>
 <div class="event-details">
   <div>
-    <h2 class="main-section-title">Tournament Schedule</h2>
+    <h2 class="main-section-title"><%= Date.today.year %> Tournament Schedule</h2>
     <hr class="medium-underline">
     <% if @events.present? %>
-      <% @events.each do |year, event| %>
-        <% event.each do |e| %>
+      <% @events.each do |e| %>
           <div class="top-buffer">
-            <p class="section-title event-title"><%= year %> <%= e.event_title %></p>
+            <p class="section-title event-title"><%= e.event_title %></p>
             <p><%= e.event_location %></p>
             <p><%= e.date %>
               <% if e.event_end_date.present? %>
@@ -97,7 +96,6 @@
             </div>
           <% end %>
           <hr>
-        <% end %>
       <% end %>
     <% else %>
       <div class="event-details">

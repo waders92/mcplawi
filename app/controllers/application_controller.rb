@@ -24,4 +24,14 @@ class ApplicationController < ActionController::Base
   def send_flash_alert(message)
     flash[:alert] = message
   end
+
+  def get_current_year_events(events)
+    results = []
+    events.each do |e|
+      if e.created_at.year == Date.today.year
+        results << e
+      end
+    end
+      return results
+  end
 end

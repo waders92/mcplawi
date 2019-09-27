@@ -3,24 +3,31 @@
     <h2 class="main-section-title">Result History</h2>
     <hr class="medium-underline">
   </div>
-  <% @events.each do |year, event| %>
-  <div class="col-lg-8 col-md-8 col-sm-8 club-info-text">
-      <h4 class="main-section-title"><b><%= year %> - Blue Golf Results</b></h4>
-      <% event.each do |e| %>
-        <% if e.blue_golf_link? %>
-          <div class="blue-golf-results">
-            <p class="blue-golf-title"><%= e.event_title %>: 
-              <%= link_to e.blue_golf_link, target: '_blank' do %>
-              <%= image_tag 'score.png', class: 'blue-golf-icon' %>
+    <div class>
+      <table class="bg-table">
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Event</th>
+            <th>Blue Golf Results</th>
+          </tr>
+        </thead>
+        <% @events.each do |year, event| %>
+          <tbody>
+            <% event.each do |e| %>
+              <tr>
+                <td><%= e.created_at.year %></td>
+                <td><%= e.event_title %></td>
+                <td><%= link_to "Blue Golf Results", e.blue_golf_link %></td>
+              </tr>
             <% end %>
-            <% end %>
-          </p>
+          </tbody>
         <% end %>
-      </div>
+      </table>
     </div>
-    <% end %>
-    <hr>
   <div class="event-winners club-info-text">
+      <h2 class="main-section-title">Photo Gallery</h2>
+      <hr class="medium-underline">
     <% @events.each do |year, event| %>
       <% event.each do |e| %>
         <% e.photos.each do |p| %>
