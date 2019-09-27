@@ -19,7 +19,7 @@
               <tr>
                 <td><%= e.created_at.year %></td>
                 <td><%= e.event_title %></td>
-                <td><%= link_to "Blue Golf Results", e.blue_golf_link %></td>
+                <td><%= link_to "Blue Golf Results", e.blue_golf_link, target: '_blank' %></td>
               </tr>
               <% end %>
             <% end %>
