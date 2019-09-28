@@ -38,7 +38,10 @@
           </div>
         <% end %>
         <br>
-        <span style="margin-left: -10px;"><%= link_to "More Team Info", teams_path, class: 'btn btn-md btn-primary' %></span>
+        <span style="margin-left: -10px;"><%= link_to "More Teams Info", teams_path, class: 'btn btn-md btn-primary' %>
+         &nbsp;&nbsp;
+            <%= link_to 'Tee TImes & Results', teetimes_path, class: 'btn btn-md btn-success tee-time-btn' %>
+        </span>
       </div>
     </div>
     <hr style="width: 70%;">
