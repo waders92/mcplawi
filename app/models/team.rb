@@ -6,4 +6,8 @@ class Team < ApplicationRecord
   def year
     created_at.strftime('%Y')
   end
+
+  def date
+    created_at.strftime('%b %d, %Y')
+  end
 end

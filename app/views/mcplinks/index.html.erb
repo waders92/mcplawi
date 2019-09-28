@@ -27,6 +27,20 @@
     </div>
   </div>
   <hr style="width: 70%;">
+  <div class="row" style="margin-bottom: 50px;">
+      <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+        <h2 class="latest-update-title recent-results">First & Second Team Info....</h2>
+        <% @teams.each do |t| %>
+          <div class="latest-note">
+            <p><i><b><%= t.date %></b> -</i></p>
+            <p style="white-space: pre-wrap;"><%= t.team_schedule_info %></p>
+            <br><br>
+          </div>
+        <% end %>
+        <br>
+        <span style="margin-left: -10px;"><%= link_to "More Team Info", teams_path, class: 'btn btn-md btn-primary' %></span>
+      </div>
+    </div>
   <div class="row row-buffer">
     <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
       <h2 class="latest-update-title recent-results">Recent event winners....</h2>

@@ -3,6 +3,7 @@ class McplinksController < ApplicationController
   def index
     @notes = Note.last(3).reverse
     @events = get_recent_event_results()
+    @teams = Team.last(3).reverse
   end
 
   def clubs; end
