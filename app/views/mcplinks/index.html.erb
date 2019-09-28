@@ -9,7 +9,7 @@
       <h2 class="latest-update-title recent-results">Latest News and Updates....</h2>
       <% @notes.each do |n | %>
         <div class="latest-note">
-          <p><i><%= n.published_date %> -</i></p>
+          <p><i><b><%= n.published_date %></b> -</i></p>
           <p style="white-space: pre-wrap;"><%= n.note_update %></p>
           <% if n.event_pdf? %>
             <span>
