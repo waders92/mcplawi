@@ -34,7 +34,7 @@
         <% event.photos.each do |photo| %>
           <% if photo.winners_image? %>
             <div class="col-md-6 col-sm-6 latest-note">
-              <p class="text-center"><%= event.event_title %><br>
+              <p class="text-center" style="font-weight:bold;"><%= event.event_title %><br>
                 <i style="font-size:16px;"><%= event.date %></i></p>
               <p>Flight: <%= photo.which_flight %><br>
                 Winner: <%= photo.flight_winner %><br>
