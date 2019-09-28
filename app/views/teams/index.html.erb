@@ -13,6 +13,7 @@
       </p>
         <% team.each do |t| %>
           <div class="event-details">
+            <p><i><b><%= t.date %></b></i></p>
             <p style="white-space: pre-wrap;"><%= t.team_schedule_info %></p>
             <span>
               <% if current_user && current_user.admin? %>

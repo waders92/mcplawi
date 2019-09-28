@@ -41,6 +41,7 @@
         <span style="margin-left: -10px;"><%= link_to "More Team Info", teams_path, class: 'btn btn-md btn-primary' %></span>
       </div>
     </div>
+    <hr style="width: 70%;">
   <div class="row row-buffer">
     <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
       <h2 class="latest-update-title recent-results">Recent event winners....</h2>
@@ -70,7 +71,7 @@
         <% @events.each do |event| %>
           <% if event.blue_golf_link? %>
             <div class="row-buffer col-md-6 col-sm-6 latest-note">
-              <p class="blue-golf-title text-center"><%= event.event_title %><br><br> 
+              <p class="blue-golf-title text-center"><%= event.year %> <%= event.event_title %><br><br> 
                 <%= link_to event.blue_golf_link, target: '_blank' do %>
                   <%= image_tag 'score.png', class: 'blue-golf-icon-index' %>
                 <% end %>
