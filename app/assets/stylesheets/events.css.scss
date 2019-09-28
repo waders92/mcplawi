@@ -64,7 +64,9 @@ a.btn.btn-primary.btn-md.winner-btn {
 }
 
 .blue-golf-title {
-  font-family: 'Raleway', sans-serif; 
+  font-family: $font;
+  font-weight: bold;
+  font-style: italic; 
 }
 
 .blue-golf-results {

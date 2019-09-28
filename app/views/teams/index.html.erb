@@ -1,5 +1,7 @@
 <div class="container">
-    <h2 class="main-section-title">First & Second Team Schedules</h2>
+    <h2 class="main-section-title">First & Second Team Schedules&nbsp;&nbsp;
+      <%= link_to 'View Tee Times', teetimes_path, class: 'btn btn-sm btn-success tee-time-btn' %>
+    </h2>
     <hr class="medium-underline">
     <% if current_user && current_user.admin? %>
     <div class="bottom-buffer">
@@ -8,9 +10,7 @@
     <% end %>
     <% if @teams.present? %>
       <% @teams.each do |year, team| %>
-      <p class="section-title event-title"><%= year %> &nbsp;&nbsp;
-        <%= link_to 'View Tee Times', teetimes_path, class: 'btn btn-sm btn-success tee-time-btn' %>
-      </p>
+      <p class="section-title event-title"><%= Date.today.year %> Schedules</p>
         <% team.each do |t| %>
           <div class="event-details">
             <p><i><b><%= t.date %></b></i></p>

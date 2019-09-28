@@ -1,7 +1,15 @@
 <div id="mcplawi-start" class="container">
   <div class="row">
-    <div class="row-buffer col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+    <div class="row-buffer col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1" style="margin-bottom: 75px;">
       <%= image_tag 'mcplawi.jpg', class: 'img-responsive main-logo' %>
+    </div>
+  </div>
+  <div class="row bg-buffer" style="margin-bottom: 75px;">
+    <div class="col-md-6 col-sm-6 text-center">
+      <%= link_to 'About The MCPLA', clubs_path, class: 'btn btn-primary landing-button button-buffer'  %>
+    </div>
+    <div class="col-md-6 col-sm-6 text-center">
+      <%= link_to 'Meeting Minutes', minutes_path, class: 'btn btn-primary landing-button button-buffer' %>
     </div>
   </div>
   <div class="row" style="margin-bottom: 50px;">
@@ -38,14 +46,14 @@
           </div>
         <% end %>
         <br>
-        <span style="margin-left: -10px;"><%= link_to "More Teams Info", teams_path, class: 'btn btn-md btn-primary' %>
+        <span><%= link_to "More Teams Info", teams_path, class: 'btn btn-md btn-primary' %>
          &nbsp;&nbsp;
-            <%= link_to 'Tee TImes & Results', teetimes_path, class: 'btn btn-md btn-success tee-time-btn' %>
+            <%= link_to 'Tee Times & Results', teetimes_path, class: 'btn btn-md btn-success tee-time-btn' %>
         </span>
       </div>
     </div>
     <hr style="width: 70%;">
-  <div class="row row-buffer">
+  <div class="row bg-buffer">
     <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
       <h2 class="latest-update-title recent-results">Recent event winners....</h2>
       <% @events.each do |event| %>
@@ -63,17 +71,17 @@
             <% end %>
           <% end %>
         <% end %>
+        <span><%= link_to "Result History", result_history_path, class: 'btn btn-md btn-success' %></span>
       </div>
     </div>
-    <span><%= link_to "Result History", result_history_path, class: 'btn btn-md btn-success' %></span>
     <br><br><br>
     <hr style="width: 70%;">
     <div class="row">
-      <div class="row-buffer col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+      <div class="bg-buffer col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
         <h2 class="latest-update-title">Recent Blue Golf Results....</h2>
         <% @events.each do |event| %>
           <% if event.blue_golf_link? %>
-            <div class="row-buffer col-md-6 col-sm-6 latest-note">
+            <div class="bg-buffer col-md-6 col-sm-6 latest-note">
               <p class="blue-golf-title text-center"><%= event.year %> <%= event.event_title %><br><br> 
                 <%= link_to event.blue_golf_link, target: '_blank' do %>
                   <%= image_tag 'score.png', class: 'blue-golf-icon-index' %>
@@ -86,11 +94,11 @@
       </div>
       <hr style="width: 70%">
     <div class="row">
-      <div class="row-buffer col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+      <div class="row-buffer col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1" style="margin-top: 20px;">
         <h2 class="latest-update-title">Take the next steps....</h2>
       </div>
     </div>
-    <div class="row row-buffer">
+    <div class="row row-buffer" style="margin-top: 20px;">
       <div class="col-md-6 bottom-buffer">
         <center>
           <%= image_tag 'user-5.png', class: 'main-icons' %>

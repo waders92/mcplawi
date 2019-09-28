@@ -18,6 +18,15 @@ a:hover {
   margin-bottom: 50px;
 }
 
+.bg-buffer {
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.button-buffer {
+  margin: 20px;
+}
+
 body {
   font-family: $font;
 }
@@ -190,8 +199,27 @@ div.row.hero-image {
   border-radius: 0;
 
   &:hover {
+    cursor: pointer;
     background-color: #4D4D4D;
     border-color:#4D4D4D;
+  }
+}
+
+.landing-button {
+  border-width: 2px;
+  border-style: solid;
+  background-color: transparent;
+  padding: 25px 46px;
+  font-size: 20px;
+  color:  #2b5b6d;
+  border-color:  #2b5b6d;
+  text-transform: uppercase;
+  border-radius: 0;
+
+  &:hover {
+    background-color: #4D4D4D;
+    border-color:#4D4D4D;
+    cursor: pointer;
   }
 }
 

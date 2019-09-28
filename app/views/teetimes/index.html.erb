@@ -1,20 +1,20 @@
 <!-- Tee Times Section --> 
 
 <div class="container">
-  <h2 class="main-section-title">First & Second Team Tee Times</h2>
+  <h2 class="main-section-title">First & Second Team Tee Times&nbsp;&nbsp;
+    <% if @teetimes.present? %>
+    <%= link_to 'VIEW SCHEDULES', teams_path, class: 'btn btn-sm btn-success team-sched' %>
+  </h2>
   <hr class="medium-underline">
   <% if current_user && current_user.admin? %>
   <div class="bottom-buffer">
     <%= link_to 'Add New Tee Time', new_teetime_path, class: 'btn btn-md btn-primary btn-minutes' %>
   </div>
   <% end %>
-  <% if @teetimes.present? %>
-  <%= link_to 'VIEW TEAM SCHEDULES', teams_path, class: 'btn btn-sm btn-success team-sched' %>
-  <hr>
     <% @teetimes.each do |month, time| %>
       <% time.each do |t| %>
         <div class="col-lg-6 col-md-6 col-sm-6 event-details bottom-buffer">
-            <p><b><%= t.teetime_date %></b></p>
+            <p><i><b><%= t.teetime_date %></b></i></p>
             <p class="section-title event-title"><%= t.title %></p>
             <br>
             <span>
