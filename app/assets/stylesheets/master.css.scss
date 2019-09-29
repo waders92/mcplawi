@@ -19,8 +19,8 @@ a:hover {
 }
 
 .bg-buffer {
-  margin-top: 0px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .button-buffer {
@@ -221,6 +221,28 @@ div.row.hero-image {
     border-color:#4D4D4D;
     cursor: pointer;
   }
+}
+
+.link-button {
+  border-width: 2px;
+  border-style: solid;
+  background-color: transparent;
+  padding: 15px 30px;
+  font-size: 12px;
+  color:  #2b5b6d;
+  border-color:  #2b5b6d;
+  text-transform: uppercase;
+  border-radius: 0;
+
+  &:hover {
+    background-color: #4D4D4D;
+    border-color:#4D4D4D;
+    cursor: pointer;
+  }
+}
+
+.btn-spacer {
+  letter-spacing: 1px;
 }
 
 .learn-more-button {

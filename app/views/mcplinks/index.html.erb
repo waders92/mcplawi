@@ -4,7 +4,9 @@
       <%= image_tag 'mcplawi.jpg', class: 'img-responsive main-logo' %>
     </div>
   </div>
-  <div class="row bg-buffer" style="margin-bottom: 75px;">
+  <hr style="width: 70%;">
+  <div class="row bg-buffer">
+    <h2 class="latest-update-title recent-results">Quick Navigation Links....</h2>
     <div class="col-md-6 col-sm-6 text-center">
       <%= link_to 'About The MCPLA', clubs_path, class: 'btn btn-primary landing-button button-buffer'  %>
     </div>
@@ -12,6 +14,23 @@
       <%= link_to 'Meeting Minutes', minutes_path, class: 'btn btn-primary landing-button button-buffer' %>
     </div>
   </div>
+  <div class="row bg-buffer">
+    <div class="col-md-6 col-sm-6 text-center" style="letter-spacing: 1.7px;">
+      <%= link_to 'View Officers', officers_path, class: 'btn btn-primary landing-button button-buffer'  %>
+    </div>
+    <div class="col-md-6 col-sm-6 text-center" style="letter-spacing: 1.7px;">
+      <%= link_to 'MCPLA Events', events_path, class: 'btn btn-primary landing-button button-buffer' %>
+    </div>
+  </div>
+  <div class="row bg-buffer">
+      <div class="col-md-6 col-sm-6 text-center" style="letter-spacing: 1.7px;">
+        <%= link_to 'Member Clubs', clubs_path(:anchor => 'clubs') , class: 'btn btn-primary landing-button button-buffer'  %>
+      </div>
+      <div class="col-md-6 col-sm-6 text-center" style="letter-spacing: 1.7px;">
+        <%= link_to 'My Dashboard', dashboards_path, class: 'btn btn-primary landing-button button-buffer' %>
+      </div>
+    </div>
+  <hr style="width: 70%;">
   <div class="row" style="margin-bottom: 50px;">
     <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
       <h2 class="latest-update-title recent-results">Latest News and Updates....</h2>
@@ -31,7 +50,7 @@
         </div>
       <% end %>
       <br>
-      <span style="margin-left: -10px;"><%= link_to "More news and updates!", notes_path, class: 'btn btn-md btn-primary' %></span>
+      <span style="margin-left: -10px;"><%= link_to "More news and updates!", notes_path, class: 'btn btn-md btn-primary link-button' %></span>
     </div>
   </div>
   <hr style="width: 70%;">
@@ -46,9 +65,9 @@
           </div>
         <% end %>
         <br>
-        <span><%= link_to "More Teams Info", teams_path, class: 'btn btn-md btn-primary' %>
+        <span><%= link_to "More Teams Info", teams_path, class: 'btn btn-md btn-primary link-button btn-spacer' %>
          &nbsp;&nbsp;
-            <%= link_to 'Tee Times & Results', teetimes_path, class: 'btn btn-md btn-success tee-time-btn' %>
+            <%= link_to 'Tee Times & Results', teetimes_path, class: 'btn btn-md btn-success tee-time-btn link-button' %>
         </span>
       </div>
     </div>
@@ -71,7 +90,7 @@
             <% end %>
           <% end %>
         <% end %>
-        <span><%= link_to "Result History", result_history_path, class: 'btn btn-md btn-success' %></span>
+        <span><%= link_to "Result History", result_history_path, class: 'btn btn-md btn-success link-button' %></span>
       </div>
     </div>
     <br><br><br>
@@ -82,10 +101,8 @@
         <% @events.each do |event| %>
           <% if event.blue_golf_link? %>
             <div class="bg-buffer col-md-6 col-sm-6 latest-note">
-              <p class="blue-golf-title text-center"><%= event.year %> <%= event.event_title %><br><br> 
-                <%= link_to event.blue_golf_link, target: '_blank' do %>
-                  <%= image_tag 'score.png', class: 'blue-golf-icon-index' %>
-                <% end %>
+              <p class="text-center">
+                <%= link_to event.event_title , event.blue_golf_link, target: '_blank', class: 'btn btn-primary contact-button' %>
               <% end %>
             </p>
           </div>
