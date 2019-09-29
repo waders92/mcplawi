@@ -90,26 +90,12 @@
             <% end %>
           <% end %>
         <% end %>
-        <span><%= link_to "Result History", result_history_path, class: 'btn btn-md btn-success link-button' %></span>
+        <span><%= link_to "Photo Gallery", result_history_path(:anchor => 'photo'), class: 'btn btn-md btn-success link-button' %></span>
+        <span><%= link_to "Blue Golf Results", result_history_path, class: 'btn btn-md btn-success link-button' %></span>
       </div>
     </div>
     <br><br><br>
     <hr style="width: 70%;">
-    <div class="row">
-      <div class="bg-buffer col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
-        <h2 class="latest-update-title">Recent Blue Golf Results....</h2>
-        <% @events.each do |event| %>
-          <% if event.blue_golf_link? %>
-            <div class="bg-buffer col-md-6 col-sm-6 latest-note">
-              <p class="text-center">
-                <%= link_to event.event_title , event.blue_golf_link, target: '_blank', class: 'btn btn-primary contact-button' %>
-              <% end %>
-            </p>
-          </div>
-          <% end %>
-        </div>
-      </div>
-      <hr style="width: 70%">
     <div class="row">
       <div class="row-buffer col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1" style="margin-top: 20px;">
         <h2 class="latest-update-title">Take the next steps....</h2>
