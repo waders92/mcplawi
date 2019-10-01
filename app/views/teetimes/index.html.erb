@@ -3,12 +3,12 @@
 <div class="container">
   <h2 class="main-section-title">First & Second Team Tee Times&nbsp;&nbsp;
     <% if @teetimes.present? %>
-    <%= link_to 'VIEW SCHEDULES', teams_path, class: 'btn btn-sm btn-success team-sched' %>
+    <%= link_to 'VIEW SCHEDULES', teams_path, class: 'btn btn-sm btn-success team-sched link-button' %>
   </h2>
   <hr class="medium-underline">
   <% if current_user && current_user.admin? %>
   <div class="bottom-buffer">
-    <%= link_to 'Add New Tee Time', new_teetime_path, class: 'btn btn-md btn-primary btn-minutes' %>
+    <%= link_to 'Add New Tee Time', new_teetime_path, class: 'btn btn-md btn-primary btn-minutes link-button' %>
   </div>
   <% end %>
     <% @teetimes.each do |month, time| %>
