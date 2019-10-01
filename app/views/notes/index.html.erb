@@ -3,7 +3,7 @@
     <hr class="medium-underline">
     <% if current_user && current_user.admin? %>
     <div class="bottom-buffer">
-      <%= link_to 'Add New News / Update', new_note_path, class: 'btn btn-md btn-primary btn-minutes' %>
+      <%= link_to 'Add New News / Update', new_note_path, class: 'btn btn-md btn-primary btn-minutes link-button' %>
     </div>
     <% end %>
     <% if @notes.present? %>

@@ -29,9 +29,9 @@
             <% if current_user && current_user.registered_in?(e) %>
               <span class="tooltip-1" title="You are registered!"><%= image_tag 'checking.png', class: 'event-icon registered-icon' %></span>
             <% end %>
-            <%= link_to 'Event Info', event_path(e), class: 'btn btn-md btn-primary event-info-button' %>
+           <span style="letter-spacing: 1.5px;"><%= link_to 'Event Info', event_path(e), class: 'btn btn-md btn-primary link-button' %></span>
             <% if e.blue_golf_link.present? %>
-              <%= link_to "Blue Golf Page", e.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-info' %>
+              <%= link_to "Blue Golf Page", e.blue_golf_link, :target => "_blank", class: 'btn btn-md btn-info link-button' %>
             <% end %>
           </div>
         </div>

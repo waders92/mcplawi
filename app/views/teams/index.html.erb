@@ -1,11 +1,11 @@
 <div class="container">
     <h2 class="main-section-title">First & Second Team Schedules&nbsp;&nbsp;
-      <%= link_to 'View Tee Times', teetimes_path, class: 'btn btn-sm btn-success tee-time-btn' %>
+      <%= link_to 'View Tee Times', teetimes_path, class: 'btn btn-sm btn-success tee-time-btn link-button' %>
     </h2>
     <hr class="medium-underline">
     <% if current_user && current_user.admin? %>
     <div class="bottom-buffer">
-      <%= link_to 'Add New Team Scehdule', new_team_path, class: 'btn btn-md btn-primary btn-minutes' %>
+      <%= link_to 'Add New Team Scehdule', new_team_path, class: 'btn btn-md btn-primary btn-minutes link-button' %>
     </div>
     <% end %>
     <% if @teams.present? %>
