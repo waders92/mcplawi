@@ -17,8 +17,10 @@
       <p>Season Pass Holders (With Browndeer) - $<%= @event.event_cost_season_pass_browndeer.round %></p>
     <% end %>
     <p>Registration Closes: <%= @event.reg_closes %></p>
+    <% if @event.registration_close and Date.today < @event.registration_close %>
     <% if @event.is_partner_event? && current_user.has_partner_for_event(@event) == false %>
       <p>This event requires a partner.</p>
+    <% end %>
     <% end %>
     <div class="bottom-buffer">
       <% if current_user.has_partner_for_event(@event) %>
@@ -26,8 +28,10 @@
           Partner: <%= current_user.event_partner(@event) %>
         </p>
       <% else %>
+      <% if @event.registration_close and Date.today < @event.registration_close %>
         <% if @event.is_partner_event? %>
           <%= link_to 'Add a Partner', new_event_partner_path(@event), class: 'btn btn-primary btn-md partner-btn bottom-buffer' %>
+        <% end %>
         <% end %>
       <% end %>
     </div>
@@ -61,20 +65,16 @@
     <% end %>
   </div>
   <div class="tee-times event-extras">
-    <% if @event.blue_golf_link.present? %>
-      <h3 id="tee-times" class="section-title">Blue Golf Link - 
-        <span>
-          <%= link_to @event.blue_golf_link, target: '_blank' do %>
-            <%= image_tag 'score.png', class: 'blue-golf-icon' %>
-          <% end %>
-        </span>
-      </h3>
-    <% end %>
   </div>
   <hr style="width: 70%;">
   <div class="row">
     <div class="results event-extras col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1 bg-buffer">
       <h2 id="results" class="latest-update-title recent-results">Results....</h2>
+      <% if @event.blue_golf_link.present? %>
+      <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3 text-center bg-buffer">
+        <%= link_to "Blue Golf Results", @event.blue_golf_link, target: '_blank' , class: 'btn btn-md btn-success link-button' %>
+      </div>
+      <% end %>
       <% if current_user.admin? %>
         <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3 text-center bg-buffer">
           <%= link_to 'Add Flight Winners', new_event_photo_path(@event), class: 'btn btn-primary btn-md link-button' %>
