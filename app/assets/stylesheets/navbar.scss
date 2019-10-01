@@ -1,18 +1,17 @@
 $font: 'Source Sans Pro', sans-serif;
+$font2: 'Raleway', sans-serif;
 $color : #1f618d;
 
 .navbar-inverse {
-    // background-color: #464242;
-    // border-color: #464242;
     background-color: $color;
     border-color: $color;
     border-radius: 0;
-    font-family: $font;
+    font-family: $font2;
 }
 
 .navbar-inverse .navbar-brand {
     color: snow;
-    font-family: $font;
+    font-family: $font2;
     font-size: 3rem;
     letter-spacing: 2px;
 
@@ -27,7 +26,7 @@ $color : #1f618d;
 
 .navbar-inverse .navbar-nav > li > a {
     color: snow;
-    font-family: $font;
+    font-family: $font2;
 
     &:hover {
       color: rgba(255, 252, 252, .7);
@@ -70,7 +69,7 @@ p.buffer-row.text-center {
 
 .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
   color: snow;
-  font-family: $font;
+  font-family: $font2;
 
   &:hover {
     color: rgba(255, 252, 252, .7);
