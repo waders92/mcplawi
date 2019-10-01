@@ -7,11 +7,11 @@
     </div>
     <% end %>
     <% if @notes.present? %>
+    <p class="section-title event-title"><%= Date.today.year %> - News & Updates</p>
       <% @notes.each do |year, note| %>
-      <p class="section-title event-title"><%= year %></p>
         <% note.each do |n| %>
           <div class="event-details">
-            <p class="published-date"><%= n.published_date %></p>
+            <p class="published-date"><b><%= n.published_date %></b></p>
             <p style="white-space: pre-wrap;"><%= n.note_update %></p>
             <% if n.event_pdf? %>
             <br>

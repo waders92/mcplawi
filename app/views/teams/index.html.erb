@@ -10,7 +10,7 @@
     <% end %>
     <% if @teams.present? %>
       <% @teams.each do |year, team| %>
-      <p class="section-title event-title"><%= Date.today.year %> Schedules</p>
+      <p class="section-title event-title"><%= Date.today.year %> - Schedules</p>
         <% team.each do |t| %>
           <div class="event-details">
             <p><i><b><%= t.date %></b></i></p>
