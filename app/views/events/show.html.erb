@@ -83,9 +83,8 @@
       <% @results = @event.photos.sort { |a,b| a.created_at <=> b.created_at } %>
       <% @results.each do |event| %>
         <div class="col-md-6 col-sm-6 latest-note">
-          <p class="text-center" style="font-weight:bold;"><%= event.which_flight%><br>
-          </p>
-          <p>Winner: <%= event.flight_winner %><br>
+          <p><span><i><b><%= event.which_flight %></b></i></span><br>
+            Winner: <%= event.flight_winner %><br>
             Score: <%= event.winning_score %></p>
           <% if event.winners_image.present? %>
             <%= image_tag event.winners_image, class: 'img-responsive' %>
