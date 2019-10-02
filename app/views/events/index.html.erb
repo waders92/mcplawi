@@ -4,7 +4,7 @@
   <% if @events.present? %>
     <% @events.each do |e| %>
         <div class="event-details">
-          <p class="section-title event-title"><%= e.event_title %></p>
+          <p class="section-title event-title"><i><b><%= e.event_title %></b></i></p>
           <p><%= e.event_location %></p>
           <p><%= e.date %>
             <% if e.event_end_date.present? %>

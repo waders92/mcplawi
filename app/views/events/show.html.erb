@@ -1,6 +1,6 @@
 <div class="container">
   <div class="event-details">
-    <h3 class="event-section-title"><%= @event.year %> <%= @event.event_title %></h3>
+    <h3 class="event-section-title"><i><%= @event.year %> <%= @event.event_title %></i></h3>
     <p><%= @event.event_location %></p>
     <p><%= @event.date %>
       <% if @event.event_end_date.present? %>
