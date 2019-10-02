@@ -11,8 +11,8 @@
     <p class="section-title event-title"><%= Date.today.year %> - Meeting Minutes</p>
       <% minute.each do |m| %>
         <div class="col-lg-6 col-md-6 col-sm-6 event-details" style="margin-bottom: 50px;">
-          <p class="section-title event-title"><%= m.title %></p>
-          <p class="published-date"><%= m.minutes_date %></p>
+          <p class="section-title event-title"><i><b><%= m.title %></b></i></p>
+          <p><%= m.minutes_date %></p>
           <br>
           <span>
             <%= link_to m.pdf_file.url, target: '_blank' do %>

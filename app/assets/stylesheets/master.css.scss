@@ -241,6 +241,11 @@ div.row.hero-image {
     border-color:#4D4D4D;
     cursor: pointer;
   }
+
+  &:visited {
+    background-color: transparent;
+    border-color: #2b5b6d;
+  }
 }
 
 .btn-spacer {
