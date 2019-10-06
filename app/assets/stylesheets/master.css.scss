@@ -201,8 +201,9 @@ div.row.hero-image {
 
   &:hover {
     cursor: pointer;
-    background-color: #4D4D4D;
-    border-color:#4D4D4D;
+    border-color:#0371b5;
+    color: #fff;
+    background-color: #0371b5;
   }
 }
 
@@ -218,9 +219,10 @@ div.row.hero-image {
   border-radius: 0;
 
   &:hover {
-    background-color: #4D4D4D;
-    border-color:#4D4D4D;
     cursor: pointer;
+    border-color:#0371b5;
+    color: #fff;
+    background-color: #0371b5;
   }
 }
 
@@ -237,14 +239,10 @@ div.row.hero-image {
   margin-left: 0;
 
   &:hover {
-    background-color: #4D4D4D;
-    border-color:#4D4D4D;
     cursor: pointer;
-  }
-
-  &:visited {
-    background-color: transparent;
-    border-color: #2b5b6d;
+    border-color:#0371b5;
+    color: #fff;
+    background-color: #0371b5;
   }
 }
 
