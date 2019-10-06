@@ -7,6 +7,10 @@ $font: 'Source Sans Pro', sans-serif;
     border: 1px solid rgba(221, 221, 221, 0.25);
     padding: 8px;
   }
+
+  thead {
+    background-color: #e4e4e4;
+  }
 }
 
 .player-table-text p {
