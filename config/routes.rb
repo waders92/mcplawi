@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   root 'mcplinks#index'
   get '/clubs', to: 'mcplinks#clubs'
   get '/result_history', to: 'mcplinks#result_history'
+  get '/event_archive', to: 'mcplinks#event_archive'
+  get '/minute_archive', to: 'mcplinks#minute_archive'
   get '/admin', to: 'mcplinks#admin'
   get '/players', to: 'mcplinks#players'
   get '/officers', to: 'mcplinks#officers'

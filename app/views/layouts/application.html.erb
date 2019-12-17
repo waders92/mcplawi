@@ -48,8 +48,7 @@
                         <li><%= link_to 'MCPLA Events', events_path %></li>
                         <li><%= link_to 'Blue Golf Results', result_history_path %></li>
                         <li><%= link_to 'Photo Gallery', result_history_path(:anchor => 'photo') %></li>
-                        <li><%= link_to 'First & Second Team Schedules', teams_path %></li>
-                        <li><%= link_to 'First & Second Team Tee Times', teetimes_path %></li>
+                        <li><%= link_to 'First & Second Team Events', teams_path %></li>
                       </ul>
                   </li>
               <% if current_user.admin? %>
@@ -76,8 +75,7 @@
                         <li><%= link_to 'MCPLA Events', events_path %></li>
                         <li><%= link_to 'Blue Golf Results', result_history_path %></li>
                         <li><%= link_to 'Photo Gallery', result_history_path(:anchor => 'photo') %></li>
-                        <li><%= link_to 'First & Second Team Schedules', teams_path %></li>
-                        <li><%= link_to 'First & Second Team Tee Times', teetimes_path %></li>
+                        <li><%= link_to 'First & Second Team Events', teams_path %></li>
                       </ul>
                   </li>
               <li><%= link_to 'Sign-In', new_user_session_path %></li>

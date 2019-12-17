@@ -16,6 +16,14 @@ class McplinksController < ApplicationController
     @events = Event.all.order('created_at DESC').group_by(&:year)
   end
 
+  def event_archive
+    @events = Event.all.order("created_at ASC").group_by(&:year)
+  end
+
+  def minute_archive
+    @minutes = Minute.all.order("created_at DESC").group_by(&:year)
+  end
+
   def players
     @users = if params[:term]
                User.where('LOWER(last_name) LIKE ?', "%#{params[:term].downcase}%").order('last_name ASC').paginate(page: params[:page], per_page: 10)

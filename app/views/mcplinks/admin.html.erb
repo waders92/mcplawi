@@ -28,9 +28,8 @@
             <% end %>
           <p>Registrations: <%= e.total_registrations %></p>
           <br>
-          <%= link_to 'Details', event_path(e), class: 'btn btn-primary btn-md event-details' %>
+          <%= link_to 'Details', event_path(e), class: 'btn btn-success btn-md event-details' %>
           <%= link_to 'Edit', edit_event_path(e), class: 'btn btn-md btn-primary' %>
-          <%= link_to 'Delete', event_path(e), class: 'btn btn-danger btn-md', method: :delete, data: {confirm: 'Are you sure you want to delete this?'} %>
         </div>
       </div>
       <hr>

@@ -1,0 +1,12 @@
+<div class="container">
+  <h2 class="main-section-title">Minutes Archive</h2>
+  <hr class="medium-underline">
+  <% @minutes.each do |year, minute| %>
+    <p class="section-title event-title"><%= year %></p>
+    <% minute.each do |m| %>
+      <div class="event-details">
+        <p><%= m.title %><span class="span-margin"><%= link_to 'View Minutes', m.pdf_file.url, target: '_blank' %></span></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
