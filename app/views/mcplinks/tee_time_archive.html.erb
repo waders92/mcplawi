@@ -4,7 +4,7 @@
   <% @teetimes.each do |year, teetime| %>
     <p class="section-title event-title"><%= year %></p>
     <% teetime.each do |t| %>
-      <div class="col-lg-6 col-md-6 col-sm-6 event-details bottom-buffer">
+      <div class="event-details">
         <p><i><b><%= t.teetime_date %></b></i></p>
         <p class="section-title event-title"><%= link_to t.title, t.teetime_pdf.url, target: '_blank' %>
         </p>
