@@ -8,6 +8,7 @@ Second Team Schedules - show yearly, have history
 Second Team Tee Times - show yearly, have history
 ADMIN FAQ PAGE with link
 FAQ page for members (forgot password, etc...)
+Fix landing, fade text, read more...
 
 
 COMPLETED - Plaes to update in the app
