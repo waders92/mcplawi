@@ -1,5 +1,6 @@
 <div class="container">
-  <h2 class="main-section-title"><%= Date.today.year %> MCPLA Tournament Schedule</h2>
+  <h2 class="main-section-title"><%= Date.today.year %> MCPLA Tournament Schedule
+  </h2>
   <hr class="medium-underline">
   <% if @events.present? %>
     <% @events.each do |e| %>
@@ -42,4 +43,9 @@
       <p>Check back for our events!</p>
     </div>
   <% end %>
+  <div class="archives">
+    <span>
+      <%= link_to "View Prior Year Results", result_history_path, class: 'btn btn-md btn-dark archive-btn' %>
+    </span>
+  </div>
 </div>

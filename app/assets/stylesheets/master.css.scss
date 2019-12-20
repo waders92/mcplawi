@@ -47,6 +47,16 @@ div.row.hero-image {
   letter-spacing: .5px;
 }
 
+.club-info-text-landing {
+  font-weight: 100;
+  font-size: 16px;
+  letter-spacing: .5px;
+}
+
+a.read-more {
+  color: #b77133;
+}
+
 .club-welcome-text {
   font-size: 25px;
   font-weight: 100;
@@ -63,6 +73,19 @@ div.row.hero-image {
 .main-section-title {
   font-family: $font;
   font-weight: 100;
+  margin-top: 50px;
+  font-size: 36px;
+}
+
+.main-section-title-mini {
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 100;
+  margin-top: 50px;
+  font-size: 30px;
+}
+
+.main-section-sub-title {
+  font-family: $font;
   margin-top: 50px;
 }
 
@@ -109,7 +132,7 @@ div.row.hero-image {
   text-transform: uppercase;
   font-family: $font;
   font-weight: 400;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .big-year {
@@ -325,6 +348,30 @@ button.btn.btn-primary.btn-md.partner-btn {
     color: rgb(204, 198, 198);
   }
 }
+
+.archive-btn {
+  margin: 0;
+  padding: 0;
+  font-size: 22px;
+  color: darkcyan;
+}
+
+.archives {
+  padding-top: 20px;
+}
+
+.span-margin {
+  margin-left: 15px;
+   
+  a {
+    color: darkcyan;
+  }
+}
+
+// .blur-text {
+//   color: #2d050559;
+//   text-shadow: 0 0 5px rgba(21, 1, 1, 0.02);
+// }
 
 @media (min-width: 768px) {
   .modal-xl {

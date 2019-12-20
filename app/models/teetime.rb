@@ -10,6 +10,10 @@ class Teetime < ApplicationRecord
     created_at.strftime('%B %Y')
   end
 
+  def year
+    created_at.strftime('%Y')
+  end
+
   def teetime_date
     date.strftime('%b %d, %Y')
   end

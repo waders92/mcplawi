@@ -1,34 +1,37 @@
 <div class="container">
-    <h2 class="main-section-title">First & Second Team Schedules&nbsp;&nbsp;
-      <%= link_to 'View Tee Times', teetimes_path, class: 'btn btn-sm btn-success tee-time-btn link-button' %>
-    </h2>
-    <hr class="medium-underline">
-    <% if current_user && current_user.admin? %>
+  <h2 class="main-section-title">First & Second Team Schedules&nbsp;&nbsp;
+    <%= link_to 'View Tee Times', teetimes_path, class: 'btn btn-sm btn-success tee-time-btn link-button' %>
+  </h2>
+  <hr class="medium-underline">
+  <% if current_user && current_user.admin? %>
     <div class="bottom-buffer">
       <%= link_to 'Add New Team Scehdule', new_team_path, class: 'btn btn-md btn-primary btn-minutes link-button' %>
     </div>
-    <% end %>
-    <% if @teams.present? %>
-      <% @teams.each do |year, team| %>
+  <% end %>
+  <% if @teams.present? %>
       <p class="section-title event-title"><%= Date.today.year %> - Schedules</p>
-        <% team.each do |t| %>
-          <div class="event-details">
-            <p><i><b><%= t.date %></b></i></p>
-            <p style="white-space: pre-wrap;"><%= t.team_schedule_info %></p>
-            <span>
-              <% if current_user && current_user.admin? %>
-              <%= link_to 'Edit', edit_team_path(t) %>
-              &nbsp;&nbsp;
-              <%= link_to 'Delete', team_path(t), method: :delete, data: {confirm: 'Are you sure you want to delete this?'} %>
-              <% end %>
-              <br>
-            </span>
-            <br>
-          </div>
-        <% end %>
-      <% end %>
-      <hr>
-      <% else %>
-      <p class="club-info-text">Check back for posted First and Second team schedules!</p>
+      <% @teams.each do |t| %>
+      <div class="event-details">
+        <p><i><b><%= t.date %></b></i></p>
+        <p style="white-space: pre-wrap;"><%= t.team_schedule_info %></p>
+        <span>
+          <% if current_user && current_user.admin? %>
+            <%= link_to 'Edit', edit_team_path(t) %>
+            &nbsp;&nbsp;
+            <%= link_to 'Delete', team_path(t), method: :delete, data: {confirm: 'Are you sure you want to delete this?'} %>
+          <% end %>
+          <br>
+        </span>
+        <br>
+      </div>
     <% end %>
-  </div>  
+    <hr>
+  <% else %>
+    <p class="club-info-text">Check back for posted First and Second team schedules!</p>
+  <% end %>
+  <div class="archives">
+        <span>
+          <%= link_to "View FIrst & Second Team Archives", teams_archive_path, class: 'btn btn-md btn-dark archive-btn' %>
+        </span>
+      </div>
+</div>

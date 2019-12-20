@@ -1,7 +1,9 @@
 class MinutesController < ApplicationController
 
   def index
-    @minutes = Minute.all.order("created_at DESC").group_by(&:year)
+    minutes = Minute.all.order("created_at DESC")
+    yearly_minutes = get_current_year_events(minutes)
+    @minutes = yearly_minutes
   end
 
   def new

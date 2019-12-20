@@ -1,0 +1,12 @@
+<div class="container">
+  <h2 class="main-section-title">Events Archive</h2>
+  <hr class="medium-underline">
+  <% @events.each do |year, event| %>
+  <p class="section-title event-title"><%= year %></p>
+    <% event.each do |e| %>
+    <div class="event-details">
+        <p><%= e.event_title %><span class="span-margin"><%= link_to 'View Details', event_path(e) %></span></p>
+    </div>
+    <% end %>
+  <% end %>
+</div>

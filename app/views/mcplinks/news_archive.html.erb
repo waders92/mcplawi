@@ -1,0 +1,23 @@
+<div class="container">
+  <h2 class="main-section-title">News And Updates Archive</h2>
+  <hr class="medium-underline">
+  <% @notes.each do |year, note| %>
+    <p class="section-title event-title"><%= year %></p>
+    <% note.each do |n| %>
+      <div class="event-details">
+        <p class="published-date"><b><%= n.published_date %></b></p>
+        <p style="white-space: pre-wrap;"><%= n.note_update %></p>
+        <% if n.event_pdf? %>
+          <br>
+          <span>
+            <%= link_to n.event_pdf.url, target: '_blank' do %>
+              <%= image_tag 'clipboard.png', class: 'event-icon' %>
+            <% end %>
+            <br>
+          </span>
+        <% end %>
+        <br>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -1,7 +1,9 @@
 class TeamsController < ApplicationController
 
   def index 
-    @teams = Team.all.order("created_at DESC").group_by(&:year)
+    teams = Team.all.order("created_at DESC")
+    yearly_teams = get_current_year_events(teams)
+    @teams = yearly_teams
   end
 
   def new

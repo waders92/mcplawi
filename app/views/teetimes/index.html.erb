@@ -1,40 +1,41 @@
-<!-- Tee Times Section --> 
-
+<!-- Tee Times Section -->
 <div class="container">
-  <h2 class="main-section-title">First & Second Team Tee Times&nbsp;&nbsp;
+  <h2 class="main-section-title">First & Second Team Tee Times & Results&nbsp;&nbsp;
     <% if @teetimes.present? %>
-    <%= link_to 'VIEW SCHEDULES', teams_path, class: 'btn btn-sm btn-success team-sched link-button' %>
-  </h2>
-  <hr class="medium-underline">
-  <% if current_user && current_user.admin? %>
-  <div class="bottom-buffer">
-    <%= link_to 'Add New Tee Time', new_teetime_path, class: 'btn btn-md btn-primary btn-minutes link-button' %>
-  </div>
-  <% end %>
-  <p class="section-title event-title"><%= Date.today.year %> - Tee Times & Results</p>
-    <% @teetimes.each do |month, time| %>
-      <% time.each do |t| %>
-        <div class="col-lg-6 col-md-6 col-sm-6 event-details bottom-buffer">
-            <p><i><b><%= t.teetime_date %></b></i></p>
-            <p class="section-title event-title"><%= t.title %></p>
-            <br>
-            <span>
-                <%= link_to t.teetime_pdf.url, target: '_blank' do %>
-                <%= image_tag 'clipboard.png', class: 'event-icon' %>
-                <% end %>&nbsp;&nbsp;
-                <% if current_user && current_user.admin? %>
-                <%= link_to 'Edit', edit_teetime_path(t) %>
-                &nbsp;&nbsp;
-                <%= link_to 'Delete', teetime_path(t), method: :delete, data: {confirm: 'Are you sure you want to delete this?'} %>
-                <% end %>
-              </span>
-          <br>
-        </div>
-      <% end %>
+      <%= link_to 'VIEW SCHEDULES', teams_path, class: 'btn btn-sm btn-success team-sched link-button' %>
+    </h2>
+    <hr class="medium-underline">
+    <% if current_user && current_user.admin? %>
+      <div class="bottom-buffer">
+        <%= link_to 'Add New Tee Time / Results', new_teetime_path, class: 'btn btn-md btn-primary btn-minutes link-button' %>
+      </div>
     <% end %>
-    <% else %>
+    <p class="section-title event-title"><%= Date.today.year %> - Tee Times & Results</p>
+    <% @teetimes.each do |t| %>
+      <div class="col-lg-6 col-md-6 col-sm-6 event-details bottom-buffer">
+        <p><i><b><%= t.teetime_date %></b></i></p>
+        <p class="section-title event-title"><%= t.title %></p>
+        <br>
+        <span>
+          <%= link_to t.teetime_pdf.url, target: '_blank' do %>
+            <%= image_tag 'clipboard.png', class: 'event-icon' %>
+          <% end %>&nbsp;&nbsp;
+          <% if current_user && current_user.admin? %>
+            <%= link_to 'Edit', edit_teetime_path(t) %>
+            &nbsp;&nbsp;
+          <% end %>
+        </span>
+        <br>
+      </div>
+    <% end %>
+  <% else %>
     <p class="club-info-text">Check back for posted tee times!</p>
     <%= link_to 'VIEW TEAM SCHEDULES', teams_path, class: 'btn btn-sm btn-success team-sched' %>
   <% end %>
-
+  <div class="archives">
+    <hr>
+    <span>
+      <%= link_to "View Tee Times & Results Archive", tee_time_archive_path, class: 'btn btn-md btn-dark archive-btn' %>
+    </span>
+  </div>
 </div>

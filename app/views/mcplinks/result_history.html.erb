@@ -35,7 +35,7 @@
         <% e.photos.each do |p| %>
         <% if p.winners_image.present? %>
           <div class="col-lg-6 col-md-6 col-sm-6 event-results-recap">
-            <h4 class="main-section-title" style="margin-bottom: 3px;"><b><%= year %> - <%= e.event_title %></b></h4>
+            <h4 class="main-section-title-mini" style="margin-bottom: 3px;"><b><%= year %> - <%= e.event_title %></b></h4>
             <p>Flight: <%= p.which_flight %></p>
             <p>Winner: <i><%= p.flight_winner %></i></p>
             <p>Score: <%= p.winning_score %></p>

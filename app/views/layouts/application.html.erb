@@ -40,6 +40,7 @@
                     <li><%= link_to 'News and Updates', notes_path %></li>
                     <li><%= link_to 'Player List', players_path %></li>
                     <li><%= link_to 'Contact Us', contact_path %></li>
+                    <li><%= link_to 'FAQ', faq_path %></li>
                   </ul>
                 </li>
                 <li class="dropdown">
@@ -48,12 +49,15 @@
                         <li><%= link_to 'MCPLA Events', events_path %></li>
                         <li><%= link_to 'Blue Golf Results', result_history_path %></li>
                         <li><%= link_to 'Photo Gallery', result_history_path(:anchor => 'photo') %></li>
-                        <li><%= link_to 'First & Second Team Schedules', teams_path %></li>
-                        <li><%= link_to 'First & Second Team Tee Times', teetimes_path %></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">First & Second Teams Section</li>
+                        <li><%= link_to 'Schedules', teams_path %></li>
+                        <li><%= link_to 'Tee Times / Results', teetimes_path %></li>
                       </ul>
                   </li>
               <% if current_user.admin? %>
                 <li><%= link_to 'Admin Portal', admin_path %></li>
+                <li><%= link_to 'Admin Wiki Page', admin_wiki_path %></li>
               <% end %>
               <li><%= link_to 'My Profile', dashboards_path %></li>
               <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>
@@ -68,6 +72,7 @@
                     <li><%= link_to 'News and Updates', notes_path %></li>
                     <li><%= link_to 'Player List', players_path %></li>
                     <li><%= link_to 'Contact Us', contact_path %></li>
+                    <li><%= link_to 'FAQ', faq_path %></li>
                   </ul>
                 </li>
                 <li class="dropdown">
@@ -76,8 +81,10 @@
                         <li><%= link_to 'MCPLA Events', events_path %></li>
                         <li><%= link_to 'Blue Golf Results', result_history_path %></li>
                         <li><%= link_to 'Photo Gallery', result_history_path(:anchor => 'photo') %></li>
-                        <li><%= link_to 'First & Second Team Schedules', teams_path %></li>
-                        <li><%= link_to 'First & Second Team Tee Times', teetimes_path %></li>
+                        <li role="separator" class="divider"></li>
+                        <li class="dropdown-header">First & Second Teams Section</li>
+                        <li><%= link_to 'Schedules', teams_path %></li>
+                        <li><%= link_to 'Tee Times / Results', teetimes_path %></li>
                       </ul>
                   </li>
               <li><%= link_to 'Sign-In', new_user_session_path %></li>
@@ -108,7 +115,7 @@
   <div id="footer">
     <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1 footer-content">
       <center>
-        <p><b>MCPLAWI &copy;&nbsp;2019</b></MCPLAWI></p>
+        <p><b>MCPLAWI &copy;&nbsp;<%= Date.today.year %></b></MCPLAWI></p>
       </center>
     </div>
   </div>
