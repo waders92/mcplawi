@@ -84,3 +84,12 @@ p.buffer-row.text-center {
   background-color: $color;
   color: rgba(255, 252, 252, .7);
 }
+
+.navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
+  color: white;
+  font-size: 14px;
+}
+
+.dropdown-header > li {
+  margin-left: 5px;
+}

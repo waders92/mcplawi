@@ -1,7 +1,9 @@
 class TeetimesController < ApplicationController
 
   def index
-    @teetimes = Teetime.all.order("created_at DESC").group_by(&:month) 
+    teetimes = Teetime.all.order("created_at DESC")
+    yearly_teetimes = get_current_year_events(teetimes)
+    @teetimes = yearly_teetimes 
   end
 
   def new

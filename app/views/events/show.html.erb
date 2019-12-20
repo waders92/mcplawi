@@ -94,7 +94,6 @@
           <br>
           <% if current_user.admin? %>
           <%= link_to 'Edit', edit_event_photo_path(@event, event) %>&nbsp;&nbsp;
-          <%= link_to 'Delete', event_photo_path(@event, event), method: :delete, data: {confirm: 'Are you sure you want to delete this?'} %>
         <% end %>
         </div>
       <% end %>

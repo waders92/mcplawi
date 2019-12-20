@@ -1,7 +1,9 @@
 class NotesController < ApplicationController
 
   def index
-    @notes = Note.all.order("created_at DESC").group_by(&:year)
+    notes = Note.all.order("created_at DESC")
+    yearly_notes = get_current_year_events(notes)
+    @notes = yearly_notes
   end
 
   def new

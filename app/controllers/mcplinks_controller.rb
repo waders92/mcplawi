@@ -24,6 +24,18 @@ class McplinksController < ApplicationController
     @minutes = Minute.all.order("created_at DESC").group_by(&:year)
   end
 
+  def news_archive
+    @notes = Note.all.order("created_at DESC").group_by(&:year)
+  end
+
+  def teams_archive
+    @teams = Team.all.order("created_at DESC").group_by(&:year)
+  end
+
+  def tee_time_archive
+    @teetimes = Teetime.all.order("created_at DESC").group_by(&:year)
+  end
+
   def players
     @users = if params[:term]
                User.where('LOWER(last_name) LIKE ?', "%#{params[:term].downcase}%").order('last_name ASC').paginate(page: params[:page], per_page: 10)
@@ -41,6 +53,10 @@ class McplinksController < ApplicationController
     events = Event.all.order("created_at ASC")
     sorted_events = get_current_year_events(events)
     @events = sorted_events
+  end
+
+  def admin_wiki
+    admin_required
   end
 
   private

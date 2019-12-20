@@ -1,0 +1,16 @@
+<div class="container">
+  <h2 class="main-section-title">First & Second Team Schedule Archive
+  </h2>
+  <hr class="medium-underline">
+  <% @teams.each do |year, team| %>
+    <p class="section-title event-title"><%= year %></p>
+    <% team.each do |t| %>
+      <div class="event-details">
+        <p><i><b><%= t.date %></b></i></p>
+        <p style="white-space: pre-wrap;"><%= t.team_schedule_info %></p>
+        <br>
+      </div>
+    <% end %>
+    <hr>
+  <% end %>
+</div>

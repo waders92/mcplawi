@@ -20,7 +20,6 @@
               <% if current_user && current_user.admin? %>
               <%= link_to 'Edit', edit_minute_path(m) %>
               &nbsp;&nbsp;
-              <%= link_to 'Delete', minute_path(m), method: :delete, data: {confirm: 'Are you sure you want to delete this?'} %>
               <% end %>
             </span>
           </div>

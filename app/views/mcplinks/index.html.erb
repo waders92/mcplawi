@@ -4,145 +4,157 @@
       <%= image_tag 'mcplawi.jpg', class: 'img-responsive main-logo' %>
     </div>
   </div>
-  <hr style="width: 70%;">
   <div class="row bg-buffer">
-    <h2 class="latest-update-title recent-results">Quick Navigation Links....</h2>
-    <div class="col-md-6 col-sm-6 text-center">
-      <%= link_to 'About The MCPLA', clubs_path, class: 'btn btn-primary landing-button button-buffer'  %>
-    </div>
-    <div class="col-md-6 col-sm-6 text-center">
-      <%= link_to 'Meeting Minutes', minutes_path, class: 'btn btn-primary landing-button button-buffer' %>
-    </div>
-  </div>
-  <div class="row bg-buffer">
-    <div class="col-md-6 col-sm-6 text-center" style="letter-spacing: 1.7px;">
-      <%= link_to 'View Officers', officers_path, class: 'btn btn-primary landing-button button-buffer'  %>
-    </div>
-    <div class="col-md-6 col-sm-6 text-center" style="letter-spacing: 1.7px;">
-      <%= link_to 'MCPLA Events', events_path, class: 'btn btn-primary landing-button button-buffer' %>
-    </div>
-  </div>
-  <div class="row bg-buffer">
-      <div class="col-md-6 col-sm-6 text-center" style="letter-spacing: 1.7px;">
-        <%= link_to 'Member Clubs', clubs_path(:anchor => 'clubs'), class: 'btn btn-primary landing-button button-buffer'  %>
-      </div>
-      <div class="col-md-6 col-sm-6 text-center" style="letter-spacing: 1.7px;">
-        <%= link_to 'My Dashboard', dashboards_path, class: 'btn btn-primary landing-button button-buffer' %>
-      </div>
-    </div>
-  <hr style="width: 70%;">
-  <div class="row" style="margin-bottom: 50px;">
     <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
-      <h2 class="latest-update-title recent-results">Latest News and Updates....</h2>
-      <% @notes.each do |n | %>
-        <div class="latest-note">
-          <p><i><b><%= n.published_date %></b> -</i></p>
-          <p style="white-space: pre-wrap;"><%= n.note_update %></p>
-          <% if n.event_pdf? %>
-            <span>
-              <%= link_to n.event_pdf.url, target: '_blank' do %>
-                <%= image_tag 'clipboard.png', class: 'event-icon' %>
-              <% end %>
-              <br>
-            </span>
-          <% end %>
-          <br><br>
-        </div>
-      <% end %>
-      <br>
-      <span><%= link_to "More news and updates", notes_path, class: 'btn btn-md btn-primary link-button' %></span>
-    </div>
+      <p class="club-info-text-landing">
+        The Milwaukee County Public Links Association was founded in 1934 with the purpose of promoting golf in Milwaukee County through inter-club competition.
+        The Brown Deer, Currie, Grant, and Greenfield Golf Clubs formed the nucleus of the organization. The Whitnall, Dretzka and Oakwood Golf Clubs joined between 1953 and 1972.
+        <%= link_to 'Continue Reading...', clubs_path, class: 'read-more' %>
+      </p> 
   </div>
-  <hr style="width: 70%;">
-  <div class="row" style="margin-bottom: 50px;">
-      <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
-        <h2 class="latest-update-title recent-results">First & Second Team Info....</h2>
-        <% @teams.each do |t| %>
-          <div class="latest-note">
-            <p><i><b><%= t.date %></b> -</i></p>
-            <p style="white-space: pre-wrap;"><%= t.team_schedule_info %></p>
-            <br><br>
-          </div>
+</div>
+<div class="row bg-buffer">
+  <h2 class="latest-update-title recent-results">Quick Links....</h2>
+  <div class="col-md-6 col-sm-6 text-center">
+    <%= link_to 'About The MCPLA', clubs_path, class: 'btn btn-primary landing-button button-buffer'  %>
+  </div>
+  <div class="col-md-6 col-sm-6 text-center">
+    <%= link_to 'Meeting Minutes', minutes_path, class: 'btn btn-primary landing-button button-buffer' %>
+  </div>
+</div>
+<div class="row bg-buffer">
+  <div class="col-md-6 col-sm-6 text-center" style="letter-spacing: 1.7px;">
+    <%= link_to 'View Officers', officers_path, class: 'btn btn-primary landing-button button-buffer'  %>
+  </div>
+  <div class="col-md-6 col-sm-6 text-center" style="letter-spacing: 1.7px;">
+    <%= link_to 'MCPLA Events', events_path, class: 'btn btn-primary landing-button button-buffer' %>
+  </div>
+</div>
+<div class="row bg-buffer">
+  <div class="col-md-6 col-sm-6 text-center" style="letter-spacing: 1.7px;">
+    <%= link_to 'Member Clubs', clubs_path(:anchor => 'clubs'), class: 'btn btn-primary landing-button button-buffer'  %>
+  </div>
+  <div class="col-md-6 col-sm-6 text-center" style="letter-spacing: 1.7px;">
+    <%= link_to 'My Dashboard', dashboards_path, class: 'btn btn-primary landing-button button-buffer' %>
+  </div>
+</div>
+<hr style="width: 70%;">
+<div class="row" style="margin-bottom: 50px;">
+  <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+    <h2 class="latest-update-title recent-results">Latest News and Updates....</h2>
+    <% @notes.each do |n | %>
+      <div class="latest-note">
+        <p><i><b><%= n.published_date %></b> -</i></p>
+        <p style="white-space: pre-wrap;"><%= n.note_update %></p>
+        <% if n.event_pdf? %>
+          <span>
+            <%= link_to n.event_pdf.url, target: '_blank' do %>
+              <%= image_tag 'clipboard.png', class: 'event-icon' %>
+            <% end %>
+            <br>
+          </span>
         <% end %>
         <br>
-        <span><%= link_to "More Teams Info", teams_path, class: 'btn btn-md btn-primary link-button btn-spacer' %>
-         &nbsp;&nbsp;
-            <%= link_to 'Tee Times & Results', teetimes_path, class: 'btn btn-md btn-success tee-time-btn link-button' %>
-        </span>
+        <br>
       </div>
-    </div>
-    <hr style="width: 70%;">
-  <div class="row bg-buffer">
-    <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
-      <h2 class="latest-update-title recent-results">Recent event winners....</h2>
-      <% @events.each do |event| %>
-        <% event.photos.each do |photo| %>
-          <% if photo.winners_image? %>
-            <div class="col-md-6 col-sm-6 latest-note">
-              <p class="text-center" style="font-weight:bold;"><%= event.event_title %><br>
-                <i style="font-size:16px;"><%= event.date %></i></p>
-              <p>Flight: <%= photo.which_flight %><br>
-                Winner: <%= photo.flight_winner %><br>
-                Score: <%= photo.winning_score %><br>
-                <p><%= image_tag photo.winners_image, class: 'img-responsive' %></p>
-                <br>
-              </div>
-            <% end %>
+    <% end %>
+    <br>
+    <span><%= link_to "More news and updates", notes_path, class: 'btn btn-md btn-primary link-button' %></span>
+  </div>
+</div>
+<hr style="width: 70%;">
+<div class="row" style="margin-bottom: 50px;">
+  <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+    <h2 class="latest-update-title recent-results">First & Second Team Info....</h2>
+    <% @teams.each do |t| %>
+      <div class="latest-note">
+        <p><i><b><%= t.date %></b> -</i></p>
+        <p style="white-space: pre-wrap;"><%= t.team_schedule_info %></p>
+        <br>
+        <br>
+      </div>
+    <% end %>
+    <br>
+    <span><%= link_to "More Teams Info", teams_path, class: 'btn btn-md btn-primary link-button btn-spacer' %>
+      &nbsp;&nbsp;
+      <%= link_to 'Tee Times & Results', teetimes_path, class: 'btn btn-md btn-success tee-time-btn link-button' %>
+    </span>
+  </div>
+</div>
+<hr style="width: 70%;">
+<div class="row bg-buffer">
+  <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+    <h2 class="latest-update-title recent-results">Recent event winners....</h2>
+    <% @events.each do |event| %>
+      <% event.photos.each do |photo| %>
+        <% if photo.winners_image? %>
+          <div class="col-md-6 col-sm-6 latest-note">
+            <p class="text-center" style="font-weight:bold;"><%= event.event_title %><br>
+              <i style="font-size:16px;"><%= event.date %></i></p>
+            <p>Flight: <%= photo.which_flight %><br>
+              Winner: <%= photo.flight_winner %><br>
+              Score: <%= photo.winning_score %><br>
+              <p><%= image_tag photo.winners_image, class: 'img-responsive' %></p>
+              <br>
+            </div>
           <% end %>
         <% end %>
-        <span style="letter-spacing: 1.7px;"><%= link_to "Photo Gallery", result_history_path(:anchor => 'photo'), class: 'btn btn-md btn-success link-button' %></span>
-        <span><%= link_to "Blue Golf Results", result_history_path, class: 'btn btn-md btn-success link-button' %></span>
-      </div>
+      <% end %>
+      <span style="letter-spacing: 1.7px;"><%= link_to "Photo Gallery", result_history_path(:anchor => 'photo'), class: 'btn btn-md btn-success link-button' %></span>
+      <span><%= link_to "Blue Golf Results", result_history_path, class: 'btn btn-md btn-success link-button' %></span>
     </div>
-    <br><br><br>
-    <hr style="width: 70%;">
-    <div class="row">
-      <div class="row-buffer col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1" style="margin-top: 20px;">
-        <h2 class="latest-update-title">Take the next steps....</h2>
-      </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <hr style="width: 70%;">
+  <div class="row">
+    <div class="row-buffer col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1" style="margin-top: 20px;">
+      <h2 class="latest-update-title">Take the next steps....</h2>
     </div>
-    <div class="row row-buffer" style="margin-top: 20px;">
-      <div class="col-md-6 bottom-buffer">
-        <center>
-          <%= image_tag 'user-5.png', class: 'main-icons' %>
-        </center>
-      </div>
-      <div class="col-md-6">
-        <p class="club-info-text"><b><%= link_to 'CREATE AN ACCOUNT', new_user_registration_path %></b> to register for any event posted by the Milwaukee County Public Links Association! Already created an account? You can <b><%= link_to 'LOGIN', new_user_session_path %></b>. Keep your <b><%= link_to 'PROFILE', dashboards_path %></b> up to date with your email address, home club and membership status!</p>
-      </div>
+  </div>
+  <div class="row row-buffer" style="margin-top: 20px;">
+    <div class="col-md-6 bottom-buffer">
+      <center>
+        <%= image_tag 'user-5.png', class: 'main-icons' %>
+      </center>
     </div>
-    <div class="row row-buffer">
-      <div class="col-md-6 bottom-buffer">
-        <center>
-          <%= image_tag 'credit-card.png', class: 'main-icons' %>
-        </center>
-      </div>
-      <div class="col-md-6">
-        <p class="club-info-text">Register and pay for <b><%= link_to 'EVENTS', events_path %></b> online! Payments are easy as you can pay from the convenience of your home or mobile phone! You will be emailed a receipt and a confirmation for your event registration.</p>
-      </div>
+    <div class="col-md-6">
+      <p class="club-info-text"><b><%= link_to 'CREATE AN ACCOUNT', new_user_registration_path %></b> to register for any event posted by the Milwaukee County Public Links Association! Already created an account? You can <b><%= link_to 'LOGIN', new_user_session_path %></b>. Keep your <b><%= link_to 'PROFILE', dashboards_path %></b> up to date with your email address, home club and membership status!</p>
     </div>
-    <div class="row row-buffer">
-      <div class="col-md-6 bottom-buffer">
-        <center>
-          <%= image_tag 'golfer.png', class: 'main-icons' %>
-        </center>
-      </div>
-      <div class="col-md-6">
-        <p class="club-info-text">Check back here as the tournament date approaches as we post tee times to keep you informed. Checkout <b><%= link_to 'PAST RESULTS', result_history_path%></b> to keep an eye on all of the action. Utilize the <b><%= link_to 'PLAYERS PAGE', players_path %></b> to find and connect with fellow MCPLA golfers.</p>
-      </div>
+  </div>
+  <div class="row row-buffer">
+    <div class="col-md-6 bottom-buffer">
+      <center>
+        <%= image_tag 'credit-card.png', class: 'main-icons' %>
+      </center>
     </div>
-    <div class="row row-buffer">
-      <div class="col-md-6 bottom-buffer">
-        <center>
-          <%= image_tag 'newspaper.png', class: 'main-icons' %>
-        </center>
-      </div>
-      <div class="col-md-6">
-        <p class="club-info-text">Keep up to date with the MCPLAWI! We will periodically post <b><%= link_to 'MEETING MINUTES', minutes_path %></b> as well as new <b><%= link_to 'NEWS AND UPDATES', notes_path %></b> to help keep you informed!</p>
-      </div>
+    <div class="col-md-6">
+      <p class="club-info-text">Register and pay for <b><%= link_to 'EVENTS', events_path %></b> online! Payments are easy as you can pay from the convenience of your home or mobile phone! You will be emailed a receipt and a confirmation for your event registration.</p>
     </div>
-    <hr>
-    <!--
+  </div>
+  <div class="row row-buffer">
+    <div class="col-md-6 bottom-buffer">
+      <center>
+        <%= image_tag 'golfer.png', class: 'main-icons' %>
+      </center>
+    </div>
+    <div class="col-md-6">
+      <p class="club-info-text">Check back here as the tournament date approaches as we post tee times to keep you informed. Checkout <b><%= link_to 'PAST RESULTS', result_history_path%></b> to keep an eye on all of the action. Utilize the <b><%= link_to 'PLAYERS PAGE', players_path %></b> to find and connect with fellow MCPLA golfers.</p>
+    </div>
+  </div>
+  <div class="row row-buffer">
+    <div class="col-md-6 bottom-buffer">
+      <center>
+        <%= image_tag 'newspaper.png', class: 'main-icons' %>
+      </center>
+    </div>
+    <div class="col-md-6">
+      <p class="club-info-text">Keep up to date with the MCPLAWI! We will periodically post <b><%= link_to 'MEETING MINUTES', minutes_path %></b> as well as new <b><%= link_to 'NEWS AND UPDATES', notes_path %></b> to help keep you informed!</p>
+    </div>
+  </div>
+  <hr>
+  <!--
   <div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1 next-event-info top-buffer">
     <h2 class="main-section-title text-center">
       Upcoming Events...
@@ -150,12 +162,12 @@
     <br>
     <%= image_tag 'whitnall.png', class: 'img-responsive' %>
   </div> -->
-    <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
-      <br>
-      <br>
-      <center class="flat-icon">
-        <p>Icons made by <a href="https://www.flaticon.com/authors/twitter" target="_blank" title="Twitter">Twitter</a> from <a href="https://www.flaticon.com/" target="_blank" title="Flaticon">www.flaticon.com</a><br>
-          Licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
-      </center>
-    </div>
+  <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+    <br>
+    <br>
+    <center class="flat-icon">
+      <p>Icons made by <a href="https://www.flaticon.com/authors/twitter" target="_blank" title="Twitter">Twitter</a> from <a href="https://www.flaticon.com/" target="_blank" title="Flaticon">www.flaticon.com</a><br>
+        Licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
+    </center>
   </div>
+</div>
