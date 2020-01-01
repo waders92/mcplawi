@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="main-section-title">First & Second Team Schedules&nbsp;&nbsp;
+  <h2 class="main-section-title"><%= Date.today.year %> First & Second Team Schedules&nbsp;&nbsp;
     <%= link_to 'View Tee Times', teetimes_path, class: 'btn btn-sm btn-success tee-time-btn link-button' %>
   </h2>
   <hr class="medium-underline">
@@ -27,11 +27,10 @@
     <% end %>
     <hr>
   <% else %>
-    <p class="club-info-text">Check back for posted First and Second team schedules!</p>
   <% end %>
   <div class="archives">
         <span>
-          <%= link_to "View FIrst & Second Team Archives", teams_archive_path, class: 'btn btn-md btn-dark archive-btn' %>
+          <%= link_to "View Team Schedule Archives", teams_archive_path, class: 'btn btn-md btn-dark archive-btn' %>
         </span>
       </div>
 </div>
