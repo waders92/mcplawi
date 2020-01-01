@@ -1,5 +1,5 @@
 <div class="container">
-    <h2 class="main-section-title">Meeting Minutes</h2>
+    <h2 class="main-section-title"><%= Date.today.year %> Meeting Minutes</h2>
     <hr class="medium-underline">
     <% if current_user && current_user.admin? %>
     <div class="bottom-buffer">
@@ -27,6 +27,7 @@
     <% end %>
   </div>
   <div class="container">
+    <hr>
     <span>
       <%= link_to "View Minute Archives", minute_archive_path, class: 'btn btn-md btn-dark archive-btn' %>
     </span>
