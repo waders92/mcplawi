@@ -74,11 +74,14 @@
         <br>
       </div>
     <% end %>
-    <br>
-    <span><%= link_to "More Teams Info", teams_path, class: 'btn btn-md btn-primary link-button btn-spacer' %>
-      &nbsp;&nbsp;
-      <%= link_to 'Tee Times & Results', teetimes_path, class: 'btn btn-md btn-success tee-time-btn link-button' %>
-    </span>
+    <div>
+      <div class="col-md-6 col-sm-6 text-center">
+        <%= link_to "More Teams Info", teams_path, class: 'btn btn-md btn-primary link-button btn-spacer' %>
+      </div>
+      <div class="col-md-6 col-sm-6 text-center">
+        <%= link_to 'Tee Times & Results', teetimes_path, class: 'btn btn-md btn-success tee-time-btn link-button' %>
+      </div>
+    </div>
   </div>
 </div>
 <hr style="width: 70%;">
@@ -100,8 +103,14 @@
           <% end %>
         <% end %>
       <% end %>
-      <span style="letter-spacing: 1.7px;"><%= link_to "Photo Gallery", result_history_path(:anchor => 'photo'), class: 'btn btn-md btn-success link-button' %></span>
-      <span><%= link_to "Blue Golf Results", result_history_path, class: 'btn btn-md btn-success link-button' %></span>
+      <div>
+        <div class="col-md-6 col-sm-6 text-center">
+          <span style="letter-spacing: 1.7px;"><%= link_to "Photo Gallery", result_history_path(:anchor => 'photo'), class: 'btn btn-md btn-success link-button' %></span>
+        </div>
+        <div class="col-md-6 col-sm-6 text-center">
+          <span><%= link_to "Blue Golf Results", result_history_path, class: 'btn btn-md btn-success link-button' %></span>
+        </div>
+      </div>
     </div>
   </div>
   <br>
