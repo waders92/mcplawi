@@ -95,13 +95,34 @@ a.read-more {
   text-align: center;
   font-size: 29px;
   text-transform: uppercase;
-  // color: rgba(35, 90, 197, 0.99);
+  color: black;
+}
+
+.current-event-results, .current-event-registrations {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 29px;
+  text-transform: uppercase;
+  color: black;
+}
+
+.eveent-page-btn {
+  padding-left: 0;
+}
+
+
+.event-update-title {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 29px;
+  text-transform: uppercase;
   color: black;
 }
 
 .latest-note {
   @extend .club-info-text;
   margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .text-buffer {

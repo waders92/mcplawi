@@ -37,8 +37,8 @@
     </div>
     <% if current_user && current_user.registered_in?(@event) %>
     <% else %>
-      <div>
-        <p style="color: red";>YOU ARE NOT REGISTERED FOR THIS EVENT.</p>
+      <div class="bg-buffer">
+        <p style="color: red";><b>YOU ARE NOT REGISTERED FOR THIS EVENT.</b></p>
       </div>
     <% end %>
     <% if user_signed_in? %>
@@ -67,16 +67,15 @@
   <div class="tee-times event-extras">
   </div>
   <hr style="width: 70%;">
-  <div class="row">
-    <div class="results event-extras col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1 bg-buffer">
-      <h2 id="results" class="latest-update-title recent-results">Results....</h2>
+    <div class="results event-extras bg-buffer">
+      <h2 id="results" class="current-event-results recent-results">Results....</h2>
       <% if @event.blue_golf_link.present? %>
-      <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3 text-center bg-buffer">
+      <div class="bg-buffer event-page-btn">
         <%= link_to "Blue Golf Results", @event.blue_golf_link, target: '_blank' , class: 'btn btn-md btn-success link-button' %>
       </div>
       <% end %>
       <% if current_user.admin? %>
-        <div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3 text-center bg-buffer">
+        <div class="bg-buffer event-page-btn">
           <%= link_to 'Add Flight Winners', new_event_photo_path(@event), class: 'btn btn-primary btn-md link-button' %>
         </div>
       <% end %>
@@ -98,10 +97,9 @@
         </div>
       <% end %>
     </div>
-  </div>
   <hr style="width: 70%;">
   <div class="event-extras">
-    <h2 id="registation-area" class="latest-update-title recent-results">Registrations....</h2>
+    <h2 id="registation-area" class="current-event-registrations recent-results">Registrations....</h2>
     <% if @event.registrations.count > 0 %>
       <p>Total - (<%= @event.registrations.count %>)</p>
       <% if @event.is_partner_event? %>
