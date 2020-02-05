@@ -50,7 +50,7 @@
           </p>
         <% else %>
           <% if @event.registration_close and Date.today > @event.registration_close %>
-            <p class="reg-closes-date">Registration Closed!</p>
+            <p class="reg-closes-date"><b>Registration Closed!</b></p>
           <% else %>
             <button type="button" class="btn btn-primary new-event link-button" data-toggle="modal" data-target="#register">
               Register

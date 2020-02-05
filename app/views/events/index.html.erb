@@ -21,7 +21,7 @@
             <% end %>
           <br>
           <% if e.registration_close and Date.today > e.registration_close %>
-          <p class="reg-closes-date">Registration Closed!</p>
+          <p class="reg-closes-date"><b>Registration Closed!</b></p>
         <% else %>
             <p class="reg-closes-date"><b>Registration Closes - <%= e.reg_closes %></b></p>
         <% end %>

@@ -295,6 +295,27 @@ a.faq-button {
   }
 }
 
+.admin-button {
+  border-width: 2px;
+  border-style: solid;
+  background-color: transparent;
+  padding: 15px 30px;
+  font-size: 15px;
+  color:  #2b5b6d;
+  border-color:  #2b5b6d;
+  text-transform: uppercase;
+  border-radius: 0;
+  margin-left: 0;
+  // width: 275px;
+
+  &:hover {
+    cursor: pointer;
+    border-color:#0371b5;
+    color: #fff;
+    background-color: #0371b5;
+  }
+}
+
 .btn-spacer {
   letter-spacing: 1px;
 }
