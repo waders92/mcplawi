@@ -9,8 +9,8 @@
       Add New Event
     </button>
   </div>
+  <% @events.each do |e| %>
   <div class="row">
-    <% @events.each do |e| %>
       <div class="col-md-10 col-sm-10 event-details">
         <p class="section-title event-title"><i><b><%= e.event_title %></b></i></p>
         <p><%= e.event_location %></p>
