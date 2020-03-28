@@ -255,6 +255,28 @@ a.faq-button {
   }
 }
 
+.covid-alert {
+  background-color: #ff5e00;
+  color: white;
+  text-align: center;
+
+  a {
+    text-align: center;
+    color: snow;
+    font-size: 18px;
+  }
+}
+
+.category {
+  font-size: 20px;
+}
+
+.contact-name {
+  i {
+    color:#3f83b0;
+  }
+}
+
 .landing-button {
   border-width: 2px;
   border-style: solid;

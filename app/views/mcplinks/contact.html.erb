@@ -9,11 +9,25 @@
       Feel free to contact us using the links below. Also be sure to check out our <b><%= link_to 'FAQ PAGE', faq_path %></b>, for commonly asked questions!
     </p>
   </div>
+  <div>
+    <div class="col-md-6 col-sm-6 contact-us-info">
+      <h2 class="event-title">General Inquiries</h2>
+      <p class="club-info-text">Brian Pederson<br>
+        packers2003@sbcglobal.net
+      </p>
+    </div>
+    <div class="col-md-6 col-sm-6 contact-us-info">
+        <h2 class="event-title">Events & Payments</h2>
+        <p class="club-info-text">Bob Freuck<br>
+          rfreuckjr@aol.com
+        </p>
+      </div>
+  </div>
   <div class="row top-buffer">
     <div class="col-md-4 col-sm-4 top-buffer bottom-buffer contact-info">
       <center class="tooltip-1" title="Email Brian Pederson">
         <%= mail_to 'packers2003@sbcglobal.net' do %>
-        <%= image_tag 'question-3.png', class: 'inquiry-icon' %>
+          <%= image_tag 'question-3.png', class: 'inquiry-icon' %>
         <% end %>
         <p>General Inquiries</p>
       </center>
@@ -21,7 +35,7 @@
     <div class="col-md-4 col-sm-4 top-buffer bottom-buffer contact-info">
       <center class="tooltip-1" title="Email Bob Freuck">
         <%= mail_to 'rfreuckjr@aol.com' do %>
-        <%= image_tag 'money.png', class: 'inquiry-icon' %>
+          <%= image_tag 'money.png', class: 'inquiry-icon' %>
         <% end %>
         <p>Payment & Registration Inquiries</p>
       </center>
@@ -29,7 +43,7 @@
     <div class="col-md-4 col-sm-4 top-buffer bottom-buffer contact-info">
       <center class="tooltip-1" title="Email Bob Freuck">
         <%= mail_to 'rfreuckjr@aol.com' do %>
-        <%= image_tag 'golf-3.png', class: 'inquiry-icon' %>
+          <%= image_tag 'golf-3.png', class: 'inquiry-icon' %>
         <% end %>
         <p>Specific Event Inquiries</p>
       </center>
