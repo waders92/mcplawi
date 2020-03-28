@@ -256,9 +256,16 @@ a.faq-button {
 }
 
 .covid-alert {
+  height: 125px;
   background-color: #ff5e00;
   color: white;
   text-align: center;
+
+  p {
+    margin: 0;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
 
   a {
     text-align: center;
