@@ -1,7 +1,6 @@
 <!-- Tee Times Section -->
 <div class="container">
   <h2 class="main-section-title"><%= Date.today.year %> First & Second Team Tee Times & Results&nbsp;&nbsp;
-    <% if @teetimes.present? %>
       <%= link_to 'VIEW SCHEDULES', teams_path, class: 'btn btn-sm btn-success team-sched link-button' %>
     </h2>
     <hr class="medium-underline">
@@ -10,6 +9,7 @@
         <%= link_to 'Add New Tee Time / Results', new_teetime_path, class: 'btn btn-md btn-primary btn-minutes link-button' %>
       </div>
     <% end %>
+    <% if @teetimes.present? %>
     <p class="section-title event-title"><%= Date.today.year %> - Tee Times & Results</p>
     <% @teetimes.each do |t| %>
       <div class="col-lg-6 col-md-6 col-sm-6 event-details bottom-buffer">
@@ -30,7 +30,6 @@
     <% end %>
   <% else %>
     <p class="club-info-text">Check back for posted tee times!</p>
-    <%= link_to 'VIEW TEAM SCHEDULES', teams_path, class: 'btn btn-sm btn-success team-sched link-button' %>
   <% end %>
 </div>
 <div class="archives container">
