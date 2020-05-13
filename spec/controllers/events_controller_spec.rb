@@ -34,7 +34,7 @@ RSpec.describe EventsController, type: :controller do
   end
 
   describe 'events#create action' do
-    it 'should add the event to the database if the user is logged in' do
+    it 'should add the event to the database' do
       user = FactoryBot.create(:user)
       sign_in user
 
@@ -53,7 +53,7 @@ RSpec.describe EventsController, type: :controller do
       event = Event.last
       expect(event.event_title).to eq('Test')
       expect(event.user). to eq(user)
-      expect(Event.count).to eq 1
+      expect(Event.count).to eq(1)
     end
   end
 
@@ -100,7 +100,7 @@ RSpec.describe EventsController, type: :controller do
     end
   end
 
-  describe ('events#update action') do
+  describe 'events#update action' do
     it 'should allow admin to update the event' do
       event = FactoryBot.create(:event, event_title: "Title 1")
       user = User.create(
@@ -114,5 +114,23 @@ RSpec.describe EventsController, type: :controller do
       event.reload
       expect(event.event_title).to eq ('Changed')
      end
+  end
+
+  describe  'events#delete action' do
+    it 'should allow admin to delete an event' do
+      event = FactoryBot.create(:event)
+
+      user = User.create(
+        email: 'fakeuser@gmail.com',
+        password: 'secretPassword',
+        password_confirmation: 'secretPassword',
+        admin: 'true'
+      )
+      sign_in user
+
+      delete :destroy, params: { id: event.id }
+      expect(response).to redirect_to admin_path
+      expect(Event.count).to eq(0)
+    end
   end
 end
