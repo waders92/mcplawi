@@ -15,8 +15,4 @@ class Registration < ApplicationRecord
   def send_admin_email
     NotificationMailer.admin_notification(self).deliver_now
   end
-
-  def filter_duplicates(event_participants)
-    
-  end
 end

@@ -39,6 +39,8 @@
     <% else %>
       <div class="bg-buffer">
         <p style="color: red";><b>YOU ARE NOT REGISTERED FOR THIS EVENT.</b></p>
+        <p style="color: red";>To register, check the box to certify that you have read and agree to the Covid-19 tournament rules and stipulations below.</p>
+        <%= link_to 'Read Covid-19 Agreement', 'https://mcplawigolf.s3.amazonaws.com/uploads/note/event_pdf/26/mcpla-covid-release.pdf', target: '_blank', class: 'btn btn-primary link-button' %>
       </div>
     <% end %>
     <% if user_signed_in? %>
@@ -52,7 +54,10 @@
           <% if @event.registration_close and Date.today > @event.registration_close %>
             <p class="reg-closes-date"><b>Registration Closed!</b></p>
           <% else %>
-            <button type="button" class="btn btn-primary new-event link-button" data-toggle="modal" data-target="#register">
+          <!-- COVID CHECKBOX -->
+          <input type="checkbox" id="covid-agreement" name="covid">
+          <label style="font-size: x-large; padding-left: 5px; display: inline; color: #ff0000;"for="covid"> I have read the tournament guidelines regarding Covid-19</label><br>
+            <button id="registration-btn" disabled="true" type="button" class="btn btn-primary new-event link-button" data-toggle="modal" data-target="#register">
               Register
             </button>
           <% end %>
@@ -126,7 +131,8 @@
         <p>Name - <%= current_user.first_name %> <%=current_user.last_name %></p>
         <p>Email - <%= current_user.email %></p>
         <p>Membership Status - <%= current_user.membership_status %></p>
-        <p>Entry Fee - $<%= current_user.event_cost(@event).round %></p>
+        <p>Entry Fee - $<%= current_user.event_cost(@event).round %></p><br>
+        <p>You have agreed to the Covid-19 tournament rules and stipulations</p>
         <% if @event.is_partner_event? %>
           <%= render "shared/partner" %>
           <p>You are only paying for your portion!<br>
@@ -151,3 +157,13 @@
     </div>
   </div>
 </div>
+
+<script>
+$('#covid-agreement').click(function(){
+    if($(this).is(':checked')){
+        $('#registration-btn').attr("disabled", false);
+    } else{
+        $('#registration-btn').attr("disabled", true);
+    }
+});
+</script>
