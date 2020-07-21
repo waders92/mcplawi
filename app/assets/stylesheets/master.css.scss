@@ -303,6 +303,26 @@ a.faq-button {
   }
 }
 
+.covid-button {
+  border-width: 2px;
+  border-style: solid;
+  background-color: transparent;
+  padding: 25px 46px;
+  font-size: 20px;
+  color:  #2b5b6d;
+  border-color:  #2b5b6d;
+  text-transform: uppercase;
+  border-radius: 0;
+  margin-left: 0;
+
+  &:hover {
+    cursor: pointer;
+    border-color:#0371b5;
+    color: #fff;
+    background-color: #0371b5;
+  }
+}
+
 .link-button {
   border-width: 2px;
   border-style: solid;

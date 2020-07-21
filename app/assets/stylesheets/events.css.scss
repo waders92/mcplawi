@@ -142,3 +142,12 @@ a.btn.btn-md.btn-primary.add-winner {
   color: red;
   font-size: 19px !important;
 }
+
+#registration-btn[disabled] {
+  cursor: not-allowed;
+  color: #000;
+
+  &:hover {
+    color: #000
+  }
+}
