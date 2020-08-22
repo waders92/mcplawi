@@ -5,19 +5,45 @@
   </div>
 
   <!-- Partner Notification -->
+  <% if user_signed_in? %>
   <div class="partner-info">
-    <!-- Add Parnter info here-->
+    <% if @event.registration_close and Date.today < @event.registration_close %>
+    <% if @event.is_partner_event? %>
+    <div>
+      <h2 class="main-section-title">Partner Info</h2>
+      <hr class="medium-underline">
+
+      <% if current_user.has_partner_for_event(@event) %>
+      <div>
+        <p class="partner-alert">
+          Partner: <%= current_user.event_partner(@event) %>
+        </p>
+      </div>
+        <% else %> 
+      <div>
+        <p class="partner-alert">This event requires a partner!</p>
+        <%= link_to 'Add a Partner', new_event_partner_path(@event), class: 'btn btn-primary btn-md partner-btn bottom-buffer link-button' %>
+      </div>
+      <% end %>
+    </div>
+      <% end %>
+    <% end %>
   </div>
+  <% end %>
 
   <!-- Register Actions-->
   <div class="register-actions">
     <%= render "shared/register_actions" %>
   </div>
+
+  <%= render "shared/hr" %>
   
   <!-- Registrations Info -->
   <div class="registration-section">
     <%= render "shared/registrations" %>
   </div>
+
+  <%= render "shared/hr" %>
 
   <!-- Results -->
   <div class="results-section top-buffer">
