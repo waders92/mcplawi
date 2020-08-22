@@ -4,6 +4,8 @@
     <%= render "shared/main_event_info" %>
   </div>
 
+  <%= render "shared/hr" %>
+
   <!-- Partner Notification -->
   <% if user_signed_in? %>
   <div class="partner-info">
@@ -21,10 +23,11 @@
       </div>
         <% else %> 
       <div>
-        <p class="partner-alert">This event requires a partner!</p>
+        <p class="partner-alert">This event requires a partner when you register!</p>
         <%= link_to 'Add a Partner', new_event_partner_path(@event), class: 'btn btn-primary btn-md partner-btn bottom-buffer link-button' %>
       </div>
       <% end %>
+      <%= render "shared/hr" %>
     </div>
       <% end %>
     <% end %>
@@ -50,13 +53,10 @@
     <%= render "shared/results" %>
   </div>
 
-  <div>
-    <%= render "shared/hr" %>
-  </div>
-
   <!-- Admin Section -->
   <div class="admin-button-section top-buffer" style="clear: both;">
     <% if user_signed_in? && current_user.admin? %>
+    <%= render "shared/hr" %>
       <div class="bg-buffer event-page-btn">
         <h2 class="event-section-title">Admin Section</h2>
         <%= link_to 'Add Flight Winners', new_event_photo_path(@event), class: 'btn btn-primary btn-md link-button' %>

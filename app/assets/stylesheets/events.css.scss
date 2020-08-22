@@ -139,8 +139,19 @@ a.btn.btn-md.btn-primary.add-winner {
 }
 
 .reg-closes-date {
-  color: red;
+  color: crimson;
   font-size: 19px !important;
+}
+
+.reg-label {
+  font-size: large;
+  font-weight: 500;
+  padding-left: 5px;
+  display: inline;
+  color: blue;
+  position: relative;
+  vertical-align: middle;
+  bottom: 4px;
 }
 
 #registration-btn[disabled] {

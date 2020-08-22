@@ -4,21 +4,27 @@
     <% if current_user && current_user.registered_in?(@event) %>
       <p>
         <br>
-        <span class="tooltip-1" title="You are registered!"><%= image_tag 'checking.png', class: 'event-icon registered-icon' %>&nbsp;&nbsp;<span style="font-size: large;">You are registered!</span></span>
+        <span class="tooltip-1" title="You are registered!"><%= image_tag 'checking.png', class: 'event-icon registered-icon' %>&nbsp;&nbsp;<span style="font-size: large;">You have registered!</span></span>
       </p>
     <% else %>
       <% if @event.registration_close and Date.today > @event.registration_close %>
-        <p class="reg-closes-date"><b>Registration Closed!</b></p>
+        <p class="reg-closes-date"><b>You can no longer register for this event.</b></p>
       <% else %>
 
       <!-- COVID CHECKBOX -->
       <div class="covid-stips event-details">
+        <h2 class="main-section-title">Register Here</h2>
+        <hr class="medium-underline">
+        <p style="color: maroon;"><b>"Covid-19 Disclaimer"</b></p>
         <p>To register, check the box to certify that you have read and agree to the Covid-19 tournament rules and stipulations below.</p>
         <br>
         <%= link_to 'Read Covid-19 Agreement', 'https://mcplawigolf.s3.amazonaws.com/uploads/note/event_pdf/26/mcpla-covid-release.pdf', target: '_blank', class: 'btn btn-primary link-button' %>
         <br><br><br>
-        <input type="checkbox" id="covid-agreement" name="covid">
-        <label style="font-size: large; font-weight: 500; padding-left: 5px; display: inline; color: #dc5a5a;"for="covid"> I have read the tournament guidelines regarding Covid-19</label><br>
+        <p>
+          <input type="checkbox" id="covid-agreement" name="covid">
+          <label class="reg-label" for="covid"> I have read the tournament guidelines regarding Covid-19</label>
+        </p>
+        <br>
         <br>  
         <button id="registration-btn" disabled="true" type="button" class="btn btn-primary new-event link-button" data-toggle="modal" data-target="#register">
             Register
@@ -28,9 +34,15 @@
     <% end %>
   </div>
 <% else %>
-  <div class="top-buffer">
-    <%= link_to 'Sign In To Register', new_user_session_path, class: 'btn btn-primary btn-md link-button' %>
-  </div>
+<% if @event.registration_close and Date.today > @event.registration_close %>
+<div class="top-buffer">
+  <%= link_to 'View Event Info', new_user_session_path, class: 'btn btn-primary btn-md link-button' %>
+</div>
+<% else %>
+<div class="top-buffer">
+  <%= link_to 'Sign In To Register', new_user_session_path, class: 'btn btn-primary btn-md link-button' %>
+</div>
+<% end %>
 <% end %>
 </div>
 
