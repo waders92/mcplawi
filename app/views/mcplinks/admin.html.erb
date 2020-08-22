@@ -50,7 +50,7 @@
   <div id="tabs" class="top-buffer">
     <ul>
       <li><a href="#tabs-2">Club Count</a></li>
-      <li><a href="#tabs-3">Registrations by Event</a></li>
+      <li><a href="#tabs-3">Registrant Emails Per Event</a></li>
     </ul>
     <div id="tabs-2" class="clubs-tab event-details">
       <h3 class="section-title">Club Count</h3>
@@ -64,12 +64,19 @@
       <p>Browndeer Park: <%= User.where(:home_club => 'Browndeer Park').count %></p>
     </div>
     <div id="tabs-3" class="clubs-tab event-details">
-      <h3 class="section-title">Registrations by Event</h3>
+      <h3 class="section-title">Registrant Emails Per Event</h3>
       <hr>
       <% @events.each do |e| %>
-        <p><%= e.event_title %> - <%= e.registrations.count %></p>
+      <div style="margin-bottom: 8px;">
+        <p><b><%= e.event_title %></b></p>
+      </div>
+      <% e.registrations.each do |r| %>
+      <p style="display: inline;">
+        <%= r.user.email %>, &nbsp;
+      </p>
       <% end %>
       <hr>
+      <% end %>
     </div>
   </div>
 </div>
