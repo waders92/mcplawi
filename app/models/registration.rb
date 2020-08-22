@@ -2,7 +2,7 @@ class Registration < ApplicationRecord
   belongs_to :event
   belongs_to :user
   scope :ordered_by_user_name, -> { joins(:user).order('users.last_name') }
-  after_create :send_registration_email, :send_admin_email
+  # after_create :send_registration_email, :send_admin_email
 
   def registration_time
     created_at.strftime('%b %e, %l:%M %p')

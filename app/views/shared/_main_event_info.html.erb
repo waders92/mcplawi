@@ -1,0 +1,20 @@
+<div class="event-details">
+  <h2 class="event-section-title"><i><%= @event.year %> <%= @event.event_title %></i></h2>
+    <p><%= @event.event_location %></p>
+    <p><%= @event.date %>
+      <% if @event.event_end_date.present? %>
+        - <%= @event.end_date %>
+      <% end %>
+    </p>
+    <p><%= @event.event_start_time %></p>
+    <br>
+    <p>Entry Fee-<br>
+      MCPLA Members - $<%= @event.event_cost_mcpla.round %><br>
+      Non-MCPLA Members - $<%= @event.event_cost_non_mcpla.round %><br>
+      Season Pass Holders - $<%= @event.event_cost_season_pass.round %></p>
+    <% if @event.event_cost_season_pass_browndeer %>
+      <p>Season Pass Holders (With Browndeer) - $<%= @event.event_cost_season_pass_browndeer.round %></p>
+    <% end %>
+    <br>
+  <p style="color: crimson;"><b>Registration Closes: <%= @event.reg_closes %></b></p>
+</div>
