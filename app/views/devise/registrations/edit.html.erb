@@ -42,13 +42,13 @@
         <% end %>
       </div>
       <div class="field">
-        <%= f.label :password_confirmation %><br />
+        <%= f.label :password_confirmation %><i style="color: red;"> (enter current password here)<br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
         <br>
       </div>
       <div class="field">
         <br>
-        <%= f.label :current_password %> <i style="color: red;">(we need your current password to confirm your changes)<br />
+        <%= f.label :current_password %> <i style="color: red;">(please re-type your password to confirm your changes)<br />
           <%= f.password_field :current_password, autocomplete: "off" %>
         </div>
         <div class="actions">
