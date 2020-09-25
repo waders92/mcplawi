@@ -25,6 +25,10 @@ class ApplicationController < ActionController::Base
     flash[:alert] = message
   end
 
+  def send_flash_error(message)
+    flash[:error] = message
+  end
+
   def get_current_year_events(events)
     results = []
     events.each do |e|
