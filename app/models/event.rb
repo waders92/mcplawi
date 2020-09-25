@@ -14,6 +14,13 @@ class Event < ApplicationRecord
   validates :registration_close, presence: true
   validates :is_partner_event, inclusion: { in: [ true, false ] }
 
+  validate :event_date_cannot_be_in_the_next_year
+
+  def event_date_cannot_be_in_the_next_year
+    if self.event_start_date.year != Date.today.year
+      errors.add(:event_start_date, "Can only create events for the current year!")
+    end
+  end 
   def total_registrations
     registrations.count > 0 ? registrations.count : 0
   end
