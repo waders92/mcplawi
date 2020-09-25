@@ -18,7 +18,9 @@ class Event < ApplicationRecord
 
   def event_date_cannot_be_in_the_next_year
     if self.event_start_date.year != Date.today.year
-      errors.add(:event_start_date, "Can only create events for the current year!")
+      @current_year = Date.today.year.to_s
+      @event_year = self.event_start_date.year.to_s
+      errors.add(:event_start_date, "Can only create events for the current year! The event start date year is " + @event_year + " and the current year is " + @current_year)
     end
   end 
   def total_registrations
