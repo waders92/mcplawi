@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create show edit update destroy]
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
 
   def index
-    events = Event.all.order("created_at DESC")
+    events = Event.all.order("created_at ASC")
     yearly_events = get_current_year_events(events)
     @events = yearly_events
   end

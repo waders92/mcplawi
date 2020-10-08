@@ -1,0 +1,90 @@
+<div class="specific-user-info top-buffer">
+  <% if user_signed_in? %>
+  <div>
+    <% if current_user && current_user.registered_in?(@event) %>
+      <p>
+        <br>
+        <span class="tooltip-1" title="You are registered!"><%= image_tag 'checking.png', class: 'event-icon registered-icon' %>&nbsp;&nbsp;<span style="font-size: large;">You have registered!</span></span>
+      </p>
+    <% else %>
+      <% if @event.registration_close and Date.today > @event.registration_close %>
+        <p class="reg-closes-date"><b>You can no longer register for this event.</b></p>
+      <% else %>
+
+      <!-- COVID CHECKBOX -->
+      <div class="covid-stips event-details">
+        <h2 class="main-section-title">Register Here</h2>
+        <hr class="medium-underline">
+        <p style="color: maroon;"><b>"Covid-19 Disclaimer"</b></p>
+        <p>To register, check the box to certify that you have read and agree to the Covid-19 tournament rules and stipulations below.</p>
+        <br>
+        <%= link_to 'Read Covid-19 Agreement', 'https://mcplawigolf.s3.amazonaws.com/uploads/note/event_pdf/26/mcpla-covid-release.pdf', target: '_blank', class: 'btn btn-primary link-button' %>
+        <br><br><br>
+        <p>
+          <input type="checkbox" id="covid-agreement" name="covid">
+          <label class="reg-label" for="covid"> I have read the tournament guidelines regarding Covid-19</label>
+        </p>
+        <br>
+        <br>  
+        <button id="registration-btn" disabled="true" type="button" class="btn btn-primary new-event link-button" data-toggle="modal" data-target="#register">
+            Register
+          </button>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+<% if @event.registration_close and Date.today > @event.registration_close %>
+<div class="top-buffer">
+  <p class="reg-closes-date"><b>You can no longer register for this event.</b></p>
+</div>
+<% else %>
+<div class="top-buffer">
+  <%= link_to 'Sign In To Register', new_user_session_path, class: 'btn btn-primary btn-md link-button' %>
+</div>
+<% end %>
+<% end %>
+</div>
+
+
+<!-- New Payment Modal -->
+<% if user_signed_in? %>
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content register-modal">
+      <div class="modal-body registrations">
+        <h4 class="">You are registering for the <%= @event.event_title %>!</h4>
+        <p>Please verify that your information is correct, then 'Pay With Card'.<br>
+          If any information is incorrect, visit <%= link_to 'Your Profile', dashboards_path %> to update it.
+        </p>
+        <hr>
+        <p>Name - <%= current_user.first_name %> <%=current_user.last_name %></p>
+        <p>Email - <%= current_user.email %></p>
+        <p>Membership Status - <%= current_user.membership_status %></p>
+        <p>Entry Fee - $<%= current_user.event_cost(@event).round %></p><br>
+        <p>You have agreed to the Covid-19 tournament rules and stipulations</p>
+        <% if @event.is_partner_event? %>
+          <%= render "shared/partner" %>
+          <p>You are only paying for your portion!<br>
+            Your partner must also register and pay for their entry fee.
+          </p>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <%= form_tag event_registrations_path(@event) do %>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            var amount = document.querySelector('input[name="event"]:checked').value;
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="<%= @event.event_title %>"
+            data-amount="<%= current_user.event_cost(@event) * 100.to_i %>"
+            data-email="<%= current_user.email %>"
+            data-locale="auto"
+            data-name="MCPLA"
+            data-zip-code="true"
+            data-billing-address="true"></script>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

@@ -21,10 +21,10 @@
             <% end %>
           <br>
           <% if e.registration_close and Date.today > e.registration_close %>
-          <p class="reg-closes-date"><b>Registration Closed!</b></p>
-        <% else %>
+            <p class="reg-closes-date"><b>Registration Closed!</b></p>
+              <% else %>
             <p class="reg-closes-date"><b>Registration Closes - <%= e.reg_closes %></b></p>
-        <% end %>
+          <% end %>
           <br>
           <div class="blue-golf">
             <% if current_user && current_user.registered_in?(e) %>
@@ -36,7 +36,7 @@
             <% end %>
           </div>
         </div>
-        <hr>
+        <%= render "shared/hr" %>
       <% end %>
   <% else %>
     <div class="event-details">
