@@ -36,7 +36,7 @@
 <% else %>
 <% if @event.registration_close and Date.today > @event.registration_close %>
 <div class="top-buffer">
-  <%= link_to 'View Event Info', new_user_session_path, class: 'btn btn-primary btn-md link-button' %>
+  <p class="reg-closes-date"><b>You can no longer register for this event.</b></p>
 </div>
 <% else %>
 <div class="top-buffer">
