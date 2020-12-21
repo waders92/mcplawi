@@ -1,4 +1,12 @@
 FactoryBot.define do
+  factory :leader do
+    category { "MyString" }
+    title { "MyString" }
+    name { "MyString" }
+    string { "MyString" }
+    phone { "MyString" }
+    email { "MyString" }
+  end
   factory :teetime do
     team_tee_time { "MyText" }
     user_id { 1 }

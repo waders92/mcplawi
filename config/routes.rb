@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   resource :dashboards, only: [:show]
+  resources :leaders
   resources :minutes
   resources :teams
   resources :notes

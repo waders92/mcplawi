@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="form-style-8 modal-xl">
+    <h2 style="margin-left: -30px; margin-right: -30px;">Add New Officer</h2>
+    <%= simple_form_for @leader do |f| %>
+      <%= f.error_notification %>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.select :category, options_for_select(Leader::VENUES) %>
+          </div>
+          <div class="col-md-6">
+            <%= f.select :title, options_for_select(Leader::SEATS) %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :name, required: true %>
+          </div>
+          <div class="col-md-6">
+            <%= f.input :phone, required: true %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <%= f.input :email, required: true %>
+          </div>
+        </div>
+      <br />
+      <%= f.submit 'Create', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
