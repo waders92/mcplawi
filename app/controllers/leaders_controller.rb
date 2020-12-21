@@ -35,7 +35,7 @@ class LeadersController < ApplicationController
     @leader= Leader.find_by(id: params[:id])
     @leader.update(leader_params)
     send_flash_alert('Officer was updated!')
-    redirect_to admin_path(anchor: 'officer-section')
+    redirect_to admin_path
   end
 
   private
