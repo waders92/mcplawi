@@ -8,7 +8,16 @@ class McplinksController < ApplicationController
 
   def clubs; end
 
-  def officers; end
+  def officers
+    @mcpla_officers = Leader.where(category: 'MCPLA')
+    @dretzka_officers = Leader.where(category: 'Dretzka Park')
+    @oakwood_officers = Leader.where(category: 'Oakwood Park')
+    @whitnall_officers = Leader.where(category: 'Whitnall Park')
+    @browndeer_officers = Leader.where(category: 'Browndeer Park')
+    @currie_officers = Leader.where(category: 'Currie Park')
+    @greenfield_officers = Leader.where(category: 'Greenfield Park')
+    @grant_officers = Leader.where(category: 'Grant Park')
+  end
 
   def contact; end
 
@@ -53,6 +62,15 @@ class McplinksController < ApplicationController
     events = Event.all.order("created_at ASC")
     sorted_events = get_current_year_events(events)
     @events = sorted_events
+
+    @mcpla_officers = Leader.where(category: 'MCPLA')
+    @dretzka_officers = Leader.where(category: 'Dretzka Park')
+    @oakwood_officers = Leader.where(category: 'Oakwood Park')
+    @whitnall_officers = Leader.where(category: 'Whitnall Park')
+    @browndeer_officers = Leader.where(category: 'Browndeer Park')
+    @currie_officers = Leader.where(category: 'Currie Park')
+    @greenfield_officers = Leader.where(category: 'Greenfield Park')
+    @grant_officers = Leader.where(category: 'Grant Park')
   end
 
   def admin_wiki
