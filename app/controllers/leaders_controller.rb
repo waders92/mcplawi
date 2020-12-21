@@ -1,5 +1,16 @@
 class LeadersController < ApplicationController
 
+  def index 
+    @mcpla_officers = Leader.where(category: 'MCPLA')
+    @dretzka_officers = Leader.where(category: 'Dretzka Park')
+    @oakwood_officers = Leader.where(category: 'Oakwood Park')
+    @whitnall_officers = Leader.where(category: 'Whitnall Park')
+    @browndeer_officers = Leader.where(category: 'Browndeer Park')
+    @currie_officers = Leader.where(category: 'Currie Park')
+    @greenfield_officers = Leader.where(category: 'Greenfield Park')
+    @grant_officers = Leader.where(category: 'Grant Park')
+  end
+
   def new
     admin_required
     @leader = Leader.new
@@ -24,7 +35,7 @@ class LeadersController < ApplicationController
     @leader= Leader.find_by(id: params[:id])
     @leader.update(leader_params)
     send_flash_alert('Officer was updated!')
-    redirect_to admin_path
+    redirect_to admin_path(anchor: 'officer-section')
   end
 
   private
