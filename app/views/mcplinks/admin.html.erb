@@ -2,17 +2,9 @@
   <h2 class="main-section-title">Admin Portal<br>
     <%= link_to 'ADMIN WIKI PAGE', admin_wiki_path, class: 'btn btn-sm btn-success tee-time-btn admin-button' %>
     <%= link_to 'UPDATE OFFICERS', leaders_path, class: 'btn btn-sm btn-success tee-time-btn admin-button' %>
+    <%= link_to 'ADD NEW EVENT', "#", data: {toggle: "modal", target: "#exampleModal"}, class: 'btn btn-sm btn-success tee-time-btn admin-button' %>
   </h2>
   <hr class="medium-underline">
-  <div class="new-events top-buffer bottom-buffer">
-    <h3 class="main-section-title">
-      Add New Event Button
-    </h3>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary new-event admin-button" data-toggle="modal" data-target="#exampleModal">
-      Add New Event
-    </button>
-  </div>
   <% @events.each do |e| %>
   <div class="row">
       <div class="col-md-10 col-sm-10 event-details">
