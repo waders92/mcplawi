@@ -3,9 +3,11 @@
   <h3 class="event-title titles"><%= officer.title %></h3>
   <p><%= officer.name %><br>
     <%= officer.phone %><br>
+    <% if officer.email != '' %>
     <span class="tooltip-1" title=<%= officer.email %>><%= mail_to officer.email do %>
         <%= image_tag 'email.png', class: 'info-icons' %>
       <% end %></span>
+      <% end %>
   </p>
 </div>
 <% end %>
