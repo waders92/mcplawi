@@ -1,10 +1,4 @@
-  <div class="container">
-  <!-- Officers -->
-  <h2 id="officer-section" class="main-section-title">Add Officers<br>
-    <%= link_to 'Add Officers', new_leader_path, class: 'btn btn-sm btn-success tee-time-btn admin-button' %>
-  </h2>
-  <hr class="medium-underline">
-
+<div class="container">
   <!-- MCPLA Officers -->
   <div class="mcpla-officers">
     <h2>MCPLA Officers</h2>
@@ -17,10 +11,28 @@
     <%= render "shared/officer_table", officers: @browndeer_officers %>
   </div>
 
+  <!-- Currie Officers-->
+  <div class="mcpla-officers">
+    <h2>Currie Officers</h2>
+    <%= render "shared/officer_table", officers: @currie_officers %>
+  </div>
+
   <!-- Dretzka Officers-->
   <div class="mcpla-officers">
     <h2>Dretzka Officers</h2>
     <%= render "shared/officer_table", officers: @dretzka_officers %>
+  </div>
+
+  <!-- Grant Officers -->
+  <div class="mcpla-officers">
+    <h2>Grant Officers</h2>
+    <%= render "shared/officer_table", officers: @grant_officers %>
+  </div>
+
+  <!-- Greenfield Officers-->
+  <div class="mcpla-officers">
+    <h2>Greenfield Officers</h2>
+    <%= render "shared/officer_table", officers: @greenfield_officers %>
   </div>
 
   <!-- Oakwood Officers-->
@@ -35,21 +47,6 @@
     <%= render "shared/officer_table", officers: @whitnall_officers %>
   </div>
 
-  <!-- Grant Officers -->
-  <div class="mcpla-officers">
-    <h2>Grant Officers</h2>
-    <%= render "shared/officer_table", officers: @grant_officers %>
-  </div>
 
-  <!-- Currie Officers-->
-  <div class="mcpla-officers">
-    <h2>Currie Officers</h2>
-    <%= render "shared/officer_table", officers: @currie_officers %>
-  </div>
+</div>
 
-  <!-- Greenfield Officers-->
-  <div class="mcpla-officers">
-    <h2>Greenfield Officers</h2>
-    <%= render "shared/officer_table", officers: @greenfield_officers %>
-  </div>
-  </div>
