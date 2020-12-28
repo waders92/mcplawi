@@ -1,0 +1,22 @@
+<table id="registrations" class="player-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Name</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <% officers.each do |o| %>
+    <tbody>
+      <tr>
+        <td><%= o.title %></td>
+        <td><%= o.name %></td>
+        <td><%= o.phone %></td>
+        <td><%= o.email %></td>
+        <td><%= link_to 'Edit', edit_leader_path(o) %></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>

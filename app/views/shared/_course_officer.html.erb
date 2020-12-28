@@ -1,0 +1,11 @@
+<% if officer %>
+<div class="col-md-4 col-sm-4 officer-demographic">
+  <h3 class="event-title titles"><%= officer.category %></h3>
+  <p><%= officer.name %><br>
+    <%= officer.phone %><br>
+    <span class="tooltip-1" title=<%= officer.email %>><%= mail_to officer.email do %>
+        <%= image_tag 'email.png', class: 'info-icons' %>
+      <% end %></span>
+  </p>
+</div>
+<% end %>
