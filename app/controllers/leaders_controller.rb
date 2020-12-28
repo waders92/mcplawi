@@ -1,14 +1,14 @@
 class LeadersController < ApplicationController
 
   def index 
-    @mcpla_officers = Leader.where(category: 'MCPLA')
-    @dretzka_officers = Leader.where(category: 'Dretzka Park')
-    @oakwood_officers = Leader.where(category: 'Oakwood Park')
-    @whitnall_officers = Leader.where(category: 'Whitnall Park')
-    @browndeer_officers = Leader.where(category: 'Browndeer Park')
-    @currie_officers = Leader.where(category: 'Currie Park')
-    @greenfield_officers = Leader.where(category: 'Greenfield Park')
-    @grant_officers = Leader.where(category: 'Grant Park')
+    @mcpla_officers = Leader.where(category: 'MCPLA').order("created_at ASC")
+    @dretzka_officers = Leader.where(category: 'Dretzka Park').order("created_at ASC")
+    @oakwood_officers = Leader.where(category: 'Oakwood Park').order("created_at ASC")
+    @whitnall_officers = Leader.where(category: 'Whitnall Park').order("created_at ASC")
+    @browndeer_officers = Leader.where(category: 'Browndeer Park').order("created_at ASC")
+    @currie_officers = Leader.where(category: 'Currie Park').order("created_at ASC")
+    @greenfield_officers = Leader.where(category: 'Greenfield Park').order("created_at ASC")
+    @grant_officers = Leader.where(category: 'Grant Park').order("created_at ASC")
   end
 
   def new
