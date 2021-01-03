@@ -3,15 +3,10 @@
 
   <% @results = @event.photos.sort { |a,b| a.created_at <=> b.created_at } %>
   <% @results.each do |event| %>
-    <div class="col-md-6 col-sm-6 latest-note">
-      <p><span><i><b><%= event.which_flight %></b></i></span><br>
+    <div class="col-md-6 col-sm-6 latest-note flight-winner">
+      <p><span style="font-size: larger;"><i><b><%= event.which_flight %></b></i></span><br>
         Winner: <%= event.flight_winner %><br>
         Score: <%= event.winning_score %></p>
-      <% if event.winners_image.present? %>
-        <%= image_tag event.winners_image, class: 'img-responsive' %>
-      <% else %>
-        <%= image_tag 'golf-hole.jpg', class: 'img-responsive' %>
-      <% end %>
       <br>
       <% if user_signed_in? && current_user.admin? %>
       <%= link_to 'Edit', edit_event_photo_path(@event, event) %>&nbsp;&nbsp;
