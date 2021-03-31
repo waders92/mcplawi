@@ -1,5 +1,5 @@
 class NotificationMailer < ApplicationMailer
-  default from: 'no-reply@mcplawi.com'
+  default from: 'macplawi@gmail.com'
 
   def registration_added(event)
     @registration = event
