@@ -4,7 +4,7 @@ Rails.application.configure do
       port: '587',
       from: 'macplawi@gmail.com',
       authentication: :plain,
-      user_name: ENV['SENDGRID_USER_NAME'],
+      user_name: 'apikey',
       password: ENV['SENDGRID_API_KEY'],
       domain: 'https://mcplawi.herokuapp.com/',
       enable_starttls_auto: true
