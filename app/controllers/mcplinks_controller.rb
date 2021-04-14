@@ -82,6 +82,8 @@ class McplinksController < ApplicationController
     events = Event.all.order("created_at ASC")
     sorted_events = get_current_year_events(events)
     @events = sorted_events
+    @partner_event = get_partner_event(@events)
+    @player_partners = get_players_and_partners(@partner_event)
   end
 
   def admin_wiki
@@ -89,6 +91,39 @@ class McplinksController < ApplicationController
   end
 
   private
+
+  def get_players_and_partners(partner_event)
+    player_partner_list = []
+    partner_event.each do |event|
+      event.registrations.each do |r|
+        if r.user.has_partner_for_event(event)
+          player = r.user.first_name + ' ' + r.user.last_name
+          partner = r.user.registered_partner(r)
+          player_partner_list << player + ' / ' + partner
+        end
+      end
+    end
+    
+    return player_partner_list
+  end
+
+  def filter_player_partner_list(list)
+    list.each do |item|
+      x = item.split('/', 2)
+      puts x
+    end
+  end
+
+  def get_partner_event(events)
+    results = []
+    events.each do |e|
+      if e.is_partner_event
+        results << e
+      end
+    end
+
+    return results
+  end
 
   def get_recent_event_results
     results = []
