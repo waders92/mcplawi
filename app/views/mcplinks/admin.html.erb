@@ -44,6 +44,7 @@
     <ul>
       <li><a href="#tabs-2">Club Count</a></li>
       <li><a href="#tabs-3">Registrant Emails Per Event</a></li>
+      <li><a href="#tabs-4">Two Man Partner List - <%= Date.today.year %></a></li>
     </ul>
     <div id="tabs-2" class="clubs-tab event-details">
       <h3 class="section-title">Club Count</h3>
@@ -69,6 +70,14 @@
       </p>
       <% end %>
       <hr>
+      <% end %>
+    </div>
+    <div id="tabs-4" class="clubs-tab event-details">
+      <h3 class="section-title">Two Man Partner List - <%= Date.today.year %></h3>
+      <p style="color: firebrick;">This list shows each registration and their partner. Use it to double-check who is paired together. You will see duplicates.</p>
+      <hr>
+      <% @player_partners.each_with_index do |p, i| %>
+        <%= i + 1 %> - <%= p %><br>
       <% end %>
     </div>
   </div>
