@@ -33,6 +33,7 @@
       <% end %>
       <div class="field">
         <br>
+        <p style="color: red; margin: 0;"><b>REQUIRED (1) - This field MUST be populated. Either with your current password or a new one if you want to change it.</b></p>
         <p style="margin: 0;">Change your Password? Create a new password here!</p>
         <%= f.label :password %><br />
         <%= f.password_field :password, autocomplete: "off" %>
@@ -42,13 +43,15 @@
         <% end %>
       </div>
       <div class="field">
-        <%= f.label :password_confirmation %><i style="color: red;"> (enter current password here)<br />
+        <p style="color: red; margin: 0;"><b>REQUIRED (2) - This field MUST match the password above</b></p>
+        <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
         <br>
       </div>
       <div class="field">
         <br>
-        <%= f.label :current_password %> <i style="color: red;">(please re-type your password to confirm your changes)<br />
+        <p style="color: red; margin: 0;"><b>REQUIRED (3) - Enter your CURRENT password here.</b></p>
+        <%= f.label :current_password %><br />
           <%= f.password_field :current_password, autocomplete: "off" %>
         </div>
         <div class="actions">
